@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "087f11b6-9a7b-490e-bc0d-99467e4c06ca": {
+      "ProjectGuid": "087f11b6-9a7b-490e-bc0d-99467e4c06ca",
+      "DisplayName": "Inta.Framework",
+      "ColorIndex": 0
+    },
+    "744c8fca-c39b-488b-b7ed-64edfa39333f": {
+      "ProjectGuid": "744c8fca-c39b-488b-b7ed-64edfa39333f",
+      "DisplayName": "Inta.EntityFramework.Core",
+      "ColorIndex": 1
+    },
+    "d51dc364-1cb0-469a-8cf3-eccaffd58be9": {
+      "ProjectGuid": "d51dc364-1cb0-469a-8cf3-eccaffd58be9",
+      "DisplayName": "Inta.Framework.Logging",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
