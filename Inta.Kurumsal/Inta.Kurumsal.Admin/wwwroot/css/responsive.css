@@ -1,0 +1,153 @@
+
+  /* 
+  ## Cihaz = Masaüstü Bilgisayarlar 
+  ## Ekran = 1281 piksel - daha yüksek çözünürlüklü masaüstü bilgisayarlar 
+  */ 
+  @media (min-width: 1281px ) { 
+    .main-left{
+        display: block !important;
+    }
+    
+    #menuOpacity{
+        display: none;
+    }    
+    
+    .main-left .close-mobile{
+        display: none;
+    }
+  } 
+  /* 
+  ## Cihaz = Dizüstü Bilgisayarlar, Masaüstü Bilgisayarlar 
+  ## Ekran = S / b 1025 piksel - 1280 piksel 
+  */ 
+  @media (min-width: 1025px ) and ( max-width: 1280px ) { 
+ 
+    .main-left{
+        display: block !important;
+    }
+    
+    #menuOpacity{
+        display: none;
+    }    
+
+    .main-left .close-mobile{
+        display: none;
+    }
+  } 
+  /* 
+  ## Cihaz = Tabletler, Ipad'ler (portre) 
+  ## Ekran = S / b 768 piksel - 1024 piksel 
+  */ 
+  @media (min-width: 768px ) and (max-width : 1024px ) { 
+
+    .main-left{
+        display: block !important;
+    }
+
+    #menuOpacity{
+        display: none;
+    }    
+
+    .main-left .close-mobile{
+        display: none;
+    }
+  } 
+
+  /* 
+  ## Cihaz = Düşük Çözünürlüklü Tabletler, Cep Telefonları (Yatay) 
+  ## Ekran = S / b 481 piksel - 767 piksel 
+  */ 
+  @media (min-width : 481px ) and (max-width : 767px ) { 
+
+    .main-left{
+        display: none;
+    }
+
+    .main-right .header{
+        padding-left: 0px;
+    }
+
+    .main-right{
+        padding-left: 0px;
+    }
+
+    .main-right .header .notification-group{
+        display: none;
+    }
+
+    .header .show-mobile{
+        display:block;
+    }
+
+    .main-left .close-mobile{
+        display: block;
+    }
+
+    .login-container {
+        width: 450px;
+        margin: 0 auto;
+    }
+  } 
+  /* 
+  ## Cihaz = Akıllı Telefonların Çoğu Cep Telefonu (Portre) 
+  ## Ekran = S / b 320 piksel - 479 piksel 
+  */ 
+  @media (min-width : 320px ) and (max-width : 480px ) { 
+    .main-left{
+        display: none;
+    }
+
+    .main-right .header{
+        padding-left: 0px;
+    }
+
+    .main-right{
+        padding-left: 0px;
+    }
+
+    .main-right .header .notification-group{
+        display: none;
+    }
+
+    .header .show-mobile{
+        display:block;
+    }
+
+    .main-left .close-mobile{
+        display: block;
+    }
+    .login-container {
+        width: 320px;
+        margin: 0 auto;
+    }
+  } 
+
+  @media (max-width : 320px ) { 
+    .main-left{
+        display: none;
+    }
+
+    .main-right .header{
+        padding-left: 0px;
+    }
+
+    .main-right{
+        padding-left: 0px;
+    }
+
+    .main-right .header .notification-group{
+        display: none;
+    }
+
+    .header .show-mobile{
+        display:block;
+    }
+
+    .main-left .close-mobile{
+        display: block;
+    }
+    .login-container {
+        width: 300px;
+        margin: 0 auto;
+    }
+  } 

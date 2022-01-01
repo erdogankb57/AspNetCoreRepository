@@ -3,6 +3,7 @@ using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.Entity.ComplexType;
 using Inta.Kurumsal.Entity.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 
 namespace Inta.Kurumsal.DataAccess.Manager
@@ -25,12 +26,12 @@ namespace Inta.Kurumsal.DataAccess.Manager
                     result.Data = context.Set<SystemMenuActionRoleModel>().FromSqlRaw<SystemMenuActionRoleModel>
                         ("select r.Id, m.SystemMenuId, r.SystemMenuActionId, r.SystemUserId, m.ControllerName, m.ActionName, m.[Description] from [SystemMenuAction] m inner join SystemMenuActionRole r on m.Id=r.SystemMenuActionId where r.SystemUserId = 44", parameter)
                         .ToList();
-                    result.ResultType = EntityCore.Model.MessageType.Success;
+                    result.ResultType = EntityFramework.Core.Model.MessageType.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = new List<SystemMenuActionRoleModel>();
-                    result.ResultType = EntityCore.Model.MessageType.Error;
+                    result.ResultType = EntityFramework.Core.Model.MessageType.Error;
                     result.ErrorMessage = ex.ToString();
                 }
             }

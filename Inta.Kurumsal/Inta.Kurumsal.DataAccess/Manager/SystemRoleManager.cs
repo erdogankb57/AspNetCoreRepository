@@ -2,7 +2,9 @@ using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.Entity.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Inta.Kurumsal.DataAccess.Manager
 {
@@ -24,12 +26,12 @@ namespace Inta.Kurumsal.DataAccess.Manager
 
 
                     result.Data = context.Set<SystemAction>().FromSqlRaw<SystemAction>("select ac.* from SystemUser su inner join [SystemRole] sr on su.SystemRoleId = sr.Id inner join [SystemActionRole] ar on ar.SystemRoleId = sr.Id inner join [SystemAction] ac on ac.Id = ar.SystemActionId where su.UserName=@userName", parameters).ToList();
-                    result.ResultType = EntityCore.Model.MessageType.Success;
+                    result.ResultType = EntityFramework.Core.Model.MessageType.Success;
                 }
                 catch (SqlException ex)
                 {
                     result.Data = new List<SystemAction>();
-                    result.ResultType = EntityCore.Model.MessageType.Error;
+                    result.ResultType = EntityFramework.Core.Model.MessageType.Error;
                     result.ErrorMessage = ex.ToString();
                 }
             }

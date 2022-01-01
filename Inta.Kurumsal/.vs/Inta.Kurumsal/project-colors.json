@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1feab6d4-8b16-4ada-918c-4b6072e8bef6": {
+      "ProjectGuid": "1feab6d4-8b16-4ada-918c-4b6072e8bef6",
+      "DisplayName": "Inta.Kurumsal.DataAccess",
+      "ColorIndex": 0
+    },
+    "3f5ec307-ff0e-4e6f-a444-b778c6ec8f1b": {
+      "ProjectGuid": "3f5ec307-ff0e-4e6f-a444-b778c6ec8f1b",
+      "DisplayName": "Inta.Kurumsal.Entity",
+      "ColorIndex": 1
+    },
+    "0eb95e94-5efc-4449-b0b0-3f0e63e4b3ed": {
+      "ProjectGuid": "0eb95e94-5efc-4449-b0b0-3f0e63e4b3ed",
+      "DisplayName": "Inta.Kurumsal.Dto",
+      "ColorIndex": 2
+    },
+    "c138d306-0cd1-4398-98fe-27069c91b6af": {
+      "ProjectGuid": "c138d306-0cd1-4398-98fe-27069c91b6af",
+      "DisplayName": "Inta.Kurumsal.Bussiness",
+      "ColorIndex": 3
+    },
+    "6c93084a-baee-4ea2-8847-986b2716d249": {
+      "ProjectGuid": "6c93084a-baee-4ea2-8847-986b2716d249",
+      "DisplayName": "Inta.EntityFramework.Core",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "4a8c3843-1a45-4ad9-a056-41f375f8afa4": {
+      "ProjectGuid": "4a8c3843-1a45-4ad9-a056-41f375f8afa4",
+      "DisplayName": "Inta.Kurumsal.Admin",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}
