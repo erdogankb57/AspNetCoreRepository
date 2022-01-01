@@ -15,7 +15,12 @@
       "ProjectGuid": "d51dc364-1cb0-469a-8cf3-eccaffd58be9",
       "DisplayName": "Inta.Framework.Logging",
       "ColorIndex": 2
+    },
+    "9c6a7c2d-968b-4354-a4bc-b0346f712755": {
+      "ProjectGuid": "9c6a7c2d-968b-4354-a4bc-b0346f712755",
+      "DisplayName": "Inta.Framework.Extension",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

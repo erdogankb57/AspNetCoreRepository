@@ -1,0 +1,12 @@
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.deps.json
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\ref\Inta.Kurumsal.Bussiness.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.csproj.AssemblyReference.cache
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.AssemblyInfoInputs.cache
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.AssemblyInfo.cs
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\ref\Inta.Kurumsal.Bussiness.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.pdb
