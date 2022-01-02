@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("OrderNumber")]
 		public int OrderNumber { get; set; }
 		[Column("Image")]
-		public string Image { get; set; }
+		public string? Image { get; set; }
 		public bool IsActive { get; set; }
     }
 }

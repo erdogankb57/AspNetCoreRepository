@@ -22,15 +22,15 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Explanation")]
-		public string Explanation { get; set; }
+		public string? Explanation { get; set; }
 		[Column("Link")]
-		public string Link { get; set; }
+		public string? Link { get; set; }
 		[Column("ControllerName")]
-		public string ControllerName { get; set; }
+		public string? ControllerName { get; set; }
 		[Column("ActionName")]
-		public string ActionName { get; set; }
+		public string? ActionName { get; set; }
 		[Column("MenuIcon")]
-		public string MenuIcon { get; set; }
+		public string? MenuIcon { get; set; }
 		[Column("RecordDate")]
 		public DateTime RecordDate { get; set; }
 		[Column("IsActive")]
