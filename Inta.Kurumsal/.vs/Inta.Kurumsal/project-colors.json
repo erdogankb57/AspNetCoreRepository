@@ -35,7 +35,17 @@
       "ProjectGuid": "4a8c3843-1a45-4ad9-a056-41f375f8afa4",
       "DisplayName": "Inta.Kurumsal.Admin",
       "ColorIndex": 5
+    },
+    "4de535bc-4bb0-4809-bc84-6ec877fbd273": {
+      "ProjectGuid": "4de535bc-4bb0-4809-bc84-6ec877fbd273",
+      "DisplayName": "Inta.Kurumsal.Admin",
+      "ColorIndex": 6
+    },
+    "e0d99388-cac4-43ce-9591-85e9f80eb497": {
+      "ProjectGuid": "e0d99388-cac4-43ce-9591-85e9f80eb497",
+      "DisplayName": "Inta.Framework.Extension",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 8
 }

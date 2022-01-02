@@ -1,6 +1,7 @@
 using Inta.Kurumsal.Entity.ComplexType;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Configuration;
 
 
@@ -8,14 +9,15 @@ namespace Inta.Kurumsal.DataAccess.DataContext
 {
     public class DefaultDataContext : DbContext
     {
+
+        private readonly IConfiguration _configuration;
         public DefaultDataContext()
         {
-
+            _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["DefaultDataContext"].ToString());
+            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultDataContext"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

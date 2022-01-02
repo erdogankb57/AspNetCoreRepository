@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/Banner/GetList",
+            "url": "/Banner/GetList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -87,7 +87,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/Banner/Add",
+        url: "/Banner/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -101,7 +101,7 @@ var addRecordModal = function (id) {
 
                     var id = $(this).attr("banner-id");
                     $.ajax({
-                        url: "/Admin/Banner/DeleteImage",
+                        url: "/Banner/DeleteImage",
                         type: "POST",
                         dataType: 'json',
                         data: { "id": id },
@@ -132,7 +132,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/Banner/Delete",
+            url: "/Banner/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -154,7 +154,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/Banner/ListUpdate",
+        url: "/Banner/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -185,7 +185,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/Banner/Save",
+            url: "/Banner/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -250,7 +250,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/Banner/Delete",
+                url: "/Banner/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

@@ -2,14 +2,6 @@ C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\In
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\ref\Inta.Kurumsal.DataAccess.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.pdb
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.csproj.AssemblyReference.cache
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.AssemblyInfoInputs.cache
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.AssemblyInfo.cs
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.csproj.CoreCompileInputs.cache
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.dll
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\ref\Inta.Kurumsal.DataAccess.dll
-C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.pdb
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.EntityFramework.Core.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Framework.Extension.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Framework.Logging.dll
@@ -18,4 +10,12 @@ C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\In
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Kurumsal.Entity.pdb
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Framework.Extension.pdb
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\bin\Debug\net6.0\Inta.Framework.Logging.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.AssemblyInfo.cs
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.csproj.CopyComplete
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\ref\Inta.Kurumsal.DataAccess.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.DataAccess\obj\Debug\net6.0\Inta.Kurumsal.DataAccess.pdb

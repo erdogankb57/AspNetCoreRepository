@@ -2,48 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Inta.Kurumsal.Admin</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Inta.Kurumsal.Admin.styles.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Jekyll v4.0.1" />
+    <title>INTA Yazılım Yönetim Paneli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="@Url.Content("~/css/reset.css")" rel="stylesheet" />
+
+
+    <link href="@Url.Content("~/css/perfect-scrollbar.v0.5.2.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/bootstrap.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/css/jquery.dataTables.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet" />
+
+    <script src="@Url.Content("~/js/fontawesome.js")"></script>
+
+    <script src="@Url.Content("~/js/jquery-3.5.0.js")"></script>
+    <script src="@Url.Content("~/js/jquery-ui.js")"></script>
+
+    <script src="@Url.Content("~/js/validation.js")"></script>
+    <script src="@Url.Content("~/js/function.js")"></script>
+
+    <script src="@Url.Content("~/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/ckeditor/samples/js/sample.js")"></script>
+    <!-- Custom styles for this template -->
+    <style>
+        .custom-combobox {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-combobox-toggle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+            padding: 0;
+        }
+
+        .custom-combobox-input {
+            margin: 0;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    @*     <script>
+        var activeMenuId = @(ViewBag.ActiveTopMenuId == null ? 0 : ViewBag.ActiveTopMenuId);
+        var UploadFolder = '@(Inta.Kurumsal.Web.Areas.Model.Settings.ImageUploadFolder)';
+
+
+        </script>*@
+    <div id="menuOpacity"></div>
+    <div class="loading-content">
+        <div class="loading">
+            <div class="spinner-border m-5" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="brand">
+            <a href="/Admin"><img src="@Url.Content("~/images/logo.png")" width="80" /></a>
+        </div>
+        <div class="nav-menu-container">
+            @*            @Html.Action("GetSystemMenu", "SystemMenu")
+            *@
+            <div class="copyright">İNTA Yazılım Hizmetleri</div>
+        </div>
+        <a href="javascript:void(0)" class="close-mobile">X</a>
+    </div>
+    <div class="main-right">
+
+        <div class="header">
+
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Inta.Kurumsal.Admin</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                <div class="row">
+
+                    <div class="col-3 col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                        <a href="javascript:void(0)" class="show-mobile">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </a>
+                    </div>
+
+                    <div class="col-9 col-lg-9 col-md-9 col-sm-8 col-xs-8">
+
+                        <div class="user">
+                            <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-2x fa-user"></i>
+                                <span>
+                                    Merhaba, @ViewBag.UserName  <br />
+                                    @ViewBag.RoleName
+                                </span>
+                            </a>
+
+
+                            <div class="account dropdown-menu dropdown-menu-right">
+                                <div class="account_arrow"></div>
+                                <div class="user-box">
+                                    <div class="name">
+                                        @ViewBag.UserName <br />
+                                        @ViewBag.RoleName
+                                    </div>
+                                    <div class="image">
+                                        <img src="@Url.Content("~/images/user.jpg")" />
+                                    </div>
+                                </div>
+                                <div class="link">
+                                    <ul>
+                                        <li><a href="/Admin/Account">Hesabım</a></li>
+                                        <li>
+                                            <a href="/Admin/MessageHistory">
+                                                Mesajlarım @{
+                                                    if (Convert.ToInt32(ViewBag.MessageCount) > 0)
+                                                    {
+                                                        <span>@ViewBag.MessageCount</span>
+                                                    }
+                                                }
+                                            </a>
+                                        </li>
+                                        <li><a href="/Admin/Login/SignOut">Çıkış</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <h1 class="caption">
+                    @*@Html.Raw(Html.Caption(this.ViewContext.RouteData.Values["controller"].ToString(), this.ViewContext.RouteData.Values["action"].ToString()))*@
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        @*@Html.Raw(Html.Breadcrump(this.ViewContext.RouteData.Values["controller"].ToString(), this.ViewContext.RouteData.Values["action"].ToString()))*@
+                    </ol>
+                </nav>
+
+                @RenderBody()
+            </div>
+        </div>
+
+
+
+
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Inta.Kurumsal.Admin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="@Url.Content("~/js/feather.min.js")"></script>
+    <script src="@Url.Content("~/js/chart.min.js")"></script>
+    <script src="@Url.Content("~/js/perfect-scrollbar.v0.5.2.js")"></script>
+    <script src="@Url.Content("~/js/general.js")"></script>
+
+    <script src="@Url.Content("~/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/js/popper.min.js")" crossorigin="anonymous"></script>
+    <link href="@Url.Content("~/css/jquery-ui.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/css/assets/dist/js/bootstrap.js")"></script>
+
+    <script src="@Url.Content("~/fancybox/js/jquery.fancybox.min.js")"></script>
+    <link href="@Url.Content("~/fancybox/css/jquery.fancybox.min.css")" rel="stylesheet" />
+
+    @RenderSection("scripts",false)
+
+    <script>
+        $(document).ready(function () {
+            // Handle click on checkbox to set state of "Select all" control
+            $('#dataTable tbody').on('change', 'input[type="checkbox"]', function () {
+
+                // If checkbox is not checked
+                if (!this.checked) {
+                    $(this).parent("td").parent("tr").removeClass('selected');
+
+                    var el = $('#example-select-all').get(0);
+                    // If "Select all" control is checked and has 'indeterminate' property
+                    if (el && el.checked && ('indeterminate' in el)) {
+                        // Set visual state of "Select all" control
+                        // as 'indeterminate'
+                        el.indeterminate = true;
+                    }
+                } else {
+                    $(this).parent("td").parent("tr").addClass('selected');
+                }
+            });
+
+        });
+
+
+    </script>
+
+
 </body>
 </html>

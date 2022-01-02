@@ -1,0 +1,140 @@
+﻿@model Inta.Kurumsal.Entity.Concrete.Banner
+@{
+    List<SelectListItem> targets = new List<SelectListItem>();
+    targets.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
+    targets.Add(new SelectListItem { Text = "Farklı sekmede aç", Value = "1" });
+    targets.Add(new SelectListItem { Text = "Aynı sayfada aç", Value = "1" });
+
+    List<SelectListItem> bannerTypes = (List<SelectListItem>)ViewBag.bannerTypes;
+}
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Banner Ekle / Düzenle</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="popupMessage"></div>
+            @Html.HiddenFor(h => h.Id)
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Banner Tipi</label>
+                    </div>
+                    <div class="col-lg-9">
+
+                        @Html.DropDownListFor(m => m.BannerTypeId, bannerTypes, new { @class = "form-control", @required = "required" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Banner Adı</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Link</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Link, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Açılış tipi</label>
+                    </div>
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(m => m.TargetId, targets, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Kısa Açıklama</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextAreaFor(m => m.ShortExplanation, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Sıra Numarası</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control", @required = "required", @numeric = "numeric", })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Aktif mi</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Resim</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type='file' name='FileImage' class="form-control" />
+                    </div>
+                </div>
+            </div>
+            @if (Model.Image  != null)
+            {
+
+                <div class="form-group image">
+                    <div class="row">
+
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="small-image-content">
+                                <a id="ImageLink" href="@("b_" + Model.Image)" data-fancybox data-caption="@Model.Name"><img id="Image" src="@(@Model.Image != null ? "k_" + Model.Image : null)" width="100" height="100" style="border:solid 1px #000000" /></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" id="deleteImage" class="btn btn-standart" banner-id="@Model.Id">Resmi sil</button>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-standart" data-dismiss="modal">Kapat</button>
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/controller/banner.js"></script>
