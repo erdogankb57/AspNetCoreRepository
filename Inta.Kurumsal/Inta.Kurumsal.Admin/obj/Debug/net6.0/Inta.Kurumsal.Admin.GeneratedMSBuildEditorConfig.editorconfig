@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyVHlwZVxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyVHlwZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Banner/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

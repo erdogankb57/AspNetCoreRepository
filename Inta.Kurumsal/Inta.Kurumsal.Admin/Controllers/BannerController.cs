@@ -137,7 +137,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             return Json("OK");
         }
         [HttpPost]
-        public ActionResult ListUpdate(List<Banner> listData)
+        public ActionResult ListUpdate([FromBody]List<Banner> listData)
         {
             foreach (var item in listData)
             {

@@ -1,0 +1,66 @@
+﻿@model Inta.Kurumsal.Entity.Concrete.BannerType
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Banner Tipi Ekle / Düzenle</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="popupMessage"></div>
+            @Html.HiddenFor(h => h.Id)
+            @Html.HiddenFor(h => h.RecordDate)
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Banner Adı</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Küçük Resim Genişlik</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.SmallImageWidth, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Büyük Resim Genişlik</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.BigImageWidth, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Açıklama</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-standart" data-dismiss="modal">Kapat</button>
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </div>
+</div>
