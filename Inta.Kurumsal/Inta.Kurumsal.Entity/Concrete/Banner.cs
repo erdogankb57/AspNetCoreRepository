@@ -30,7 +30,7 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("TargetId")]
 		public int? TargetId { get; set; }
 		[Column("ShortExplanation")]
-		public string ShortExplanation { get; set; }
+		public string? ShortExplanation { get; set; }
 		[Column("OrderNumber")]
 		public int OrderNumber { get; set; }
 		[Column("Image")]

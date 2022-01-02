@@ -1,7 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+// Json dönerken camel case özelliði pascal case olarak deðiþtirildi.
+builder.Services.AddMvc(setupAction =>
+{
+    setupAction.EnableEndpointRouting = false;
+}).AddJsonOptions(jsonOptions =>
+{
+    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
 
 var app = builder.Build();
 
@@ -25,3 +32,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
