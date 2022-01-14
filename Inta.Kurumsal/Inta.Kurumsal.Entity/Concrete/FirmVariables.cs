@@ -22,11 +22,11 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Value")]
-		public string Value { get; set; }
+		public string? Value { get; set; }
 		[Column("Description")]
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		[Column("OrderNumber")]
-		public int OrderNumber { get; set; }
+		public int? OrderNumber { get; set; }
 		[Column("RecordDate")]
 		public DateTime RecordDate { get; set; }
 		[Column("IsActive")]

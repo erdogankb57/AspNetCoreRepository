@@ -81,9 +81,6 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.RazorAssemblyInfo.cache
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.RazorAssemblyInfo.cs
-C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.dll
-C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\ref\Inta.Kurumsal.Admin.dll
-C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\appsettings.json
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\Inta.Kurumsal.Admin.staticwebassets.runtime.json
@@ -147,4 +144,7 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\scopedcss\bundle\Inta.Kurumsal.Admin.styles.css
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\scopedcss\projectbundle\Inta.Kurumsal.Admin.bundle.scp.css
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.csproj.CopyComplete
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\ref\Inta.Kurumsal.Admin.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.genruntimeconfig.cache

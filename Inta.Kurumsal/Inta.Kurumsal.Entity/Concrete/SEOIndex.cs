@@ -18,15 +18,15 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Id")]
 		public int Id { get; set; }
 		[Column("SystemUserId")]
-		public int SystemUserId { get; set; }
+		public int? SystemUserId { get; set; }
 		[Column("LanguageCode")]
-		public string LanguageCode { get; set; }
+		public string? LanguageCode { get; set; }
 		[Column("Url")]
-		public string Url { get; set; }
+		public string? Url { get; set; }
 		[Column("RedirectUrl")]
-		public string RedirectUrl { get; set; }
+		public string? RedirectUrl { get; set; }
 		[Column("RecordDate")]
-		public DateTime RecordDate { get; set; }
+		public DateTime? RecordDate { get; set; }
 		[Column("IsActive")]
 		public bool IsActive { get; set; }
 	}

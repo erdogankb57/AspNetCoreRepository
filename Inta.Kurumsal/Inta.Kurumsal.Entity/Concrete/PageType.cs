@@ -20,15 +20,15 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("SystemUserId")]
 		public int? SystemUserId { get; set; }
 		[Column("Code")]
-		public string Code { get; set; }
+		public string? Code { get; set; }
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("ControllerName")]
-		public string ControllerName { get; set; }
+		public string? ControllerName { get; set; }
 		[Column("ActionName")]
-		public string ActionName { get; set; }
+		public string? ActionName { get; set; }
 		[Column("ViewName")]
-		public string ViewName { get; set; }
+		public string? ViewName { get; set; }
 		[Column("IsExplanationEnabled")]
 		public bool IsExplanationEnabled { get; set; }
 		[Column("IsShortExplanationEnabled")]

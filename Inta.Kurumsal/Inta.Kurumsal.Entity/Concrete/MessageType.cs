@@ -20,13 +20,13 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("SystemUserId")]
 		public int SystemUserId { get; set; }
 		[Column("LanguageCode")]
-		public string LanguageCode { get; set; }
+		public string? LanguageCode { get; set; }
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Description")]
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		[Column("RecordDate")]
-		public DateTime RecordDate { get; set; }
+		public DateTime? RecordDate { get; set; }
 		[Column("IsActive")]
 		public bool IsActive { get; set; }
 	}

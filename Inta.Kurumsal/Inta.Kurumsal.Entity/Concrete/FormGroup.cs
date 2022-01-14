@@ -17,15 +17,15 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("Id")]
         public int Id { get; set; }
         [Column("SystemUserId")]
-        public int SystemUserId { get; set; }
+        public int? SystemUserId { get; set; }
         [Column("LanguageId")]
-        public int LanguageId { get; set; }
+        public int? LanguageId { get; set; }
         [Column("Name")]
         public string Name { get; set; }
         [Column("Explanation")]
-        public string Explanation { get; set; }
+        public string? Explanation { get; set; }
         [Column("OrderNumber")]
-        public int OrderNumber { get; set; }
+        public int? OrderNumber { get; set; }
         [Column("RecordDate")]
         public DateTime RecordDate { get; set; }
         [Column("IsActive")]

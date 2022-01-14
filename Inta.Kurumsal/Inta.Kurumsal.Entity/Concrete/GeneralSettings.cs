@@ -16,9 +16,9 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("Id")]
         public int Id { get; set; }
         [Column("LanguageId")]
-        public int LanguageId { get; set; }
+        public int? LanguageId { get; set; }
         [Column("SystemUserId")]
-        public int SystemUserId { get; set; }
+        public int? SystemUserId { get; set; }
         [Column("EmailIpAdress")]
         public string EmailIpAdress { get; set; }
         [Column("EmailAdress")]

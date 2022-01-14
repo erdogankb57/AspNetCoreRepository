@@ -25,34 +25,34 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("CategoryId")]
         public int CategoryId { get; set; }
         [Column("Code")]
-        public string Code { get; set; }
+        public string? Code { get; set; }
         [Column("Name")]
         public string Name { get; set; }
         [Column("Title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [Column("CategoryUrl")]
-        public string CategoryUrl { get; set; }
+        public string? CategoryUrl { get; set; }
         [Column("CategoryLink")]
-        public string CategoryLink { get; set; }
+        public string? CategoryLink { get; set; }
         [Column("MetaDecription")]
-        public string MetaDecription { get; set; }
+        public string? MetaDecription { get; set; }
         [Column("MetaKeywords")]
-        public string MetaKeywords { get; set; }
+        public string? MetaKeywords { get; set; }
 
         [Column("FormGroupId")]
         public int? FormGroupId { get; set; }
         [Column("ShortExplanation")]
-        public string ShortExplanation { get; set; }
+        public string? ShortExplanation { get; set; }
         [Column("CanBeDeleted")]
         public bool CanBeDeleted { get; set; }
         [Column("CanSubCategoryBeAdded")]
         public bool CanSubCategoryBeAdded { get; set; }
         [Column("Image")]
-        public string Image { get; set; }
+        public string? Image { get; set; }
         [Column("ImageTag")]
-        public string ImageTag { get; set; }
+        public string? ImageTag { get; set; }
         [Column("ImageTitle")]
-        public string ImageTitle { get; set; }
+        public string? ImageTitle { get; set; }
         [Column("OrderNumber")]
         public int? OrderNumber { get; set; }
         [Column("RecordDate")]
@@ -60,6 +60,6 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("IsActive")]
         public bool IsActive { get; set; }
         [Column("Explanation")]
-        public string Explanation { get; set; }
+        public string? Explanation { get; set; }
     }
 }

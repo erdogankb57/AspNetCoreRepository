@@ -18,26 +18,26 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("Id")]
         public int Id { get; set; }
         [Column("LanguageCode")]
-        public string LanguageCode { get; set; }
+        public string? LanguageCode { get; set; }
         [Column("MessageTypeId")]
-        public int MessageTypeId { get; set; }
+        public int? MessageTypeId { get; set; }
         [Column("ClientName")]
-        public string ClientName { get; set; }
+        public string? ClientName { get; set; }
         [Column("ClientSurname")]
-        public string ClientSurname { get; set; }
+        public string? ClientSurname { get; set; }
         [Column("Email")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [Column("Subject")]
-        public string Subject { get; set; }
+        public string? Subject { get; set; }
 
         [Column("Phone")]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         [Column("Explanation")]
-        public string Explanation { get; set; }
+        public string? Explanation { get; set; }
         [Column("IsArchive")]
-        public bool IsArchive { get; set; }
+        public bool? IsArchive { get; set; }
         [Column("IsRead")]
-        public bool IsRead { get; set; }
+        public bool? IsRead { get; set; }
         [Column("ArchiveDate")]
         public DateTime? ArchiveDate { get; set; }
         [Column("IpNumber")]

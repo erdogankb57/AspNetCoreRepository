@@ -24,7 +24,7 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Description")]
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		[Column("SmallImageWidth")]
 		public int? SmallImageWidth { get; set; }
 		[Column("BigImageWidth")]

@@ -25,27 +25,27 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("RecordUrl")]
-		public string RecordUrl { get; set; }
+		public string? RecordUrl { get; set; }
 		[Column("Title")]
-		public string Title { get; set; }
+		public string? Title { get; set; }
 		[Column("MetaDescription")]
-		public string MetaDescription { get; set; }
+		public string? MetaDescription { get; set; }
 		[Column("MetaKeywords")]
-		public string MetaKeywords { get; set; }
+		public string? MetaKeywords { get; set; }
 		[Column("Url")]
-		public string Url { get; set; }
+		public string? Url { get; set; }
 		[Column("ShortContent")]
-		public string ShortContent { get; set; }
+		public string? ShortContent { get; set; }
 		[Column("Link")]
-		public string Link { get; set; }
+		public string? Link { get; set; }
 		[Column("TargetType")]
-		public int TargetType { get; set; }
+		public int? TargetType { get; set; }
 		[Column("ShortExplanation")]
-		public string ShortExplanation { get; set; }
+		public string? ShortExplanation { get; set; }
 		[Column("Explanation")]
-		public string Explanation { get; set; }
+		public string? Explanation { get; set; }
 		[Column("Image")]
-		public string Image { get; set; }
+		public string? Image { get; set; }
 		[Column("OrderNumber")]
 		public int? OrderNumber { get; set; }
 		[Column("RecordDate")]

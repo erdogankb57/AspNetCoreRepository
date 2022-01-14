@@ -14,7 +14,6 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\ref\Inta.Kurumsal.Bussiness.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.pdb
-C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.csproj.AssemblyReference.cache
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.AssemblyInfoInputs.cache
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.AssemblyInfo.cs

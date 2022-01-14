@@ -26,7 +26,7 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Link")]
-		public string Link { get; set; }
+		public string? Link { get; set; }
 		[Column("TargetId")]
 		public int? TargetId { get; set; }
 		[Column("ShortExplanation")]

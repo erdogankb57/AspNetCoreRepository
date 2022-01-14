@@ -17,19 +17,19 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Id")]
 		public int Id { get; set; }
 		[Column("SystemUserId")]
-		public int SystemUserId { get; set; }
+		public int? SystemUserId { get; set; }
 		[Column("LanguageId")]
-		public int LanguageId { get; set; }
+		public int? LanguageId { get; set; }
 		[Column("FormElementId")]
-		public int FormElementId { get; set; }
+		public int? FormElementId { get; set; }
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("Value")]
-		public string Value { get; set; }
+		public string? Value { get; set; }
 		[Column("IsSelected")]
 		public bool IsSelected { get; set; }
 		[Column("OrderNumber")]
-		public int OrderNumber { get; set; }
+		public int? OrderNumber { get; set; }
 		[Column("RecordDate")]
 		public DateTime RecordDate { get; set; }
 		[Column("IsActive")]
