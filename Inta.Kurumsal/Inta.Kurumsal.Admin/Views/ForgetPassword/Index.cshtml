@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Jekyll v4.0.1" />
+    <title>INTA Yazılım Yönetim Paneli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="@Url.Content("~/Areas/Admin/Content/css/reset.css")" rel="stylesheet" />
+
+
+    <link href="@Url.Content("~/Areas/Admin/Content/css/perfect-scrollbar.v0.5.2.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Areas/Admin/Content/css/style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Areas/Admin/Content/css/responsive.css")" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/bbbccbdb78.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="~/Areas/Admin/Content/js/validation.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/samples/js/sample.js"></script>
+    <!-- Custom styles for this template -->
+
+</head>
+<body>
+
+    <div class="forget-password">
+        <div class="row">
+
+            <div class="login-container">
+                <div class="container">
+
+                    <div class="forget-content">
+                        @using (Html.BeginForm("SendPassword", "ForgetPassword", FormMethod.Post, new { @novalidate = "novalidate" }))
+                        {
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div style="padding: 5px 15px;text-align:center; font-size:16px; border-bottom:solid 1px #DDDDDD">
+                                            <i class="fas fa-users" style="font-size: 18px;" aria-hidden="true"></i> PAROLAMI UNUTTUM !
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row" style="padding: 0 0 0 15px;">
+                                    E-Mail Adresiniz
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-12"><input type="text" name="email" class="form-control" required="required" placeholder="E-mail" /></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12"><input type="submit" class="btn btn-standart" value="Gönder" style="width:100%;" /></div>
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12" style="color:red; font-size:12px;">
+                                    @ViewBag.Error
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="login">
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="row">
+                                <a href="/Login">Geri dönmek için tıklayınız</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

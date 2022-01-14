@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/GeneralSettings/Save",
+            url: "/GeneralSettings/Save",
             type: "POST",
             data: formData,
             dataType: 'json',

@@ -8,7 +8,7 @@
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/Account/Save",
+            url: "/Account/Save",
             type: "POST",
             data: formData,
             dataType: 'json',

@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/SystemRole/GetDataList",
+            "url": "/SystemRole/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -71,7 +71,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/SystemRole/Add",
+        url: "/SystemRole/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -101,7 +101,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/SystemRole/Delete",
+            url: "/SystemRole/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/SystemRole/Save",
+            url: "/SystemRole/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -192,7 +192,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/SystemRole/Delete",
+                url: "/SystemRole/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

@@ -1,0 +1,28 @@
+﻿@model Record
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "İçerikler";
+    ViewBag.PageName = "İçerik Ekle / Düzenle";
+}
+
+
+
+
+<div class="form-content">
+    <div class="popupMessage"></div>
+
+    <form id="saveForm" method="post" novalidate>
+
+        @Html.Partial("_RecordAddPartial", Model);
+
+    </form>
+</div>
+
+<script>
+
+    var SearchCategoryIdRequest = @ViewBag.SelectedCategoryId;
+</script>
+
+@section scripts{
+    <script src="~/js/controller/recordadd.js"></script>
+}

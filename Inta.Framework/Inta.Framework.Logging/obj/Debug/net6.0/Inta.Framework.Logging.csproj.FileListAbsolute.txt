@@ -22,3 +22,15 @@ C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Framework\I
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\ref\Inta.Framework.Logging.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.deps.json
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\ref\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.csproj.AssemblyReference.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.AssemblyInfoInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.AssemblyInfo.cs
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.csproj.CoreCompileInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\ref\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.pdb

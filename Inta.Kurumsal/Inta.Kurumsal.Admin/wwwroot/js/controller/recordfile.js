@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/RecordFile/GetDataList",
+            "url": "/RecordFile/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -81,7 +81,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/RecordFile/Add",
+        url: "/RecordFile/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -109,7 +109,7 @@ var addRecordModal = function (id) {
 var bulkRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/RecordFile/BulkAdd",
+        url: "/RecordFile/BulkAdd",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -127,7 +127,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/RecordFile/Delete",
+            url: "/RecordFile/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -149,7 +149,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/RecordFile/ListUpdate",
+        url: "/RecordFile/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -180,7 +180,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/RecordFile/Save",
+            url: "/RecordFile/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -256,7 +256,7 @@ $(document).ready(function () {
 
                 return xhr;
             },
-            url: "/Admin/RecordFile/ImageBulkSave",
+            url: "/RecordFile/ImageBulkSave",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -311,7 +311,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/RecordFile/Delete",
+                url: "/RecordFile/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

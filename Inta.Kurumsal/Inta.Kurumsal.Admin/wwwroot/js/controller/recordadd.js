@@ -11,7 +11,7 @@ var GetAllTopCategoryLink = function (Id) {
 
     if (Id != 0) {
         $.ajax({
-            url: "/Admin/Record/GetAllTopCategoryLink",
+            url: "/Record/GetAllTopCategoryLink",
             type: "GET",
             dataType: 'html',
             data: { "id": Id },
@@ -27,7 +27,7 @@ var GetAllTopCategoryLink = function (Id) {
     $("#Categorys").html("");
     $("#Categorys").append("<option value=''>Seçiniz</option>");
     $.ajax({
-        url: "/Admin/Record/GetCategoryTree",
+        url: "/Record/GetCategoryTree",
         type: "GET",
         dataType: 'json',
         data: { "CategoryId": Id },
@@ -51,7 +51,7 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+        filebrowserImageBrowseUrl: '/ImageUpload'
     });
 
     var shortExplanationEditor = CKEDITOR.instances['ShortExplanation'];
@@ -60,13 +60,13 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+        filebrowserImageBrowseUrl: '/ImageUpload'
     });
 }
 
 var getRecord = function (id) {
     $.ajax({
-        url: "/Admin/Record/Add",
+        url: "/Record/Add",
         type: "GET",
         dataType: 'html',
         data: { "id": id, "partial": true },
@@ -88,7 +88,7 @@ var deleteImage = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/Record/DeleteImage",
+            url: "/Record/DeleteImage",
             type: "POST",
             dataType: 'json',
             data: { "id": id },
@@ -133,7 +133,7 @@ $(document).ready(function () {
         var form = new FormData($('form')[0]);
 
         $.ajax({
-            url: "/Admin/Record/Save",
+            url: "/Record/Save",
             type: "POST",
             data: form,
             dataType: 'json',

@@ -3,7 +3,7 @@
         $('#fileList').find('option').remove();
 
         $.ajax({
-            url: "/Admin/ImageUpload/GetImageList",
+            url: "/ImageUpload/GetImageList",
             type: "GET",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -37,7 +37,7 @@
 
 
         $.ajax({
-            url: "/Admin/ImageUpload/Save",
+            url: "/ImageUpload/Save",
             type: "POST",
             data: form,
             dataType: 'json',

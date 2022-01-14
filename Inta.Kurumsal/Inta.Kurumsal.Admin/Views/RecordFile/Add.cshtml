@@ -1,0 +1,161 @@
+﻿@model RecordFile
+@{
+    List<SelectListItem> targets = new List<SelectListItem>();
+    targets.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
+    targets.Add(new SelectListItem { Text = "Farklı sekmede aç", Value = "1" });
+    targets.Add(new SelectListItem { Text = "Aynı sayfada aç", Value = "1" });
+}
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Dosya Ekle / Düzenle</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="popupMessage"></div>
+            @Html.HiddenFor(h => h.Id)
+            @Html.HiddenFor(h => h.RecordDate)
+            @Html.HiddenFor(h => h.RecordId)
+            @Html.HiddenFor(h=> h.FileName)
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Resim Adı</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Kısa Açıklama</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextAreaFor(m => m.ShortExplanation, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Açıklama</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextAreaFor(m => m.Explanation, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Resim</label>
+                    </div><div class="col-lg-9">
+                        <input type='file' name='FileName' class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.FileName))
+            {
+
+                <div class="form-group">
+                    <div class="row" id="filePanel">
+
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div >
+                                <a id="FileLink" href="@(Model.FileName)" target="_blank">Dosyayı görmek için tıklayınız</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" id="deleteFile" class="btn btn-standart" >Dosyayı sil</button>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Resim Tag</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.FileTagName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Resim Title</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.FileTitleName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Açılış Tipi</label>
+                    </div><div class="col-lg-9">
+                        @Html.DropDownListFor(m => m.TargetId, targets, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Sıra Numarası</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Ana sayfada göster</label>
+                    </div><div class="col-lg-9">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(m => m.HomePageStatus, new { @class = "form-check-input" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Aktif mi</label>
+                    </div><div class="col-lg-9">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-standart" data-dismiss="modal">Kapat</button>
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </div>
+</div>

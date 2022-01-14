@@ -1,0 +1,195 @@
+﻿@model Record
+
+@{
+    List<SelectListItem> categoryTree = (List<SelectListItem>)ViewBag.categoryTree;
+    List<SelectListItem> targetType = new List<SelectListItem>();
+    targetType.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
+    targetType.Add(new SelectListItem { Text = "Aynı sayfa", Value = "1" });
+    targetType.Add(new SelectListItem { Text = "Farklı sayfa", Value = "2" });
+}
+
+@Html.HiddenFor(h => h.Id)
+@Html.HiddenFor(h => h.RecordDate)
+@Html.HiddenFor(h => h.CategoryId)
+
+<div class="container-fluid">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Seçilen Kategori</label>
+            </div>
+            <div class="col-lg-9">
+                <div style="font-size:14px" class="selectedCategory"><a href="javascript:void(0)" onclick="ReturnMainCategory()">Seçimi sıfırla</a> | <span id="selectedCategoryAdd"></span> </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Kategori</label>
+            </div>
+            <div class="col-lg-9">
+                <select id="Categorys" class="form-control">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">İçerik Adı</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">İçerik Url</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.RecordUrl, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Meta Title</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Meta Description</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.MetaDescription, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Meta Keywords</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.MetaKeywords, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Url</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.Url, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Statik Link</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.Link, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Açılış Tipi</label>
+            </div><div class="col-lg-9">
+                @Html.DropDownListFor(m => m.TargetType, targetType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Sıra Numarası</label>
+            </div><div class="col-lg-9">
+                @Html.TextBoxFor(m => m.OrderNumber, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Aktif mi</label>
+            </div><div class="col-lg-9">
+                <div class="form-check">
+                    @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Kısa İçerik</label>
+            </div><div class="col-lg-9">
+                @Html.TextAreaFor(m => m.ShortContent, new { @class = "form-control", @required = "required" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Kısa Açıklama</label>
+            </div><div class="col-lg-9">
+                @Html.TextAreaFor(m => m.ShortExplanation, new { @class = "form-control", @required = "required" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="exampleFormControlInput1">Kısa Açıklama</label>
+            </div><div class="col-lg-9">
+                <input type="file" name="Image" class="form-control" />
+            </div>
+        </div>
+
+        @if (Model.Image != null)
+        {
+            <div class="row" id="imagePanel" style="padding:10px 0;">
+
+
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-3">
+                    <div class="small-image-content">
+                        <a id="ImageLink" href="@("b_" + Model.Image)" data-fancybox data-caption="@Model.Name"><img id="Image" src="@(@Model.Image != null ? "k_" + Model.Image : null)" width="100" height="100" style="border:solid 1px #000000" /></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-standart" onclick="deleteImage(@Model.Id)">Resmi sil</button>
+                </div>
+
+            </div>
+        }
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+    </div>
+</div>

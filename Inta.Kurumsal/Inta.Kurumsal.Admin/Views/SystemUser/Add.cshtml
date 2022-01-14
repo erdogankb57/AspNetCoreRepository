@@ -1,0 +1,132 @@
+﻿@model SystemUser
+@{
+    List<SelectListItem> systemRole = (List<SelectListItem>)ViewBag.systemRole;
+}
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Kullanıcı Ekle / Düzenle</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="popupMessage"></div>
+            <div class="modal-body">
+                @Html.HiddenFor(h => h.Id)
+                @Html.HiddenFor(h => h.RecordDate)
+                @Html.HiddenFor(h => h.IsAdmin)
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Rol</label>
+                        </div><div class="col-lg-9">
+                            @Html.DropDownListFor(m => m.SystemRoleId, systemRole, new { @class = "form-control", @required = "required" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Adı</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Soyadı</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextBoxFor(m => m.SurName, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Kullanıcı Adı</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Şifre</label>
+                        </div><div class="col-lg-9">
+                            <input type="password" id="Password" name="Password" value="@Model.Password" class="form-control" required="required" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">E-Mail</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Telefon</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Adres</label>
+                        </div><div class="col-lg-9">
+                            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleFormControlInput1">Aktif mi</label>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(m => m.IsActive, new { @class = "form-check-input" })
+                                <label for="IsActive">Evet</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-standart" data-dismiss="modal">Kapat</button>
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </div>
+</div>

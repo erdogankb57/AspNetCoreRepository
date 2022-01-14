@@ -1,0 +1,151 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Jekyll v4.0.1" />
+    <title>INTA Yazılım Yönetim Paneli - Resim Yükleme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="@Url.Content("~/css/reset.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/perfect-scrollbar.v0.5.2.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/css/fileupload.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/responsive.css")" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/bbbccbdb78.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="~/js/validation.js"></script>
+    <script src="@Url.Content("~/js/function.js")"></script>
+
+    <!-- Custom styles for this template -->
+    <style>
+        .custom-combobox {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-combobox-toggle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+            padding: 0;
+        }
+
+        .custom-combobox-input {
+            margin: 0;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="container-fluid">
+            <h1 class="caption">
+                Editör Resim Yükleme İşlemleri
+            </h1>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="form-content">
+                <div class="listMessage">
+
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="col-lg-12">
+                                <select id="fileList" class="form-select col-lg-12" size="20" style="height:380px; outline:none;">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="col-lg-12"><div class="popupMessage"></div></div>
+                            <div class="col-lg-12" style="color: #721c24;">Yeni resim yüklemek için aşağıdan seçim yapabilirsiniz. </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <form id="saveForm" method="post" novalidate=novalidate>
+                                        <div class="container-fluid">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <label for="exampleFormControlInput1" style="padding:10px 0 0 0">Resim Seçiniz</label>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <input type="file" name="Image" class="form-control" />
+                                                    </div>
+                                                    <div class="col-lg3">
+                                                        <button type="submit" id="btnsubmit" class="btn btn-standart">Yükle</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="color: #721c24;">
+                                Yüklü olan resimlerden birini soldaki listeden seçebilirsiniz.
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-standart" onclick="returnData()" value="Seçilen Resmi Ekle" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <img id="imagePreview" alt="Lütfen bir resim seçiniz." style="max-width:100%; max-height:100%; display:none;" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var returnData = function () {
+            var src = $("#imagePreview").attr("src");
+            if (src != undefined && src != null) {
+                window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
+            } else {
+                showAlert(".popupMessage", "Lütfen resim seçiniz!", "error");
+
+            }
+
+        };
+    </script>
+    <script src="@Url.Content("~/js/controller/imageupload.js")"></script>
+    <script src="@Url.Content("~/js/perfect-scrollbar.v0.5.2.js")"></script>
+    <script src="@Url.Content("~/js/general.js")"></script>
+
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="@Url.Content("~/css/assets/dist/js/bootstrap.js")"></script>
+
+
+</body>
+</html>

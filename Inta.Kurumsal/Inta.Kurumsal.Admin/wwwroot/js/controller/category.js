@@ -5,7 +5,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/Category/GetDataList",
+            "url": "/Category/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -30,7 +30,7 @@ var loadRecord = function () {
             {
                 "mRender": function (data, type, row) {
 
-                    var link = '<a href="/Admin/Category/Add?id=' + row.Id + '&SearchId=' + SearchCategoryIdRequest +'" class="editor_edit">Düzenle</a> ';
+                    var link = '<a href="/Category/Add?id=' + row.Id + '&SearchId=' + SearchCategoryIdRequest +'" class="editor_edit">Düzenle</a> ';
                     if (row.CanBeDeleted) {
                         link += '<a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
                     }
@@ -88,7 +88,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/Category/Add",
+        url: "/Category/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -107,7 +107,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/Category/Delete",
+            url: "/Category/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -138,7 +138,7 @@ var GetAllTopCategorySearchLink = function (Id) {
     $("#SearchId").val(Id)
 
     $.ajax({
-        url: "/Admin/Category/GetAllTopCategorySearchLink",
+        url: "/Category/GetAllTopCategorySearchLink",
         type: "GET",
         dataType: 'html',
         data: { "id": Id },
@@ -154,7 +154,7 @@ var GetAllTopCategorySearchLink = function (Id) {
     $("#CategorySearch").html("");
     $("#CategorySearch").append("<option value=''>Seçiniz</option>");
     $.ajax({
-        url: "/Admin/Category/GetCategorySearchTree",
+        url: "/Category/GetCategorySearchTree",
         type: "GET",
         dataType: 'json',
         data: {
@@ -180,7 +180,7 @@ var PageTypeSetting = function (id) {
         return;
     }
     $.ajax({
-        url: "/Admin/Category/GetPageType",
+        url: "/Category/GetPageType",
         type: "GET",
         dataType: 'json',
         data: {
@@ -207,7 +207,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/Category/ListUpdate",
+        url: "/Category/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -268,7 +268,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/Category/Delete",
+                url: "/Category/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

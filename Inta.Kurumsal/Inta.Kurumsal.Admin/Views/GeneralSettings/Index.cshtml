@@ -1,0 +1,177 @@
+﻿@model GeneralSettings
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "Sistem Ayarları";
+    ViewBag.PageName = "Genel Ayarlar";
+}
+
+
+
+
+
+<div class="form-content">
+    <div class="popupMessage"></div>
+
+    <form id="saveForm" method="post" novalidate>
+
+        @Html.HiddenFor(h => h.Id)
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">E-mail Ip Adresi</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.EmailIpAdress, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">E-mail</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.EmailAdress, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">E-mail Port</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.EmailPort, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">E-mail şifre</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.EmailPassword, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Domain Adı</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.DomainName, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">CDN Url</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.CdnUrl, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Resim Yükleme Yolu</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.ImageUploadPath, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Dosya Yükleme Yolu</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.FileUploadPath, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Yetkili Adı</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.DeveloperName, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Yetkili E-Mail Adresi</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.DeveloperEmail, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Kategori Küçük Resim Genişlik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.CategoryImageSmallWidth, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Kategori Küçük Resim Yükseklik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.CategoryImageSmallHeight, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Kategori Büyük Resim Genişlik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.CategoryImageBigWidth, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">Kategori Büyük Resim Yükseklik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.CategoryImageBigHeight, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">İçerik Küçük Resim Genişlik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.ContentImageSmallWidth, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">İçerik Küçük Resim Yükseklik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.ContentImageSmallHeight, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">İçerik Büyük Resim Genişlik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.ContentImageBigWidth, new { @class = "form-control", @required = "required" })
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="exampleFormControlInput1">İçerik Büyük Resim Yükseklik</label>
+                </div><div class="col-lg-4">
+                    @Html.TextBoxFor(m => m.ContentImageBigHeight, new { @class = "form-control", @required = "required" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal-footer">
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </form>
+</div>
+
+
+@section scripts{
+    <script src="~/js/controller/generalsettings.js"></script>
+}

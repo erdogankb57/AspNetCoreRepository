@@ -1,0 +1,21 @@
+﻿@model List<SystemMenuModel>
+
+
+<div class="nav-menu">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li menu-id="@item.Id">
+
+                <a class="item" item-id="@item.Id" href="@item.Link"><i class="@item.MenuIcon" style="font-size: 18px;"></i> @item.Name</a>
+                <ul class="nav-menu-sub">
+                    @foreach (var menu in item.SystemMenu)
+                    {
+                        <li><a href="@menu.Link"><i class="@menu.MenuIcon" style="font-size: 18px;"></i>@menu.Name </a></li>
+                    }
+
+                </ul>
+            </li>
+        }
+    </ul>
+</div>

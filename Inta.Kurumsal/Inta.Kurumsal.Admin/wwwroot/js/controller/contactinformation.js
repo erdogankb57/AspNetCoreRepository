@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/ContactInformation/GetDataList",
+            "url": "/ContactInformation/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -81,7 +81,7 @@ var loadRecord = function () {
 
 var addRecordModal = function (id) {
     $.ajax({
-        url: "/Admin/ContactInformation/Add",
+        url: "/ContactInformation/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -94,7 +94,7 @@ var addRecordModal = function (id) {
 
                     var id = $(this).attr("banner-id");
                     $.ajax({
-                        url: "/Admin/ContactInformation/DeleteImage",
+                        url: "/ContactInformation/DeleteImage",
                         type: "POST",
                         dataType: 'json',
                         data: { "id": id },
@@ -123,7 +123,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/ContactInformation/Delete",
+            url: "/ContactInformation/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -145,7 +145,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/ContactInformation/ListUpdate",
+        url: "/ContactInformation/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -176,7 +176,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/ContactInformation/Save",
+            url: "/ContactInformation/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -238,7 +238,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/ContactInformation/Delete",
+                url: "/ContactInformation/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

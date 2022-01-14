@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/FormGroup/GetDataList",
+            "url": "/FormGroup/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -84,7 +84,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/FormGroup/Add",
+        url: "/FormGroup/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -103,7 +103,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/FormGroup/Delete",
+            url: "/FormGroup/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -125,7 +125,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/FormGroup/ListUpdate",
+        url: "/FormGroup/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -156,7 +156,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/FormGroup/Save",
+            url: "/FormGroup/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -215,7 +215,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/FormGroup/Delete",
+                url: "/FormGroup/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

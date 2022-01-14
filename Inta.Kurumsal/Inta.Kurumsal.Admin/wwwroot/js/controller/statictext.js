@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/StaticText/GetDataList",
+            "url": "/StaticText/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -68,7 +68,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/StaticText/Add",
+        url: "/StaticText/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -98,7 +98,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/StaticText/Delete",
+            url: "/StaticText/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -131,7 +131,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/StaticText/Save",
+            url: "/StaticText/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -190,7 +190,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/StaticText/Delete",
+                url: "/StaticText/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

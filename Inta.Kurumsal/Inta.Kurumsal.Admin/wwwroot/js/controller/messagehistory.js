@@ -4,7 +4,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/MessageHistory/GetDataList",
+            "url": "/MessageHistory/GetDataList",
             "type": "post",
             "datatype": "json"
         },
@@ -67,7 +67,7 @@ var loadRecord = function () {
 var showMessage = function (id) {
 
     $.ajax({
-        url: "/Admin/MessageHistory/ShowMessage",
+        url: "/MessageHistory/ShowMessage",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -90,7 +90,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/MessageHistory/Delete",
+            url: "/MessageHistory/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -123,7 +123,7 @@ $(document).ready(function () {
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
-            url: "/Admin/MessageHistory/Save",
+            url: "/MessageHistory/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -182,7 +182,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/MessageHistory/Delete",
+                url: "/MessageHistory/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -224,7 +224,7 @@ $(document).ready(function () {
             }
 
             $.ajax({
-                url: "/Admin/MessageHistory/ReadRecord",
+                url: "/MessageHistory/ReadRecord",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

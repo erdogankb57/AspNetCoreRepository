@@ -6,7 +6,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/EditorTemplate/GetDataList",
+            "url": "/EditorTemplate/GetDataList",
             "type": "post",
             "datatype": "json",
             "data": function (d) {
@@ -24,7 +24,7 @@ var loadRecord = function () {
             { "data": "Name" },
             {
                 "mRender": function (data, type, row) {
-                    return '<a href="/Admin/EditorTemplate/Add?id=' + row.Id + '" class="editor_edit">Düzenle</a> <a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
+                    return '<a href="/EditorTemplate/Add?id=' + row.Id + '" class="editor_edit">Düzenle</a> <a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
                 }
             }
 
@@ -69,7 +69,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/EditorTemplate/Add",
+        url: "/EditorTemplate/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -103,7 +103,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/EditorTemplate/Delete",
+            url: "/EditorTemplate/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -148,7 +148,7 @@ $(document).ready(function () {
 
 
         $.ajax({
-            url: "/Admin/EditorTemplate/Save",
+            url: "/EditorTemplate/Save",
             type: "POST",
             data: formData,
             dataType: 'json',
@@ -207,7 +207,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/EditorTemplate/Delete",
+                url: "/EditorTemplate/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

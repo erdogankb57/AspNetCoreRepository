@@ -11,7 +11,7 @@ var GetAllTopCategoryLink = function (Id) {
 
     if (Id != 0) {
         $.ajax({
-            url: "/Admin/Category/GetAllTopCategoryLink",
+            url: "/Category/GetAllTopCategoryLink",
             type: "GET",
             dataType: 'html',
             data: { "id": Id },
@@ -27,7 +27,7 @@ var GetAllTopCategoryLink = function (Id) {
     $("#Categorys").html("");
     $("#Categorys").append("<option value=''>Seçiniz</option>");
     $.ajax({
-        url: "/Admin/Category/GetCategoryTree",
+        url: "/Category/GetCategoryTree",
         type: "GET",
         dataType: 'json',
         data: {
@@ -52,7 +52,7 @@ var PageTypeSetting = function (id) {
         return;
     }
     $.ajax({
-        url: "/Admin/Category/GetPageType",
+        url: "/Category/GetPageType",
         type: "GET",
         dataType: 'json',
         data: {
@@ -82,7 +82,7 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+        filebrowserImageBrowseUrl: '/ImageUpload'
     });
 
     var shortExplanationEditor = CKEDITOR.instances['ShortExplanation'];
@@ -91,14 +91,14 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+        filebrowserImageBrowseUrl: '/ImageUpload'
 
     });
 }
 
 var getCategory = function (id) {
     $.ajax({
-        url: "/Admin/Category/Add",
+        url: "/Category/Add",
         type: "GET",
         dataType: 'html',
         data: {
@@ -122,7 +122,7 @@ var deleteImage = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/Category/DeleteImage",
+            url: "/Category/DeleteImage",
             type: "POST",
             dataType: 'json',
             data: { "id": id },
@@ -175,7 +175,7 @@ $(document).ready(function () {
         var formData = new FormData($('#saveForm')[0]);
 
         $.ajax({
-            url: "/Admin/Category/Save",
+            url: "/Category/Save",
             type: "POST",
             data: formData,
             dataType: 'json',

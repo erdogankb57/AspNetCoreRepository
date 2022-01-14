@@ -5,7 +5,7 @@ var loadRecord = function () {
     table = $('#dataTable').DataTable({
         "ajax":
         {
-            "url": "/Admin/Record/GetDataList",
+            "url": "/Record/GetDataList",
             "type": "post",
             "datatype": "json"
         },
@@ -22,7 +22,7 @@ var loadRecord = function () {
             },
             {
                 "mRender": function (data, type, row) {
-                    return '<a href="/Admin/RecordFile/Index/' + row.Id + '?SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Dosya</a><a href="/Admin/RecordImage/Index/' + row.Id + '?SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Resim</a>  <a href="/Admin/Record/Add?id=' + row.Id + '" class="editor_edit">Düzenle</a>  <a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
+                    return '<a href="/RecordFile/Index/' + row.Id + '?SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Dosya</a><a href="/RecordImage/Index/' + row.Id + '?SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Resim</a>  <a href="/Record/Add?id=' + row.Id + '" class="editor_edit">Düzenle</a>  <a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
                 }
             }
 
@@ -75,7 +75,7 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
-        url: "/Admin/Record/Add",
+        url: "/Record/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
@@ -94,7 +94,7 @@ var deleteRecord = function (id) {
     if (onay) {
 
         $.ajax({
-            url: "/Admin/Record/Delete",
+            url: "/Record/Delete",
             type: "POST",
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -125,7 +125,7 @@ var GetAllTopCategorySearchLink = function (Id) {
     $("#SearchId").val(Id)
 
     $.ajax({
-        url: "/Admin/Record/GetAllTopCategorySearchLink",
+        url: "/Record/GetAllTopCategorySearchLink",
         type: "GET",
         dataType: 'html',
         data: { "id": Id },
@@ -141,7 +141,7 @@ var GetAllTopCategorySearchLink = function (Id) {
     $("#CategorySearch").html("");
     $("#CategorySearch").append("<option value=''>Seçiniz</option>");
     $.ajax({
-        url: "/Admin/Record/GetCategorySearchTree",
+        url: "/Record/GetCategorySearchTree",
         type: "GET",
         dataType: 'json',
         data: {
@@ -163,7 +163,7 @@ var dataTableUpdate = function () {
     var listData = $('#dataTable').DataTable().data().toArray();
 
     $.ajax({
-        url: "/Admin/Record/ListUpdate",
+        url: "/Record/ListUpdate",
         type: "POST",
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -239,7 +239,7 @@ $(document).ready(function () {
 
 
             $.ajax({
-                url: "/Admin/Record/Delete",
+                url: "/Record/Delete",
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

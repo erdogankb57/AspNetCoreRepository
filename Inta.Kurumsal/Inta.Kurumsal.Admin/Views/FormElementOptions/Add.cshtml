@@ -1,0 +1,72 @@
+﻿@model FormElementOptions
+
+@{
+    List<SelectListItem> formElement = (List<SelectListItem>)ViewBag.formElement;
+}
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Form Seçeneği Ekle / Düzenle</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="popupMessage"></div>
+            @Html.HiddenFor(h => h.Id)
+            @Html.HiddenFor(h => h.RecordDate)
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Form Elemanı</label>
+                    </div><div class="col-lg-9">
+                        @Html.DropDownListFor(m => m.FormElementId, formElement.ToArray(), new { @class = "form-control", @required = "required" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Başlık</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Değer</label>
+                    </div><div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Value, new { @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label for="exampleFormControlInput1">Seçili gelsin mi?</label>
+                    </div><div class="col-lg-9">
+                        @Html.CheckBoxFor(m => m.IsSelected)
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-standart" data-dismiss="modal">Kapat</button>
+            <button type="submit" id="btnsubmit" class="btn btn-standart">Kaydet</button>
+        </div>
+    </div>
+</div>

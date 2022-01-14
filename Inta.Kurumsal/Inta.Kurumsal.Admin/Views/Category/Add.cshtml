@@ -1,0 +1,60 @@
+﻿@model Category
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "Kategoriler";
+    ViewBag.PageName = "Kategori Ekle / Düzenle";
+
+
+}
+<script>
+    var id = @(Model?.Id>0 ? Model.Id : 0)
+</script>
+
+
+
+<div class="form-content">
+    <div class="popupMessage"></div>
+
+    <form id="saveForm" method="post" novalidate>
+        @Html.Partial("_CategoryAddPartial", Model);
+
+    </form>
+</div>
+@{
+    if (Model.Image == null)
+    {
+        <script>
+            $("#categoryImagePanel").hide();
+        </script>
+    }
+}
+<script>
+    var SearchCategoryIdRequest = @ViewBag.SelectedCategoryId;
+</script>
+
+@section scripts{
+    <script src="~/js/controller/categoryadd.js"></script>
+}
+
+<script>
+    $(function () {
+        var explanationEditor = CKEDITOR.instances['Explanation'];
+        if (explanationEditor) { explanationEditor.destroy(true); }
+        CKEDITOR.replace('Explanation', {
+            enterMode: CKEDITOR.ENTER_BR,
+            height: 250,
+            filebrowserImageUploadUrl: '/Contents',//for uploading image
+            filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+        });
+
+        var shortExplanationEditor = CKEDITOR.instances['ShortExplanation'];
+        if (shortExplanationEditor) { shortExplanationEditor.destroy(true); }
+        CKEDITOR.replace('ShortExplanation', {
+            enterMode: CKEDITOR.ENTER_BR,
+            height: 250,
+            filebrowserImageUploadUrl: '/Contents',//for uploading image
+            filebrowserImageBrowseUrl: '/Admin/ImageUpload'
+
+        });
+    });
+</script>

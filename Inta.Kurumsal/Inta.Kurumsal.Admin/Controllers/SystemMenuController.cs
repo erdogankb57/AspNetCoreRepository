@@ -2,32 +2,31 @@
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Inta.Kurumsal.Admin.ViewComponents
+namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemMenu:ViewComponent
+    public class SystemMenuController : Controller
     {
         private SystemMenuManager systemMenu { get; set; }
         private SystemUserManager userManager = null;
         private SystemMenuRoleManager roleManager = null;
-
-        public SystemMenu()
+        public SystemMenuController()
         {
             systemMenu = new SystemMenuManager();
             userManager = new SystemUserManager();
             roleManager = new SystemMenuRoleManager();
         }
 
-        public IViewComponentResult Invoke()
+        public ActionResult GetSystemMenu()
         {
             List<SystemMenuModel> systemMenus = GetMenu();
 
-            return View(systemMenus);
+
+            return PartialView("SystemMenu", systemMenus);
         }
 
         public List<SystemMenuModel> GetMenu()
         {
-            //int userId = Convert.ToInt32(ViewBag.SystemUserId);
-            int userId = 1;
+            int userId = Convert.ToInt32(ViewBag.SystemUserId);
             var user = userManager.Find(v => v.Id == userId).Data.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)

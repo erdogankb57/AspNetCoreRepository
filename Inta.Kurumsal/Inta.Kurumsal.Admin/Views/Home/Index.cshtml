@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<SystemMenu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "Anasayfa";
+    ViewBag.PageName = "Menüler";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="dashboard">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+                <a href="@item.Link" class="item">
+                    <span class="icon">
+                        <i class="@item.MenuIcon" style="font-size: 20px;" aria-hidden="true"></i>
+                    </span>
+                    <span class="text">
+                        @item.Name.ToUpper()
+                    </span>
+                </a>
+            </div>
+        }
+
+    </div>
 </div>
+
+
+@section scripts{
+}

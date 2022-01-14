@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "İçerik Yönetimi";
+    ViewBag.PageName = "İçerik resimleri";
+}
+
+
+<script type="text/javascript">
+    var ContentId = @ViewBag.ContentId
+</script>
+
+<div class="form-content">
+    <div class="listMessage">
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <button type="button" class="btn btn-standart" onclick="addRecordModal(null)">
+                    Yeni Resim Ekle
+                </button>
+
+                <button type="button" class="btn btn-standart" onclick="bulkRecordModal(null)">
+                    Toplu Resim Yükle
+                </button>
+
+                <button type="button" id="deleteAllRecord" class="btn btn-standart" data-toggle="modal">
+                    Seçilen kayıtları sil
+                </button>
+
+                <button type="button" class="btn btn-standart" onclick="dataTableUpdate()">
+                    Liste verilerini güncelle
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+
+        <form id="saveForm" method="post" novalidate>
+            <div class="modal fade " id="addRecordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            </div>
+        </form>
+
+        <form id="bulkSaveForm" method="post" novalidate>
+            <div class="modal fade " id="bulkRecordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            </div>
+        </form>
+
+        <!-- Modal end-->
+        <div class="col-lg-12">
+
+            <table id="dataTable" class="display" style="display:none;">
+                <thead>
+                    <tr>
+                        <th width="20"><input type="checkbox" name="select_all" value="1" id="example-select-all" style="margin: 0 0 0 -8px"></th>
+                        <th width="20">Id</th>
+                        <th>Adı</th>
+                        <th width="80">Sıra Numarası</th>
+                        <th width="120">İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th width="20"></th>
+                        <th>Id</th>
+                        <th>Adı</th>
+                        <th></th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/js/controller/recordimage.js"></script>
+}

@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ModuleName = "İçerikler";
+    ViewBag.PageName = "İçerik Bilgileri";
+}
+
+<div class="form-content">
+    <div class="col-lg-12">
+        <form action="/Admin/Record/Index" method="get">
+
+            <div class="form-group">
+                <input type="hidden" id="SearchId" name="SearchId" />
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label for="exampleFormControlInput1">Seçilen Kategori</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <div style="font-size:14px" class="selectedCategory"><a href="javascript:void(0)" onclick="ReturnMainCategorySearch()">Seçimi sıfırla</a> | <span id="selectedCategory"></span> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label for="exampleFormControlInput1">Üst Kategori</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <select id="CategorySearch" class="form-control">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="filterRecord" class="btn btn-standart">
+                    Filtrele
+
+
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="form-content">
+    <div class="listMessage">
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <a href="/Admin/Record/Add?SearchId=@ViewBag.SelectedCategoryId" class="btn btn-standart">İçerik Ekle</a>
+
+                <button type="button" id="deleteAllRecord" class="btn btn-standart" data-toggle="modal">
+                    Seçilen içerikleri sil
+                </button>
+
+                <button type="button" class="btn btn-standart" onclick="dataTableUpdate()">
+                    Liste verilerini güncelle
+                </button>
+            </div>
+        </div>
+
+        <div class="modal fade " id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+
+        <div class="col-lg-12">
+
+            <table id="dataTable" class="display" style="display:none;">
+                <thead>
+                    <tr>
+                        <th width="20"><input type="checkbox" name="select_all" value="1" id="example-select-all" style="margin: 0 0 0 -8px"></th>
+                        <th width="20">Id</th>
+                        <th>İçerik Adı</th>
+                        <th width="80">Sıra Numarası</th>
+                        <th width="230">İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th width="20"></th>
+                        <th>Id</th>
+                        <th>İçerik Adı</th>
+                        <th></th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    var SearchCategoryIdRequest = @ViewBag.SelectedCategoryId;
+</script>
+
+
+@section scripts{
+    <script src="~/js/controller/record.js"></script>
+}
