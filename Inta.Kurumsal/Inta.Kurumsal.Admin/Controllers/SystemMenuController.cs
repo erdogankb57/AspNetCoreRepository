@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemMenuController : Controller
+    public class SystemMenuController : BaseController
     {
         private SystemMenuManager systemMenu { get; set; }
         private SystemUserManager userManager = null;

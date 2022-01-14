@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class BannerTypeController : Controller
+    public class BannerTypeController : BaseController
     {
         private BannerTypeManager manager = null;
         private BannerManager bannerManager = null;

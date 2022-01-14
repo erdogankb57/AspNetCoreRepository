@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class EditorTemplateController : Controller
+    public class EditorTemplateController : BaseController
     {
         private EditorTemplateManager manager = null;
 

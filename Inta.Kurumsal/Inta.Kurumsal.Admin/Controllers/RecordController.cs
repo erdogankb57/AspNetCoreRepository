@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class RecordController : Controller
+    public class RecordController : BaseController
     {
         private RecordManager recordManager = null;
         private CategoryManager categoryManager = null;

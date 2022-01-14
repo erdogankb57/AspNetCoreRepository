@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class PageTypeController : Controller
+    public class PageTypeController : BaseController
     {
         private PageTypeManager manager = null;
 

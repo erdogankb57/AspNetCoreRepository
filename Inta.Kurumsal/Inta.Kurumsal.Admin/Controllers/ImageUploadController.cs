@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class ImageUploadController : Controller
+    public class ImageUploadController : BaseController
     {
         public ActionResult Index()
         {

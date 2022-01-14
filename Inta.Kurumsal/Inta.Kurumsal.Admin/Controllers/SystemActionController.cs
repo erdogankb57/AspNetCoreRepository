@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemActionController : Controller
+    public class SystemActionController : BaseController
     {
         private SystemActionManager actionManager = null;
         private SystemMenuManager menuManager = null;

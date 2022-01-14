@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class FormGroupController : Controller
+    public class FormGroupController : BaseController
     {
         private FormGroupManager manager = null;
 

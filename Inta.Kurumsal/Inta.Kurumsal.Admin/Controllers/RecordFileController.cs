@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class RecordFileController : Controller
+    public class RecordFileController : BaseController
     {
         private ContentFileManager manager = null;
         private static int ContentId = 0;

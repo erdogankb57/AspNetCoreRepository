@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private SystemUserManager userManager = null;
         public LoginController()

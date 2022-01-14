@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private SystemMenuManager menuManager = null;
         private SystemUserManager userManager = null;
@@ -23,6 +23,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             int userId = Convert.ToInt32(ViewBag.SystemUserId);
             var user = userManager.Find(v => v.Id == userId).Data.FirstOrDefault();
+            bool isAdmin = true;
             List<int> roleIds = new List<int>();
             if (user != null)
             {
@@ -30,7 +31,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             }
 
             List<SystemMenu> data = new List<SystemMenu>();
-            if (user.IsAdmin)
+            //admin ise
+            if (isAdmin)
                 data = menuManager.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive).Data?.ToList();
             else
                 data = menuManager.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive && roleIds.Any(a => a == v.Id)).Data?.ToList();

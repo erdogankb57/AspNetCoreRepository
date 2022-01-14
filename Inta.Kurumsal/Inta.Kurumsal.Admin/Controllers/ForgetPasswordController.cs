@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class ForgetPasswordController : Controller
+    public class ForgetPasswordController : BaseController
     {
         private SystemUserManager userManager = null;
         private MailManager mailManager = null;

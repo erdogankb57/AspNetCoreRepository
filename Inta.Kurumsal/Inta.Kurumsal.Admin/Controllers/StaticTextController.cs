@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class StaticTextController : Controller
+    public class StaticTextController : BaseController
     {
         private StaticTextManager manager = null;
 

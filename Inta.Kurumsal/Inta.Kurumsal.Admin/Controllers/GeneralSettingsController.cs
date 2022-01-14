@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class GeneralSettingsController : Controller
+    public class GeneralSettingsController : BaseController
     {
         private GeneralSettingsManager manager = null;
         public GeneralSettingsController()

@@ -3512,23 +3512,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\e.kaba\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Erdoğan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj",
       "projectName": "Inta.Kurumsal.DataAccess",
-      "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\e.kaba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Erdoğan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\e.kaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Erdoğan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3543,11 +3543,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj": {
-              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj"
+            "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj": {
+              "projectPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj"
             },
-            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
-              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj"
+            "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
+              "projectPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj"
             }
           }
         }

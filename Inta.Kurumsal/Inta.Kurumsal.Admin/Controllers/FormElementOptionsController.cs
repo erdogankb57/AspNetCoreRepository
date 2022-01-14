@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class FormElementOptionsController : Controller
+    public class FormElementOptionsController : BaseController
     {
         private FormElementOptionsManager optionManager = null;
         private FormElementManager elementManager = null;

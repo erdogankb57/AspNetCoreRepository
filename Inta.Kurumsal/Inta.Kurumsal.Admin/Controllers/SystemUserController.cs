@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemUserController : Controller
+    public class SystemUserController : BaseController
     {
         private SystemUserManager manager = null;
         private SystemRoleManager roleManager = null;

@@ -2,7 +2,7 @@
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class NoAuthorizationController : Controller
+    public class NoAuthorizationController : BaseController
     {
         // GET: Admin/NoAuthorization
         public ActionResult Index()

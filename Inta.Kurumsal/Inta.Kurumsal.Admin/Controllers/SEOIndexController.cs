@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SEOIndexController : Controller
+    public class SEOIndexController : BaseController
     {
         private SEOIndexManager manager = null;
 

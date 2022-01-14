@@ -2,7 +2,7 @@
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemUserRoleController : Controller
+    public class SystemUserRoleController : BaseController
     {
         public IActionResult Index()
         {

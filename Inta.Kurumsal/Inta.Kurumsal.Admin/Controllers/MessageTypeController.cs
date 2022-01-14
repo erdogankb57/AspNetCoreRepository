@@ -2,7 +2,7 @@
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class MessageTypeController : Controller
+    public class MessageTypeController : BaseController
     {
         public IActionResult Index()
         {

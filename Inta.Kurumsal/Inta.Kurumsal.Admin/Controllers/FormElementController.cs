@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class FormElementController : Controller
+    public class FormElementController : BaseController
     {
         private FormElementManager manager = null;
         private FormGroupManager formGroupManager = null;

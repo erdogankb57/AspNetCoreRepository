@@ -2,7 +2,7 @@
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class LogMessageController : Controller
+    public class LogMessageController : BaseController
     {
         public IActionResult Index()
         {

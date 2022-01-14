@@ -2,7 +2,7 @@
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class LanguageController : Controller
+    public class LanguageController : BaseController
     {
         public IActionResult Index()
         {

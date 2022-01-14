@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class ContactInformationController : Controller
+    public class ContactInformationController : BaseController
     {
         private ContactInformationManager manager = null;
 

@@ -41,8 +41,8 @@ namespace Inta.Kurumsal.Entity.Concrete
         [Column("ArchiveDate")]
         public DateTime? ArchiveDate { get; set; }
         [Column("IpNumber")]
-        public string IpNumber { get; set; }
+        public string? IpNumber { get; set; }
         [Column("RecordDate")]
-        public DateTime RecordDate { get; set; }
+        public DateTime? RecordDate { get; set; }
     }
 }

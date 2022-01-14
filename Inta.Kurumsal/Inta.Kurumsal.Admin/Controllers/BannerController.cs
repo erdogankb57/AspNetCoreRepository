@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class BannerController : Controller
+    public class BannerController : BaseController
     {
         private BannerManager bannerManager = null;
         private BannerTypeManager bannerTypeManager = null;

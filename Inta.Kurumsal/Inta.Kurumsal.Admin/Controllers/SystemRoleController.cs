@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class SystemRoleController : Controller
+    public class SystemRoleController : BaseController
     {
         private SystemRoleManager manager = null;
         private SystemActionManager actionManager = null;

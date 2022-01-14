@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class MessageHistoryController : Controller
+    public class MessageHistoryController : BaseController
     {
         private MessageHistoryManager manager = null;
         public MessageHistoryController()
