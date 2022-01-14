@@ -1,6 +1,7 @@
 ﻿@model Record
 
 @{
+    Layout = null;
     List<SelectListItem> categoryTree = (List<SelectListItem>)ViewBag.categoryTree;
     List<SelectListItem> targetType = new List<SelectListItem>();
     targetType.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
