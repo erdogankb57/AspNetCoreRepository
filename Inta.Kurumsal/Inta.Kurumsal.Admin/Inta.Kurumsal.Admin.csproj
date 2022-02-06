@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Uploads\**" />
+    <Content Remove="Uploads\**" />
+    <EmbeddedResource Remove="Uploads\**" />
+    <None Remove="Uploads\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Inta.Kurumsal.DataAccess\Inta.Kurumsal.DataAccess.csproj" />
     <ProjectReference Include="..\Inta.Kurumsal.Entity\Inta.Kurumsal.Entity.csproj" />
   </ItemGroup>

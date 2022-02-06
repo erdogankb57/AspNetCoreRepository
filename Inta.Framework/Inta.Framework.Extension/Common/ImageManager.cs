@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -12,11 +13,14 @@ namespace Inta.Framework.Extension.Common
 
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
-           
+
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 
-            string imageFilePath = configuration.GetSection("FileUpload").ToString();
+            
+
+            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
+
 
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
@@ -26,7 +30,7 @@ namespace Inta.Framework.Extension.Common
             {
                 if (extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png")
                 {
-                    
+
 
                     using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
                     {
@@ -79,7 +83,7 @@ namespace Inta.Framework.Extension.Common
             string imageFilePath = configuration.GetSection("FileUpload").ToString();
 
 
-            string random = ImageFile.FileName.Replace(extension,"") + "_" + Guid.NewGuid().ToString();
+            string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
             random = TextUrlCharReplace(random);
 
             if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
@@ -120,7 +124,7 @@ namespace Inta.Framework.Extension.Common
         {
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
-            
+
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 

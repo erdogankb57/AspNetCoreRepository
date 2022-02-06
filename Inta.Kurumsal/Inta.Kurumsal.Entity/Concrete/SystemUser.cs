@@ -23,17 +23,17 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("Name")]
 		public string Name { get; set; }
 		[Column("SurName")]
-		public string SurName { get; set; }
+		public string? SurName { get; set; }
 		[Column("UserName")]
-		public string UserName { get; set; }
+		public string? UserName { get; set; }
 		[Column("Password")]
-		public string Password { get; set; }
+		public string? Password { get; set; }
 		[Column("Email")]
-		public string Email { get; set; }
+		public string? Email { get; set; }
 		[Column("Phone")]
-		public string Phone { get; set; }
+		public string? Phone { get; set; }
 		[Column("Address")]
-		public string Address { get; set; }
+		public string? Address { get; set; }
 		[Column("RecordDate")]
 		public DateTime RecordDate { get; set; }
 		[Column("IsActive")]

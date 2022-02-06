@@ -43,7 +43,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SystemUser> result = new List<SystemUser>();
             var activeUser = manager.GetById(Convert.ToInt32(ViewBag.SystemUserId)).Data;
-            if (activeUser.IsAdmin)
+            if (activeUser != null && activeUser.IsAdmin)
                 result = manager.Find()?.Data?.ToList();
 
             else
