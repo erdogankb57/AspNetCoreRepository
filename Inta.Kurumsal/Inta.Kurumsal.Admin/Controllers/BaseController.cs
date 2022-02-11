@@ -3,15 +3,16 @@ using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Configuration;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        private SystemMenuManager systemMenuManager = null;
+        private SystemMenuManager _systemMenuManager = null;
         public BaseController()
         {
-            systemMenuManager = new SystemMenuManager();
+            _systemMenuManager = new SystemMenuManager();
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -19,7 +20,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             string actionName = descriptor.ActionName;
             string controllerName = descriptor.ControllerName;
 
-            var activeMenu = systemMenuManager.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
+            var activeMenu = _systemMenuManager.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
 
             if (activeMenu.ResultType == MessageType.Success && activeMenu.Data != null)
             {
@@ -29,6 +30,13 @@ namespace Inta.Kurumsal.Admin.Controllers
                     ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.SystemMenuId ?? 0;
 
             }
+
+
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
+
+
+            ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
 
 
             base.OnActionExecuting(filterContext);
