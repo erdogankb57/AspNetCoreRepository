@@ -49,9 +49,8 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult SignOut()
         {
-            /*FormsAuthentication.SignOut();
-            Response.Redirect(HttpContext.Request.UrlReferrer.ToString());*/
-            return null;
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Login");
         }
 
     }
