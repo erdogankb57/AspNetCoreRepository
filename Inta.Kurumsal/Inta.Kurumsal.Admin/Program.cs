@@ -10,7 +10,10 @@ builder.Services.AddMvc(setupAction =>
     jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
 
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

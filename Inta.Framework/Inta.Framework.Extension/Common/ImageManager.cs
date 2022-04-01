@@ -10,14 +10,13 @@ namespace Inta.Framework.Extension.Common
     {
         public static string ImageUploadDoubleCopy(IFormFile ImageFile, string filePath, int SmallImageWidth, int BigImageWidth)
         {
-
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 
-            
+
 
             string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
 

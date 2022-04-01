@@ -2976,25 +2976,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Erdoğan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\e.kaba\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
+      "projectUniqueName": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
       "projectName": "Inta.Framework.Extension",
-      "projectPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
-      "packagesPath": "C:\\Users\\Erdoğan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\obj\\",
+      "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
+      "packagesPath": "C:\\Users\\e.kaba\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Erdoğan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\e.kaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3007,8 +3010,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {
-              "projectPath": "C:\\Users\\Erdoğan\\source\\repos\\erdogankb57\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj"
+            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {
+              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj"
             }
           }
         }

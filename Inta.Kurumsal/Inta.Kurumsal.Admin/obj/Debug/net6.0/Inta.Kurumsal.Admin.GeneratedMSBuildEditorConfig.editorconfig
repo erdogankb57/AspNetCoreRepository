@@ -8,245 +8,245 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Inta.Kurumsal.Admin
 build_property.RootNamespace = Inta.Kurumsal.Admin
-build_property.ProjectDir = C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\
+build_property.ProjectDir = C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin
+build_property.MSBuildProjectDirectory = C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Account/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyVHlwZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/BannerType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyVHlwZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Banner/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Banner/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Banner/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Banner/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/_CategoryAddPartial.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Category/_CategoryAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcX0NhdGVnb3J5QWRkUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ContactInformation/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ContactInformation/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ContactInformation/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ContactInformation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/EditorTemplate/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/EditorTemplate/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yVGVtcGxhdGVcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/EditorTemplate/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/EditorTemplate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yVGVtcGxhdGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FirmVariables/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FirmVariables/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybVZhcmlhYmxlc1xBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FirmVariables/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FirmVariables/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybVZhcmlhYmxlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ForgetPassword/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ForgetPassword/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ2V0UGFzc3dvcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElementOptions/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElementOptions/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUVsZW1lbnRPcHRpb25zXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElementOptions/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElementOptions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUVsZW1lbnRPcHRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElement/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElement/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUVsZW1lbnRcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElement/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormElement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUVsZW1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormGroup/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormGroup/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUdyb3VwXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormGroup/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/FormGroup/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybUdyb3VwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/GeneralSettings/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/GeneralSettings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhbFNldHRpbmdzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Home/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ImageUpload/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/ImageUpload/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VVcGxvYWRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Language/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Language/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Login/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/LogMessage/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/LogMessage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nTWVzc2FnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageHistory/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageHistory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZUhpc3RvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageHistory/ShowMessage.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageHistory/ShowMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZUhpc3RvcnlcU2hvd01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageType/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/MessageType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/NoAuthorization/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/NoAuthorization/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9BdXRob3JpemF0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/PageType/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/PageType/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZVR5cGVcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/PageType/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/PageType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnZVR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkRmlsZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/BulkAdd.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/BulkAdd.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkRmlsZVxCdWxrQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordFile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkRmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkSW1hZ2VcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/BulkAdd.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/BulkAdd.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkSW1hZ2VcQnVsa0FkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/RecordImage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkSW1hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/_RecordAddPartial.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Record/_RecordAddPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb3JkXF9SZWNvcmRBZGRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SEOIndex/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SEOIndex/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU0VPSW5kZXhcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SEOIndex/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SEOIndex/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU0VPSW5kZXhcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Shared/Components/SystemMenuComponent/Default.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Shared/Components/SystemMenuComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU3lzdGVtTWVudUNvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/StaticText/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/StaticText/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGljVGV4dFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/StaticText/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/StaticText/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGljVGV4dFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemAction/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemAction/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWN0aW9uXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemAction/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemAction/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWN0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemMenu/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemMenu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtTWVudVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemMenu/SystemMenu.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemMenu/SystemMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtTWVudVxTeXN0ZW1NZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemRole/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemRole/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtUm9sZVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemRole/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemRole/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUserRole/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUserRole/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtVXNlclJvbGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUser/Add.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUser/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtVXNlclxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUser/Index.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/SystemUser/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/_ViewImports.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/_ViewStart.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Erdoğan/source/repos/erdogankb57/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/e.kaba/Documents/GitHub/AspNetCoreRepository/Inta.Kurumsal/Inta.Kurumsal.Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e3htpgxjwd
