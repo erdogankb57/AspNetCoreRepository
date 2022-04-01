@@ -1,10 +1,11 @@
-﻿using Inta.Kurumsal.DataAccess.Manager;
+﻿using Inta.Framework.Extension.Serializer;
+using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
-    public class LoginController : BaseController
+    public class LoginController : Controller
     {
         private SystemUserManager userManager = null;
         public LoginController()
@@ -22,15 +23,23 @@ namespace Inta.Kurumsal.Admin.Controllers
             var user = userManager.Get(g => g.UserName == userName && g.Password == password && g.IsActive);
             if (user.Data != null)
             {
-                /*FormsAuthentication.SetAuthCookie(userName, createPersistentCookie ?? false);
-                */
+                Dictionary<string, string> authKey = new Dictionary<string, string>();
+                authKey.Add("userName", user.Data.UserName);
+                authKey.Add("password", user.Data.Password);
+                authKey.Add("loginDate", DateTime.Now.ToString());
+
+                JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
+                var authData = serializer.Serializer(authKey);
+
+                HttpContext.Session.SetString("AuthData", authData);
+
                 if (!string.IsNullOrEmpty(HttpContext.Request.Query["ReturnUrl"]))
                 {
                     return Redirect(HttpContext.Request.Query["ReturnUrl"]);
                 }
                 else
                     return RedirectToAction("Index", "Home");
-                
+
             }
             else
             {

@@ -10,7 +10,11 @@ builder.Services.AddMvc(setupAction =>
     jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
 
+<<<<<<< HEAD
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+=======
+builder.Services.AddSession();
+>>>>>>> 2ce57d848e7650b55e809ec539b67f8ec8fad8c9
 
 var app = builder.Build();
 
@@ -29,6 +33,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

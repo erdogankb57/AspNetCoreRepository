@@ -1,4 +1,5 @@
 ﻿using Inta.EntityFramework.Core.Model;
+using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -10,9 +11,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class BaseController : Controller
     {
         private SystemMenuManager _systemMenuManager = null;
+        private SystemUserManager _userManager = null;
+
         public BaseController()
         {
             _systemMenuManager = new SystemMenuManager();
+            _userManager = new SystemUserManager();
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -25,7 +29,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (activeMenu.ResultType == MessageType.Success && activeMenu.Data != null)
             {
                 if (activeMenu.Data?.FirstOrDefault()?.SystemMenuId == 0)
-                ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.Id ?? 0;
+                    ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.Id ?? 0;
                 else
                     ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.SystemMenuId ?? 0;
 
@@ -38,8 +42,21 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
 
+            if (HttpContext.Session.GetString("AuthData") != null)
+            {
+                JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
+                var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
 
-            base.OnActionExecuting(filterContext);
+                var user = _userManager.Get(g => g.UserName == data["userName"] && g.Password == data["password"] && g.IsActive);
+                if (user.Data != null)
+                {
+                    base.OnActionExecuting(filterContext);
+                    return;
+                }
+            }
+
+            filterContext.Result = new RedirectResult("/Login");
+
         }
     }
 }
