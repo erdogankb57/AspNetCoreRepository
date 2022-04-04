@@ -1,0 +1,8 @@
+﻿@model List<Inta.Kurumsal.Entity.Concrete.SystemMenu>
+
+<ol class="breadcrumb">
+    @foreach (var item in Model)
+    {
+        <li class="breadcrumb-item"><a href="@item.Link">@item.Name</a></li>
+    }
+</ol>

@@ -149,12 +149,10 @@
         <div class="content">
             <div class="container-fluid">
                 <h1 class="caption">
-                    @*@Html.Raw(Html.Caption(this.ViewContext.RouteData.Values["controller"].ToString(), this.ViewContext.RouteData.Values["action"].ToString()))*@
+                    @ViewBag.ActiveMenuAd
                 </h1>
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        @*@Html.Raw(Html.Breadcrump(this.ViewContext.RouteData.Values["controller"].ToString(), this.ViewContext.RouteData.Values["action"].ToString()))*@
-                    </ol>
+                    @await Component.InvokeAsync("BreadCrumpComponent")
                 </nav>
 
                 @RenderBody()

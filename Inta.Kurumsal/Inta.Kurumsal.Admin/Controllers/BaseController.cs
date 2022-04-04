@@ -35,6 +35,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                 else
                     ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.SystemMenuId ?? 0;
 
+                ViewBag.ActiveMenuAd = activeMenu.Data?.FirstOrDefault()?.Name ?? "";
+
             }
 
 
