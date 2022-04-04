@@ -57,10 +57,11 @@
   ## Cihaz = Düşük Çözünürlüklü Tabletler, Cep Telefonları (Yatay) 
   ## Ekran = S / b 481 piksel - 767 piksel 
   */ 
-  @media (min-width : 481px ) and (max-width : 767px ) { 
+  @media (min-width : 481px ) and (max-width : 767px ) {
 
-    .main-left{
+    .main-left {
         display: none;
+        width: 100%;
     }
 
     .main-right .header{
@@ -92,9 +93,10 @@
   ## Cihaz = Akıllı Telefonların Çoğu Cep Telefonu (Portre) 
   ## Ekran = S / b 320 piksel - 479 piksel 
   */ 
-  @media (min-width : 320px ) and (max-width : 480px ) { 
-    .main-left{
+  @media (min-width : 320px ) and (max-width : 480px ) {
+    .main-left {
         display: none;
+        width: 100%;
     }
 
     .main-right .header{
@@ -124,7 +126,7 @@
 
   @media (max-width : 320px ) { 
     .main-left{
-        display: none;
+        display: none; width:100%;
     }
 
     .main-right .header{

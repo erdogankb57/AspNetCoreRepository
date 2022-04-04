@@ -1,4 +1,5 @@
 ﻿using Inta.EntityFramework.Core.Model;
+using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +15,12 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Index(int? id)
         {
+
+            JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
+            var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
+
             SystemUser user = new SystemUser();
-            string userName = User.Identity.Name;
+            string userName = data["userName"];
             user = manager.Get(v => v.UserName == userName).Data;
 
             return View("Index", user);
