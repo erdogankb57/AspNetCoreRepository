@@ -79,7 +79,7 @@ namespace Inta.Framework.Extension.Common
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 
-            string imageFilePath = configuration.GetSection("FileUpload").ToString();
+            string imageFilePath = configuration.GetSection("FileUpload").Value.ToString();
 
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
@@ -127,7 +127,7 @@ namespace Inta.Framework.Extension.Common
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 
-            string imageFilePath = configuration.GetSection("FileUpload").ToString();
+            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
             random = TextUrlCharReplace(random);
