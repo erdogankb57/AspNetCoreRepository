@@ -1,6 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -19,6 +20,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             _systemMenuManager = new SystemMenuManager();
             _userManager = new SystemUserManager();
             _systemRoleManager = new SystemRoleManager();
+
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -28,7 +30,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             var activeMenu = _systemMenuManager.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
 
-            if (activeMenu.ResultType == MessageType.Success && activeMenu.Data != null)
+            if (activeMenu.ResultType == EntityFramework.Core.Model.MessageType.Success && activeMenu.Data != null)
             {
                 if (activeMenu.Data?.FirstOrDefault()?.SystemMenuId == 0)
                     ViewBag.ActiveMenuId = activeMenu.Data?.FirstOrDefault()?.Id ?? 0;
