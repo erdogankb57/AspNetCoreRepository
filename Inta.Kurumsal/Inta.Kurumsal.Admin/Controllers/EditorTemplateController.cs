@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class EditorTemplateController : BaseController
     {
         private EditorTemplateManager manager = null;

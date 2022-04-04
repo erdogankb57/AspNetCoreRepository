@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class BannerController : BaseController
     {
         private BannerManager bannerManager = null;
@@ -98,7 +99,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 {
                     imageSmallWidth = bannerType.Data.SmallImageWidth ?? 100;
                     imageBigWidth = bannerType.Data.BigImageWidth ?? 500;
-                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, filepath, imageSmallWidth, imageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
                 }
 
             }

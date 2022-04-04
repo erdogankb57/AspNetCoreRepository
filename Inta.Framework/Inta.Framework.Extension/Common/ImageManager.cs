@@ -8,7 +8,7 @@ namespace Inta.Framework.Extension.Common
 {
     public class ImageManager
     {
-        public static string ImageUploadDoubleCopy(IFormFile ImageFile, string filePath, int SmallImageWidth, int BigImageWidth)
+        public static string ImageUploadDoubleCopy(IFormFile ImageFile, int SmallImageWidth, int BigImageWidth)
         {
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
@@ -71,7 +71,7 @@ namespace Inta.Framework.Extension.Common
 
             return ImageName;
         }
-        public static string ImageUploadSingleCopy(IFormFile ImageFile, string filePath, int ImageWidth)
+        public static string ImageUploadSingleCopy(IFormFile ImageFile, int ImageWidth)
         {
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
@@ -119,7 +119,7 @@ namespace Inta.Framework.Extension.Common
             return ImageName;
         }
 
-        public static string ImageUploadSingleCopy(IFormFile ImageFile, string filePath)
+        public static string ImageUploadSingleCopy(IFormFile ImageFile)
         {
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());

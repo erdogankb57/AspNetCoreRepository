@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class FormElementOptionsController : BaseController
     {
         private FormElementOptionsManager optionManager = null;

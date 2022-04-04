@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class CategoryController : BaseController
     {
         private CategoryManager manager = null;
@@ -218,9 +219,9 @@ namespace Inta.Kurumsal.Admin.Controllers
                 string filePath = "";
 
                 if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, filePath, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth);
                 else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, filePath, 100, 500);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
             }
 
             if (String.IsNullOrEmpty(request.CategoryUrl))

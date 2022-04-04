@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class ContactInformationController : BaseController
     {
         private ContactInformationManager manager = null;
@@ -94,10 +95,9 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<ContactInformation> data = null;
             var contactInformation = manager.GetById(request.Id);
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-            string filePath = "";
 
             if (FileImage != null)
-                request.Image = ImageManager.ImageUploadSingleCopy(FileImage, filePath);
+                request.Image = ImageManager.ImageUploadSingleCopy(FileImage);
             else if (contactInformation.Data != null)
                 request.Image = contactInformation.Data.Image;
 

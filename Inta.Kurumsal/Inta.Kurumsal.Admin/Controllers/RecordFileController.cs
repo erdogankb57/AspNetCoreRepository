@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class RecordFileController : BaseController
     {
         private ContentFileManager manager = null;

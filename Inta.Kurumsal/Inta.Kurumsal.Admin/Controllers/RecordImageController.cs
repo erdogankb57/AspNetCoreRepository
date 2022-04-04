@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class RecordImageController : BaseController
     {
         private ContentImageManager manager = null;
@@ -61,9 +62,9 @@ namespace Inta.Kurumsal.Admin.Controllers
                     var settings = settingsManager.Find().Data.FirstOrDefault();
 
                     if (settings != null)
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, filePath, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
                     else
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, filePath, 100, 500);
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, 100, 500);
                 }
 
                 var result = manager.Save(content);
@@ -114,9 +115,9 @@ namespace Inta.Kurumsal.Admin.Controllers
                 var settings = settingsManager.Find().Data.FirstOrDefault();
 
                 if (settings != null)
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, filePath, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
                 else
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, filePath, 100, 500);
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, 100, 500);
             }
 
             if (request.Id == 0)

@@ -1,8 +1,10 @@
 ﻿using Inta.Framework.Extension.Common;
+using Inta.Kurumsal.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class ImageUploadController : BaseController
     {
         public ActionResult Index()
@@ -47,7 +49,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (Image != null)
             {
                 //string filePath = ConfigurationManager.AppSettings["EditorImageUpload"].ToString();
-                ImageManager.ImageUploadSingleCopy(Image, filePath);
+                ImageManager.ImageUploadSingleCopy(Image);
             }
 
             return Json("OK");

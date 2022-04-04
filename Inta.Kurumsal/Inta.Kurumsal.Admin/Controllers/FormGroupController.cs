@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class FormGroupController : BaseController
     {
         private FormGroupManager manager = null;

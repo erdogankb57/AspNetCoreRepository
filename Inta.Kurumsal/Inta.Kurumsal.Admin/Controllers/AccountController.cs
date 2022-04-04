@@ -1,11 +1,13 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Serializer;
+using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class AccountController : BaseController
     {
         private SystemUserManager manager = null;

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class RecordController : BaseController
     {
         private RecordManager recordManager = null;
@@ -174,12 +175,11 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 var settings = settingsManager.Find().Data.FirstOrDefault();
                 //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-                string filePath = "";
 
                 if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, filePath, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
                 else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, filePath, 100, 500);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
             }
             else
             {

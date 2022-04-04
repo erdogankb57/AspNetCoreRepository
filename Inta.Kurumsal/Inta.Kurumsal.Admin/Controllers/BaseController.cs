@@ -47,28 +47,6 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
             ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
-
-            if (HttpContext.Session.GetString("AuthData") != null)
-            {
-                JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
-                var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
-
-                var user = _userManager.Get(g => g.UserName == data["userName"] && g.Password == data["password"] && g.IsActive);
-                if (user.Data != null)
-                {
-                    ViewBag.UserName = user.Data.Name + " " + user.Data.SurName;
-
-                    var userRole = _systemRoleManager.Get(v => v.Id == user.Data.SystemRoleId);
-                    if (userRole.Data != null)
-                        ViewBag.RoleName = userRole.Data.Name;
-
-                    base.OnActionExecuting(filterContext);
-                    return;
-                }
-            }
-
-            filterContext.Result = new RedirectResult("/Login");
-
         }
     }
 }

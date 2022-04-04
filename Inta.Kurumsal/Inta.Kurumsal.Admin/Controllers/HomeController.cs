@@ -1,10 +1,12 @@
-﻿using Inta.Kurumsal.Admin.ViewComponents;
+﻿using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Admin.ViewComponents;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
+    [AuthorizationCheck]
     public class HomeController : BaseController
     {
         private SystemMenuManager menuManager = null;
