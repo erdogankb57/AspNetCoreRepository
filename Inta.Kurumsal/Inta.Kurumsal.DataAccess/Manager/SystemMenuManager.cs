@@ -17,9 +17,9 @@ namespace Inta.Kurumsal.DataAccess.Manager
         {
             int topMenuId = 0;
             var menu = this.GetById(Id);
-            if (menu.Data.SystemMenuId != 0)
+            if (menu.Data!= null && menu.Data.SystemMenuId != 0)
                 topMenuId = TopMenuId(menu.Data.SystemMenuId.Value);
-            else
+            else if(menu.Data != null)
                 topMenuId = menu.Data.Id;
 
             return topMenuId;
