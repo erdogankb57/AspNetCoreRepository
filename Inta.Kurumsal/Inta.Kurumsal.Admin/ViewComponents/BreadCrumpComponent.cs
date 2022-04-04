@@ -24,7 +24,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
                 return View(GetTopMenu(activeMenu.Data.Id));
             }
 
-            return View();
+            return View(new List<SystemMenu>());
         }
 
         protected List<SystemMenu> GetTopMenu(int menuId)

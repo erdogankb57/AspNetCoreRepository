@@ -30,7 +30,7 @@ var loadRecord = function () {
             {
                 "mRender": function (data, type, row) {
 
-                    var link = '<a href="/Category/Add?id=' + row.Id + '&SearchId=' + SearchCategoryIdRequest +'" class="editor_edit">Düzenle</a> ';
+                    var link = '<a href="/Category/Add?id=' + row.Id + '&SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Düzenle</a> ';
                     if (row.CanBeDeleted) {
                         link += '<a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
                     }
@@ -224,6 +224,11 @@ var dataTableUpdate = function () {
     });
 }
 
+var searchDataList = function () {
+    table.columns([0]).search($("#SearchId").val(), "EQUALS")
+         .columns([1]).search("test", "sds").draw();
+}
+
 $(document).ready(function () {
 
 
@@ -233,7 +238,7 @@ $(document).ready(function () {
     //CKEDITOR.instances['Description'].getData();
 
     loadRecord();
-    
+
     GetAllTopCategorySearchLink(SearchCategoryIdRequest);
 
     $("#CategorySearch").change(function () {

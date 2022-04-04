@@ -171,8 +171,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data?.Where(v => v.CategoryId == SelectedCategoryId);
+            var result = manager.Find().Data;
 
+            if (!string.IsNullOrEmpty(request.columns[0].search.value))
+                result = result.Where(v => v.CategoryId == Convert.ToInt32(request.columns[0].search.value)).ToList();
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();

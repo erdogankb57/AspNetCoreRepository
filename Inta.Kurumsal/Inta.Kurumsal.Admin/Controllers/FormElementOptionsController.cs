@@ -21,8 +21,10 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult Index()
         {
-            if (HttpContext.Request.Query["FormElementId"].ToString() != null)
-                ViewBag.FormElementId = HttpContext.Request.Query["FormElementId"];
+            if (!string.IsNullOrEmpty(HttpContext.Request.Query["FormElementId"].ToString()))
+                ViewBag.FormElementId = HttpContext.Request.Query["FormElementId"].ToString();
+            else
+                ViewBag.FormElementId = "0";
 
             return View();
         }
@@ -72,7 +74,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     result = result?.OrderByDescending(o => o.Name)?.ToList();
             }
 
-            if (FormElementId.HasValue)
+            if (FormElementId.HasValue && FormElementId.Value > 0)
                 result = result?.Where(v => v.FormElementId == Convert.ToInt32(FormElementId.Value))?.ToList();
 
             if (request.search != null && request.search.value != null)
