@@ -104,13 +104,18 @@ namespace Inta.Kurumsal.Admin.Controllers
                     //request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
                     request.Image = "";
                     var imageResult = ImageManager.ImageBase64Upload(FileImage);
-                    var fileUpload = fileUploadManager.Save(new FileUpload
+
+                    FileUpload fileUpload = new FileUpload
                     {
                         FileBase64Data = imageResult.FileBase64Data,
                         FileType = imageResult.FileType,
-                        RecordDate = DateTime.Now
-                    });
-                    request.ImageId = fileUpload.Data.Id; 
+                        RecordDate = DateTime.Now,
+                        Width = imageResult.Width,
+                        Height = imageResult.Height
+                    };
+
+                    var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                    request.ImageId = fileUploadEntity.Data.Id;
 
                 }
 

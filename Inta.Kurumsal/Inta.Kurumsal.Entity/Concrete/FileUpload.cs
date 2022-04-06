@@ -14,6 +14,8 @@ namespace Inta.Kurumsal.Entity.Concrete
         public string? FileBase64Data { get; set; }
         public string? FileType { get; set; }
         public DateTime RecordDate { get; set; }
+        public int? Width { get; set; }
+        public int? Height { get; set; }
 
     }
 }

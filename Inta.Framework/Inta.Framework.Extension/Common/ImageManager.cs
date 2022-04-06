@@ -223,16 +223,18 @@ namespace Inta.Framework.Extension.Common
                 if (extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png")
                 {
 
-
                     using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
                     {
                         ImageFile.CopyTo(stream);
                     }
 
                     byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
+                    System.Drawing.Image imgPhotoVert = System.Drawing.Image.FromFile(imageFilePath + random + extension);
 
                     result.FileBase64Data = Convert.ToBase64String(bytes);
                     result.FileType = extension;
+                    result.Width = imgPhotoVert.Width;
+                    result.Height = imgPhotoVert.Height;
                 }
             }
 

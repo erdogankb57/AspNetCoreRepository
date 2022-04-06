@@ -13,12 +13,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             fileUploadManager = new FileUploadManager();
         }
-        public IActionResult Image(int Id, int width, int height)
+        public IActionResult Image(int Id, int width)
         {
+            int height = 0;
             var uploadData = fileUploadManager.Get(v => v.Id == Id);
             if (uploadData.Data != null)
             {
-
+                if (width > uploadData.Data.Width)
+                {
+                    width = uploadData.Data.Width ?? 0;
+                }
+                height = width * (uploadData.Data.Height ?? 0) / (uploadData.Data.Width ?? 0);
                 var bayt = Convert.FromBase64String(uploadData.Data.FileBase64Data);
 
                 MemoryStream stream = new MemoryStream(bayt);

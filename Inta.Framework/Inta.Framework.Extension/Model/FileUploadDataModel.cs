@@ -11,6 +11,8 @@ namespace Inta.Framework.Extension.Model
         public string FileType { get; set; }
         public string FileName { get; set; }
         public string FileBase64Data { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
     }
 }
