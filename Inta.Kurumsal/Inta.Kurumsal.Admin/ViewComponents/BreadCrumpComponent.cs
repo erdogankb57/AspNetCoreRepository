@@ -17,11 +17,25 @@ namespace Inta.Kurumsal.Admin.ViewComponents
             string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
             string actionName = ViewContext.RouteData.Values["Action"].ToString();
 
+
             var activeMenu = systemMenuManager.Get(v => v.ControllerName == controllerName && v.ActionName == actionName);
-            string shtml = string.Empty;
             if (activeMenu.Data != null)
             {
-                return View(GetTopMenu(activeMenu.Data.Id));
+                List<SystemMenu> shtml = new List<SystemMenu>();
+                if (!(controllerName == "Home" && actionName == "Index"))
+                {
+                    shtml.Add(new SystemMenu
+                    {
+                        ControllerName = "Home",
+                        ActionName = "Index",
+                        Name = "Anasayfa",
+                        Link = "/Home"
+                    });
+                }
+
+                shtml.AddRange(GetTopMenu(activeMenu.Data.Id));
+
+                return View(shtml);
             }
 
             return View(new List<SystemMenu>());
@@ -30,7 +44,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
         protected List<SystemMenu> GetTopMenu(int menuId)
         {
             List<SystemMenu> shtml = new List<SystemMenu>();
-            var menu = systemMenuManager.Get(v => v.Id == menuId && v.Link!="#");
+            var menu = systemMenuManager.Get(v => v.Id == menuId && v.Link != "#");
             if (menu.Data != null)
             {
                 if (menu.Data.SystemMenuId != 0)
