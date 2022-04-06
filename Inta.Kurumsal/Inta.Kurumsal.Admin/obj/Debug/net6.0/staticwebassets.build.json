@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wRHeMo7akSS6YgQQRId6/kEeAAvKIwxFay0yP65K6CY=",
+  "Hash": "uFxR7w6S10qTCyvHm11RC9ZoWCi/p8wMteJMBlPtloQ=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7310,6 +7310,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-c55be7bc-cde9-456e-b7b0-67c3ceb97903.jpg"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-c56f13e4-6ef4-4fa8-9292-5e78953733f8.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/310320221628066251087-c56f13e4-6ef4-4fa8-9292-5e78953733f8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-c56f13e4-6ef4-4fa8-9292-5e78953733f8.jpg"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-c685c41b-daf9-4310-9f88-c2830e2a8c04.jpg",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -7359,6 +7376,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-eb928131-144e-44b9-a4ce-d65be8b56691.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-ed71e620-6bfc-460f-872d-0f7aa9df8a88.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/310320221628066251087-ed71e620-6bfc-460f-872d-0f7aa9df8a88.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-ed71e620-6bfc-460f-872d-0f7aa9df8a88.jpg"
     },
     {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-ff00175b-6cab-4227-8bae-c11a58c573fe.jpg",

@@ -10,9 +10,9 @@ namespace Inta.Kurumsal.Entity.Concrete
     public class FileUpload : IEntity
     {
         public int Id { get; set; }
-        public string FileName { get; set; }
-        public string FileBase64Data { get; set; }
-        public string FileType { get; set; }
+        public string? FileName { get; set; }
+        public string? FileBase64Data { get; set; }
+        public string? FileType { get; set; }
         public DateTime RecordDate { get; set; }
 
     }

@@ -201,9 +201,9 @@ namespace Inta.Framework.Extension.Common
         }
 
         /*Base64 Formatında Resim Yükleme*/
-        public static FileUploadModel ImageBase64Upload(IFormFile ImageFile)
+        public static FileUploadDataModel ImageBase64Upload(IFormFile ImageFile)
         {
-            FileUploadModel result = new FileUploadModel();
+            FileUploadDataModel result = new FileUploadDataModel();
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inta.Framework.Extension.Model
 {
-    public class FileUploadModel
+    public class FileUploadDataModel
     {
         public string FileType { get; set; }
         public string FileName { get; set; }
