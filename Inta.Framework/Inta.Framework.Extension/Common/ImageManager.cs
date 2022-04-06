@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Inta.Framework.Extension.Model;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Drawing;
@@ -197,6 +198,45 @@ namespace Inta.Framework.Extension.Common
                 }
             }
             return str.ToLowerInvariant().Trim();
+        }
+
+        /*Base64 Formatında Resim Yükleme*/
+        public static FileUploadModel ImageBase64Upload(IFormFile ImageFile)
+        {
+            FileUploadModel result = new FileUploadModel();
+            string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
+
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
+
+
+
+            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
+
+
+
+            string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
+            random = TextUrlCharReplace(random);
+
+            if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
+            {
+                if (extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png")
+                {
+
+
+                    using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
+                    {
+                        ImageFile.CopyTo(stream);
+                    }
+
+                    byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
+
+                    result.FileBase64Data = Convert.ToBase64String(bytes);
+                    result.FileType = extension;
+                }
+            }
+
+            return result;
         }
     }
 

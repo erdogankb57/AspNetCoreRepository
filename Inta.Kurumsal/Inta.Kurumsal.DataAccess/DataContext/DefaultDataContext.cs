@@ -80,6 +80,7 @@ namespace Inta.Kurumsal.DataAccess.DataContext
 
         public DbSet<RecordFile> ContentFiles { get; set; }
         public DbSet<SystemActionRole> SystemActionRole { get; set; }
+        public DbSet<FileUpload> FileUpload { get; set; }
 
     }
 }

@@ -33,6 +33,8 @@ namespace Inta.Kurumsal.Entity.Concrete
 		public string? ShortExplanation { get; set; }
 		[Column("OrderNumber")]
 		public int OrderNumber { get; set; }
+		[Column("ImageId")]
+		public int? ImageId { get; set; }
 		[Column("Image")]
 		public string? Image { get; set; }
 		public bool IsActive { get; set; }

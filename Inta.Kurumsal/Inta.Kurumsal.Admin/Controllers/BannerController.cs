@@ -13,10 +13,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private BannerManager bannerManager = null;
         private BannerTypeManager bannerTypeManager = null;
+        private FileUploadManager fileUploadManager = null;
         public BannerController()
         {
             bannerManager = new BannerManager();
             bannerTypeManager = new BannerTypeManager();
+            fileUploadManager = new FileUploadManager();
         }
         public ActionResult Index()
         {
@@ -99,7 +101,17 @@ namespace Inta.Kurumsal.Admin.Controllers
                 {
                     imageSmallWidth = bannerType.Data.SmallImageWidth ?? 100;
                     imageBigWidth = bannerType.Data.BigImageWidth ?? 500;
-                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
+                    //request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
+                    request.Image = "";
+                    var imageResult = ImageManager.ImageBase64Upload(FileImage);
+                    var fileUpload = fileUploadManager.Save(new FileUpload
+                    {
+                        FileBase64Data = imageResult.FileBase64Data,
+                        FileType = imageResult.FileType,
+                        RecordDate = DateTime.Now
+                    });
+                    request.ImageId = fileUpload.Data.Id; 
+
                 }
 
             }
@@ -138,7 +150,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             return Json("OK");
         }
         [HttpPost]
-        public ActionResult ListUpdate([FromBody]List<Banner> listData)
+        public ActionResult ListUpdate([FromBody] List<Banner> listData)
         {
             foreach (var item in listData)
             {
