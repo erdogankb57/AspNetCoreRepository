@@ -173,7 +173,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             Banner banner = bannerManager.GetById(id).Data;
-            banner.Image = null;
+            banner.ImageId = null;
             bannerManager.Update(banner);
 
             return Json("OK");

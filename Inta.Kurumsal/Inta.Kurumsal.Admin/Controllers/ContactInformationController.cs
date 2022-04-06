@@ -11,10 +11,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class ContactInformationController : BaseController
     {
         private ContactInformationManager manager = null;
-
+        private FileUploadManager fileUploadManager = null;
         public ContactInformationController()
         {
             manager = new ContactInformationManager();
+            fileUploadManager = new FileUploadManager();
         }
 
         public ActionResult Index()
@@ -97,9 +98,22 @@ namespace Inta.Kurumsal.Admin.Controllers
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
 
             if (FileImage != null)
-                request.Image = ImageManager.ImageUploadSingleCopy(FileImage);
-            else if (contactInformation.Data != null)
-                request.Image = contactInformation.Data.Image;
+            {
+                var imageResult = ImageManager.ImageBase64Upload(FileImage);
+
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = imageResult.FileBase64Data,
+                    FileType = imageResult.FileType,
+                    RecordDate = DateTime.Now,
+                    Width = imageResult.Width,
+                    Height = imageResult.Height
+                };
+
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                request.ImageId = fileUploadEntity.Data.Id;
+            }
+
 
 
             if (request.Id == 0)
@@ -137,7 +151,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             ContactInformation contact = manager.GetById(id).Data;
-            contact.Image = null;
+            contact.ImageId = null;
             manager.Update(contact);
 
             return Json("OK");

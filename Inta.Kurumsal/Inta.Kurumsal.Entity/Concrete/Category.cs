@@ -53,6 +53,8 @@ namespace Inta.Kurumsal.Entity.Concrete
         public string? ImageTag { get; set; }
         [Column("ImageTitle")]
         public string? ImageTitle { get; set; }
+        [Column("ImageId")]
+        public int? ImageId { get; set; }
         [Column("OrderNumber")]
         public int? OrderNumber { get; set; }
         [Column("RecordDate")]
