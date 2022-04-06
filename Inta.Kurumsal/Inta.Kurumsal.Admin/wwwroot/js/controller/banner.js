@@ -67,7 +67,8 @@ var loadRecord = function () {
         },
         "order": [1, "desc"],
         "processing": "true",
-        "language": dataGridLanguage
+        "language": dataGridLanguage,
+        "fixedColumns": true
     });
 
     $("#dataTable").show();

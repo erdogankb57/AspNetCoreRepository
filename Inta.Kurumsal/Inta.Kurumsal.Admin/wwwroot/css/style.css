@@ -867,7 +867,7 @@ a {
 
 
 .dashboard .item {
-    padding: 20px;
+    padding: 30px 20px 0px 20px;
     width: 100%;
     display: block;
     color: #000000;
@@ -875,6 +875,7 @@ a {
     margin: 10px 0 10px 0;
     text-decoration: none;
     transition: 0.5s;
+    min-height:80px;
 }
 
 

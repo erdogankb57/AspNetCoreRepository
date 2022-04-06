@@ -58,6 +58,9 @@
   ## Ekran = S / b 481 piksel - 767 piksel 
   */ 
   @media (min-width : 481px ) and (max-width : 767px ) {
+    .dashboard .item {
+        vertical-align: middle; 
+    }
 
     .main-left {
         display: none;
@@ -94,6 +97,9 @@
   ## Ekran = S / b 320 piksel - 479 piksel 
   */ 
   @media (min-width : 320px ) and (max-width : 480px ) {
+    .dashboard .item {
+        padding: 20px 20px 0px 20px;
+    }
     .main-left {
         display: none;
         width: 100%;
@@ -124,7 +130,11 @@
     }
   } 
 
-  @media (max-width : 320px ) { 
+  @media (max-width : 320px ) {
+    .dashboard .item {
+        padding: 20px 20px 0px 20px;
+    }
+
     .main-left{
         display: none; width:100%;
     }
