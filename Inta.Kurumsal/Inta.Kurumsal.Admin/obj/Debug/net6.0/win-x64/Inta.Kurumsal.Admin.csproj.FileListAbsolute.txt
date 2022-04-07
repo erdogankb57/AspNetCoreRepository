@@ -55,3 +55,4 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\ref\Inta.Kurumsal.Admin.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.genruntimeconfig.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.csproj.AssemblyReference.cache
