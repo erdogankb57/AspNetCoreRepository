@@ -229,12 +229,13 @@ namespace Inta.Framework.Extension.Common
                     }
 
                     byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
-                    System.Drawing.Image imgPhotoVert = System.Drawing.Image.FromFile(imageFilePath + random + extension);
+                    //System.Drawing.Image imgPhotoVert = System.Drawing.Image.FromFile(imageFilePath + random + extension);
+                    var bmp = Bitmap.FromFile(imageFilePath + random + extension);
 
                     result.FileBase64Data = Convert.ToBase64String(bytes);
                     result.FileType = extension;
-                    result.Width = imgPhotoVert.Width;
-                    result.Height = imgPhotoVert.Height;
+                    result.Width = bmp.Width;
+                    result.Height = bmp.Height;
                 }
             }
 

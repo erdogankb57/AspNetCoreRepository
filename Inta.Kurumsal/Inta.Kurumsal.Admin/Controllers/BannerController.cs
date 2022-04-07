@@ -101,22 +101,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 {
                     imageSmallWidth = bannerType.Data.SmallImageWidth ?? 100;
                     imageBigWidth = bannerType.Data.BigImageWidth ?? 500;
-                    //request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
-                    request.Image = "";
-                    var imageResult = ImageManager.ImageBase64Upload(FileImage);
-
-                    FileUpload fileUpload = new FileUpload
-                    {
-                        FileBase64Data = imageResult.FileBase64Data,
-                        FileType = imageResult.FileType,
-                        RecordDate = DateTime.Now,
-                        Width = imageResult.Width,
-                        Height = imageResult.Height
-                    };
-
-                    var fileUploadEntity = fileUploadManager.Save(fileUpload);
-                    request.ImageId = fileUploadEntity.Data.Id;
-
+                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
                 }
 
             }
@@ -173,7 +158,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             Banner banner = bannerManager.GetById(id).Data;
-            banner.ImageId = null;
+            banner.Image = null;
             bannerManager.Update(banner);
 
             return Json("OK");

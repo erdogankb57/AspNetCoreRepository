@@ -1,0 +1,15 @@
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\Inta.EntityFramework.Core.deps.json
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\Inta.EntityFramework.Core.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\ref\Inta.EntityFramework.Core.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\Inta.EntityFramework.Core.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\bin\Release\net6.0\Inta.Framework.Logging.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.csproj.AssemblyReference.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.AssemblyInfoInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.AssemblyInfo.cs
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.csproj.CoreCompileInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.csproj.CopyComplete
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\ref\Inta.EntityFramework.Core.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.EntityFramework.Core\obj\Release\net6.0\Inta.EntityFramework.Core.pdb

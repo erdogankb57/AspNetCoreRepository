@@ -108,18 +108,17 @@
                     </div>
                 </div>
             </div>
-            @if (Model.ImageId  != null)
+            @if (Model.Image != null)
             {
 
                 <div class="form-group image">
                     <div class="row">
 
                         <div class="col-lg-3">
-
                         </div>
                         <div class="col-lg-3">
                             <div class="small-image-content">
-                                <a id="ImageLink" href="/file/Image/@Model.ImageId?width=1000" data-fancybox data-caption="@Model.Name"><img id="Image" src="/file/Image/@Model.ImageId?width=200" width="100" height="100" style="border:solid 1px #000000" /></a>
+                                <a id="ImageLink" href="@(ViewBag.FileShowFolder + "b_" + Model.Image)" data-fancybox data-caption="@Model.Name"><img id="Image" src="@(@Model.Image != null ? ViewBag.FileShowFolder + "k_" + Model.Image : null)" width="100" height="100" style="border:solid 1px #000000" /></a>
                             </div>
                         </div>
                         <div class="col-lg-3">

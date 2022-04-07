@@ -36,4 +36,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "file",
+    pattern: "{controller=File}/{action=Image}/{Id}/{width}/{filename}");
+
+
 app.Run();

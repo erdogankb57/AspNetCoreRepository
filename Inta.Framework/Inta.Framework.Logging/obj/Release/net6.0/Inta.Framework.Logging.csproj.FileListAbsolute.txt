@@ -1,0 +1,12 @@
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Release\net6.0\Inta.Framework.Logging.deps.json
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Release\net6.0\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Release\net6.0\ref\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\bin\Release\net6.0\Inta.Framework.Logging.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.csproj.AssemblyReference.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.AssemblyInfoInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.AssemblyInfo.cs
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.csproj.CoreCompileInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\ref\Inta.Framework.Logging.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Release\net6.0\Inta.Framework.Logging.pdb
