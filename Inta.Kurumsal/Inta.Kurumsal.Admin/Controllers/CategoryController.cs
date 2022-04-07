@@ -211,16 +211,20 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             StringManager stringManager = new StringManager();
             DataResult<Category> data = null;
-            FileInfo file = null;
             if (Image != null)
             {
-                var settings = settingsManager.Find().Data.FirstOrDefault();
-                file = new FileInfo(Image.FileName);
+                var imageResult = ImageManager.ImageBase64Upload(Image);
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = imageResult.FileBase64Data,
+                    FileType = imageResult.FileType,
+                    RecordDate = DateTime.Now,
+                    Width = imageResult.Width,
+                    Height = imageResult.Height
+                };
 
-                if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth);
-                else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                request.ImageId = fileUploadEntity.Data.Id;
             }
 
             if (String.IsNullOrEmpty(request.CategoryUrl))

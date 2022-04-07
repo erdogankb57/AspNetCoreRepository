@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O4EWohei2HBt+F8qFrpFGb96tmKzR+6JW7tWnaYpXsA=",
+  "Hash": "JqHAAEmlKBh+5DUsPB2PrEQEZYYq27DqRC+2B58YM3I=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\bundle\\Inta.Kurumsal.Admin.styles.css",
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Inta.Kurumsal.Admin.styles.css",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Inta.Kurumsal.Admin",
       "RelativePath": "Inta.Kurumsal.Admin.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\bundle\\Inta.Kurumsal.Admin.styles.css"
+      "OriginalItemSpec": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Inta.Kurumsal.Admin.styles.css"
     },
     {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\projectbundle\\Inta.Kurumsal.Admin.bundle.scp.css",
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Inta.Kurumsal.Admin.bundle.scp.css",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Inta.Kurumsal.Admin",
       "RelativePath": "Inta.Kurumsal.Admin.bundle.scp.css",
       "AssetKind": "All",
@@ -48,7 +48,7 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\win-x64\\scopedcss\\projectbundle\\Inta.Kurumsal.Admin.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Inta.Kurumsal.Admin.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\ckeditor\\adapters\\jquery.js",
@@ -8430,6 +8430,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-2b706179-2540-4623-936e-c6d7919a2c96.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg"
     },
     {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-49409508-548e-4fa3-b1f3-8310337b0a0b.jpg",

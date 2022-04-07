@@ -14,6 +14,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         private RecordManager recordManager = null;
         private CategoryManager categoryManager = null;
         private GeneralSettingsManager settingsManager = null;
+        private FileUploadManager fileUploadManager = null;
 
         private static int SelectedCategoryId = 0;
 
@@ -23,6 +24,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             recordManager = new RecordManager();
             categoryManager = new CategoryManager();
             settingsManager = new GeneralSettingsManager();
+            fileUploadManager = new FileUploadManager();
         }
 
         public ActionResult Index()
@@ -173,18 +175,23 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<Record> data = null;
             if (Image != null)
             {
-                var settings = settingsManager.Find().Data.FirstOrDefault();
-                //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
 
-                if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
-                else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
+                var imageResult = ImageManager.ImageBase64Upload(Image);
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = imageResult.FileBase64Data,
+                    FileType = imageResult.FileType,
+                    RecordDate = DateTime.Now,
+                    Width = imageResult.Width,
+                    Height = imageResult.Height
+                };
+
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                request.ImageId = fileUploadEntity.Data.Id;
             }
             else
             {
-                if (content?.Data?.Image != null)
-                    request.Image = content.Data.Image;
+              
             }
 
             if (String.IsNullOrEmpty(request.RecordUrl))
@@ -228,7 +235,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             Record content = recordManager.GetById(id).Data;
-            content.Image = null;
+            content.ImageId = null;
             recordManager.Update(content);
 
             return Json("OK");
