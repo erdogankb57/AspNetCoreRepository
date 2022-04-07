@@ -13,10 +13,12 @@ namespace Inta.Kurumsal.Admin.Controllers
         private ContentImageManager manager = null;
         private static int ContentId = 0;
         private GeneralSettingsManager settingsManager = null;
+        private FileUploadManager fileUploadManager = null;
         public RecordImageController()
         {
             manager = new ContentImageManager();
             settingsManager = new GeneralSettingsManager();
+            fileUploadManager = new FileUploadManager();
         }
 
         public ActionResult Index(int? Id)
@@ -59,12 +61,19 @@ namespace Inta.Kurumsal.Admin.Controllers
 
                 if (item != null)
                 {
-                    var settings = settingsManager.Find().Data.FirstOrDefault();
+                    var imageResult = ImageManager.ImageBase64Upload(item);
 
-                    if (settings != null)
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
-                    else
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, 100, 500);
+                    FileUpload fileUpload = new FileUpload
+                    {
+                        FileBase64Data = imageResult.FileBase64Data,
+                        FileType = imageResult.FileType,
+                        RecordDate = DateTime.Now,
+                        Width = imageResult.Width,
+                        Height = imageResult.Height
+                    };
+
+                    var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                    content.ImageId = fileUploadEntity.Data.Id;
                 }
 
                 var result = manager.Save(content);
@@ -112,12 +121,19 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (ImageName != null)
             {
-                var settings = settingsManager.Find().Data.FirstOrDefault();
+                var imageResult = ImageManager.ImageBase64Upload(ImageName);
 
-                if (settings != null)
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
-                else
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, 100, 500);
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = imageResult.FileBase64Data,
+                    FileType = imageResult.FileType,
+                    RecordDate = DateTime.Now,
+                    Width = imageResult.Width,
+                    Height = imageResult.Height
+                };
+
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                request.ImageId = fileUploadEntity.Data.Id;
             }
 
             if (request.Id == 0)
@@ -126,6 +142,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
                 request.RecordId = ContentId;
+                request.OrderNumber = 0;
                 data = manager.Save(request);
             }
             else

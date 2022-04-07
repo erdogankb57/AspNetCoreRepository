@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5rKqQYnMn+pk+cvM/pr27BifZlGWvQXT+NMDOgy63kc=",
+  "Hash": "2bEjNvz02x+dCyiJ0RrQUYkBRccnQl80hMf9QaJj9AA=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7667,6 +7667,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-c685c41b-daf9-4310-9f88-c2830e2a8c04.jpg"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-d691d9a5-aa65-47ca-96ec-fb5ee3b8f322.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/310320221628066251087-d691d9a5-aa65-47ca-96ec-fb5ee3b8f322.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\310320221628066251087-d691d9a5-aa65-47ca-96ec-fb5ee3b8f322.jpg"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\310320221628066251087-e31b749a-3564-4a53-9946-55935e6f892c.jpg",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -8430,6 +8447,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-2b706179-2540-4623-936e-c6d7919a2c96.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-395bee52-45ef-4979-aa71-4275ac9ccd92.jpg"
     },
     {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\wallpaperbetter-com-1920x1080-49409508-548e-4fa3-b1f3-8310337b0a0b.jpg",
