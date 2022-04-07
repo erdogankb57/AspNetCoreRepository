@@ -72,6 +72,11 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj": {
@@ -149,6 +154,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     },
@@ -236,6 +246,11 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj": {
@@ -317,6 +332,11 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
@@ -383,6 +403,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

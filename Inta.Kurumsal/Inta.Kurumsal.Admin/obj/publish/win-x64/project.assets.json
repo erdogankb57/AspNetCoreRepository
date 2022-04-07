@@ -5391,7 +5391,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Inta.Kurumsal.DataAccess >= 1.0.0",
-      "Inta.Kurumsal.Entity >= 1.0.0"
+      "Inta.Kurumsal.Entity >= 1.0.0",
+      "System.Drawing.Common >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -5447,6 +5448,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

@@ -9,7 +9,8 @@
       "Inta.Kurumsal.Admin/1.0.0": {
         "dependencies": {
           "Inta.Kurumsal.DataAccess": "1.0.0",
-          "Inta.Kurumsal.Entity": "1.0.0"
+          "Inta.Kurumsal.Entity": "1.0.0",
+          "System.Drawing.Common": "6.0.0"
         },
         "runtime": {
           "Inta.Kurumsal.Admin.dll": {}

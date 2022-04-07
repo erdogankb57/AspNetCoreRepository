@@ -27,6 +27,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 var bayt = Convert.FromBase64String(uploadData.Data.FileBase64Data);
 
                 MemoryStream stream = new MemoryStream(bayt);
+
                 var image = Bitmap.FromStream(stream);
 
                 using (var bit = new Bitmap(image, new Size { Width = width, Height = height }))

@@ -80,6 +80,11 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {
@@ -165,6 +170,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
