@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f2qlUjxMsLDBYDZTo6yJKlTl7H4L7G0Q2QzvZqm+5jQ=",
+  "Hash": "p/2lGDDR8EYXTdSuyEBZNEqsYqTfBcS2QGVKCTvaxCo=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7106,6 +7106,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\excel-test-032eab4f-060d-4666-b905-db0fe61b5be6.xlsx"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\excel-test-58349c43-7ee5-473d-be95-1e6daae713b5.xlsx",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/excel-test-58349c43-7ee5-473d-be95-1e6daae713b5.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\excel-test-58349c43-7ee5-473d-be95-1e6daae713b5.xlsx"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\excel-test-5dbc18b3-d38a-4f5e-b297-407387c58806.xlsx",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -7172,6 +7189,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\excel-test-d2a27622-ceba-445b-a938-cb99d3d6e905.xlsx"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\kullanicilar-8c466964-42e8-4139-9077-11e62231e2d8.png",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/kullanicilar-8c466964-42e8-4139-9077-11e62231e2d8.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\kullanicilar-8c466964-42e8-4139-9077-11e62231e2d8.png"
     },
     {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\logo-of-besiktas-jk-svg-25502b81-87a1-4d46-b660-acec109f3ab5.png",

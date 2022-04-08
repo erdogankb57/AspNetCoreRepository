@@ -43,32 +43,18 @@ namespace Inta.Kurumsal.Admin.Controllers
             return null;
         }
 
-        public IActionResult File(int Id, int width)
+        public IActionResult File(int Id)
         {
             int height = 0;
             var uploadData = fileUploadManager.Get(v => v.Id == Id);
             if (uploadData.Data != null)
             {
-                if (width > uploadData.Data.Width)
-                {
-                    width = uploadData.Data.Width ?? 0;
-                }
-                height = width * (uploadData.Data.Height ?? 0) / (uploadData.Data.Width ?? 0);
                 var bayt = Convert.FromBase64String(uploadData.Data.FileBase64Data);
 
                 MemoryStream stream = new MemoryStream(bayt);
 
-                var image = Bitmap.FromStream(stream);
+                return File(stream.ToArray(), uploadData.Data.ContentType);
 
-                using (var bit = new Bitmap(image, new Size { Width = width, Height = height }))
-                {
-                    stream = new MemoryStream();
-                    bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-
-                    return File(stream.ToArray(), uploadData.Data.ContentType);
-                }
-
-                return File(bayt, uploadData.Data.ContentType);
             }
             return null;
         }
