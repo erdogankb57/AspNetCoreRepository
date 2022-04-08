@@ -11,11 +11,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class RecordFileController : BaseController
     {
         private ContentFileManager manager = null;
+        private FileUploadManager fileUploadManager = null;
         private static int ContentId = 0;
 
         public RecordFileController()
         {
             manager = new ContentFileManager();
+            fileUploadManager = new FileUploadManager();
         }
 
         public ActionResult Index(int? Id)
@@ -52,8 +54,20 @@ namespace Inta.Kurumsal.Admin.Controllers
             RecordFile contentFile = null;
             foreach (var item in file)
             {
-                var fileName = FileManager.FileUpload(item);
-                contentFile = new RecordFile { RecordId = ContentId, Name = "", FileName = fileName, RecordDate = DateTime.Now, OrderNumber = 0 };
+                var fileResult = FileManager.FileBase64Upload(item);
+
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = fileResult.FileBase64Data,
+                    Extension = fileResult.Extension,
+                    RecordDate = DateTime.Now,
+                    ContentType = fileResult.ContentType,
+                    FileName = fileResult.FileName
+                };
+
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+
+                contentFile = new RecordFile { RecordId = ContentId, Name = "", FileId = fileUploadEntity.Data.Id, RecordDate = DateTime.Now, OrderNumber = 0 };
 
                 var result = manager.Save(contentFile);
                 resultData.Add(result.Data);
@@ -97,7 +111,20 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (FileName != null)
             {
-                request.FileName = FileManager.FileUpload(FileName);
+
+                var fileResult = FileManager.FileBase64Upload(FileName);
+
+                FileUpload fileUpload = new FileUpload
+                {
+                    FileBase64Data = fileResult.FileBase64Data,
+                    Extension = fileResult.Extension,
+                    RecordDate = DateTime.Now,
+                    ContentType = fileResult.ContentType,
+                    FileName = fileResult.FileName
+                };
+
+                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                request.FileId = fileUploadEntity.Data.Id;
             }
 
             if (request.Id == 0)

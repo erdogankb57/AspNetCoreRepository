@@ -8,11 +8,9 @@ namespace Inta.Framework.Extension.Model
 {
     public class FileUploadDataModel
     {
-        public string FileType { get; set; }
+        public string Extension { get; set; }
         public string FileName { get; set; }
         public string FileBase64Data { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
-
+        public string ContentType { get; set; }
     }
 }

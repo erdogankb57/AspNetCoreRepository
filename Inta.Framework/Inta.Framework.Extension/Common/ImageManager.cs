@@ -9,8 +9,11 @@ namespace Inta.Framework.Extension.Common
 {
     public class ImageManager
     {
+
         public static string ImageUploadDoubleCopy(IFormFile ImageFile, int SmallImageWidth, int BigImageWidth)
         {
+            StringManager stringManager = new StringManager();
+
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
@@ -24,7 +27,7 @@ namespace Inta.Framework.Extension.Common
 
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
-            random = TextUrlCharReplace(random);
+            random = stringManager.TextUrlCharReplace(random);
 
             if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
             {
@@ -74,6 +77,7 @@ namespace Inta.Framework.Extension.Common
         }
         public static string ImageUploadSingleCopy(IFormFile ImageFile, int ImageWidth)
         {
+            StringManager stringManager = new StringManager();
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
@@ -84,7 +88,7 @@ namespace Inta.Framework.Extension.Common
 
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
-            random = TextUrlCharReplace(random);
+            random = stringManager.TextUrlCharReplace(random);
 
             if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
             {
@@ -122,6 +126,7 @@ namespace Inta.Framework.Extension.Common
 
         public static string ImageUploadSingleCopy(IFormFile ImageFile)
         {
+            StringManager stringManager = new StringManager();
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
@@ -131,7 +136,7 @@ namespace Inta.Framework.Extension.Common
             string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
-            random = TextUrlCharReplace(random);
+            random = stringManager.TextUrlCharReplace(random);
 
             if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
             {
@@ -173,70 +178,41 @@ namespace Inta.Framework.Extension.Common
             return bmPhoto;
         }
 
-        private static string TextUrlCharReplace(string str)
-        {
-            if (str != null)
-            {
-                str = str.Trim();
-                string gvCopy = str.ToLowerInvariant().Trim();
-                string[,] arr = new string[,]
-                {
-                { ".", "-" },{ "_", "-" },{ ",", "-" },{ "'", "-" },{ ":", "" },{ "%27", "" },{ "?", "" },{ "*", "" },{ "&#199;", "o" },{ "&#246;", "o" },{ "&#214;", "o" },{ "&#252;", "u" },{ "&#220;", "u" },{ "&#231;", "c" },{ "&#174;", "®" },{ "&amp;", "-" },{ "&nbsp;", "-" },{ " ", "_" },{ ";", "-" },{ "%20", "-" },{ "/", "-" },{ ".", "" },{ "ç", "c" },{ "Ç", "c" },{ "ğ", "g" },{ "Ğ", "g" },{ "İ", "i" },{ "I", "i" },{ "ı", "i" },{ "ö", "o" },{ "Ö", "o" },{ "ş", "s" },{ "Ş", "s" },{ "ü", "u" },{ "Ü", "u" },{ ".", "" },{ "’", "" },{ "'", "" },{ "(", "-" },{ ")", "-" },{ "/", "-" },{ "<", "-" },{ ">", "-" },{ "\"", "-" },{ "\\", "-" },{ "{", "-" },{ "}", "-" },{ "%", "-" },{ "&", "-" },{ "+", "-" },{ "//", "-" },{ "--", "-" },{ "³", "-" },{ "²", "2" },{ "“", null },{ "”", null },{ "’", null },{ "”", null },{ "&", "-" },{ "[^\\w]", "-" },{ "----", "-" },{ "---", "-" },{ "--", "-" },{ "[", "-" },{ "]", "-" },{ "½", "-" },{ "^", "-" },{ "~", "-" },{ "|", "-" },{ "*", "-" },{ "#", "-" },{ "%", "-" },{ "union", "" },{ "select", "" },{ "update", "" },{ "insert", "" },{ "delete", "" },{ "drop", "" },{ "into", "" },{ "where", "" },{ "order", "" },{ "chr", "" },{ "isnull", "" },{ "xtype", "" },{ "sysobject", "" },{ "syscolumns", "" },{ "convert", "" },{ "db_name", "" },{ "@@", "-" },{ "@var", "-" },{ "declare", "" },{ "execute", "" },{ "having", "" },{ "1=1", "-" },{ "exec", "" },{ "cmdshell", "" },{ "master", "" },{ "cmd", "-" },{ "xp_", "-" },{ "--", "-" }
-                };
-                int abc = -1;
-                for (int i = 0; i < arr.Length / 2; i++)
-                {
-                    abc = gvCopy.IndexOf(arr[i, 0]);
-                    if (abc > -1)
-                    {
-                    bastan:
-                        str = str.Substring(0, abc) + arr[i, 1] + str.Substring(abc + arr[i, 0].Length, str.Length - abc - arr[i, 0].Length);
-                        gvCopy = gvCopy.Substring(0, abc) + arr[i, 1] + gvCopy.Substring(abc + arr[i, 0].Length, gvCopy.Length - abc - arr[i, 0].Length);
-                        abc = gvCopy.IndexOf(arr[i, 0]);
-                        if (abc > -1) goto bastan;
-                    }
-                }
-            }
-            return str.ToLowerInvariant().Trim();
-        }
-
         /*Base64 Formatında Resim Yükleme*/
-        public static FileUploadDataModel ImageBase64Upload(IFormFile ImageFile)
+        public static ImageUploadDataModel ImageBase64Upload(IFormFile ImageFile)
         {
-            FileUploadDataModel result = new FileUploadDataModel();
+            ImageUploadDataModel result = null;
+            StringManager stringManager = new StringManager();
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
 
-
-
             string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
 
-
-
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
-            random = TextUrlCharReplace(random);
+            random = stringManager.TextUrlCharReplace(random);
 
-            if ((extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png") && (ImageFile.FileName.ToLower().IndexOf(";") == -1))
+            if (extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png")
             {
-                if (extension == ".jpg" | extension == ".jpeg" | extension == ".gif" | extension == ".png")
+
+                using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
                 {
-
-                    using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
-                    {
-                        ImageFile.CopyTo(stream);
-                    }
-
-                    byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
-                    //System.Drawing.Image imgPhotoVert = System.Drawing.Image.FromFile(imageFilePath + random + extension);
-                    var bmp = Bitmap.FromFile(imageFilePath + random + extension);
-
-                    result.FileBase64Data = Convert.ToBase64String(bytes);
-                    result.FileType = extension;
-                    result.Width = bmp.Width;
-                    result.Height = bmp.Height;
+                    ImageFile.CopyTo(stream);
                 }
+
+                byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
+                var bmp = Bitmap.FromFile(imageFilePath + random + extension);
+
+                result = new ImageUploadDataModel
+                {
+                    FileBase64Data = Convert.ToBase64String(bytes),
+                    Extension = extension,
+                    Width = bmp.Width,
+                    Height = bmp.Height,
+                    FileName = random,
+                    ContentType = ImageFile.ContentType
+                };
             }
 
             return result;

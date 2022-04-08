@@ -38,6 +38,8 @@ namespace Inta.Kurumsal.Entity.Concrete
 		public string? TargetId { get; set; }
 		[Column("HomePageStatus")]
 		public bool HomePageStatus { get; set; }
+		[Column("FileId")]
+		public int? FileId { get; set; }
 		[Column("OrderNumber")]
 		public int? OrderNumber { get; set; }
 		[Column("RecordDate")]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Inta.Framework.Extension.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Configuration;
 
@@ -25,6 +26,42 @@ namespace Inta.Framework.Extension.Common
             }
 
             return random + extension;
+        }
+
+        public static FileUploadDataModel FileBase64Upload(IFormFile ImageFile)
+        {
+            FileUploadDataModel result = null;
+            StringManager stringManager = new StringManager();
+            string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
+
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
+
+            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
+
+            string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
+            random = stringManager.TextUrlCharReplace(random);
+
+            if (extension != ".exe" || extension != ".dll")
+            {
+
+                using (var stream = new FileStream(imageFilePath + random + extension, FileMode.Create))
+                {
+                    ImageFile.CopyTo(stream);
+                }
+
+                byte[] bytes = System.IO.File.ReadAllBytes(imageFilePath + random + extension);
+
+                result = new FileUploadDataModel
+                {
+                    FileBase64Data = Convert.ToBase64String(bytes),
+                    Extension = extension,
+                    FileName = random,
+                    ContentType = ImageFile.ContentType
+                };
+            }
+
+            return result;
         }
     }
 }

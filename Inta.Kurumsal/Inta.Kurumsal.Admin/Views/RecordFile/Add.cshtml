@@ -65,22 +65,21 @@
                 </div>
             </div>
 
-            @if (!string.IsNullOrEmpty(Model.FileName))
+            @if (Model.FileId != null)
             {
 
                 <div class="form-group">
                     <div class="row" id="filePanel">
 
                         <div class="col-lg-3">
-
                         </div>
                         <div class="col-lg-3">
-                            <div >
-                                <a id="FileLink" href="@(Model.FileName)" target="_blank">Dosyayı görmek için tıklayınız</a>
+                            <div>
+                                <a id="FileLink" href="@(Model.FileId)" target="_blank">Dosyayı görmek için tıklayınız</a>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <button type="button" id="deleteFile" class="btn btn-standart" >Dosyayı sil</button>
+                            <button type="button" id="deleteFile" class="btn btn-standart">Dosyayı sil</button>
                         </div>
                     </div>
                 </div>

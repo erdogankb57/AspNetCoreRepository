@@ -42,10 +42,12 @@ namespace Inta.Kurumsal.Admin.Controllers
                 FileUpload fileUpload = new FileUpload
                 {
                     FileBase64Data = imageResult.FileBase64Data,
-                    FileType = imageResult.FileType,
+                    Extension = imageResult.Extension,
                     RecordDate = DateTime.Now,
                     Width = imageResult.Width,
-                    Height = imageResult.Height
+                    Height = imageResult.Height,
+                    ContentType = imageResult.ContentType,
+                    FileName = imageResult.FileName
                 };
 
                 var fileUploadEntity = fileUploadManager.Save(fileUpload);
