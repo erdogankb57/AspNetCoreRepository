@@ -127,6 +127,12 @@
 
 
     <script>
+        $(function(){
+            if(window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != ""){
+                $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);$("#imagePreview").show();
+            }
+
+        });
         var returnData = function () {
             var src = $("#imagePreview").attr("src");
             if (src != undefined && src != null) {

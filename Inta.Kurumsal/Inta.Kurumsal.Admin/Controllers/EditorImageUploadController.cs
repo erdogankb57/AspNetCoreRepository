@@ -21,10 +21,10 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult GetImageList()
         {
-            var result = fileUploadManager.Find()?.Data.OrderByDescending(o=>o.Id).Select(s => new
+            var result = fileUploadManager.Find()?.Data.OrderByDescending(o => o.Id).Select(s => new
             {
                 Name = s.Id + "-" + s.FileName,
-                FullName = $"/file/image/{s.Id}/{s.Width}/{s.Id}.jpg"
+                FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
             });
 
             return Json(result);

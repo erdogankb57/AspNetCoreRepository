@@ -213,6 +213,13 @@ namespace Inta.Framework.Extension.Common
                     FileName = random,
                     ContentType = ImageFile.ContentType
                 };
+
+                bmp.Dispose();
+            }
+
+            if (File.Exists(imageFilePath + random + extension))
+            {
+                File.Delete(imageFilePath + random + extension);
             }
 
             return result;

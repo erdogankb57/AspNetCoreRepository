@@ -82,7 +82,7 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/ImageUpload'
+        filebrowserImageBrowseUrl: '/EditorImageUpload'
     });
 
     var shortExplanationEditor = CKEDITOR.instances['ShortExplanation'];
@@ -91,7 +91,7 @@ var htmlEditorLoad = function () {
         enterMode: CKEDITOR.ENTER_BR,
         height: 250,
         filebrowserImageUploadUrl: '/Contents',//for uploading image
-        filebrowserImageBrowseUrl: '/ImageUpload'
+        filebrowserImageBrowseUrl: '/EditorImageUpload'
 
     });
 }
