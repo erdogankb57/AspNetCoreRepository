@@ -62,7 +62,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Extension = fileResult.Extension,
                     RecordDate = DateTime.Now,
                     ContentType = fileResult.ContentType,
-                    FileName = fileResult.FileName
+                    FileName = fileResult.FileName,
+                    IsImage = false
                 };
 
                 var fileUploadEntity = fileUploadManager.Save(fileUpload);
@@ -120,7 +121,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Extension = fileResult.Extension,
                     RecordDate = DateTime.Now,
                     ContentType = fileResult.ContentType,
-                    FileName = fileResult.FileName
+                    FileName = fileResult.FileName,
+                    IsImage = false
                 };
 
                 var fileUploadEntity = fileUploadManager.Save(fileUpload);

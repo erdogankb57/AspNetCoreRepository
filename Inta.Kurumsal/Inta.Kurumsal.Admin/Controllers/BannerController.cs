@@ -90,12 +90,6 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<Banner> data = null;
             if (FileImage != null)
             {
-                int imageSmallWidth = 100;
-                int imageBigWidth = 500;
-
-                //string filepath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-                string filepath = "";
-
                 var bannerType = bannerTypeManager.GetById(request.BannerTypeId ?? 0);
                 if (bannerType != null && bannerType.Data != null)
                 {
@@ -110,7 +104,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                         Width = imageResult.Width,
                         Height = imageResult.Height,
                         ContentType = imageResult.ContentType,
-                        FileName = imageResult.FileName
+                        FileName = imageResult.FileName,
+                        IsImage = true
                     };
 
                     var fileUploadEntity = fileUploadManager.Save(fileUpload);

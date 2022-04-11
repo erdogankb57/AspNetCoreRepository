@@ -185,7 +185,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Width = imageResult.Width,
                     Height = imageResult.Height,
                     ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName
+                    FileName = imageResult.FileName,
+                    IsImage = true
                 };
 
                 var fileUploadEntity = fileUploadManager.Save(fileUpload);

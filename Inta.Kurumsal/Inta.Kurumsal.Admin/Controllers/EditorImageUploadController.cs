@@ -21,7 +21,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult GetImageList()
         {
-            var result = fileUploadManager.Find()?.Data.OrderByDescending(o => o.Id).Select(s => new
+            var result = fileUploadManager.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
             {
                 Name = s.Id + "-" + s.FileName,
                 FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
@@ -47,7 +47,8 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Width = imageResult.Width,
                     Height = imageResult.Height,
                     ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName
+                    FileName = imageResult.FileName,
+                    IsImage = true
                 };
 
                 var fileUploadEntity = fileUploadManager.Save(fileUpload);
