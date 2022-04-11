@@ -127,22 +127,23 @@
 
 
     <script>
-        $(function(){
-            if(window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != ""){
-                $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);$("#imagePreview").show();
-            }
-
-        });
-        var returnData = function () {
-            var src = $("#imagePreview").attr("src");
-            if (src != undefined && src != null) {
-                window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
-            } else {
-                showAlert(".popupMessage", "Lütfen resim seçiniz!", "error");
+            $(function(){
+            if (window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != "") {
+                $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);
+                $("#imagePreview").show();
 
             }
+            });
+            var returnData = function () {
+                var src = $("#imagePreview").attr("src");
+                if (src != undefined && src != null) {
+                    window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
+                } else {
+                    showAlert(".popupMessage", "Lütfen resim seçiniz!", "error");
 
-        };
+                }
+
+            };
     </script>
     <script src="@Url.Content("~/js/controller/editorimageupload.js")"></script>
     <script src="@Url.Content("~/js/perfect-scrollbar.v0.5.2.js")"></script>

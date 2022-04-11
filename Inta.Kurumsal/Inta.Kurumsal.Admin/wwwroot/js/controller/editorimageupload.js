@@ -9,13 +9,18 @@
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    console.log(data[i].Name);
-                    $("#fileList").append("<option value='" + data[i].FullName + "'>" + data[i].Name + "</option>");
+                    if (data[i].FullName == window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src.split(window.origin)[1]) {
+                        $("#fileList").append("<option value='" + data[i].FullName + "' selected>" + data[i].Name + "  </option>");
+                    } else {
+                        $("#fileList").append("<option value='" + data[i].FullName + "'>" + data[i].Name + "</option>");
+                    }
+                    
                 }
             }, error: function (data) {
 
             }
         });
+
     }
     ListImageLoad();
 
