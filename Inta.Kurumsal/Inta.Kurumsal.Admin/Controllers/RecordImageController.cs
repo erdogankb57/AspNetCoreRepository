@@ -69,7 +69,9 @@ namespace Inta.Kurumsal.Admin.Controllers
                         Extension = imageResult.Extension,
                         RecordDate = DateTime.Now,
                         Width = imageResult.Width,
-                        Height = imageResult.Height
+                        Height = imageResult.Height,
+                        ContentType = imageResult.ContentType,
+                        FileName = imageResult.FileName
                     };
 
                     var fileUploadEntity = fileUploadManager.Save(fileUpload);

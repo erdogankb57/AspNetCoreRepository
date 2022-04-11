@@ -122,6 +122,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.LanguageId = ViewBag.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
+                request.OrderNumber = 0;
 
                 data = manager.Save(request);
             }

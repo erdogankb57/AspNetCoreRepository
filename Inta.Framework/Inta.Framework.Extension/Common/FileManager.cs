@@ -61,6 +61,11 @@ namespace Inta.Framework.Extension.Common
                 };
             }
 
+            if (File.Exists(imageFilePath + random + extension))
+            {
+                File.Delete(imageFilePath + random + extension);
+            }
+
             return result;
         }
     }
