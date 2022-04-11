@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gwpE+/NKB9i5n7R7QRrWc7XpBVr26ZgbLQUv7D07BTs=",
+  "Hash": "hU7ZEgwUYKyntt0ixxOq/h1ZIfW9rcXNZFMmJyrTSNk=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7070,23 +7070,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\validation.js"
-    },
-    {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\excel-test-632a583a-5a03-404a-a281-488aa6cb42bd.xlsx",
-      "SourceId": "Inta.Kurumsal.Admin",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
-      "BasePath": "_content/Inta.Kurumsal.Admin",
-      "RelativePath": "Uploads/excel-test-632a583a-5a03-404a-a281-488aa6cb42bd.xlsx",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\excel-test-632a583a-5a03-404a-a281-488aa6cb42bd.xlsx"
     }
   ]
 }
