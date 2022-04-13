@@ -1,4 +1,4 @@
-﻿namespace Inta.Kurumsal.Entity.Concrete
+﻿namespace Inta.Kurumsal.Dto.Concrete
 {
     public class RecordFileDto 
 	{

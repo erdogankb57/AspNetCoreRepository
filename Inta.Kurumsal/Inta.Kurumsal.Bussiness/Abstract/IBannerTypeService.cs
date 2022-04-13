@@ -1,10 +1,6 @@
-﻿using Inta.Kurumsal.Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Inta.Kurumsal.Dto.Concrete;
+using Inta.Kurumsal.Entity.Concrete;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
@@ -12,5 +8,8 @@ namespace Inta.Kurumsal.Bussiness.Abstract
     {
         BannerTypeDto GetById(int id);
         List<BannerTypeDto> Find(Expression<Func<BannerType, bool>> filter = null);
+        BannerTypeDto Save(BannerDto dto);
+        BannerTypeDto Delete(BannerDto dto);
+
     }
 }
