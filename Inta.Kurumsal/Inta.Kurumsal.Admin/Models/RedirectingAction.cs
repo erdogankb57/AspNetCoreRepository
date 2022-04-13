@@ -42,7 +42,7 @@ namespace Inta.Kurumsal.Admin.Models
 
                     var activeRoleAction = _userManager.GetActiveRole(user.Data.SystemRoleId);
                     //Yapılan istek ajax isteği değilse yetkilendirme kontrolü yapılır.
-                    if (context.HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest" && (activeRoleAction.Data == null || !activeRoleAction.Data.Any(v=> v.ControllerName == controller.ControllerContext.ActionDescriptor.ControllerName && v.ActionName == controller.ControllerContext.ActionDescriptor.ActionName)))
+                    if (!user.Data.IsAdmin && context.HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest" && (activeRoleAction.Data == null || !activeRoleAction.Data.Any(v=> v.ControllerName == controller.ControllerContext.ActionDescriptor.ControllerName && v.ActionName == controller.ControllerContext.ActionDescriptor.ActionName)))
                     {
                         context.Result = new RedirectResult("/NoAuthorization");
                         return;

@@ -1,10 +1,11 @@
-﻿using Inta.Kurumsal.Admin.Models;
+﻿using Inta.Framework.Extension.Serializer;
+using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.ViewComponents
 {
-    public class SystemMenuComponent:ViewComponent
+    public class SystemMenuComponent : ViewComponent
     {
         private SystemMenuManager systemMenu { get; set; }
         private SystemUserManager userManager = null;
@@ -27,8 +28,14 @@ namespace Inta.Kurumsal.Admin.ViewComponents
         public List<SystemMenuModel> GetMenu()
         {
             //int userId = Convert.ToInt32(ViewBag.SystemUserId);
-            int userId = 1;
-            var user = userManager.Find(v => v.Id == userId).Data.FirstOrDefault();
+            JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
+            var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
+
+            string userName = string.Empty;
+            if (data != null)
+                userName = data["userName"].ToString();
+            
+            var user = userManager.Find(v => v.UserName == userName).Data.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)
             {
