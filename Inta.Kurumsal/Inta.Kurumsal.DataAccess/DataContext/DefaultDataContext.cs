@@ -62,7 +62,7 @@ namespace Inta.Kurumsal.DataAccess.DataContext
 
         public DbSet<MessageHistory> MessageHistorys { get; set; }
 
-        public DbSet<SystemAction> SystemMenuActions { get; set; }
+        public DbSet<SystemAction> SystemActions { get; set; }
 
         public DbSet<Banner> Banners { get; set; }
 

@@ -40,12 +40,21 @@ namespace Inta.Kurumsal.Admin.Models
                     if (userRole.Data != null)
                         controller.ViewBag.RoleName = userRole.Data.Name;
 
-                    base.OnActionExecuting(context);
-                    return;
+                    var activeRoleAction = _userManager.GetActiveRole(user.Data.SystemRoleId);
+                    //Yapılan istek ajax isteği değilse yetkilendirme kontrolü yapılır.
+                    if (context.HttpContext.Request.Headers["x-requested-with"] != "XMLHttpRequest" && (activeRoleAction.Data == null || !activeRoleAction.Data.Any(v=> v.ControllerName == controller.ControllerContext.ActionDescriptor.ControllerName && v.ActionName == controller.ControllerContext.ActionDescriptor.ActionName)))
+                    {
+                        context.Result = new RedirectResult("/NoAuthorization");
+                        return;
+                    }
+
                 }
             }
+            else
+            {
+                context.Result = new RedirectResult("/Login");
+            }
 
-            context.Result = new RedirectResult("/Login");
 
             base.OnActionExecuting(context);
         }
