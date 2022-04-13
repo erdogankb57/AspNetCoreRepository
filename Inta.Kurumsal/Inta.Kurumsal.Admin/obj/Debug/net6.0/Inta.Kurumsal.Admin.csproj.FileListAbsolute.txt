@@ -148,3 +148,9 @@ C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\In
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\ref\Inta.Kurumsal.Admin.dll
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.pdb
 C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\Inta.Kurumsal.Admin.genruntimeconfig.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\Inta.Kurumsal.Bussiness.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\Inta.Kurumsal.Dto.pdb

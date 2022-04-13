@@ -1,4 +1,6 @@
 ﻿using Inta.Framework.Extension.Serializer;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Service;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +10,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class LoginController : Controller
     {
         private SystemUserManager userManager = null;
+
         public LoginController()
         {
             userManager = new SystemUserManager();

@@ -1,5 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Service;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +14,13 @@ namespace Inta.Kurumsal.Admin.Controllers
         private BannerTypeManager manager = null;
         private BannerManager bannerManager = null;
 
-
-        public BannerTypeController()
+        private IBannerTypeService _bannerTypeService = null;
+        public BannerTypeController(IBannerTypeService bannerTypeService)
         {
             manager = new BannerTypeManager();
             bannerManager = new BannerManager();
+
+            _bannerTypeService = bannerTypeService;
         }
         public ActionResult Index()
         {

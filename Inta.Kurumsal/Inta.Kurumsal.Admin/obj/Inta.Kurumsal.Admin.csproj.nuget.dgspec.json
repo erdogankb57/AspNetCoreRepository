@@ -268,6 +268,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj": {
+                "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj"
+              },
               "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj": {
                 "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj"
               },
@@ -287,6 +290,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -306,6 +313,79 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj",
+        "projectName": "Inta.Kurumsal.Bussiness",
+        "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj",
+        "packagesPath": "C:\\Users\\e.kaba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\e.kaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj"
+              },
+              "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\Inta.Kurumsal.Dto.csproj": {
+                "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\Inta.Kurumsal.Dto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -376,6 +456,66 @@
               "version": "[6.0.1, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\Inta.Kurumsal.Dto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\Inta.Kurumsal.Dto.csproj",
+        "projectName": "Inta.Kurumsal.Dto",
+        "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\Inta.Kurumsal.Dto.csproj",
+        "packagesPath": "C:\\Users\\e.kaba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Dto\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\e.kaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",

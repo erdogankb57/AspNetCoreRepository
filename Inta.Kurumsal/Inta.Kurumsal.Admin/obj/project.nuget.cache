@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MM5cDARf5xRt0xjJTHKjHUNPSOenWaX5KqNNktU8qdu4eRyzXkWN+/JSgPpX1zrdaIvz4UgsxUiYkXMZkUDPIg==",
+  "dgSpecHash": "Y1q1PZp1awISGiY72ypjhaRVs5Nk6CVhiUI5GKf90RAZV8zJuX1M3O8C5P6uecpemKLLI4vq9z1wTnDC9myrkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\e.kaba\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\e.kaba\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.hosting\\2.2.7\\microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
@@ -12,7 +14,7 @@
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.13\\microsoft.aspnetcore.http.features.5.0.13.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
-    "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\e.kaba\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",

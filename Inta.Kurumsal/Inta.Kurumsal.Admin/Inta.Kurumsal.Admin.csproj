@@ -14,10 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Inta.Kurumsal.Bussiness\Inta.Kurumsal.Bussiness.csproj" />
     <ProjectReference Include="..\Inta.Kurumsal.DataAccess\Inta.Kurumsal.DataAccess.csproj" />
     <ProjectReference Include="..\Inta.Kurumsal.Entity\Inta.Kurumsal.Entity.csproj" />
   

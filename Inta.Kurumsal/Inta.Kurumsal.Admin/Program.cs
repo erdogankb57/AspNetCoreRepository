@@ -1,3 +1,6 @@
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,7 +14,9 @@ builder.Services.AddMvc(setupAction =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddTransient<IBannerTypeService, BannerTypeService>();
 builder.Services.AddSession();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
