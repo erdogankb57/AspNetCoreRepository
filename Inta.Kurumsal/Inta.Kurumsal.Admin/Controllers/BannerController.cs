@@ -1,7 +1,9 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,14 +13,14 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class BannerController : BaseController
     {
-        private BannerManager bannerManager = null;
-        private BannerTypeManager bannerTypeManager = null;
-        private FileUploadManager fileUploadManager = null;
-        public BannerController()
+        private IBannerService _bannerService = null;
+        private IBannerTypeService _bannerTypeService = null;
+        private IFileUploadService _fileUploadService = null;
+        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IFileUploadService fileUploadService)
         {
-            bannerManager = new BannerManager();
-            bannerTypeManager = new BannerTypeManager();
-            fileUploadManager = new FileUploadManager();
+            _bannerService = bannerService;
+            _bannerTypeService = bannerTypeService;
+            _fileUploadService = fileUploadService;
         }
         public ActionResult Index()
         {
@@ -26,23 +28,23 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult GetById(int? id)
         {
-            DataResult<Banner> banner = new DataResult<Banner>();
+            DataResult<BannerDto> banner = new DataResult<BannerDto>();
             if (id.HasValue)
-                banner = bannerManager.GetById(id.Value);
+                banner = _bannerService.GetById(id.Value);
 
             return Json(banner);
         }
 
         public ActionResult Add(int? id)
         {
-            Banner banner = new Banner();
-            var bannerTypes = bannerTypeManager.Find();
+            BannerDto banner = new BannerDto();
+            var bannerTypes = _bannerTypeService.Find();
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(bannerTypes.Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.bannerTypes = list;
             if (id.HasValue)
-                banner = bannerManager.GetById(id ?? 0).Data;
+                banner = _bannerService.GetById(id ?? 0).Data;
 
             return PartialView("Add", banner);
         }
@@ -50,7 +52,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetList(DataTableAjaxPostModel request)
         {
-            var result = bannerManager.Find().Data;
+            var result = _bannerService.Find().Data;
             List<Banner> banner = new List<Banner>();
             if (request.order[0].dir == "asc")
             {
@@ -85,18 +87,18 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Banner request, IFormFile FileImage)
+        public ActionResult Save(BannerDto request, IFormFile FileImage)
         {
-            DataResult<Banner> data = null;
+            DataResult<BannerDto> data = null;
             if (FileImage != null)
             {
-                var bannerType = bannerTypeManager.GetById(request.BannerTypeId ?? 0);
+                var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
                 if (bannerType != null && bannerType.Data != null)
                 {
                     request.Image = "";
                     var imageResult = ImageManager.ImageBase64Upload(FileImage);
 
-                    FileUpload fileUpload = new FileUpload
+                    FileUploadDto fileUpload = new FileUploadDto
                     {
                         FileBase64Data = imageResult.FileBase64Data,
                         Extension = imageResult.Extension,
@@ -108,7 +110,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                         IsImage = true
                     };
 
-                    var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                    var fileUploadEntity = _fileUploadService.Save(fileUpload);
                     request.ImageId = fileUploadEntity.Data.Id;
                 }
 
@@ -119,15 +121,15 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.LanguageId = ViewBag.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
-                data = bannerManager.Save(request);
+                data = _bannerService.Save(request);
             }
             else
             {
-                var entity = bannerManager.GetById(request.Id);
+                var entity = _bannerService.GetById(request.Id);
                 if (FileImage == null)
                     request.Image = entity.Data.Image;
 
-                data = bannerManager.Update(request);
+                data = _bannerService.Update(request);
             }
 
             return Json(data);
@@ -140,23 +142,23 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    Banner banner = bannerManager.GetById(Convert.ToInt32(item)).Data;
-                    bannerManager.Delete(banner);
+                    BannerDto banner = _bannerService.GetById(Convert.ToInt32(item)).Data;
+                    _bannerService.Delete(banner);
                 }
             }
 
             return Json("OK");
         }
         [HttpPost]
-        public ActionResult ListUpdate([FromBody] List<Banner> listData)
+        public ActionResult ListUpdate([FromBody] List<BannerDto> listData)
         {
             foreach (var item in listData)
             {
-                var banner = bannerManager.GetById(item.Id).Data;
+                var banner = _bannerService.GetById(item.Id).Data;
                 if (banner != null)
                 {
                     banner.OrderNumber = item.OrderNumber;
-                    bannerManager.Update(banner);
+                    _bannerService.Update(banner);
 
                 }
             }
@@ -165,9 +167,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult DeleteImage(int id)
         {
-            Banner banner = bannerManager.GetById(id).Data;
+            BannerDto banner = _bannerService.GetById(id).Data;
             banner.ImageId = null;
-            bannerManager.Update(banner);
+            _bannerService.Update(banner);
 
             return Json("OK");
 
