@@ -4,28 +4,33 @@ using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Inta.Kurumsal.Bussiness.Service
 {
-    public class BannerTypeService : IBannerTypeService
+    public class BannerService : IBannerService
     {
         private IMapper _mapper = null;
-        private BannerTypeManager manager = null;
-        public BannerTypeService(IMapper mapper)
+        private BannerManager manager = null;
+        public BannerService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new BannerTypeManager();
+            manager = new BannerManager();
         }
 
-        public DataResult<BannerTypeDto> Delete(BannerTypeDto dto)
+        public DataResult<BannerDto> Delete(BannerDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
-            var entity = _mapper.Map<BannerType>(dto);
+            DataResult<BannerDto> result = null;
+            var entity = _mapper.Map<Banner>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<BannerTypeDto>
+            result = new DataResult<BannerDto>
             {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
+                Data = _mapper.Map<BannerDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -33,12 +38,12 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<BannerTypeDto>> Find(Expression<Func<BannerType, bool>> filter = null)
+        public DataResult<List<BannerDto>> Find(Expression<Func<Banner, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<BannerTypeDto>> result = new DataResult<List<BannerTypeDto>>
+            DataResult<List<BannerDto>> result = new DataResult<List<BannerDto>>
             {
-                Data = _mapper.Map<List<BannerTypeDto>>(data.Data),
+                Data = _mapper.Map<List<BannerDto>>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -47,12 +52,12 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerTypeDto> GetById(int id)
+        public DataResult<BannerDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<BannerTypeDto> result = new DataResult<BannerTypeDto>
+            DataResult<BannerDto> result = new DataResult<BannerDto>
             {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
+                Data = _mapper.Map<BannerDto>(data.Data),
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType,
                 ErrorMessage = data.ErrorMessage
@@ -60,14 +65,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerTypeDto> Save(BannerTypeDto dto)
+        public DataResult<BannerDto> Save(BannerDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
-            var entity = _mapper.Map<BannerType>(dto);
+            DataResult<BannerDto> result = null;
+            var entity = _mapper.Map<Banner>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<BannerTypeDto>
+            result = new DataResult<BannerDto>
             {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
+                Data = _mapper.Map<BannerDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -75,14 +80,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerTypeDto> Update(BannerTypeDto dto)
+        public DataResult<BannerDto> Update(BannerDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
-            var entity = _mapper.Map<BannerType>(dto);
+            DataResult<BannerDto> result = null;
+            var entity = _mapper.Map<Banner>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<BannerTypeDto>
+            result = new DataResult<BannerDto>
             {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
+                Data = _mapper.Map<BannerDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType

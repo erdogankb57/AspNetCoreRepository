@@ -15,6 +15,7 @@ builder.Services.AddMvc(setupAction =>
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddTransient<IBannerTypeService, BannerTypeService>();
+builder.Services.AddTransient<IBannerService, BannerService>();
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

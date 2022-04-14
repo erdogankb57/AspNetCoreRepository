@@ -3,6 +3,7 @@ using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Bussiness.Service;
 using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,16 +12,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class BannerTypeController : BaseController
     {
-        private BannerTypeManager manager = null;
-        private BannerManager bannerManager = null;
-
         private IBannerTypeService _bannerTypeService = null;
-        public BannerTypeController(IBannerTypeService bannerTypeService)
-        {
-            manager = new BannerTypeManager();
-            bannerManager = new BannerManager();
+        private IBannerService _bannerService = null;
 
+        public BannerTypeController(IBannerTypeService bannerTypeService, IBannerService bannerService)
+        {
             _bannerTypeService = bannerTypeService;
+            _bannerService = bannerService;
         }
         public ActionResult Index()
         {
@@ -28,10 +26,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            BannerType banner = new BannerType();
+            BannerTypeDto banner = new BannerTypeDto();
 
             if (id.HasValue)
-                banner = manager.GetById(id ?? 0).Data;
+                banner = _bannerTypeService.GetById(id ?? 0).Data;
 
             return PartialView("Add", banner);
         }
@@ -40,7 +38,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _bannerTypeService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -66,20 +64,20 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(BannerType request)
+        public ActionResult Save(BannerTypeDto request)
         {
-            DataResult<BannerType> data = null;
+           DataResult<BannerTypeDto> data = null;
 
             if (request.Id == 0)
             {
                 request.LanguageId = ViewBag.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
-                data = manager.Save(request);
+                data = _bannerTypeService.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _bannerTypeService.Update(request);
             }
 
             return Json(data);
@@ -92,17 +90,17 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    BannerType bannerType = manager.GetById(Convert.ToInt32(item)).Data;
+                    BannerTypeDto bannerType = _bannerTypeService.GetById(Convert.ToInt32(item)).Data;
 
-                    var bannerList = bannerManager.Find(v => v.BannerTypeId == bannerType.Id);
+                    var bannerList = _bannerService.Find(v => v.BannerTypeId == bannerType.Id).Data;
 
-                    if (bannerList.Data != null)
+                    if (bannerList != null)
                     {
-                        foreach (var banner in bannerList?.Data?.ToList())
-                            bannerManager.Delete(banner);
+                        foreach (var banner in bannerList?.ToList())
+                            _bannerService.Delete(banner);
                     }
 
-                    manager.Delete(bannerType);
+                    _bannerTypeService.Delete(bannerType);
 
                 }
             }
