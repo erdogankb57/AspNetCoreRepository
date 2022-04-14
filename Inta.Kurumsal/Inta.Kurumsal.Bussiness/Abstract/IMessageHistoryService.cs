@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<MessageHistoryDto> Save(MessageHistoryDto dto);
         DataResult<MessageHistoryDto> Update(MessageHistoryDto dto);
         DataResult<MessageHistoryDto> Delete(MessageHistoryDto dto);
+        DataResult<MessageHistoryDto> Get(Expression<Func<MessageHistory, bool>> filter = null);
+
     }
 }

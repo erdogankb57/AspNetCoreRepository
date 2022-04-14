@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<GeneralSettingsDto> GetById(int id)
         {
             var data = manager.GetById(id);

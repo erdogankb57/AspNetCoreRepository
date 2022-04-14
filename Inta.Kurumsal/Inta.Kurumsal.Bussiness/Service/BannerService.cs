@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<BannerDto> Get(Expression<Func<Banner, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<BannerDto> GetById(int id)
         {
             var data = manager.GetById(id);

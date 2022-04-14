@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<SEOIndexDto> Get(Expression<Func<SEOIndex, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<SEOIndexDto> GetById(int id)
         {
             var data = manager.GetById(id);

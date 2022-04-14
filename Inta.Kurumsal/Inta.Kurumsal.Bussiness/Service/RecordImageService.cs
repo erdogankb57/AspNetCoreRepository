@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<RecordImageDto> Get(Expression<Func<RecordImage, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<RecordImageDto> GetById(int id)
         {
             var data = manager.GetById(id);

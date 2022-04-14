@@ -89,5 +89,19 @@ namespace Inta.Kurumsal.Bussiness.Service
             };
             return result;
         }
+
+        public DataResult<SystemRoleDto> Get(Expression<Func<SystemRole, bool>> filter = null)
+        {
+            var data = manager.Get(filter);
+            DataResult<SystemRoleDto> result = new DataResult<SystemRoleDto>
+            {
+                Data = _mapper.Map<SystemRoleDto>(data.Data),
+                ErrorMessage = data.ErrorMessage,
+                ResultMessage = data.ResultMessage,
+                ResultType = data.ResultType
+            };
+
+            return result;
+        }
     }
 }

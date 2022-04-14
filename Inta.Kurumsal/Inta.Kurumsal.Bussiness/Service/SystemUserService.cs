@@ -4,7 +4,6 @@ using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Service
@@ -88,6 +87,34 @@ namespace Inta.Kurumsal.Bussiness.Service
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
             };
+            return result;
+        }
+
+        public DataResult<SystemUserDto> Get(Expression<Func<SystemUser, bool>> filter = null)
+        {
+            var data = manager.Get(filter);
+            DataResult<SystemUserDto> result = new DataResult<SystemUserDto>
+            {
+                Data = _mapper.Map<SystemUserDto>(data.Data),
+                ErrorMessage = data.ErrorMessage,
+                ResultMessage = data.ResultMessage,
+                ResultType = data.ResultType
+            };
+
+            return result;
+        }
+
+        public DataResult<List<SystemActionDto>> GetActiveRole(int systemRoleId)
+        {
+            var data = manager.GetActiveRole(systemRoleId);
+            DataResult<List<SystemActionDto>> result = new DataResult<List<SystemActionDto>>
+            {
+                Data = _mapper.Map<List<SystemActionDto>>(data.Data),
+                ErrorMessage = data.ErrorMessage,
+                ResultMessage = data.ResultMessage,
+                ResultType = data.ResultType
+            };
+
             return result;
         }
     }

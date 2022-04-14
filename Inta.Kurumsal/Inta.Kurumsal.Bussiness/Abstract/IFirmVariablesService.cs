@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<FirmVariablesDto> Save(FirmVariablesDto dto);
         DataResult<FirmVariablesDto> Update(FirmVariablesDto dto);
         DataResult<FirmVariablesDto> Delete(FirmVariablesDto dto);
+        DataResult<FirmVariablesDto> Get(Expression<Func<FirmVariables, bool>> filter = null);
+
     }
 }

@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<EditorTemplateDto> Save(EditorTemplateDto dto);
         DataResult<EditorTemplateDto> Update(EditorTemplateDto dto);
         DataResult<EditorTemplateDto> Delete(EditorTemplateDto dto);
+        DataResult<EditorTemplateDto> Get(Expression<Func<EditorTemplate, bool>> filter = null);
+
     }
 }

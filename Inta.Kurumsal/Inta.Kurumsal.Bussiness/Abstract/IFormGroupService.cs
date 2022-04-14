@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<FormGroupDto> Save(FormGroupDto dto);
         DataResult<FormGroupDto> Update(FormGroupDto dto);
         DataResult<FormGroupDto> Delete(FormGroupDto dto);
+        DataResult<FormGroupDto> Get(Expression<Func<FormGroup, bool>> filter = null);
+
     }
 }

@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<RecordFileDto> Save(RecordFileDto dto);
         DataResult<RecordFileDto> Update(RecordFileDto dto);
         DataResult<RecordFileDto> Delete(RecordFileDto dto);
+        DataResult<RecordFileDto> Get(Expression<Func<RecordFile, bool>> filter = null);
+
     }
 }

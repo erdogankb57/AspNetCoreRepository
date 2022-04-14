@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<FileUploadDto> Save(FileUploadDto dto);
         DataResult<FileUploadDto> Update(FileUploadDto dto);
         DataResult<FileUploadDto> Delete(FileUploadDto dto);
+        DataResult<FileUploadDto> Get(Expression<Func<FileUpload, bool>> filter = null);
+
     }
 }

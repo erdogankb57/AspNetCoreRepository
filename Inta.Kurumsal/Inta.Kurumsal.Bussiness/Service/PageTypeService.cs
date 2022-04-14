@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<PageTypeDto> Get(Expression<Func<PageType, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<PageTypeDto> GetById(int id)
         {
             var data = manager.GetById(id);

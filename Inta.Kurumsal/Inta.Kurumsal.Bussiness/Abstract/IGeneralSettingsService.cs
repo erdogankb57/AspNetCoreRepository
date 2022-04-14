@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<GeneralSettingsDto> Save(GeneralSettingsDto dto);
         DataResult<GeneralSettingsDto> Update(GeneralSettingsDto dto);
         DataResult<GeneralSettingsDto> Delete(GeneralSettingsDto dto);
+        DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>> filter = null);
+
     }
 }

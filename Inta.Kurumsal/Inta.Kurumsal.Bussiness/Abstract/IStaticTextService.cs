@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<StaticTextDto> Save(StaticTextDto dto);
         DataResult<StaticTextDto> Update(StaticTextDto dto);
         DataResult<StaticTextDto> Delete(StaticTextDto dto);
+        DataResult<StaticTextDto> Get(Expression<Func<StaticText, bool>> filter = null);
+
     }
 }

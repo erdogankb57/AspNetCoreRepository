@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<FormElementOptionsDto> Save(FormElementOptionsDto dto);
         DataResult<FormElementOptionsDto> Update(FormElementOptionsDto dto);
         DataResult<FormElementOptionsDto> Delete(FormElementOptionsDto dto);
+        DataResult<FormElementOptionsDto> Get(Expression<Func<FormElementOptions, bool>> filter = null);
+
     }
 }

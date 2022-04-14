@@ -13,5 +13,6 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<SystemRoleDto> Save(SystemRoleDto dto);
         DataResult<SystemRoleDto> Update(SystemRoleDto dto);
         DataResult<SystemRoleDto> Delete(SystemRoleDto dto);
+        DataResult<SystemRoleDto> Get(Expression<Func<SystemRole, bool>> filter = null);
     }
 }

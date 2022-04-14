@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<StaticTextDto> Get(Expression<Func<StaticText, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<StaticTextDto> GetById(int id)
         {
             var data = manager.GetById(id);

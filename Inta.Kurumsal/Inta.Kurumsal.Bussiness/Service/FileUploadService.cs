@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<FileUploadDto> Get(Expression<Func<FileUpload, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<FileUploadDto> GetById(int id)
         {
             var data = manager.GetById(id);

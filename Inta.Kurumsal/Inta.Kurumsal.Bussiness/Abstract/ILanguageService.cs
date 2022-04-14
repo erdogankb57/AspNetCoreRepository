@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<LanguageDto> Save(LanguageDto dto);
         DataResult<LanguageDto> Update(LanguageDto dto);
         DataResult<LanguageDto> Delete(LanguageDto dto);
+        DataResult<LanguageDto> Get(Expression<Func<Language, bool>> filter = null);
+
     }
 }

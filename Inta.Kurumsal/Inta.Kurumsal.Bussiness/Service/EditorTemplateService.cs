@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<EditorTemplateDto> Get(Expression<Func<EditorTemplate, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<EditorTemplateDto> GetById(int id)
         {
             var data = manager.GetById(id);

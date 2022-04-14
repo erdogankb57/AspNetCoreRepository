@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<ContactInformationDto> Save(ContactInformationDto dto);
         DataResult<ContactInformationDto> Update(ContactInformationDto dto);
         DataResult<ContactInformationDto> Delete(ContactInformationDto dto);
+        DataResult<ContactInformationDto> Get(Expression<Func<ContactInformation, bool>> filter = null);
+
     }
 }

@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<SystemMenuDto> Get(Expression<Func<SystemMenu, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<SystemMenuDto> GetById(int id)
         {
             var data = manager.GetById(id);

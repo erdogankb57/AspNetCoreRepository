@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<MessageHistoryDto> Get(Expression<Func<MessageHistory, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<MessageHistoryDto> GetById(int id)
         {
             var data = manager.GetById(id);

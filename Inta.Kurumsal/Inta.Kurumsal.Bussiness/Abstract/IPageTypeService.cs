@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<PageTypeDto> Save(PageTypeDto dto);
         DataResult<PageTypeDto> Update(PageTypeDto dto);
         DataResult<PageTypeDto> Delete(PageTypeDto dto);
+        DataResult<PageTypeDto> Get(Expression<Func<PageType, bool>> filter = null);
+
     }
 }

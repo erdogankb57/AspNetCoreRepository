@@ -47,6 +47,11 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public DataResult<LanguageDto> Get(Expression<Func<Language, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataResult<LanguageDto> GetById(int id)
         {
             var data = manager.GetById(id);

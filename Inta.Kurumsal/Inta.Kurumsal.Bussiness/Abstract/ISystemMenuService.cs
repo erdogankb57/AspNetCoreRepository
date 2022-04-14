@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<SystemMenuDto> Save(SystemMenuDto dto);
         DataResult<SystemMenuDto> Update(SystemMenuDto dto);
         DataResult<SystemMenuDto> Delete(SystemMenuDto dto);
+        DataResult<SystemMenuDto> Get(Expression<Func<SystemMenu, bool>> filter = null);
+
     }
 }

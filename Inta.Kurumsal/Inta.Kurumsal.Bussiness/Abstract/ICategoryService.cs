@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<CategoryDto> Save(CategoryDto dto);
         DataResult<CategoryDto> Update(CategoryDto dto);
         DataResult<CategoryDto> Delete(CategoryDto dto);
+        DataResult<CategoryDto> Get(Expression<Func<Category, bool>> filter = null);
+
     }
 }

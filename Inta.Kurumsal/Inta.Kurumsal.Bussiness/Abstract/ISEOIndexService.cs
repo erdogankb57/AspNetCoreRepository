@@ -12,5 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<SEOIndexDto> Save(SEOIndexDto dto);
         DataResult<SEOIndexDto> Update(SEOIndexDto dto);
         DataResult<SEOIndexDto> Delete(SEOIndexDto dto);
+        DataResult<SEOIndexDto> Get(Expression<Func<SEOIndex, bool>> filter = null);
+
     }
 }

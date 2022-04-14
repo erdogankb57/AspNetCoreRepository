@@ -12,6 +12,8 @@ namespace Inta.Kurumsal.Bussiness.Abstract
         DataResult<BannerTypeDto> Save(BannerTypeDto dto);
         DataResult<BannerTypeDto> Update(BannerTypeDto dto);
         DataResult<BannerTypeDto> Delete(BannerTypeDto dto);
+        DataResult<BannerTypeDto> Get(Expression<Func<BannerType, bool>> filter = null);
+
 
     }
 }
