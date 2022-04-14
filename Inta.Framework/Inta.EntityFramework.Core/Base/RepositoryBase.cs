@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace Inta.EntityFramework.Core.Base
 {
-    public class RepositoryBase<TEntity, TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
+    public class RepositoryBase<TEntity, TContext>:IRepositoryBase<TEntity,TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
     {
         public DataResult<TEntity> Delete(TEntity Entity)
         {
@@ -22,13 +22,13 @@ namespace Inta.EntityFramework.Core.Base
                     deletedEntity.State = EntityState.Deleted;
                     context.SaveChanges();
                     
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                     result.Data = Entity;
                 }
                 catch (Exception ex)
                 {
                     result.Data = default(TEntity);
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
 
                     LogManager.InsertLog(ex, this.GetType().Name + " base repository delete", Entity);
 
@@ -46,11 +46,11 @@ namespace Inta.EntityFramework.Core.Base
                 try
                 {
                     result.Data = context.Set<TEntity>().SingleOrDefault(filter);
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
                     result.Data = default(TEntity);
                     result.ErrorMessage = ex.ToString();
 
@@ -70,12 +70,12 @@ namespace Inta.EntityFramework.Core.Base
                 try
                 {
                     result.Data = context.Set<TEntity>().SingleOrDefault(s => s.Id == id);
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = default(TEntity);
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
 
                     LogManager.InsertLog(ex, this.GetType().Name + " base repository getById");
@@ -97,12 +97,12 @@ namespace Inta.EntityFramework.Core.Base
                         result.Data = context.Set<TEntity>().ToList();
                     else
                         result.Data = context.Set<TEntity>().Where(filter).ToList();
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = default(IList<TEntity>);
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
 
                     LogManager.InsertLog(ex, this.GetType().Name + " base repository find", filter);
@@ -124,12 +124,12 @@ namespace Inta.EntityFramework.Core.Base
                     context.SaveChanges();
 
                     result.Data = Entity;
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = default(TEntity);
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
 
                     LogManager.InsertLog(ex, this.GetType().Name + " base repository save", Entity);
@@ -152,12 +152,12 @@ namespace Inta.EntityFramework.Core.Base
                     context.SaveChanges();
 
                     result.Data = Entity;
-                    result.ResultType = MessageType.Success;
+                    result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = default(TEntity);
-                    result.ResultType = MessageType.Error;
+                    result.ResultType = MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
 
                     LogManager.InsertLog(ex, this.GetType().Name + " base repository update", Entity);

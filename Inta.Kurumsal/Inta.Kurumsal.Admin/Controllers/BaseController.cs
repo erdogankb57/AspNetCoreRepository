@@ -30,7 +30,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             var activeMenu = _systemMenuManager.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
 
-            if (activeMenu.ResultType == EntityFramework.Core.Model.MessageType.Success && activeMenu.Data != null)
+            if (activeMenu.ResultType == EntityFramework.Core.Model.MessageTypeResult.Success && activeMenu.Data != null)
             {
                 ViewBag.ActiveMenuId = _systemMenuManager.TopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
 

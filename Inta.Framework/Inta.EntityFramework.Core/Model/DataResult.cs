@@ -5,10 +5,10 @@
         public T Data { get; set; }
         public string ErrorMessage { get; set; }
         public string ResultMessage { get; set; }
-        public MessageType ResultType { get; set; }
+        public MessageTypeResult ResultType { get; set; }
     }
 
-    public enum MessageType
+    public enum MessageTypeResult
     {
         Success = 0,
         Error = 1,

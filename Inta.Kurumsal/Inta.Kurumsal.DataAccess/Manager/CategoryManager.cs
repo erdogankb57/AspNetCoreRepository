@@ -23,12 +23,12 @@ namespace Inta.Kurumsal.DataAccess.Manager
                 {
                     result.Data = context.Set<CategoryModel>()
                         .FromSqlRaw<CategoryModel>("select  * from Category").ToList();
-                    result.ResultType = Inta.EntityFramework.Core.Model.MessageType.Success;
+                    result.ResultType = Inta.EntityFramework.Core.Model.MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
                     result.Data = new List<CategoryModel>();
-                    result.ResultType = Inta.EntityFramework.Core.Model.MessageType.Error;
+                    result.ResultType = Inta.EntityFramework.Core.Model.MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
                 }
             }

@@ -85,7 +85,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
             data.Data = resultData;
-            data.ResultType = EntityFramework.Core.Model.MessageType.Success;
+            data.ResultType = EntityFramework.Core.Model.MessageTypeResult.Success;
             return Json(data);
         }
 

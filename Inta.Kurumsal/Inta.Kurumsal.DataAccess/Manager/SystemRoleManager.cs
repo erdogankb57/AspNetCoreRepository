@@ -26,12 +26,12 @@ namespace Inta.Kurumsal.DataAccess.Manager
 
 
                     result.Data = context.Set<SystemAction>().FromSqlRaw<SystemAction>("select ac.* from SystemUser su inner join [SystemRole] sr on su.SystemRoleId = sr.Id inner join [SystemActionRole] ar on ar.SystemRoleId = sr.Id inner join [SystemAction] ac on ac.Id = ar.SystemActionId where su.UserName=@userName", parameters).ToList();
-                    result.ResultType = EntityFramework.Core.Model.MessageType.Success;
+                    result.ResultType = EntityFramework.Core.Model.MessageTypeResult.Success;
                 }
                 catch (SqlException ex)
                 {
                     result.Data = new List<SystemAction>();
-                    result.ResultType = EntityFramework.Core.Model.MessageType.Error;
+                    result.ResultType = EntityFramework.Core.Model.MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
                 }
             }
