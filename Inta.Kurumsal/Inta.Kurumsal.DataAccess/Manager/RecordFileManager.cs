@@ -4,9 +4,9 @@ using Inta.Kurumsal.Entity.Concrete;
 
 namespace Inta.Kurumsal.DataAccess.Manager
 {
-    public class ContentFileManager : RepositoryBase<RecordFile, DefaultDataContext>
+    public class RecordFileManager : RepositoryBase<RecordFile, DefaultDataContext>
     {
-        public ContentFileManager()
+        public RecordFileManager()
         {
 
         }

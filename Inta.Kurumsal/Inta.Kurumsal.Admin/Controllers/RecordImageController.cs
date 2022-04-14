@@ -10,13 +10,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordImageController : BaseController
     {
-        private ContentImageManager manager = null;
+        private RecordImageManager manager = null;
         private static int ContentId = 0;
         private GeneralSettingsManager settingsManager = null;
         private FileUploadManager fileUploadManager = null;
         public RecordImageController()
         {
-            manager = new ContentImageManager();
+            manager = new RecordImageManager();
             settingsManager = new GeneralSettingsManager();
             fileUploadManager = new FileUploadManager();
         }

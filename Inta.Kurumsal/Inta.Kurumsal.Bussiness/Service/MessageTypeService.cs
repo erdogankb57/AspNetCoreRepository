@@ -4,16 +4,11 @@ using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Inta.Kurumsal.Bussiness.Service
 {
-     public class MessageTypeService : IMessageTypeService
+    public class MessageTypeService : IMessageTypeService
     {
         private IMapper _mapper = null;
         private MessageTypeManager manager = null;

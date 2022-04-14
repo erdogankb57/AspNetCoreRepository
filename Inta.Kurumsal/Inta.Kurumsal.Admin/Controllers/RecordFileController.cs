@@ -10,13 +10,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordFileController : BaseController
     {
-        private ContentFileManager manager = null;
+        private RecordFileManager manager = null;
         private FileUploadManager fileUploadManager = null;
         private static int ContentId = 0;
 
         public RecordFileController()
         {
-            manager = new ContentFileManager();
+            manager = new RecordFileManager();
             fileUploadManager = new FileUploadManager();
         }
 

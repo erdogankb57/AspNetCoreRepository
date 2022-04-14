@@ -8,24 +8,24 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Service
 {
-    public class FirmVariablesService: IFirmVariablesService
+    public class RecordImageService : IRecordImageService
     {
         private IMapper _mapper = null;
-        private FirmVariablesManager manager = null;
-        public FirmVariablesService(IMapper mapper)
+        private RecordImageManager manager = null;
+        public RecordImageService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new FirmVariablesManager();
+            manager = new RecordImageManager();
         }
 
-        public DataResult<FirmVariablesDto> Delete(FirmVariablesDto dto)
+        public DataResult<RecordImageDto> Delete(RecordImageDto dto)
         {
-            DataResult<FirmVariablesDto> result = null;
-            var entity = _mapper.Map<FirmVariables>(dto);
+            DataResult<RecordImageDto> result = null;
+            var entity = _mapper.Map<RecordImage>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<FirmVariablesDto>
+            result = new DataResult<RecordImageDto>
             {
-                Data = _mapper.Map<FirmVariablesDto>(data.Data),
+                Data = _mapper.Map<RecordImageDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -33,12 +33,12 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<FirmVariablesDto>> Find(Expression<Func<FirmVariables, bool>> filter = null)
+        public DataResult<List<RecordImageDto>> Find(Expression<Func<RecordImage, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<FirmVariablesDto>> result = new DataResult<List<FirmVariablesDto>>
+            DataResult<List<RecordImageDto>> result = new DataResult<List<RecordImageDto>>
             {
-                Data = _mapper.Map<List<FirmVariablesDto>>(data.Data),
+                Data = _mapper.Map<List<RecordImageDto>>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -47,12 +47,12 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<FirmVariablesDto> GetById(int id)
+        public DataResult<RecordImageDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<FirmVariablesDto> result = new DataResult<FirmVariablesDto>
+            DataResult<RecordImageDto> result = new DataResult<RecordImageDto>
             {
-                Data = _mapper.Map<FirmVariablesDto>(data.Data),
+                Data = _mapper.Map<RecordImageDto>(data.Data),
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType,
                 ErrorMessage = data.ErrorMessage
@@ -60,14 +60,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<FirmVariablesDto> Save(FirmVariablesDto dto)
+        public DataResult<RecordImageDto> Save(RecordImageDto dto)
         {
-            DataResult<FirmVariablesDto> result = null;
-            var entity = _mapper.Map<FirmVariables>(dto);
+            DataResult<RecordImageDto> result = null;
+            var entity = _mapper.Map<RecordImage>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<FirmVariablesDto>
+            result = new DataResult<RecordImageDto>
             {
-                Data = _mapper.Map<FirmVariablesDto>(data.Data),
+                Data = _mapper.Map<RecordImageDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
@@ -75,14 +75,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<FirmVariablesDto> Update(FirmVariablesDto dto)
+        public DataResult<RecordImageDto> Update(RecordImageDto dto)
         {
-            DataResult<FirmVariablesDto> result = null;
-            var entity = _mapper.Map<FirmVariables>(dto);
+            DataResult<RecordImageDto> result = null;
+            var entity = _mapper.Map<RecordImage>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<FirmVariablesDto>
+            result = new DataResult<RecordImageDto>
             {
-                Data = _mapper.Map<FirmVariablesDto>(data.Data),
+                Data = _mapper.Map<RecordImageDto>(data.Data),
                 ErrorMessage = data.ErrorMessage,
                 ResultMessage = data.ResultMessage,
                 ResultType = data.ResultType
