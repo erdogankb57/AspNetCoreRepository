@@ -20,78 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<BannerTypeDto> Delete(BannerTypeDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
             var entity = _mapper.Map<BannerType>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<BannerTypeDto>
-            {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<BannerTypeDto>>(data);
             return result;
         }
 
         public DataResult<List<BannerTypeDto>> Find(Expression<Func<BannerType, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<BannerTypeDto>> result = new DataResult<List<BannerTypeDto>>
-            {
-                Data = _mapper.Map<List<BannerTypeDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            DataResult<List<BannerTypeDto>> result = _mapper.Map<DataResult<List<BannerTypeDto>>>(data);
             return result;
         }
 
         public DataResult<BannerTypeDto> Get(Expression<Func<BannerType, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            DataResult<BannerTypeDto> result = _mapper.Map<DataResult<BannerTypeDto>>(data);
+            return result;
         }
 
         public DataResult<BannerTypeDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<BannerTypeDto> result = new DataResult<BannerTypeDto>
-            {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            DataResult<BannerTypeDto> result = _mapper.Map<DataResult<BannerTypeDto>>(data);
             return result;
         }
 
         public DataResult<BannerTypeDto> Save(BannerTypeDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
             var entity = _mapper.Map<BannerType>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<BannerTypeDto>
-            {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<BannerTypeDto>>(data);
             return result;
         }
 
         public DataResult<BannerTypeDto> Update(BannerTypeDto dto)
         {
-            DataResult<BannerTypeDto> result = null;
             var entity = _mapper.Map<BannerType>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<BannerTypeDto>
-            {
-                Data = _mapper.Map<BannerTypeDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<BannerTypeDto>>(data);
             return result;
         }
     }
