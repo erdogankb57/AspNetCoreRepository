@@ -1,5 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Serializer;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Service;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -11,28 +13,29 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        private SystemMenuManager _systemMenuManager = null;
-        private SystemUserManager _userManager = null;
-        private SystemRoleManager _systemRoleManager = null;
+        private ISystemMenuService _systemMenuService = null;
+        private ISystemUserService _userService = null;
+        private ISystemRoleService _systemRoleService = null;
 
         public BaseController()
         {
-            _systemMenuManager = new SystemMenuManager();
-            _userManager = new SystemUserManager();
-            _systemRoleManager = new SystemRoleManager();
 
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            _systemMenuService = filterContext.HttpContext.RequestServices.GetService<ISystemMenuService>();
+            _userService = filterContext.HttpContext.RequestServices.GetService<ISystemUserService>();
+            _systemRoleService = filterContext.HttpContext.RequestServices.GetService<ISystemRoleService>();
+
             var descriptor = ((ControllerActionDescriptor)filterContext.ActionDescriptor);
             string actionName = descriptor.ActionName;
             string controllerName = descriptor.ControllerName;
 
-            var activeMenu = _systemMenuManager.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
+            var activeMenu = _systemMenuService.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
 
             if (activeMenu.ResultType == EntityFramework.Core.Model.MessageTypeResult.Success && activeMenu.Data != null)
             {
-                ViewBag.ActiveMenuId = _systemMenuManager.TopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
+                ViewBag.ActiveMenuId = _systemMenuService.TopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
 
                 ViewBag.ActiveMenuAd = activeMenu.Data?.FirstOrDefault()?.Name ?? "";
 

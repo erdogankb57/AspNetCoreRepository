@@ -200,8 +200,8 @@ namespace Inta.Kurumsal.Bussiness.Mapping
 
             CreateMap<DataResult<SystemAction>, DataResult<SystemActionDto>>();
             CreateMap<DataResult<SystemActionDto>, DataResult<SystemAction>>();
-            CreateMap<DataResult<IList<SystemAction>>, DataResult<List<SystemActionDto>>>();
-            CreateMap<DataResult<List<SystemActionDto>>, DataResult<IList<SystemAction>>>();
+            CreateMap<DataResult<List<SystemAction>>, DataResult<List<SystemActionDto>>>();
+            CreateMap<DataResult<List<SystemActionDto>>, DataResult<List<SystemAction>>>();
 
             CreateMap<DataResult<SystemActionRole>, DataResult<SystemActionRoleDto>>();
             CreateMap<DataResult<SystemActionRoleDto>, DataResult<SystemActionRole>>();
