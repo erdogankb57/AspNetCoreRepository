@@ -20,78 +20,48 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<RecordDto> Delete(RecordDto dto)
         {
-            DataResult<RecordDto> result = null;
             var entity = _mapper.Map<Record>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<RecordDto>
-            {
-                Data = _mapper.Map<RecordDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }
 
         public DataResult<List<RecordDto>> Find(Expression<Func<Record, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<RecordDto>> result = new DataResult<List<RecordDto>>
-            {
-                Data = _mapper.Map<List<RecordDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<List<RecordDto>>>(data);
 
             return result;
         }
 
         public DataResult<RecordDto> Get(Expression<Func<Record, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<RecordDto>>(data);
+
+            return result;
         }
 
         public DataResult<RecordDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<RecordDto> result = new DataResult<RecordDto>
-            {
-                Data = _mapper.Map<RecordDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }
 
         public DataResult<RecordDto> Save(RecordDto dto)
         {
-            DataResult<RecordDto> result = null;
             var entity = _mapper.Map<Record>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<RecordDto>
-            {
-                Data = _mapper.Map<RecordDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }
 
         public DataResult<RecordDto> Update(RecordDto dto)
         {
-            DataResult<RecordDto> result = null;
             var entity = _mapper.Map<Record>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<RecordDto>
-            {
-                Data = _mapper.Map<RecordDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }
     }

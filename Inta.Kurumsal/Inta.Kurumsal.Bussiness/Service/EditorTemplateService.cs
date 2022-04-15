@@ -20,78 +20,48 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<EditorTemplateDto> Delete(EditorTemplateDto dto)
         {
-            DataResult<EditorTemplateDto> result = null;
             var entity = _mapper.Map<EditorTemplate>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<EditorTemplateDto>
-            {
-                Data = _mapper.Map<EditorTemplateDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);
             return result;
         }
 
         public DataResult<List<EditorTemplateDto>> Find(Expression<Func<EditorTemplate, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<EditorTemplateDto>> result = new DataResult<List<EditorTemplateDto>>
-            {
-                Data = _mapper.Map<List<EditorTemplateDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<List<EditorTemplateDto>>>(data);
 
             return result;
         }
 
         public DataResult<EditorTemplateDto> Get(Expression<Func<EditorTemplate, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);
+
+            return result;
         }
 
         public DataResult<EditorTemplateDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<EditorTemplateDto> result = new DataResult<EditorTemplateDto>
-            {
-                Data = _mapper.Map<EditorTemplateDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);
             return result;
         }
 
         public DataResult<EditorTemplateDto> Save(EditorTemplateDto dto)
         {
-            DataResult<EditorTemplateDto> result = null;
             var entity = _mapper.Map<EditorTemplate>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<EditorTemplateDto>
-            {
-                Data = _mapper.Map<EditorTemplateDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);
             return result;
         }
 
         public DataResult<EditorTemplateDto> Update(EditorTemplateDto dto)
         {
-            DataResult<EditorTemplateDto> result = null;
             var entity = _mapper.Map<EditorTemplate>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<EditorTemplateDto>
-            {
-                Data = _mapper.Map<EditorTemplateDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);
             return result;
         }
     }

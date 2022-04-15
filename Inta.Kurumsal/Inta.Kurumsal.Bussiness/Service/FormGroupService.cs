@@ -20,78 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<FormGroupDto> Delete(FormGroupDto dto)
         {
-            DataResult<FormGroupDto> result = null;
             var entity = _mapper.Map<FormGroup>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<FormGroupDto>
-            {
-                Data = _mapper.Map<FormGroupDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormGroupDto>>(data);
             return result;
         }
 
         public DataResult<List<FormGroupDto>> Find(Expression<Func<FormGroup, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<FormGroupDto>> result = new DataResult<List<FormGroupDto>>
-            {
-                Data = _mapper.Map<List<FormGroupDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            var result = _mapper.Map<DataResult<List<FormGroupDto>>>(data);
             return result;
         }
 
         public DataResult<FormGroupDto> Get(Expression<Func<FormGroup, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<FormGroupDto>>(data);
+            return result;
         }
 
         public DataResult<FormGroupDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<FormGroupDto> result = new DataResult<FormGroupDto>
-            {
-                Data = _mapper.Map<FormGroupDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<FormGroupDto>>(data);
             return result;
         }
 
         public DataResult<FormGroupDto> Save(FormGroupDto dto)
         {
-            DataResult<FormGroupDto> result = null;
             var entity = _mapper.Map<FormGroup>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<FormGroupDto>
-            {
-                Data = _mapper.Map<FormGroupDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormGroupDto>>(data);
             return result;
         }
 
         public DataResult<FormGroupDto> Update(FormGroupDto dto)
         {
-            DataResult<FormGroupDto> result = null;
             var entity = _mapper.Map<FormGroup>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<FormGroupDto>
-            {
-                Data = _mapper.Map<FormGroupDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormGroupDto>>(data);
             return result;
         }
     }

@@ -20,78 +20,48 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<RecordFileDto> Delete(RecordFileDto dto)
         {
-            DataResult<RecordFileDto> result = null;
             var entity = _mapper.Map<RecordFile>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<RecordFileDto>
-            {
-                Data = _mapper.Map<RecordFileDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordFileDto>>(data);
             return result;
         }
 
         public DataResult<List<RecordFileDto>> Find(Expression<Func<RecordFile, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<RecordFileDto>> result = new DataResult<List<RecordFileDto>>
-            {
-                Data = _mapper.Map<List<RecordFileDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<List<RecordFileDto>>>(data);
 
             return result;
         }
 
         public DataResult<RecordFileDto> Get(Expression<Func<RecordFile, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Find(filter);
+            var result = _mapper.Map<DataResult<RecordFileDto>>(data);
+
+            return result;
         }
 
         public DataResult<RecordFileDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<RecordFileDto> result = new DataResult<RecordFileDto>
-            {
-                Data = _mapper.Map<RecordFileDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<RecordFileDto>>(data);
             return result;
         }
 
         public DataResult<RecordFileDto> Save(RecordFileDto dto)
         {
-            DataResult<RecordFileDto> result = null;
             var entity = _mapper.Map<RecordFile>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<RecordFileDto>
-            {
-                Data = _mapper.Map<RecordFileDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordFileDto>>(data);
             return result;
         }
 
         public DataResult<RecordFileDto> Update(RecordFileDto dto)
         {
-            DataResult<RecordFileDto> result = null;
             var entity = _mapper.Map<RecordFile>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<RecordFileDto>
-            {
-                Data = _mapper.Map<RecordFileDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<RecordFileDto>>(data);
             return result;
         }
     }

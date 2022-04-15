@@ -20,86 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<SystemRoleDto> Delete(SystemRoleDto dto)
         {
-            DataResult<SystemRoleDto> result = null;
             var entity = _mapper.Map<SystemRole>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<SystemRoleDto>
-            {
-                Data = _mapper.Map<SystemRoleDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }
 
         public DataResult<List<SystemRoleDto>> Find(Expression<Func<SystemRole, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<SystemRoleDto>> result = new DataResult<List<SystemRoleDto>>
-            {
-                Data = _mapper.Map<List<SystemRoleDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            var result = _mapper.Map<DataResult<List<SystemRoleDto>>>(data);
             return result;
         }
 
         public DataResult<SystemRoleDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<SystemRoleDto> result = new DataResult<SystemRoleDto>
-            {
-                Data = _mapper.Map<SystemRoleDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }
 
         public DataResult<SystemRoleDto> Save(SystemRoleDto dto)
         {
-            DataResult<SystemRoleDto> result = null;
             var entity = _mapper.Map<SystemRole>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<SystemRoleDto>
-            {
-                Data = _mapper.Map<SystemRoleDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }
 
         public DataResult<SystemRoleDto> Update(SystemRoleDto dto)
         {
-            DataResult<SystemRoleDto> result = null;
             var entity = _mapper.Map<SystemRole>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<SystemRoleDto>
-            {
-                Data = _mapper.Map<SystemRoleDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }
 
         public DataResult<SystemRoleDto> Get(Expression<Func<SystemRole, bool>> filter = null)
         {
             var data = manager.Get(filter);
-            DataResult<SystemRoleDto> result = new DataResult<SystemRoleDto>
-            {
-                Data = _mapper.Map<SystemRoleDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
 
             return result;
         }

@@ -20,78 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<FileUploadDto> Delete(FileUploadDto dto)
         {
-            DataResult<FileUploadDto> result = null;
             var entity = _mapper.Map<FileUpload>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<FileUploadDto>
-            {
-                Data = _mapper.Map<FileUploadDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FileUploadDto>>(data);
             return result;
         }
 
         public DataResult<List<FileUploadDto>> Find(Expression<Func<FileUpload, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<FileUploadDto>> result = new DataResult<List<FileUploadDto>>
-            {
-                Data = _mapper.Map<List<FileUploadDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            var result = _mapper.Map<DataResult<List<FileUploadDto>>>(data);
             return result;
         }
 
         public DataResult<FileUploadDto> Get(Expression<Func<FileUpload, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Find(filter);
+            var result = _mapper.Map<DataResult<FileUploadDto>>(data);
+            return result;
         }
 
         public DataResult<FileUploadDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<FileUploadDto> result = new DataResult<FileUploadDto>
-            {
-                Data = _mapper.Map<FileUploadDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<FileUploadDto>>(data);
             return result;
         }
 
         public DataResult<FileUploadDto> Save(FileUploadDto dto)
         {
-            DataResult<FileUploadDto> result = null;
             var entity = _mapper.Map<FileUpload>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<FileUploadDto>
-            {
-                Data = _mapper.Map<FileUploadDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FileUploadDto>>(data);
             return result;
         }
 
         public DataResult<FileUploadDto> Update(FileUploadDto dto)
         {
-            DataResult<FileUploadDto> result = null;
             var entity = _mapper.Map<FileUpload>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<FileUploadDto>
-            {
-                Data = _mapper.Map<FileUploadDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FileUploadDto>>(data);
             return result;
         }
     }

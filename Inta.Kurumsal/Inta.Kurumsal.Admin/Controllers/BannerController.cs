@@ -53,7 +53,6 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult GetList(DataTableAjaxPostModel request)
         {
             var result = _bannerService.Find().Data;
-            List<Banner> banner = new List<Banner>();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -167,7 +166,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult DeleteImage(int id)
         {
-            BannerDto banner = _bannerService.GetById(id).Data;
+            var banner = _bannerService.GetById(id).Data;
             banner.ImageId = null;
             _bannerService.Update(banner);
 

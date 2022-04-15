@@ -20,78 +20,47 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<ContactInformationDto> Delete(ContactInformationDto dto)
         {
-            DataResult<ContactInformationDto> result = null;
             var entity = _mapper.Map<ContactInformation>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<ContactInformationDto>
-            {
-                Data = _mapper.Map<ContactInformationDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<ContactInformationDto>>(data);
             return result;
         }
 
         public DataResult<List<ContactInformationDto>> Find(Expression<Func<ContactInformation, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<ContactInformationDto>> result = new DataResult<List<ContactInformationDto>>
-            {
-                Data = _mapper.Map<List<ContactInformationDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<List<ContactInformationDto>>>(data);
 
             return result;
         }
 
         public DataResult<ContactInformationDto> Get(Expression<Func<ContactInformation, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<ContactInformationDto>>(data);
+            return result;
         }
 
         public DataResult<ContactInformationDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<ContactInformationDto> result = new DataResult<ContactInformationDto>
-            {
-                Data = _mapper.Map<ContactInformationDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<ContactInformationDto>>(data);
             return result;
         }
 
         public DataResult<ContactInformationDto> Save(ContactInformationDto dto)
         {
-            DataResult<ContactInformationDto> result = null;
             var entity = _mapper.Map<ContactInformation>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<ContactInformationDto>
-            {
-                Data = _mapper.Map<ContactInformationDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<ContactInformationDto>>(data);
             return result;
         }
 
         public DataResult<ContactInformationDto> Update(ContactInformationDto dto)
         {
-            DataResult<ContactInformationDto> result = null;
             var entity = _mapper.Map<ContactInformation>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<ContactInformationDto>
-            {
-                Data = _mapper.Map<ContactInformationDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<ContactInformationDto>>(data);
             return result;
         }
     }

@@ -20,78 +20,48 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<GeneralSettingsDto> Delete(GeneralSettingsDto dto)
         {
-            DataResult<GeneralSettingsDto> result = null;
             var entity = _mapper.Map<GeneralSettings>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<GeneralSettingsDto>
-            {
-                Data = _mapper.Map<GeneralSettingsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);
             return result;
         }
 
         public DataResult<List<GeneralSettingsDto>> Find(Expression<Func<GeneralSettings, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<GeneralSettingsDto>> result = new DataResult<List<GeneralSettingsDto>>
-            {
-                Data = _mapper.Map<List<GeneralSettingsDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<List<GeneralSettingsDto>>>(data);
 
             return result;
         }
 
         public DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);
+
+            return result;
         }
 
         public DataResult<GeneralSettingsDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<GeneralSettingsDto> result = new DataResult<GeneralSettingsDto>
-            {
-                Data = _mapper.Map<GeneralSettingsDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);
             return result;
         }
 
         public DataResult<GeneralSettingsDto> Save(GeneralSettingsDto dto)
         {
-            DataResult<GeneralSettingsDto> result = null;
             var entity = _mapper.Map<GeneralSettings>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<GeneralSettingsDto>
-            {
-                Data = _mapper.Map<GeneralSettingsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);
             return result;
         }
 
         public DataResult<GeneralSettingsDto> Update(GeneralSettingsDto dto)
         {
-            DataResult<GeneralSettingsDto> result = null;
             var entity = _mapper.Map<GeneralSettings>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<GeneralSettingsDto>
-            {
-                Data = _mapper.Map<GeneralSettingsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);
             return result;
         }
     }

@@ -20,78 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<FormElementOptionsDto> Delete(FormElementOptionsDto dto)
         {
-            DataResult<FormElementOptionsDto> result = null;
             var entity = _mapper.Map<FormElementOptions>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<FormElementOptionsDto>
-            {
-                Data = _mapper.Map<FormElementOptionsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormElementOptionsDto>>(data);
             return result;
         }
 
         public DataResult<List<FormElementOptionsDto>> Find(Expression<Func<FormElementOptions, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<FormElementOptionsDto>> result = new DataResult<List<FormElementOptionsDto>>
-            {
-                Data = _mapper.Map<List<FormElementOptionsDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            var result = _mapper.Map<DataResult<List<FormElementOptionsDto>>>(data);
             return result;
         }
 
         public DataResult<FormElementOptionsDto> Get(Expression<Func<FormElementOptions, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<FormElementOptionsDto>>(data);
+            return result;
         }
 
         public DataResult<FormElementOptionsDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<FormElementOptionsDto> result = new DataResult<FormElementOptionsDto>
-            {
-                Data = _mapper.Map<FormElementOptionsDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<FormElementOptionsDto>>(data);
             return result;
         }
 
         public DataResult<FormElementOptionsDto> Save(FormElementOptionsDto dto)
         {
-            DataResult<FormElementOptionsDto> result = null;
             var entity = _mapper.Map<FormElementOptions>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<FormElementOptionsDto>
-            {
-                Data = _mapper.Map<FormElementOptionsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormElementOptionsDto>>(data);
             return result;
         }
 
         public DataResult<FormElementOptionsDto> Update(FormElementOptionsDto dto)
         {
-            DataResult<FormElementOptionsDto> result = null;
             var entity = _mapper.Map<FormElementOptions>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<FormElementOptionsDto>
-            {
-                Data = _mapper.Map<FormElementOptionsDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<FormElementOptionsDto>>(data);
             return result;
         }
     }

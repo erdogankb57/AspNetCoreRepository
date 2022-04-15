@@ -20,78 +20,46 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<SystemMenuDto> Delete(SystemMenuDto dto)
         {
-            DataResult<SystemMenuDto> result = null;
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Delete(entity);
-            result = new DataResult<SystemMenuDto>
-            {
-                Data = _mapper.Map<SystemMenuDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }
 
         public DataResult<List<SystemMenuDto>> Find(Expression<Func<SystemMenu, bool>> filter = null)
         {
             var data = manager.Find(filter);
-            DataResult<List<SystemMenuDto>> result = new DataResult<List<SystemMenuDto>>
-            {
-                Data = _mapper.Map<List<SystemMenuDto>>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
-
+            var result = _mapper.Map<DataResult<List<SystemMenuDto>>>(data);
             return result;
         }
 
         public DataResult<SystemMenuDto> Get(Expression<Func<SystemMenu, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            var data = manager.Get(filter);
+            var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
+            return result;
         }
 
         public DataResult<SystemMenuDto> GetById(int id)
         {
             var data = manager.GetById(id);
-            DataResult<SystemMenuDto> result = new DataResult<SystemMenuDto>
-            {
-                Data = _mapper.Map<SystemMenuDto>(data.Data),
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType,
-                ErrorMessage = data.ErrorMessage
-            };
+            var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }
 
         public DataResult<SystemMenuDto> Save(SystemMenuDto dto)
         {
-            DataResult<SystemMenuDto> result = null;
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Save(entity);
-            result = new DataResult<SystemMenuDto>
-            {
-                Data = _mapper.Map<SystemMenuDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }
 
         public DataResult<SystemMenuDto> Update(SystemMenuDto dto)
         {
-            DataResult<SystemMenuDto> result = null;
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Update(entity);
-            result = new DataResult<SystemMenuDto>
-            {
-                Data = _mapper.Map<SystemMenuDto>(data.Data),
-                ErrorMessage = data.ErrorMessage,
-                ResultMessage = data.ResultMessage,
-                ResultType = data.ResultType
-            };
+            var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }
     }
