@@ -35,7 +35,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<FileUploadDto> Get(Expression<Func<FileUpload, bool>> filter = null)
         {
-            var data = manager.Find(filter);
+            var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<FileUploadDto>>(data);
             return result;
         }

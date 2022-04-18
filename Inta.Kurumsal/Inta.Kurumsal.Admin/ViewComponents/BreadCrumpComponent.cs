@@ -1,4 +1,5 @@
-﻿using Inta.Kurumsal.DataAccess.Manager;
+﻿using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,10 +7,10 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 {
     public class BreadCrumpComponent : ViewComponent
     {
-        private SystemMenuManager systemMenuManager = null;
-        public BreadCrumpComponent()
+        private ISystemMenuService _systemMenuService = null;
+        public BreadCrumpComponent(ISystemMenuService systemMenuService)
         {
-            systemMenuManager = new SystemMenuManager();
+            _systemMenuService = systemMenuService;
         }
 
         public IViewComponentResult Invoke()
@@ -18,13 +19,13 @@ namespace Inta.Kurumsal.Admin.ViewComponents
             string actionName = ViewContext.RouteData.Values["Action"].ToString();
 
 
-            var activeMenu = systemMenuManager.Get(v => v.ControllerName == controllerName && v.ActionName == actionName);
+            var activeMenu = _systemMenuService.Get(v => v.ControllerName == controllerName && v.ActionName == actionName);
             if (activeMenu.Data != null)
             {
-                List<SystemMenu> shtml = new List<SystemMenu>();
+                List<SystemMenuDto> shtml = new List<SystemMenuDto>();
                 if (!(controllerName == "Home" && actionName == "Index"))
                 {
-                    shtml.Add(new SystemMenu
+                    shtml.Add(new SystemMenuDto
                     {
                         ControllerName = "Home",
                         ActionName = "Index",
@@ -38,13 +39,13 @@ namespace Inta.Kurumsal.Admin.ViewComponents
                 return View(shtml);
             }
 
-            return View(new List<SystemMenu>());
+            return View(new List<SystemMenuDto>());
         }
 
-        protected List<SystemMenu> GetTopMenu(int menuId)
+        protected List<SystemMenuDto> GetTopMenu(int menuId)
         {
-            List<SystemMenu> shtml = new List<SystemMenu>();
-            var menu = systemMenuManager.Get(v => v.Id == menuId && v.Link != "#");
+            List<SystemMenuDto> shtml = new List<SystemMenuDto>();
+            var menu = _systemMenuService.Get(v => v.Id == menuId && v.Link != "#");
             if (menu.Data != null)
             {
                 if (menu.Data.SystemMenuId != 0)

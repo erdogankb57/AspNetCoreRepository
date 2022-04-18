@@ -1,5 +1,6 @@
 ﻿using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,15 +8,15 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 {
     public class SystemMenuComponent : ViewComponent
     {
-        private SystemMenuManager systemMenu { get; set; }
-        private SystemUserManager userManager = null;
-        private SystemMenuRoleManager roleManager = null;
+        private ISystemMenuService _systemMenuService = null;
+        private ISystemUserService _userService = null;
+        private ISystemMenuRoleService _roleService = null;
 
-        public SystemMenuComponent()
+        public SystemMenuComponent(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService)
         {
-            systemMenu = new SystemMenuManager();
-            userManager = new SystemUserManager();
-            roleManager = new SystemMenuRoleManager();
+            _systemMenuService = systemMenuService;
+            _userService = userService;
+            _roleService = roleService;
         }
 
         public IViewComponentResult Invoke()
@@ -34,17 +35,17 @@ namespace Inta.Kurumsal.Admin.ViewComponents
             string userName = string.Empty;
             if (data != null)
                 userName = data["userName"].ToString();
-            
-            var user = userManager.Find(v => v.UserName == userName).Data.FirstOrDefault();
+
+            var user = _userService.Find(v => v.UserName == userName).Data.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)
             {
-                roleIds.AddRange(roleManager.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
+                roleIds.AddRange(_roleService.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
             }
 
             List<SystemMenuModel> systemMenus = new List<SystemMenuModel>();
 
-            foreach (var menu in systemMenu.Find(v => v.SystemMenuId == 0 && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data)
+            foreach (var menu in _systemMenuService.Find(v => v.SystemMenuId == 0 && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data)
             {
                 var m = new SystemMenuModel
                 {
@@ -60,7 +61,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
                     SystemMenuId = menu.SystemMenuId,
                 };
 
-                m.SystemMenu = systemMenu.Find(v => v.SystemMenuId == menu.Id && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data.Select(s => new SystemMenuModel
+                m.SystemMenu = _systemMenuService.Find(v => v.SystemMenuId == menu.Id && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data.Select(s => new SystemMenuModel
                 {
                     ActionName = s.ActionName,
                     ControllerName = s.ControllerName,
