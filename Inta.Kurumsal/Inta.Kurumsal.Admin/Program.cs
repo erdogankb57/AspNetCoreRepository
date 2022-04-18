@@ -1,5 +1,6 @@
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Bussiness.Service;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,8 +44,12 @@ builder.Services.AddTransient<ISystemUserService, SystemUserService>();
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
+
+AppDomain.CurrentDomain.SetData("Language", 1);
 
 
 // Configure the HTTP request pipeline.

@@ -10,7 +10,7 @@
     <div class="modal-content">
         <div class="modal-header">
 
-            <h5 class="modal-title" id="exampleModalLabel">Form Grubu Ekle / Düzenle</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Form Elemanı Ekle / Düzenle</h5>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -21,6 +21,8 @@
             <div class="popupMessage"></div>
             @Html.HiddenFor(h => h.Id)
             @Html.HiddenFor(h => h.RecordDate)
+            @Html.HiddenFor(h => h.SystemUserId)
+            @Html.HiddenFor(h => h.LanguageId)
 
             <div class="form-group">
                 <div class="row">

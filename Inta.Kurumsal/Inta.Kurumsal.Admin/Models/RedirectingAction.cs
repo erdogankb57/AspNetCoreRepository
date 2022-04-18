@@ -35,6 +35,7 @@ namespace Inta.Kurumsal.Admin.Models
                 {
                     controller.ViewBag.ActiveTopMenuId = "";
                     controller.ViewBag.UserName = user.Data.Name + " " + user.Data.SurName;
+                    controller.ViewBag.SystemUserId = user.Data.Id;
 
                     var userRole = _systemRoleService.Get(v => v.Id == user.Data.SystemRoleId);
                     if (userRole.Data != null)

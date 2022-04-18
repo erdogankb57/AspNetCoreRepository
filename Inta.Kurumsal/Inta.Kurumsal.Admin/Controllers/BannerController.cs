@@ -5,6 +5,7 @@ using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {

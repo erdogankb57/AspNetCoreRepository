@@ -41,6 +41,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
             ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
+            ViewBag.LanguageId = AppDomain.CurrentDomain.GetData("Language");
         }
     }
 }
