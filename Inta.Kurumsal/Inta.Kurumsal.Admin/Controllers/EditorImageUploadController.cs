@@ -1,7 +1,7 @@
 ﻿using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,10 +9,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class EditorImageUploadController : BaseController
     {
-        private FileUploadManager fileUploadManager = null;
-        public EditorImageUploadController()
+        private IFileUploadService _fileUploadService = null;
+        public EditorImageUploadController(IFileUploadService fileUploadService)
         {
-            fileUploadManager = new FileUploadManager();
+            _fileUploadService = fileUploadService;
         }
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult GetImageList()
         {
-            var result = fileUploadManager.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
+            var result = _fileUploadService.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
             {
                 Name = s.Id + "-" + s.FileName,
                 FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
@@ -39,7 +39,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 //string filePath = ConfigurationManager.AppSettings["EditorImageUpload"].ToString();
                 var imageResult = ImageManager.ImageBase64Upload(Image);
 
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = imageResult.FileBase64Data,
                     Extension = imageResult.Extension,
@@ -51,7 +51,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     IsImage = true
                 };
 
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
             }
 
             return Json("OK");

@@ -1,8 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -10,12 +10,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class ContactInformationController : BaseController
     {
-        private ContactInformationManager manager = null;
-        private FileUploadManager fileUploadManager = null;
-        public ContactInformationController()
+        private IContactInformationService _contactInformationService = null;
+        private IFileUploadService _fileUploadService = null;
+        public ContactInformationController(IContactInformationService contactInformationService, IFileUploadService fileUploadService)
         {
-            manager = new ContactInformationManager();
-            fileUploadManager = new FileUploadManager();
+            _contactInformationService = contactInformationService;
+            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index()
@@ -24,32 +24,32 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult GetById(int? id)
         {
-            DataResult<ContactInformation> banner = new DataResult<ContactInformation>();
+            DataResult<ContactInformationDto> banner = new DataResult<ContactInformationDto>();
             if (id.HasValue)
-                banner = manager.GetById(id.Value);
+                banner = _contactInformationService.GetById(id.Value);
 
             return Json(banner);
         }
         public ActionResult Add(int? id)
         {
-            ContactInformation contanct = new ContactInformation();
+            ContactInformationDto contanct = new ContactInformationDto();
 
             if (id.HasValue)
-                contanct = manager.GetById(id ?? 0).Data;
+                contanct = _contactInformationService.GetById(id ?? 0).Data;
 
             return PartialView("Add", contanct);
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<ContactInformation> listData)
+        public ActionResult ListUpdate(List<ContactInformationDto> listData)
         {
             foreach (var item in listData)
             {
-                var contact = manager.GetById(item.Id).Data;
+                var contact = _contactInformationService.GetById(item.Id).Data;
                 if (contact != null)
                 {
                     contact.OrderNumber = item.OrderNumber;
-                    manager.Update(contact);
+                    _contactInformationService.Update(contact);
 
                 }
             }
@@ -60,8 +60,8 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
-            List<ContactInformation> contactInformations = new List<ContactInformation>();
+            var result = _contactInformationService.Find().Data;
+            List<ContactInformationDto> contactInformations = new List<ContactInformationDto>();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -91,17 +91,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(ContactInformation request, IFormFile FileImage)
+        public ActionResult Save(ContactInformationDto request, IFormFile FileImage)
         {
-            DataResult<ContactInformation> data = null;
-            var contactInformation = manager.GetById(request.Id);
+            DataResult<ContactInformationDto> data = null;
+            var contactInformation = _contactInformationService.GetById(request.Id);
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
 
             if (FileImage != null)
             {
                 var imageResult = ImageManager.ImageBase64Upload(FileImage);
 
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = imageResult.FileBase64Data,
                     Extension = imageResult.Extension,
@@ -112,7 +112,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     FileName = imageResult.FileName,
                     IsImage = true
                 };
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
                 request.ImageId = fileUploadEntity.Data.Id;
             }
 
@@ -125,12 +125,12 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.RecordDate = DateTime.Now;
                 request.OrderNumber = 0;
 
-                data = manager.Save(request);
+                data = _contactInformationService.Save(request);
             }
             else
             {
 
-                data = manager.Update(request);
+                data = _contactInformationService.Update(request);
             }
 
             return Json(data);
@@ -143,8 +143,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    ContactInformation contactInformation = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(contactInformation);
+                    ContactInformationDto contactInformation = _contactInformationService.GetById(Convert.ToInt32(item)).Data;
+                    _contactInformationService.Delete(contactInformation);
                 }
             }
 
@@ -153,9 +153,9 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult DeleteImage(int id)
         {
-            ContactInformation contact = manager.GetById(id).Data;
+            ContactInformationDto contact = _contactInformationService.GetById(id).Data;
             contact.ImageId = null;
-            manager.Update(contact);
+            _contactInformationService.Update(contact);
 
             return Json("OK");
 

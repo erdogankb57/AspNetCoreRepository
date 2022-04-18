@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class PageTypeController : BaseController
     {
-        private PageTypeManager manager = null;
+        private IPageTypeService _service = null;
 
-        public PageTypeController()
+        public PageTypeController(IPageTypeService service)
         {
-            manager = new PageTypeManager();
+            _service = service;
         }
 
         public ActionResult Index()
@@ -22,10 +22,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            PageType pageType = new PageType();
+            PageTypeDto pageType = new PageTypeDto();
 
             if (id.HasValue)
-                pageType = manager.GetById(id ?? 0).Data;
+                pageType = _service.GetById(id ?? 0).Data;
 
             return PartialView("Add", pageType);
         }
@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _service.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -60,19 +60,19 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(PageType request)
+        public ActionResult Save(PageTypeDto request)
         {
-            DataResult<PageType> data = null;
+            DataResult<PageTypeDto> data = null;
 
             if (request.Id == 0)
             {
                 request.SystemUserId = ViewBag.SystemUserId;
 
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -85,8 +85,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    PageType pageType = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(pageType);
+                    PageTypeDto pageType = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(pageType);
                 }
             }
 

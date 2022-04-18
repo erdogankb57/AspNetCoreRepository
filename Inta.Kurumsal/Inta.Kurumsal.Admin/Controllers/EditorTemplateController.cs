@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class EditorTemplateController : BaseController
     {
-        private EditorTemplateManager manager = null;
+        private IEditorTemplateService _editorTemplateService = null;
 
-        public EditorTemplateController()
+        public EditorTemplateController(IEditorTemplateService editorTemplateService)
         {
-            manager = new EditorTemplateManager();
+            _editorTemplateService = editorTemplateService;
         }
 
         public ActionResult Index()
@@ -22,10 +22,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            EditorTemplate editorTemplate = new EditorTemplate();
+            EditorTemplateDto editorTemplate = new EditorTemplateDto();
 
             if (id.HasValue)
-                editorTemplate = manager.GetById(id ?? 0).Data;
+                editorTemplate = _editorTemplateService.GetById(id ?? 0).Data;
 
             return PartialView("Add", editorTemplate);
         }
@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _editorTemplateService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -55,9 +55,9 @@ namespace Inta.Kurumsal.Admin.Controllers
             return Json(new { data = result.Skip(request.start).Take(request.length).ToList(), recordsTotal = result.Count(), recordsFiltered = result.Count() });
         }
 
-        public ActionResult Save(EditorTemplate request)
+        public ActionResult Save(EditorTemplateDto request)
         {
-            DataResult<EditorTemplate> data = null;
+            DataResult<EditorTemplateDto> data = null;
 
             if (request.Id == 0)
             {
@@ -65,11 +65,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 
-                data = manager.Save(request);
+                data = _editorTemplateService.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _editorTemplateService.Update(request);
             }
 
             return Json(data);
@@ -82,8 +82,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    EditorTemplate editor = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(editor);
+                    EditorTemplateDto editor = _editorTemplateService.GetById(Convert.ToInt32(item)).Data;
+                    _editorTemplateService.Delete(editor);
                 }
             }
 

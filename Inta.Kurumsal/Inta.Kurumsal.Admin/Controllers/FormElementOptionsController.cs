@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,14 +10,14 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FormElementOptionsController : BaseController
     {
-        private FormElementOptionsManager optionManager = null;
-        private FormElementManager elementManager = null;
+        private IFormElementOptionsService _optionService = null;
+        private IFormElementService _elementService = null;
         int SelectedElementId = 0;
 
-        public FormElementOptionsController()
+        public FormElementOptionsController(IFormElementOptionsService optionService, IFormElementService elementService)
         {
-            optionManager = new FormElementOptionsManager();
-            elementManager = new FormElementManager();
+            _optionService = optionService;
+            _elementService = elementService;
         }
 
         public ActionResult Index()
@@ -31,10 +31,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id, int? FormElementId)
         {
-            FormElementOptions elementOptions = new FormElementOptions();
+            FormElementOptionsDto elementOptions = new FormElementOptionsDto();
             List<SelectListItem> formElement = new List<SelectListItem>();
             formElement.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
-            formElement.AddRange(elementManager.Find(v => v.ElementTypeId != 1 && v.ElementTypeId != 2).Data.Select(s => new SelectListItem
+            formElement.AddRange(_elementService.Find(v => v.ElementTypeId != 1 && v.ElementTypeId != 2).Data.Select(s => new SelectListItem
             {
                 Text = s.Name,
                 Value = s.Id.ToString()
@@ -43,7 +43,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             ViewBag.formElement = formElement;
 
             if (id.HasValue)
-                elementOptions = optionManager.GetById(id ?? 0).Data;
+                elementOptions = _optionService.GetById(id ?? 0).Data;
             else
             {
                 if (FormElementId.HasValue)
@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request, int? FormElementId)
         {
-            var result = optionManager.Find().Data;
+            var result = _optionService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -85,9 +85,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(FormElementOptions request)
+        public ActionResult Save(FormElementOptionsDto request)
         {
-            DataResult<FormElementOptions> data = null;
+            DataResult<FormElementOptionsDto> data = null;
 
             if (request.Id == 0)
             {
@@ -95,11 +95,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 
-                data = optionManager.Save(request);
+                data = _optionService.Save(request);
             }
             else
             {
-                data = optionManager.Update(request);
+                data = _optionService.Update(request);
             }
 
             return Json(data);
@@ -112,8 +112,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    FormElementOptions formElementOptions = optionManager.GetById(Convert.ToInt32(item)).Data;
-                    optionManager.Delete(formElementOptions);
+                    FormElementOptionsDto formElementOptions = _optionService.GetById(Convert.ToInt32(item)).Data;
+                    _optionService.Delete(formElementOptions);
                 }
             }
 
@@ -121,15 +121,15 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<FormElementOptions> listData)
+        public ActionResult ListUpdate(List<FormElementOptionsDto> listData)
         {
             foreach (var item in listData)
             {
-                var formElementOptions = optionManager.GetById(item.Id).Data;
+                var formElementOptions = _optionService.GetById(item.Id).Data;
                 if (formElementOptions != null)
                 {
                     formElementOptions.OrderNumber = item.OrderNumber;
-                    optionManager.Update(formElementOptions);
+                    _optionService.Update(formElementOptions);
 
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FormGroupController : BaseController
     {
-        private FormGroupManager manager = null;
+        private IFormGroupService _formGroupService = null;
 
-        public FormGroupController()
+        public FormGroupController(IFormGroupService formGroupService)
         {
-            manager = new FormGroupManager();
+            _formGroupService = formGroupService;
         }
 
         public ActionResult Index()
@@ -22,10 +22,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            FormGroup group = new FormGroup();
+            FormGroupDto group = new FormGroupDto();
 
             if (id.HasValue)
-                group = manager.GetById(id ?? 0).Data;
+                group = _formGroupService.GetById(id ?? 0).Data;
 
             return PartialView("Add", group);
         }
@@ -33,7 +33,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _formGroupService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -55,9 +55,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(FormGroup request)
+        public ActionResult Save(FormGroupDto request)
         {
-            DataResult<FormGroup> data = null;
+            DataResult<FormGroupDto> data = null;
 
             if (request.Id == 0)
             {
@@ -65,11 +65,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 
-                data = manager.Save(request);
+                data = _formGroupService.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _formGroupService.Update(request);
             }
 
             return Json(data);
@@ -82,8 +82,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    FormGroup formElement = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(formElement);
+                    FormGroupDto formElement = _formGroupService.GetById(Convert.ToInt32(item)).Data;
+                    _formGroupService.Delete(formElement);
                 }
             }
 
@@ -91,15 +91,15 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<FormGroup> listData)
+        public ActionResult ListUpdate(List<FormGroupDto> listData)
         {
             foreach (var item in listData)
             {
-                var formGroup = manager.GetById(item.Id).Data;
+                var formGroup = _formGroupService.GetById(item.Id).Data;
                 if (formGroup != null)
                 {
                     formGroup.OrderNumber = item.OrderNumber;
-                    manager.Update(formGroup);
+                    _formGroupService.Update(formGroup);
 
                 }
             }

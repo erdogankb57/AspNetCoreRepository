@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,12 +10,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemActionController : BaseController
     {
-        private SystemActionManager actionManager = null;
-        private SystemMenuManager menuManager = null;
-        public SystemActionController()
+        private ISystemActionService _actionService = null;
+        private ISystemMenuService _menuService = null;
+        public SystemActionController(ISystemActionService actionService, ISystemMenuService menuService)
         {
-            actionManager = new SystemActionManager();
-            menuManager = new SystemMenuManager();
+            _actionService = actionService;
+            _menuService = menuService;
         }
 
         public ActionResult Index()
@@ -24,10 +24,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            SystemAction menuAction = new SystemAction();
+            SystemActionDto menuAction = new SystemActionDto();
 
 
-            var systemMenus = menuManager.Find();
+            var systemMenus = _menuService.Find();
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(systemMenus.Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
@@ -35,7 +35,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
             if (id.HasValue)
-                menuAction = actionManager.GetById(id ?? 0).Data;
+                menuAction = _actionService.GetById(id ?? 0).Data;
 
             return PartialView("Add", menuAction);
         }
@@ -44,7 +44,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = actionManager.Find().Data;
+            var result = _actionService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -70,17 +70,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(SystemAction request)
+        public ActionResult Save(SystemActionDto request)
         {
-            DataResult<SystemAction> data = null;
+            DataResult<SystemActionDto> data = null;
 
             if (request.Id == 0)
             {
-                data = actionManager.Save(request);
+                data = _actionService.Save(request);
             }
             else
             {
-                data = actionManager.Update(request);
+                data = _actionService.Update(request);
             }
 
             return Json(data);
@@ -93,8 +93,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    SystemAction menuAction = actionManager.GetById(Convert.ToInt32(item)).Data;
-                    actionManager.Delete(menuAction);
+                    SystemActionDto menuAction = _actionService.GetById(Convert.ToInt32(item)).Data;
+                    _actionService.Delete(menuAction);
                 }
             }
 

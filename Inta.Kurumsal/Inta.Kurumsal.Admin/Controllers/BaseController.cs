@@ -1,13 +1,7 @@
-﻿using Inta.EntityFramework.Core.Model;
-using Inta.Framework.Extension.Serializer;
-using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.Bussiness.Service;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+﻿using Inta.Kurumsal.Bussiness.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Configuration;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {

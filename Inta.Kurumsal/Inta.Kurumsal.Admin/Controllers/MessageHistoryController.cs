@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,10 +9,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class MessageHistoryController : BaseController
     {
-        private MessageHistoryManager manager = null;
-        public MessageHistoryController()
+        private IMessageHistoryService _service = null;
+        public MessageHistoryController(IMessageHistoryService service)
         {
-            manager = new MessageHistoryManager();
+            _service = service;
         }
 
 
@@ -22,13 +22,13 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult ShowMessage(int? id)
         {
-            MessageHistory messageHistory = new MessageHistory();
+            MessageHistoryDto messageHistory = new MessageHistoryDto();
 
             if (id.HasValue)
             {
-                messageHistory = manager.GetById(id ?? 0).Data;
+                messageHistory = _service.GetById(id ?? 0).Data;
                 messageHistory.IsRead = true;
-                manager.Update(messageHistory);
+                _service.Update(messageHistory);
 
             }
 
@@ -39,7 +39,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find()?.Data;
+            var result = _service.Find()?.Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -61,18 +61,18 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(MessageHistory request)
+        public ActionResult Save(MessageHistoryDto request)
         {
-            DataResult<MessageHistory> data = null;
+            DataResult<MessageHistoryDto> data = null;
 
             if (request.Id == 0)
             {
                 request.RecordDate = DateTime.Now;
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -85,8 +85,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    MessageHistory data = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(data);
+                    MessageHistoryDto data = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(data);
                 }
             }
 
@@ -100,9 +100,9 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    MessageHistory data = manager.GetById(Convert.ToInt32(item)).Data;
+                    MessageHistoryDto data = _service.GetById(Convert.ToInt32(item)).Data;
                     data.IsRead = true;
-                    manager.Update(data);
+                    _service.Update(data);
                 }
             }
 

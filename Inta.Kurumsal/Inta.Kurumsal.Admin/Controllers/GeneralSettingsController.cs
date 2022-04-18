@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,34 +9,34 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class GeneralSettingsController : BaseController
     {
-        private GeneralSettingsManager manager = null;
-        public GeneralSettingsController()
+        private IGeneralSettingsService _service = null;
+        public GeneralSettingsController(IGeneralSettingsService service)
         {
-            manager = new GeneralSettingsManager();
+            _service = service;
         }
 
         public ActionResult Index()
         {
-            var model = manager.Find()?.Data?.FirstOrDefault();
+            var model = _service.Find()?.Data?.FirstOrDefault();
 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Save(GeneralSettings request)
+        public ActionResult Save(GeneralSettingsDto request)
         {
-            DataResult<GeneralSettings> data = null;
+            DataResult<GeneralSettingsDto> data = null;
 
             if (request.Id == 0)
             {
                 request.LanguageId = ViewBag.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);

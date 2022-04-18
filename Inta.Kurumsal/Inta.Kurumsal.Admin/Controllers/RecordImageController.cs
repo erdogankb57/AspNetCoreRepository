@@ -1,8 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -10,15 +10,15 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordImageController : BaseController
     {
-        private RecordImageManager manager = null;
         private static int ContentId = 0;
-        private GeneralSettingsManager settingsManager = null;
-        private FileUploadManager fileUploadManager = null;
-        public RecordImageController()
+        private IRecordImageService _service = null;
+        private IGeneralSettingsService _settingsService = null;
+        private IFileUploadService _fileUploadService = null;
+        public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService, IFileUploadService fileUploadService)
         {
-            manager = new RecordImageManager();
-            settingsManager = new GeneralSettingsManager();
-            fileUploadManager = new FileUploadManager();
+            _service = service;
+            _settingsService = settingsService;
+            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index(int? Id)
@@ -30,40 +30,46 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            RecordImage specialty = new RecordImage();
+            RecordImageDto specialty = new RecordImageDto();
 
             if (id.HasValue)
-                specialty = manager.GetById(id ?? 0).Data;
+                specialty = _service.GetById(id ?? 0).Data;
 
             return PartialView("Add", specialty);
         }
 
         public ActionResult BulkAdd(int? id)
         {
-            RecordImage specialty = new RecordImage();
+            RecordImageDto specialty = new RecordImageDto();
 
             if (id.HasValue)
-                specialty = manager.GetById(id ?? 0).Data;
+                specialty = _service.GetById(id ?? 0).Data;
 
             return PartialView("BulkAdd", specialty);
         }
 
         public ActionResult ImageBulkSave(List<IFormFile> file)
         {
-            DataResult<List<RecordImage>> data = new DataResult<List<RecordImage>>();
-            List<RecordImage> resultData = new List<RecordImage>();
+            DataResult<List<RecordImageDto>> data = new DataResult<List<RecordImageDto>>();
+            List<RecordImageDto> resultData = new List<RecordImageDto>();
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
             string filePath = "";
 
             foreach (var item in file)
             {
-                RecordImage content = new RecordImage { RecordId = ContentId, Name = "", RecordDate = DateTime.Now, OrderNumber = 0 }; ;
+                RecordImageDto content = new RecordImageDto
+                {
+                    RecordId = ContentId,
+                    Name = "",
+                    RecordDate = DateTime.Now,
+                    OrderNumber = 0
+                }; ;
 
                 if (item != null)
                 {
                     var imageResult = ImageManager.ImageBase64Upload(item);
 
-                    FileUpload fileUpload = new FileUpload
+                    FileUploadDto fileUpload = new FileUploadDto
                     {
                         FileBase64Data = imageResult.FileBase64Data,
                         Extension = imageResult.Extension,
@@ -75,11 +81,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                         IsImage = true
                     };
 
-                    var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                    var fileUploadEntity = _fileUploadService.Save(fileUpload);
                     content.ImageId = fileUploadEntity.Data.Id;
                 }
 
-                var result = manager.Save(content);
+                var result = _service.Save(content);
                 resultData.Add(result.Data);
             }
 
@@ -93,7 +99,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request, int? ContentId)
         {
-            var result = manager.Find(v => v.RecordId == (ContentId.HasValue ? ContentId : v.RecordId)).Data;
+            var result = _service.Find(v => v.RecordId == (ContentId.HasValue ? ContentId : v.RecordId)).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -115,10 +121,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(RecordImage request, IFormFile ImageName)
+        public ActionResult Save(RecordImageDto request, IFormFile ImageName)
         {
-            DataResult<RecordImage> data = null;
-            var content = manager.GetById(request.Id);
+            DataResult<RecordImageDto> data = null;
+            var content = _service.GetById(request.Id);
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
             string filePath = "";
 
@@ -126,7 +132,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 var imageResult = ImageManager.ImageBase64Upload(ImageName);
 
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = imageResult.FileBase64Data,
                     Extension = imageResult.Extension,
@@ -135,10 +141,10 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Height = imageResult.Height,
                     ContentType = imageResult.ContentType,
                     FileName = imageResult.FileName,
-                    IsImage =true
+                    IsImage = true
                 };
 
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
                 request.ImageId = fileUploadEntity.Data.Id;
             }
 
@@ -149,11 +155,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.RecordDate = DateTime.Now;
                 request.RecordId = ContentId;
                 request.OrderNumber = 0;
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -166,8 +172,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    RecordImage contentSpecialty = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(contentSpecialty);
+                    RecordImageDto contentSpecialty = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(contentSpecialty);
                 }
             }
 
@@ -176,24 +182,24 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult DeleteImage(int id)
         {
-            RecordImage contentImage = manager.GetById(id).Data;
+            RecordImageDto contentImage = _service.GetById(id).Data;
             contentImage.ImageName = null;
-            manager.Update(contentImage);
+            _service.Update(contentImage);
 
             return Json("OK");
 
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<RecordImage> listData)
+        public ActionResult ListUpdate(List<RecordImageDto> listData)
         {
             foreach (var item in listData)
             {
-                var contentImage = manager.GetById(item.Id).Data;
+                var contentImage = _service.GetById(item.Id).Data;
                 if (contentImage != null)
                 {
                     contentImage.OrderNumber = item.OrderNumber;
-                    manager.Update(contentImage);
+                    _service.Update(contentImage);
 
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,20 +9,20 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemRoleController : BaseController
     {
-        private SystemRoleManager manager = null;
-        private SystemActionManager actionManager = null;
-        private SystemActionRoleManager actionRoleManager = null;
-        private SystemMenuManager systemMenuManager = null;
-        private SystemMenuRoleManager systemMenuRoleManager = null;
+        private ISystemRoleService _service = null;
+        private ISystemActionService _actionService = null;
+        private ISystemActionRoleService  _actionRoleService = null;
+        private ISystemMenuService _systemMenuService = null;
+        private ISystemMenuRoleService _systemMenuRoleService = null;
 
 
-        public SystemRoleController()
+        public SystemRoleController(ISystemRoleService service, ISystemActionService actionService, ISystemActionRoleService actionRoleService, ISystemMenuService systemMenuService, ISystemMenuRoleService systemMenuRoleService)
         {
-            manager = new SystemRoleManager();
-            actionManager = new SystemActionManager();
-            systemMenuManager = new SystemMenuManager();
-            actionRoleManager = new SystemActionRoleManager();
-            systemMenuRoleManager = new SystemMenuRoleManager();
+            _service = service;
+            _actionService = actionService;
+            _systemMenuService = systemMenuService;
+            _actionRoleService = actionRoleService;
+            _systemMenuRoleService = systemMenuRoleService;
         }
 
         public ActionResult Index()
@@ -31,27 +31,27 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            SystemRole systemRole = new SystemRole();
-            List<SystemAction> actionList = new List<SystemAction>();
-            actionList = actionManager.Find().Data.ToList();
+            SystemRoleDto systemRole = new SystemRoleDto();
+            List<SystemActionDto> actionList = new List<SystemActionDto>();
+            actionList = _actionService.Find().Data.ToList();
             ViewBag.actionList = actionList;
 
-            List<SystemMenu> menuList = new List<SystemMenu>();
-            menuList = systemMenuManager.Find(v => v.IsActive).Data.ToList();
+            List<SystemMenuDto> menuList = new List<SystemMenuDto>();
+            menuList = _systemMenuService.Find(v => v.IsActive).Data.ToList();
             ViewBag.menuList = menuList;
 
             if (id.HasValue)
             {
-                systemRole = manager.GetById(id ?? 0).Data;
+                systemRole = _service.GetById(id ?? 0).Data;
 
-                ViewBag.ActionRole = actionRoleManager.Find(v => v.SystemRoleId == id.Value)?.Data?.ToList();
+                ViewBag.ActionRole = _actionRoleService.Find(v => v.SystemRoleId == id.Value)?.Data?.ToList();
             }
 
             if (id.HasValue)
             {
-                systemRole = manager.GetById(id ?? 0).Data;
+                systemRole = _service.GetById(id ?? 0).Data;
 
-                ViewBag.MenuRole = systemMenuRoleManager.Find(v => v.SystemRoleId == id.Value)?.Data?.ToList();
+                ViewBag.MenuRole = _systemMenuRoleService.Find(v => v.SystemRoleId == id.Value)?.Data?.ToList();
             }
 
 
@@ -62,7 +62,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _service.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -84,48 +84,48 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(SystemRole request, List<string> actions, List<string> menuList)
+        public ActionResult Save(SystemRoleDto request, List<string> actions, List<string> menuList)
         {
-            DataResult<SystemRole> role = null;
+            DataResult<SystemRoleDto> role = null;
 
             if (request.Id == 0)
             {
                 request.RecordDate = DateTime.Now;
-                role = manager.Save(request);
+                role = _service.Save(request);
 
                 /*Action listesi eklenir*/
                 foreach (var item in actions)
                 {
-                    actionRoleManager.Save(new SystemActionRole { SystemActionId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
+                    _actionRoleService.Save(new SystemActionRoleDto { SystemActionId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
                 }
                 /*Action listesi eklenir*/
 
 
                 foreach (var item in menuList)
                 {
-                    systemMenuRoleManager.Save(new SystemMenuRole { SystemMenuId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
+                    _systemMenuRoleService.Save(new SystemMenuRoleDto { SystemMenuId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
                 }
             }
             else
             {
-                role = manager.Update(request);
+                role = _service.Update(request);
 
                 /*Action listesi güncellenir*/
-                var savedActionList = actionRoleManager.Find(v => v.SystemRoleId == role.Data.Id);
+                var savedActionList = _actionRoleService.Find(v => v.SystemRoleId == role.Data.Id);
                 foreach (var item in savedActionList.Data)
                 {
                     if (actions == null || !actions.Any(a => a == item.SystemActionId.ToString()))
-                        actionRoleManager.Delete(item);
+                        _actionRoleService.Delete(item);
                 }
 
                 if (actions != null)
                 {
                     foreach (var item in actions)
                     {
-                        var actionRole = actionRoleManager.Get(v => v.SystemRoleId == role.Data.Id && v.SystemActionId == Convert.ToInt32(item));
+                        var actionRole = _actionRoleService.Get(v => v.SystemRoleId == role.Data.Id && v.SystemActionId == Convert.ToInt32(item));
                         if (actionRole.Data == null)
                         {
-                            actionRoleManager.Save(new SystemActionRole { SystemActionId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
+                            _actionRoleService.Save(new SystemActionRoleDto { SystemActionId = Convert.ToInt32(item), SystemRoleId = role.Data.Id });
                         }
                     }
                 }
@@ -133,21 +133,21 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
                 /*Menu listesi güncellenir*/
-                var savedMenuList = systemMenuRoleManager.Find(v => v.SystemRoleId == role.Data.Id);
+                var savedMenuList = _systemMenuRoleService.Find(v => v.SystemRoleId == role.Data.Id);
                 foreach (var item in savedMenuList.Data)
                 {
                     if (menuList == null || !menuList.Any(a => a == item.SystemMenuId.ToString()))
-                        systemMenuRoleManager.Delete(item);
+                        _systemMenuRoleService.Delete(item);
                 }
 
                 if (menuList != null)
                 {
                     foreach (var item in menuList)
                     {
-                        var menuRole = systemMenuRoleManager.Get(v => v.SystemRoleId == role.Data.Id && v.SystemMenuId == Convert.ToInt32(item));
+                        var menuRole = _systemMenuRoleService.Get(v => v.SystemRoleId == role.Data.Id && v.SystemMenuId == Convert.ToInt32(item));
                         if (menuRole.Data == null)
                         {
-                            systemMenuRoleManager.Save(new SystemMenuRole { SystemMenuId = Convert.ToInt32(item), SystemRoleId = role.Data.Id, RecordDate = DateTime.Now });
+                            _systemMenuRoleService.Save(new SystemMenuRoleDto { SystemMenuId = Convert.ToInt32(item), SystemRoleId = role.Data.Id, RecordDate = DateTime.Now });
                         }
                     }
                 }
@@ -166,8 +166,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    SystemRole role = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(role);
+                    SystemRoleDto role = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(role);
                 }
             }
 

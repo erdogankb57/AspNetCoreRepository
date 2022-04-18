@@ -1,4 +1,5 @@
 ﻿using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
@@ -8,15 +9,15 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class UploadController : Controller
     {
-        private FileUploadManager fileUploadManager = null;
-        public UploadController()
+        private IFileUploadService _fileUploadService = null;
+        public UploadController(IFileUploadService fileUploadService)
         {
-            fileUploadManager = new FileUploadManager();
+            _fileUploadService = fileUploadService;
         }
         public IActionResult Image(int Id, int width)
         {
             int height = 0;
-            var uploadData = fileUploadManager.Get(v => v.Id == Id);
+            var uploadData = _fileUploadService.Get(v => v.Id == Id);
             if (uploadData.Data != null)
             {
                 if (width > uploadData.Data.Width)
@@ -46,7 +47,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public IActionResult File(int Id)
         {
             int height = 0;
-            var uploadData = fileUploadManager.Get(v => v.Id == Id);
+            var uploadData = _fileUploadService.Get(v => v.Id == Id);
             if (uploadData.Data != null)
             {
                 var bayt = Convert.FromBase64String(uploadData.Data.FileBase64Data);

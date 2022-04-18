@@ -1,5 +1,5 @@
 ﻿using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -7,14 +7,14 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemMenuController : BaseController
     {
-        private SystemMenuManager systemMenu { get; set; }
-        private SystemUserManager userManager = null;
-        private SystemMenuRoleManager roleManager = null;
-        public SystemMenuController()
+        private ISystemMenuService _systemMenuService = null;
+        private ISystemUserService _userService = null;
+        private ISystemMenuRoleService _roleService = null;
+        public SystemMenuController(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService)
         {
-            systemMenu = new SystemMenuManager();
-            userManager = new SystemUserManager();
-            roleManager = new SystemMenuRoleManager();
+            _systemMenuService = systemMenuService;
+            _userService = userService;
+            _roleService = roleService;
         }
 
         public ActionResult GetSystemMenu()
@@ -28,16 +28,16 @@ namespace Inta.Kurumsal.Admin.Controllers
         public List<SystemMenuModel> GetMenu()
         {
             int userId = Convert.ToInt32(ViewBag.SystemUserId);
-            var user = userManager.Find(v => v.Id == userId).Data.FirstOrDefault();
+            var user = _userService.Find(v => v.Id == userId).Data.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)
             {
-                roleIds.AddRange(roleManager.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
+                roleIds.AddRange(_roleService.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
             }
 
             List<SystemMenuModel> systemMenus = new List<SystemMenuModel>();
 
-            foreach (var menu in systemMenu.Find(v => v.SystemMenuId == 0 && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data)
+            foreach (var menu in _systemMenuService.Find(v => v.SystemMenuId == 0 && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data)
             {
                 var m = new SystemMenuModel
                 {
@@ -53,7 +53,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     SystemMenuId = menu.SystemMenuId,
                 };
 
-                m.SystemMenu = systemMenu.Find(v => v.SystemMenuId == menu.Id && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data.Select(s => new SystemMenuModel
+                m.SystemMenu = _systemMenuService.Find(v => v.SystemMenuId == menu.Id && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data.Select(s => new SystemMenuModel
                 {
                     ActionName = s.ActionName,
                     ControllerName = s.ControllerName,

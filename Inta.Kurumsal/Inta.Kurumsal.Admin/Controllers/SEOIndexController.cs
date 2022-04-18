@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SEOIndexController : BaseController
     {
-        private SEOIndexManager manager = null;
+        private ISeoIndexService _service = null;
 
-        public SEOIndexController()
+        public SEOIndexController(ISeoIndexService service)
         {
-            manager = new SEOIndexManager();
+            _service = service;
         }
 
         public ActionResult Index()
@@ -22,10 +22,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            SEOIndex seoIndex = new SEOIndex();
+            SEOIndexDto seoIndex = new SEOIndexDto();
 
             if (id.HasValue)
-                seoIndex = manager.GetById(id ?? 0).Data;
+                seoIndex = _service.GetById(id ?? 0).Data;
 
             return PartialView("Add", seoIndex);
         }
@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _service.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -56,19 +56,19 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(SEOIndex request)
+        public ActionResult Save(SEOIndexDto request)
         {
-            DataResult<SEOIndex> data = null;
+            DataResult<SEOIndexDto> data = null;
 
             if (request.Id == 0)
             {
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -81,8 +81,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    SEOIndex SEOIndex = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(SEOIndex);
+                    SEOIndexDto SEOIndex = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(SEOIndex);
                 }
             }
 

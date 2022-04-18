@@ -1,8 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -10,10 +10,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class AccountController : BaseController
     {
-        private SystemUserManager manager = null;
-        public AccountController()
+        private ISystemUserService _service = null;
+        public AccountController(ISystemUserService service)
         {
-            manager = new SystemUserManager();
+            _service = service;
         }
         public ActionResult Index(int? id)
         {
@@ -21,19 +21,19 @@ namespace Inta.Kurumsal.Admin.Controllers
             JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
             var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
 
-            SystemUser user = new SystemUser();
+            SystemUserDto user = new SystemUserDto();
             string userName = data["userName"];
-            user = manager.Get(v => v.UserName == userName).Data;
+            user = _service.Get(v => v.UserName == userName).Data;
 
             return View("Index", user);
         }
 
         [HttpPost]
-        public ActionResult Save(SystemUser request)
+        public ActionResult Save(SystemUserDto request)
         {
-            DataResult<SystemUser> data = null;
+            DataResult<SystemUserDto> data = null;
 
-            data = manager.Update(request);
+            data = _service.Update(request);
 
             return Json(data);
         }

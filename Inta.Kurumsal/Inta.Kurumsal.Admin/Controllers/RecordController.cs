@@ -1,8 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -11,20 +11,20 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordController : BaseController
     {
-        private RecordManager recordManager = null;
-        private CategoryManager categoryManager = null;
-        private GeneralSettingsManager settingsManager = null;
-        private FileUploadManager fileUploadManager = null;
+        private IRecordService _recordService = null;
+        private ICategoryService _categoryService = null;
+        private IGeneralSettingsService _settingsService = null;
+        private IFileUploadService _fileUploadService = null;
 
         private static int SelectedCategoryId = 0;
 
 
-        public RecordController()
+        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService)
         {
-            recordManager = new RecordManager();
-            categoryManager = new CategoryManager();
-            settingsManager = new GeneralSettingsManager();
-            fileUploadManager = new FileUploadManager();
+            _recordService = recordService;
+            _categoryService = categoryService;
+            _settingsService = settingsService;
+            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index()
@@ -43,9 +43,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id, bool? partial = false)
         {
-            Record content = new Record();
+            RecordDto content = new RecordDto();
             if (id.HasValue)
-                content = recordManager.GetById(id ?? 0).Data;
+                content = _recordService.GetById(id ?? 0).Data;
 
             if (!string.IsNullOrEmpty(HttpContext.Request.Query["SearchId"]))
             {
@@ -75,7 +75,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             string str = "";
             string name = "";
-            var category = categoryManager.GetById(id);
+            var category = _categoryService.GetById(id);
             if (category?.Data?.CategoryId != null)
             {
                 if (category?.Data?.CategoryId != 0)
@@ -93,7 +93,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = categoryManager.Find(v => v.CategoryId == CategoryId && (id == null || id != v.Id));
+            var tree = _categoryService.Find(v => v.CategoryId == CategoryId && (id == null || id != v.Id));
 
             return Json(tree.Data);
         }
@@ -107,7 +107,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             string str = "";
             string name = "";
-            var category = categoryManager.GetById(id);
+            var category = _categoryService.GetById(id);
             if (category.Data.CategoryId != 0)
             {
                 str = this.GetAllTopCategory(category.Data.CategoryId).ToString() + "<a href='javascript:void(0)' onclick='GetAllTopCategoryLink(" + category.Data.Id + ")'>" + category.Data.Name + "</a> » ";
@@ -123,7 +123,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = categoryManager.Find(v => v.CategoryId == CategoryId);
+            var tree = _categoryService.Find(v => v.CategoryId == CategoryId);
 
             return Json(tree.Data);
         }
@@ -131,7 +131,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = recordManager.GetById(CategoryId);
+            var tree = _recordService.GetById(CategoryId);
 
             return Json(tree.Data);
         }
@@ -140,7 +140,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = recordManager.Find()?.Data;
+            var result = _recordService.Find()?.Data;
             if (SelectedCategoryId != 0)
                 result = result?.Where(v => v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
@@ -168,16 +168,16 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Record request, IFormFile Image)
+        public ActionResult Save(RecordDto request, IFormFile Image)
         {
             StringManager stringManager = new StringManager();
-            var content = recordManager.GetById(request.Id);
-            DataResult<Record> data = null;
+            var content = _recordService.GetById(request.Id);
+            DataResult<RecordDto> data = null;
             if (Image != null)
             {
 
                 var imageResult = ImageManager.ImageBase64Upload(Image);
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = imageResult.FileBase64Data,
                     Extension = imageResult.Extension,
@@ -189,7 +189,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     IsImage = true
                 };
 
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
                 request.ImageId = fileUploadEntity.Data.Id;
             }
             else
@@ -210,11 +210,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
                 request.OrderNumber = 0;
-                data = recordManager.Save(request);
+                data = _recordService.Save(request);
             }
             else
             {
-                data = recordManager.Update(request);
+                data = _recordService.Update(request);
             }
 
             return Json(data);
@@ -227,8 +227,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    Record content = recordManager.GetById(Convert.ToInt32(item)).Data;
-                    recordManager.Delete(content);
+                    RecordDto content = _recordService.GetById(Convert.ToInt32(item)).Data;
+                    _recordService.Delete(content);
                 }
             }
 
@@ -237,24 +237,24 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult DeleteImage(int id)
         {
-            Record content = recordManager.GetById(id).Data;
+            RecordDto content = _recordService.GetById(id).Data;
             content.ImageId = null;
-            recordManager.Update(content);
+            _recordService.Update(content);
 
             return Json("OK");
 
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<Record> listData)
+        public ActionResult ListUpdate(List<RecordDto> listData)
         {
             foreach (var item in listData)
             {
-                var content = recordManager.GetById(item.Id).Data;
+                var content = _recordService.GetById(item.Id).Data;
                 if (content != null)
                 {
                     content.OrderNumber = item.OrderNumber;
-                    recordManager.Update(content);
+                    _recordService.Update(content);
 
                 }
             }

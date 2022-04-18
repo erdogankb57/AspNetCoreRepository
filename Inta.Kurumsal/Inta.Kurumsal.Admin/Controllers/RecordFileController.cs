@@ -1,8 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -10,14 +10,14 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordFileController : BaseController
     {
-        private RecordFileManager manager = null;
-        private FileUploadManager fileUploadManager = null;
+        private IRecordFileService _service = null;
+        private IFileUploadService _fileUploadService = null;
         private static int ContentId = 0;
 
-        public RecordFileController()
+        public RecordFileController(IRecordFileService service, IFileUploadService fileUploadService)
         {
-            manager = new RecordFileManager();
-            fileUploadManager = new FileUploadManager();
+            _service = service;
+            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index(int? Id)
@@ -29,34 +29,34 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            RecordFile specialty = new RecordFile();
+            RecordFileDto specialty = new RecordFileDto();
 
             if (id.HasValue)
-                specialty = manager.GetById(id ?? 0).Data;
+                specialty = _service.GetById(id ?? 0).Data;
 
             return PartialView("Add", specialty);
         }
 
         public ActionResult BulkAdd(int? id)
         {
-            RecordFile specialty = new RecordFile();
+            RecordFileDto specialty = new RecordFileDto();
 
             if (id.HasValue)
-                specialty = manager.GetById(id ?? 0).Data;
+                specialty = _service.GetById(id ?? 0).Data;
 
             return PartialView("BulkAdd", specialty);
         }
 
         public ActionResult ImageBulkSave(List<IFormFile> file)
         {
-            DataResult<List<RecordFile>> data = new DataResult<List<RecordFile>>();
-            List<RecordFile> resultData = new List<RecordFile>();
-            RecordFile contentFile = null;
+            DataResult<List<RecordFileDto>> data = new DataResult<List<RecordFileDto>>();
+            List<RecordFileDto> resultData = new List<RecordFileDto>();
+            RecordFileDto contentFile = null;
             foreach (var item in file)
             {
                 var fileResult = FileManager.FileBase64Upload(item);
 
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = fileResult.FileBase64Data,
                     Extension = fileResult.Extension,
@@ -66,11 +66,18 @@ namespace Inta.Kurumsal.Admin.Controllers
                     IsImage = false
                 };
 
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
 
-                contentFile = new RecordFile { RecordId = ContentId, Name = "", FileId = fileUploadEntity.Data.Id, RecordDate = DateTime.Now, OrderNumber = 0 };
+                contentFile = new RecordFileDto
+                {
+                    RecordId = ContentId,
+                    Name = "",
+                    FileId = fileUploadEntity.Data.Id,
+                    RecordDate = DateTime.Now,
+                    OrderNumber = 0
+                };
 
-                var result = manager.Save(contentFile);
+                var result = _service.Save(contentFile);
                 resultData.Add(result.Data);
             }
 
@@ -83,7 +90,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find(v => v.RecordId == ContentId).Data;
+            var result = _service.Find(v => v.RecordId == ContentId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -105,17 +112,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(RecordFile request, IFormFile FileName)
+        public ActionResult Save(RecordFileDto request, IFormFile FileName)
         {
-            DataResult<RecordFile> data = null;
-            var contentFile = manager.GetById(request.Id);
+            DataResult<RecordFileDto> data = null;
+            var contentFile = _service.GetById(request.Id);
 
             if (FileName != null)
             {
 
                 var fileResult = FileManager.FileBase64Upload(FileName);
 
-                FileUpload fileUpload = new FileUpload
+                FileUploadDto fileUpload = new FileUploadDto
                 {
                     FileBase64Data = fileResult.FileBase64Data,
                     Extension = fileResult.Extension,
@@ -125,7 +132,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     IsImage = false
                 };
 
-                var fileUploadEntity = fileUploadManager.Save(fileUpload);
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
                 request.FileId = fileUploadEntity.Data.Id;
             }
 
@@ -136,11 +143,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.RecordDate = DateTime.Now;
                 request.RecordId = ContentId;
 
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -153,8 +160,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    RecordFile contentSpecialty = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(contentSpecialty);
+                    RecordFileDto contentSpecialty = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(contentSpecialty);
                 }
             }
 
@@ -163,24 +170,24 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult DeleteFile(int id)
         {
-            var contentFile = manager.GetById(id).Data;
+            var contentFile = _service.GetById(id).Data;
             contentFile.FileName = null;
-            manager.Update(contentFile);
+            _service.Update(contentFile);
 
             return Json("OK");
 
         }
 
         [HttpPost]
-        public ActionResult ListUpdate(List<RecordFile> listData)
+        public ActionResult ListUpdate(List<RecordFileDto> listData)
         {
             foreach (var item in listData)
             {
-                var contentFile = manager.GetById(item.Id).Data;
+                var contentFile = _service.GetById(item.Id).Data;
                 if (contentFile != null)
                 {
                     contentFile.OrderNumber = item.OrderNumber;
-                    manager.Update(contentFile);
+                    _service.Update(contentFile);
 
                 }
             }

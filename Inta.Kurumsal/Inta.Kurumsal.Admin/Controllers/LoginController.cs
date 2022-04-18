@@ -1,7 +1,5 @@
 ﻿using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.Bussiness.Service;
-using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,11 +7,11 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        private SystemUserManager userManager = null;
+        private ISystemUserService _userService = null;
 
-        public LoginController()
+        public LoginController(ISystemUserService userService)
         {
-            userManager = new SystemUserManager();
+            _userService = userService;
         }
         [AllowAnonymous]
         public ActionResult Index()
@@ -23,7 +21,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [AllowAnonymous]
         public ActionResult SignIn(string userName, string password, bool? createPersistentCookie)
         {
-            var user = userManager.Get(g => g.UserName == userName && g.Password == password && g.IsActive);
+            var user = _userService.Get(g => g.UserName == userName && g.Password == password && g.IsActive);
             if (user.Data != null)
             {
                 Dictionary<string, string> authKey = new Dictionary<string, string>();

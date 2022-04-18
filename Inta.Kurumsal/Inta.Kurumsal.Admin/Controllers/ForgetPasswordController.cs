@@ -1,5 +1,5 @@
 ﻿using Inta.Framework.Extension.Common;
-using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,11 +7,11 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class ForgetPasswordController : Controller
     {
-        private SystemUserManager userManager = null;
+        private ISystemUserService _userService = null;
         private MailManager mailManager = null;
-        public ForgetPasswordController()
+        public ForgetPasswordController(ISystemUserService userService)
         {
-            userManager = new SystemUserManager();
+            _userService = userService;
             mailManager = new MailManager("", "", "", 0, "");
         }
         [AllowAnonymous]
@@ -23,7 +23,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [AllowAnonymous]
         public ActionResult SendPassword(string email)
         {
-            var user = userManager.Get(g => g.Email == email);
+            var user = _userService.Get(g => g.Email == email);
             if (user.Data != null)
             {
                 List<string> mails = new List<string>();

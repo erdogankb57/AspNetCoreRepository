@@ -1,6 +1,8 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
+using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,13 +12,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemUserController : BaseController
     {
-        private SystemUserManager manager = null;
-        private SystemRoleManager roleManager = null;
+        private ISystemUserService _service = null;
+        private ISystemRoleService _roleService = null;
 
-        public SystemUserController()
+        public SystemUserController(ISystemUserService service, ISystemRoleService roleService)
         {
-            manager = new SystemUserManager();
-            roleManager = new SystemRoleManager();
+            _service = service;
+            _roleService = roleService;
         }
 
         public ActionResult Index()
@@ -25,15 +27,15 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            SystemUser user = new SystemUser();
+            SystemUserDto user = new SystemUserDto();
 
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
-            list.AddRange(roleManager.Find().Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
+            list.AddRange(_roleService.Find().Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.systemRole = list;
 
             if (id.HasValue)
-                user = manager.GetById(id ?? 0).Data;
+                user = _service.GetById(id ?? 0).Data;
 
             return PartialView("Add", user);
         }
@@ -42,13 +44,13 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            List<SystemUser> result = new List<SystemUser>();
-            var activeUser = manager.GetById(Convert.ToInt32(ViewBag.SystemUserId)).Data;
+            List<SystemUserDto> result = new List<SystemUserDto>();
+            var activeUser = _service.GetById(Convert.ToInt32(ViewBag.SystemUserId)).Data;
             if (activeUser != null && activeUser.IsAdmin)
-                result = manager.Find()?.Data?.ToList();
+                result = _service.Find()?.Data?.ToList();
 
             else
-                result = manager.Find(s => !s.IsAdmin)?.Data?.ToList();
+                result = _service.Find(s => !s.IsAdmin)?.Data?.ToList();
 
             if (request.order[0].dir == "asc")
             {
@@ -75,19 +77,19 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(SystemUser request)
+        public ActionResult Save(SystemUserDto request)
         {
-            DataResult<SystemUser> data = null;
+            DataResult<SystemUserDto> data = null;
 
             if (request.Id == 0)
             {
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
-                data = manager.Save(request);
+                data = _service.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _service.Update(request);
             }
 
             return Json(data);
@@ -100,8 +102,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    SystemUser systemUser = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(systemUser);
+                    SystemUserDto systemUser = _service.GetById(Convert.ToInt32(item)).Data;
+                    _service.Delete(systemUser);
                 }
             }
 

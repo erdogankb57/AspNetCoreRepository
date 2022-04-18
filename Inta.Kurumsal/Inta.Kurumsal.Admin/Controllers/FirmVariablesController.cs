@@ -1,7 +1,7 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FirmVariablesController : BaseController
     {
-        private FirmVariablesManager manager = null;
+        private IFirmVariablesService _firmVariablesService = null;
 
-        public FirmVariablesController()
+        public FirmVariablesController(IFirmVariablesService firmVariablesService)
         {
-            manager = new FirmVariablesManager();
+            _firmVariablesService = firmVariablesService;
         }
 
         public ActionResult Index()
@@ -22,10 +22,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult Add(int? id)
         {
-            FirmVariables firmVariables = new FirmVariables();
+            FirmVariablesDto firmVariables = new FirmVariablesDto();
 
             if (id.HasValue)
-                firmVariables = manager.GetById(id ?? 0).Data;
+                firmVariables = _firmVariablesService.GetById(id ?? 0).Data;
 
             return PartialView("Add", firmVariables);
         }
@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = manager.Find().Data;
+            var result = _firmVariablesService.Find().Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -56,18 +56,18 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(FirmVariables request)
+        public ActionResult Save(FirmVariablesDto request)
         {
-            DataResult<FirmVariables> data = null;
+            DataResult<FirmVariablesDto> data = null;
 
             if (request.Id == 0)
             {
                 request.RecordDate = DateTime.Now;
-                data = manager.Save(request);
+                data = _firmVariablesService.Save(request);
             }
             else
             {
-                data = manager.Update(request);
+                data = _firmVariablesService.Update(request);
             }
 
             return Json(data);
@@ -80,8 +80,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    FirmVariables firmVariables = manager.GetById(Convert.ToInt32(item)).Data;
-                    manager.Delete(firmVariables);
+                    FirmVariablesDto firmVariables = _firmVariablesService.GetById(Convert.ToInt32(item)).Data;
+                    _firmVariablesService.Delete(firmVariables);
                 }
             }
 

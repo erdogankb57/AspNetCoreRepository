@@ -1,7 +1,6 @@
 ﻿using Inta.Kurumsal.Admin.Models;
-using Inta.Kurumsal.Admin.ViewComponents;
-using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Entity.Concrete;
+using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.Controllers
@@ -9,35 +8,35 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class HomeController : BaseController
     {
-        private SystemMenuManager menuManager = null;
-        private SystemUserManager userManager = null;
-        private SystemMenuRoleManager roleManager = null;
+        private ISystemMenuService _menuService = null;
+        private ISystemUserService _userService = null;
+        private ISystemMenuRoleService _roleService = null;
 
 
-        public HomeController()
+        public HomeController(ISystemMenuService menuService, ISystemUserService userService, ISystemMenuRoleService roleService)
         {
-            menuManager = new SystemMenuManager();
-            userManager = new SystemUserManager();
-            roleManager = new SystemMenuRoleManager();
+            _menuService = menuService;
+            _userService = userService;
+            _roleService = roleService;
         }
 
         public ActionResult Index()
         {
             int userId = Convert.ToInt32(ViewBag.SystemUserId);
-            var user = userManager.Find(v => v.Id == userId).Data.FirstOrDefault();
+            var user = _userService.Find(v => v.Id == userId).Data.FirstOrDefault();
             bool isAdmin = true;
             List<int> roleIds = new List<int>();
             if (user != null)
             {
-                roleIds.AddRange(roleManager.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
+                roleIds.AddRange(_roleService.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
             }
 
-            List<SystemMenu> data = new List<SystemMenu>();
+            List<SystemMenuDto> data = new List<SystemMenuDto>();
             //admin ise
             if (isAdmin)
-                data = menuManager.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive).Data?.ToList();
+                data = _menuService.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive).Data?.ToList();
             else
-                data = menuManager.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive && roleIds.Any(a => a == v.Id)).Data?.ToList();
+                data = _menuService.Find(v => v.SystemMenuId.HasValue && v.SystemMenuId.Value != 0 && v.IsActive && roleIds.Any(a => a == v.Id)).Data?.ToList();
 
 
             return View(data);
