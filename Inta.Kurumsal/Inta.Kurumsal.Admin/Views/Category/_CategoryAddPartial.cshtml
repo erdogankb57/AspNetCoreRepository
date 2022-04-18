@@ -9,6 +9,8 @@
 @Html.HiddenFor(h => h.Id)
 @Html.HiddenFor(h => h.RecordDate)
 @Html.HiddenFor(h => h.CategoryId)
+@Html.HiddenFor(h => h.ImageId)
+
 
 <div class="container-fluid">
     <div class="form-group">
@@ -121,33 +123,35 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-lg-3">
-                <label for="exampleFormControlInput1">Resim</label>
-            </div>
-            <div class="col-lg-9">
-                <input type='file' name='Image' />
-            </div>
-        </div>
-        @if (Model.ImageId != null)
-        {
-            <div class="row" id="categoryImagePanel" style="padding:10px 0;">
-
-
+    <div id="categoryImagePanel">
+        <div class="form-group">
+            <div class="row">
                 <div class="col-lg-3">
+                    <label for="exampleFormControlInput1">Resim</label>
                 </div>
-                <div class="col-lg-3">
-                    <div class="small-image-content">
-                        <a id="ImageLink" href="/upload/Image/@Model.ImageId?width=1000" data-fancybox data-caption="@Model.Name"><img id="Image" src="/upload/Image/@Model.ImageId?width=200" width="100" height="100" style="border:solid 1px #000000" /></a>
+                <div class="col-lg-9">
+                    <input type='file' name='Image' />
+                </div>
+            </div>
+            @if (Model.ImageId != null)
+            {
+                <div class="row" style="padding:10px 0;">
+
+
+                    <div class="col-lg-3">
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <button type="button" class="btn btn-standart" onclick="deleteImage(@Model.Id)">Resmi sil</button>
-                </div>
+                    <div class="col-lg-3">
+                        <div class="small-image-content">
+                            <a id="ImageLink" href="/upload/Image/@Model.ImageId?width=1000" data-fancybox data-caption="@Model.Name"><img id="Image" src="/upload/Image/@Model.ImageId?width=200" width="100" height="100" style="border:solid 1px #000000" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="button" class="btn btn-standart" onclick="deleteImage(@Model.Id)">Resmi sil</button>
+                    </div>
 
-            </div>
-        }
+                </div>
+            }
+        </div>
     </div>
 
     <div class="form-group">
