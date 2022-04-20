@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inta.Kurumsal.UI", "Inta.Ku
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inta.Kurumsal.Admin", "Inta.Kurumsal.Admin\Inta.Kurumsal.Admin.csproj", "{4DE535BC-4BB0-4809-BC84-6EC877FBD273}"
 EndProject
-<<<<<<< HEAD
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{047DC8C0-95F0-4468-ADA2-7BC99DCF5970}"
+	ProjectSection(SolutionItems) = preProject
+		Inta_Kurumsal_20_04_2022.sql = Inta_Kurumsal_20_04_2022.sql
+	EndProjectSection
 EndProject
-=======
->>>>>>> 2ce57d848e7650b55e809ec539b67f8ec8fad8c9
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
