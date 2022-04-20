@@ -50,7 +50,12 @@
       "ProjectGuid": "7cda91d0-8fa7-4562-bf4a-09482e91b8ac",
       "DisplayName": "Inta.Framework.Logging",
       "ColorIndex": 8
+    },
+    "047dc8c0-95f0-4468-ada2-7bc99dcf5970": {
+      "ProjectGuid": "047dc8c0-95f0-4468-ada2-7bc99dcf5970",
+      "DisplayName": "Data",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 10
 }
