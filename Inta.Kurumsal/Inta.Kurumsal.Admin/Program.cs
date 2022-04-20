@@ -15,32 +15,18 @@ builder.Services.AddMvc(setupAction =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
-builder.Services.AddTransient<IBannerTypeService, BannerTypeService>();
-builder.Services.AddTransient<IBannerService, BannerService>();
-builder.Services.AddTransient<ICategoryService, CategoryService>();
-builder.Services.AddTransient<IContactInformationService, ContactInformationService>();
-builder.Services.AddTransient<IEditorTemplateService, EditorTemplateService>();
-builder.Services.AddTransient<IFileUploadService, FileUploadService>();
-builder.Services.AddTransient<IFirmVariablesService, FirmVariablesService>();
-builder.Services.AddTransient<IFormElementService, FormElementService>();
-builder.Services.AddTransient<IFormElementOptionsService, FormElementOptionsService>();
-builder.Services.AddTransient<IFormGroupService, FormGroupService>();
-builder.Services.AddTransient<IGeneralSettingsService, GeneralSettingsService>();
-builder.Services.AddTransient<ILanguageService, LanguageService>();
-builder.Services.AddTransient<IMessageHistoryService, MessageHistoryService>();
-builder.Services.AddTransient<IMessageTypeService, MessageTypeService>();
-builder.Services.AddTransient<IPageTypeService, PageTypeService>();
-builder.Services.AddTransient<IRecordService, RecordService>();
-builder.Services.AddTransient<IRecordFileService, RecordFileService>();
-builder.Services.AddTransient<IRecordImageService, RecordImageService>();
-builder.Services.AddTransient<ISeoIndexService, SEOIndexService>();
-builder.Services.AddTransient<IStaticTextService, StaticTextService>();
-builder.Services.AddTransient<ISystemActionService, SystemActionService>();
-builder.Services.AddTransient<ISystemActionRoleService, SystemActionRoleService>();
-builder.Services.AddTransient<ISystemMenuService, SystemMenuService>();
-builder.Services.AddTransient<ISystemMenuRoleService, SystemMenuRoleService>();
-builder.Services.AddTransient<ISystemRoleService, SystemRoleService>();
-builder.Services.AddTransient<ISystemUserService, SystemUserService>();
+
+/*Bussiness katmanýndaki classlar otomatik olarak enjecte edilir.*/
+var allProviderTypes = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
+    .Select(a=> System.Reflection.Assembly.Load(a)).SelectMany(t => t.GetTypes())
+    .Where(t => t.Namespace != null);
+
+foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.Contains("Bussiness")))
+{
+    var impl = allProviderTypes.FirstOrDefault(c => c.IsClass && intfc.Name.Substring(1) == c.Name);
+    if (impl != null) builder.Services.AddTransient(intfc, impl);
+}
+/*Bussiness katmanýndaki classlar otomatik olarak enjecte edilir.*/
 
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
