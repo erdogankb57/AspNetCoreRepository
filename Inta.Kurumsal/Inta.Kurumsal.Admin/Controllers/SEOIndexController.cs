@@ -9,9 +9,9 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SEOIndexController : BaseController
     {
-        private ISeoIndexService _service = null;
+        private ISEOIndexService _service = null;
 
-        public SEOIndexController(ISeoIndexService service)
+        public SEOIndexController(ISEOIndexService service)
         {
             _service = service;
         }

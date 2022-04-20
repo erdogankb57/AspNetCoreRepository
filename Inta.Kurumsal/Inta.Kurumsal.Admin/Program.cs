@@ -21,7 +21,7 @@ var allProviderTypes = System.Reflection.Assembly.GetEntryAssembly().GetReferenc
     .Select(a=> System.Reflection.Assembly.Load(a)).SelectMany(t => t.GetTypes())
     .Where(t => t.Namespace != null);
 
-foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.Contains("Bussiness")))
+foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.Contains("Inta.Kurumsal.Bussiness")))
 {
     var impl = allProviderTypes.FirstOrDefault(c => c.IsClass && intfc.Name.Substring(1) == c.Name);
     if (impl != null) builder.Services.AddTransient(intfc, impl);

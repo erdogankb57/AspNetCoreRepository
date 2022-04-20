@@ -7,7 +7,7 @@
         public string ResultMessage { get; set; }
         public MessageTypeResult ResultType { get; set; }
     }
-
+    
     public enum MessageTypeResult
     {
         Success = 0,

@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Service
 {
-    public class SEOIndexService : ISeoIndexService
+    public class SEOIndexService : ISEOIndexService
     {
         private IMapper _mapper = null;
         private SEOIndexManager manager = null;

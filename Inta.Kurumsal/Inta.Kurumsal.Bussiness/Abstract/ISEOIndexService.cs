@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface ISeoIndexService
+    public interface ISEOIndexService
     {
         DataResult<SEOIndexDto> GetById(int id);
         DataResult<List<SEOIndexDto>> Find(Expression<Func<SEOIndex, bool>> filter = null);
