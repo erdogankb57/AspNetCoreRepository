@@ -10,14 +10,16 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class GeneralSettingsController : BaseController
     {
         private IGeneralSettingsService _service = null;
-        public GeneralSettingsController(IGeneralSettingsService service)
+        private IAuthenticationData _authenticationData = null;
+        public GeneralSettingsController(IGeneralSettingsService service, IAuthenticationData authenticationData)
         {
             _service = service;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
         {
-            var model = _service.Find()?.Data?.FirstOrDefault();
+            var model = _service.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data?.FirstOrDefault();
 
             return View(model);
         }
@@ -29,7 +31,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
                 data = _service.Save(request);

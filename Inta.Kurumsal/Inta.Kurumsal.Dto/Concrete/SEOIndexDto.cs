@@ -8,7 +8,7 @@ namespace Inta.Kurumsal.Dto.Concrete
 
 		public int Id { get; set; }
 		public int? SystemUserId { get; set; }
-		public string? LanguageCode { get; set; }
+		public int? LanguageId { get; set; }
 		public string? Url { get; set; }
 		public string? RedirectUrl { get; set; }
 		public DateTime? RecordDate { get; set; }

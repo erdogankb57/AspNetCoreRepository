@@ -2,6 +2,7 @@
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Common;
 using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,11 +16,14 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IBannerService _bannerService = null;
         private IBannerTypeService _bannerTypeService = null;
         private IFileUploadService _fileUploadService = null;
-        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IFileUploadService fileUploadService)
+        private IAuthenticationData _authenticationData = null;
+        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
         {
             _bannerService = bannerService;
             _bannerTypeService = bannerTypeService;
             _fileUploadService = fileUploadService;
+            _authenticationData = authenticationData;
+
         }
         public ActionResult Index()
         {
@@ -37,7 +41,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult Add(int? id)
         {
             BannerDto banner = new BannerDto();
-            var bannerTypes = _bannerTypeService.Find();
+            var bannerTypes = _bannerTypeService.Find(v=> v.LanguageId == _authenticationData.LanguageId);
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(bannerTypes.Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
@@ -51,7 +55,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetList(DataTableAjaxPostModel request)
         {
-            var result = _bannerService.Find().Data;
+            var result = _bannerService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -116,7 +120,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
                 data = _bannerService.Save(request);

@@ -10,9 +10,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class MessageHistoryController : BaseController
     {
         private IMessageHistoryService _service = null;
-        public MessageHistoryController(IMessageHistoryService service)
+        private IAuthenticationData _authenticationData = null;
+        public MessageHistoryController(IMessageHistoryService service, IAuthenticationData authenticationData)
         {
             _service = service;
+            _authenticationData = authenticationData;
         }
 
 
@@ -39,7 +41,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _service.Find()?.Data;
+            var result = _service.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -68,6 +70,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (request.Id == 0)
             {
                 request.RecordDate = DateTime.Now;
+                request.LanguageId = _authenticationData.LanguageId;
                 data = _service.Save(request);
             }
             else

@@ -12,10 +12,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IContactInformationService _contactInformationService = null;
         private IFileUploadService _fileUploadService = null;
-        public ContactInformationController(IContactInformationService contactInformationService, IFileUploadService fileUploadService)
+        private IAuthenticationData _authenticationData = null;
+        public ContactInformationController(IContactInformationService contactInformationService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
         {
             _contactInformationService = contactInformationService;
             _fileUploadService = fileUploadService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -60,7 +62,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _contactInformationService.Find().Data;
+            var result = _contactInformationService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             List<ContactInformationDto> contactInformations = new List<ContactInformationDto>();
             if (request.order[0].dir == "asc")
             {
@@ -120,7 +122,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
                 request.OrderNumber = 0;

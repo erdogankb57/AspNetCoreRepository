@@ -10,10 +10,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class FirmVariablesController : BaseController
     {
         private IFirmVariablesService _firmVariablesService = null;
-
-        public FirmVariablesController(IFirmVariablesService firmVariablesService)
+        private IAuthenticationData _authenticationData = null;
+        public FirmVariablesController(IFirmVariablesService firmVariablesService, IAuthenticationData authenticationData)
         {
             _firmVariablesService = firmVariablesService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -34,7 +35,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _firmVariablesService.Find().Data;
+            var result = _firmVariablesService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -63,6 +64,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (request.Id == 0)
             {
                 request.RecordDate = DateTime.Now;
+                request.LanguageId = _authenticationData.LanguageId;
                 data = _firmVariablesService.Save(request);
             }
             else

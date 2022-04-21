@@ -10,10 +10,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class FormGroupController : BaseController
     {
         private IFormGroupService _formGroupService = null;
+        private IAuthenticationData _authenticationData = null;
 
-        public FormGroupController(IFormGroupService formGroupService)
+        public FormGroupController(IFormGroupService formGroupService, IAuthenticationData authenticationData)
         {
             _formGroupService = formGroupService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -33,7 +35,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _formGroupService.Find().Data;
+            var result = _formGroupService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -61,7 +63,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 

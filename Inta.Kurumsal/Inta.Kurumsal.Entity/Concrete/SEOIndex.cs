@@ -20,7 +20,7 @@ namespace Inta.Kurumsal.Entity.Concrete
 		[Column("SystemUserId")]
 		public int? SystemUserId { get; set; }
 		[Column("LanguageCode")]
-		public string? LanguageCode { get; set; }
+		public int? LanguageId{ get; set; }
 		[Column("Url")]
 		public string? Url { get; set; }
 		[Column("RedirectUrl")]

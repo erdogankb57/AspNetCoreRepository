@@ -12,12 +12,14 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IFormElementOptionsService _optionService = null;
         private IFormElementService _elementService = null;
+        private IAuthenticationData _authenticationData = null;
         int SelectedElementId = 0;
 
-        public FormElementOptionsController(IFormElementOptionsService optionService, IFormElementService elementService)
+        public FormElementOptionsController(IFormElementOptionsService optionService, IFormElementService elementService, IAuthenticationData authenticationData)
         {
             _optionService = optionService;
             _elementService = elementService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -59,7 +61,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request, int? FormElementId)
         {
-            var result = _optionService.Find().Data;
+            var result = _optionService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -91,7 +93,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 

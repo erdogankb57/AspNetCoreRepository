@@ -10,6 +10,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class EditorTemplateController : BaseController
     {
         private IEditorTemplateService _editorTemplateService = null;
+        private IAuthenticationData _authenticationData = null;
 
         public EditorTemplateController(IEditorTemplateService editorTemplateService)
         {
@@ -34,7 +35,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _editorTemplateService.Find().Data;
+            var result = _editorTemplateService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -61,7 +62,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 

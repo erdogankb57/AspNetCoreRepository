@@ -7,7 +7,7 @@ namespace Inta.Kurumsal.Dto.Concrete
         }
 
         public int Id { get; set; }
-        public string? LanguageCode { get; set; }
+        public int? LanguageId { get; set; }
         public int? MessageTypeId { get; set; }
         public string? ClientName { get; set; }
         public string? ClientSurname { get; set; }

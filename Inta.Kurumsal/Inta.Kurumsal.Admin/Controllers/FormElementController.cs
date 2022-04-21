@@ -14,11 +14,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IFormElementService _formElementService = null;
         private IFormGroupService _formGroupService = null;
-
-        public FormElementController(IFormElementService formElementService, IFormGroupService formGroupService)
+        private IAuthenticationData _authenticationData = null;
+        public FormElementController(IFormElementService formElementService, IFormGroupService formGroupService, IAuthenticationData authenticationData)
         {
             _formElementService = formElementService;
             _formGroupService = formGroupService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -42,7 +43,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             List<SelectListItem> formGroup = new List<SelectListItem>();
             formGroup.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
 
-            var formGroupData = _formGroupService.Find()?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
+            var formGroupData = _formGroupService.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
             formGroup.AddRange(formGroupData);
 
             ViewBag.formGroup = formGroup;
@@ -56,7 +57,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _formElementService.Find().Data;
+            var result = _formElementService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -84,7 +85,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
 

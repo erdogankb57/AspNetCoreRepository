@@ -10,10 +10,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class StaticTextController : BaseController
     {
         private IStaticTextService _service = null;
+        private IAuthenticationData _authenticationData = null;
 
-        public StaticTextController(IStaticTextService service)
+        public StaticTextController(IStaticTextService service, IAuthenticationData authenticationData)
         {
             _service = service;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()

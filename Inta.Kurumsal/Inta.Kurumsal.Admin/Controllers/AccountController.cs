@@ -11,18 +11,16 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class AccountController : BaseController
     {
         private ISystemUserService _service = null;
-        public AccountController(ISystemUserService service)
+        private IAuthenticationData _authenticationData = null;
+        public AccountController(ISystemUserService service, IAuthenticationData authenticationData)
         {
             _service = service;
+            _authenticationData = authenticationData;
         }
         public ActionResult Index(int? id)
         {
-
-            JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
-            var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
-
             SystemUserDto user = new SystemUserDto();
-            string userName = data["userName"];
+            string userName = _authenticationData.UserName;
             user = _service.Get(v => v.UserName == userName).Data;
 
             return View("Index", user);

@@ -11,11 +11,13 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IBannerTypeService _bannerTypeService = null;
         private IBannerService _bannerService = null;
+        private IAuthenticationData _authenticationData = null;
 
-        public BannerTypeController(IBannerTypeService bannerTypeService, IBannerService bannerService)
+        public BannerTypeController(IBannerTypeService bannerTypeService, IBannerService bannerService, IAuthenticationData authenticationData)
         {
             _bannerTypeService = bannerTypeService;
             _bannerService = bannerService;
+            _authenticationData = authenticationData;
         }
         public ActionResult Index()
         {
@@ -35,7 +37,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _bannerTypeService.Find().Data;
+            var result = _bannerTypeService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -67,7 +69,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
 
                 data = _bannerTypeService.Save(request);

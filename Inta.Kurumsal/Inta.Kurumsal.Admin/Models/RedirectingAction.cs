@@ -1,5 +1,6 @@
 ﻿using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Common;
 using Inta.Kurumsal.Bussiness.Service;
 using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace Inta.Kurumsal.Admin.Models
         private ISystemMenuService _systemMenuService = null;
         private ISystemUserService _userService = null;
         private ISystemRoleService _systemRoleService = null;
-
+        private IAuthenticationData _authenticationData = null;
         public AuthorizationCheck()
         {
 
@@ -24,13 +25,12 @@ namespace Inta.Kurumsal.Admin.Models
             _systemMenuService = context.HttpContext.RequestServices.GetService<ISystemMenuService>();
             _userService = context.HttpContext.RequestServices.GetService<ISystemUserService>();
             _systemRoleService = context.HttpContext.RequestServices.GetService<ISystemRoleService>();
+            _authenticationData = context.HttpContext.RequestServices.GetService<IAuthenticationData>();
 
-            if (context.HttpContext.Session.GetString("AuthData") != null)
+
+            if (_authenticationData.HasSession)
             {
-                JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
-                var data = serializer.Deserialize(context.HttpContext.Session.GetString("AuthData"));
-
-                var user = _userService.Get(g => g.UserName == data["userName"] && g.Password == data["password"] && g.IsActive);
+                var user = _userService.Get(g => g.UserName == _authenticationData.UserName && g.Password == _authenticationData.Password && g.IsActive);
                 if (user.Data != null)
                 {
                     controller.ViewBag.ActiveTopMenuId = "";

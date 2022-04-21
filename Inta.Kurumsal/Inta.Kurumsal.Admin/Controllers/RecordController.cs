@@ -15,16 +15,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         private ICategoryService _categoryService = null;
         private IGeneralSettingsService _settingsService = null;
         private IFileUploadService _fileUploadService = null;
-
+        private IAuthenticationData _authenticationData = null;
         private static int SelectedCategoryId = 0;
 
 
-        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService)
+        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
         {
             _recordService = recordService;
             _categoryService = categoryService;
             _settingsService = settingsService;
             _fileUploadService = fileUploadService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -140,7 +141,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _recordService.Find()?.Data;
+            var result = _recordService.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data;
             if (SelectedCategoryId != 0)
                 result = result?.Where(v => v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
@@ -192,10 +193,6 @@ namespace Inta.Kurumsal.Admin.Controllers
                 var fileUploadEntity = _fileUploadService.Save(fileUpload);
                 request.ImageId = fileUploadEntity.Data.Id;
             }
-            else
-            {
-              
-            }
 
             if (String.IsNullOrEmpty(request.RecordUrl))
                 request.RecordUrl = stringManager.TextUrlCharReplace(request.Name);
@@ -210,6 +207,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.RecordDate = DateTime.Now;
                 request.OrderNumber = 0;
+                request.LanguageId = _authenticationData.LanguageId;
                 data = _recordService.Save(request);
             }
             else

@@ -16,17 +16,19 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IFormGroupService _formGroupService = null;
         private IGeneralSettingsService _settingsService = null;
         private IFileUploadService _fileUploadService = null;
+        private IAuthenticationData _authenticationData = null;
 
         private static int SelectedCategoryId = 0;
 
 
-        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService)
+        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
         {
             _categoryService = categoryService;
             _pageTypeService = pageTypeService;
             _formGroupService = formGroupService;
             _settingsService = settingsService;
             _fileUploadService = fileUploadService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -170,7 +172,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _categoryService.Find().Data;
+            var result = _categoryService.Find(v=> v.LanguageId== _authenticationData.LanguageId).Data;
 
             if (!string.IsNullOrEmpty(request.columns[0].search.value))
                 result = result.Where(v => v.CategoryId == Convert.ToInt32(request.columns[0].search.value)).ToList();
@@ -234,7 +236,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (request.Id == 0)
             {
-                request.LanguageId = ViewBag.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.SystemUserId = ViewBag.SystemUserId;
                 request.CanSubCategoryBeAdded = true;
                 request.CanBeDeleted = true;

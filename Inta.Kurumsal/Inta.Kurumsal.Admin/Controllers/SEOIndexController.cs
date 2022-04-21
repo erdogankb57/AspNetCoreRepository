@@ -10,10 +10,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class SEOIndexController : BaseController
     {
         private ISEOIndexService _service = null;
+        private IAuthenticationData _authenticationData = null;
 
-        public SEOIndexController(ISEOIndexService service)
+        public SEOIndexController(ISEOIndexService service, IAuthenticationData authenticationData)
         {
             _service = service;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
@@ -34,7 +36,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _service.Find().Data;
+            var result = _service.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -63,6 +65,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (request.Id == 0)
             {
                 request.SystemUserId = ViewBag.SystemUserId;
+                request.LanguageCode = _authenticationData.LanguageId;
                 request.RecordDate = DateTime.Now;
                 data = _service.Save(request);
             }

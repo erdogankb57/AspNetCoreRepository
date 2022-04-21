@@ -1,4 +1,5 @@
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Bussiness.Common;
 using Inta.Kurumsal.Bussiness.Service;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -15,10 +16,11 @@ builder.Services.AddMvc(setupAction =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddSingleton(typeof(AuthenticationData));
 
 /*Bussiness katmanýndaki classlar otomatik olarak enjecte edilir.*/
 var allProviderTypes = System.Reflection.Assembly.GetEntryAssembly().GetReferencedAssemblies()
-    .Select(a=> System.Reflection.Assembly.Load(a)).SelectMany(t => t.GetTypes())
+    .Select(a => System.Reflection.Assembly.Load(a)).SelectMany(t => t.GetTypes())
     .Where(t => t.Namespace != null);
 
 foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.Contains("Inta.Kurumsal.Bussiness")))
