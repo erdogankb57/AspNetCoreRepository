@@ -176,6 +176,8 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (!string.IsNullOrEmpty(request.columns[0].search.value))
                 result = result.Where(v => v.CategoryId == Convert.ToInt32(request.columns[0].search.value)).ToList();
+            else
+                result = result.Where(v => v.CategoryId == 0).ToList();
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();
