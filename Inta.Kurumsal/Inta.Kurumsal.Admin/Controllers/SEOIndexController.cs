@@ -65,7 +65,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (request.Id == 0)
             {
                 request.SystemUserId = ViewBag.SystemUserId;
-                request.LanguageCode = _authenticationData.LanguageId;
+                request.LanguageId = _authenticationData.LanguageId;
                 request.RecordDate = DateTime.Now;
                 data = _service.Save(request);
             }

@@ -82,7 +82,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             List<SelectListItem> formGroup = new List<SelectListItem>();
             formGroup.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
 
-            var formGroupData = _formGroupService.Find()?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
+            var formGroupData = _formGroupService.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
             formGroup.AddRange(formGroupData);
 
             ViewBag.formGroup = formGroup;
@@ -145,7 +145,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = _categoryService.Find(v => v.CategoryId == CategoryId && (id == null || id != v.Id));
+            var tree = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId && v.CategoryId == CategoryId && (id == null || id != v.Id));
 
             return Json(tree.Data);
         }
@@ -155,7 +155,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = _categoryService.Find(v => v.CategoryId == CategoryId && v.CanSubCategoryBeAdded == true && (id == null || id != v.Id));
+            var tree = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId && v.CategoryId == CategoryId && v.CanSubCategoryBeAdded == true && (id == null || id != v.Id));
 
             return Json(tree.Data);
         }

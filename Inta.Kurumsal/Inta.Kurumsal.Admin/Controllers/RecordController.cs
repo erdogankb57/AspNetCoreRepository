@@ -94,7 +94,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = _categoryService.Find(v => v.CategoryId == CategoryId && (id == null || id != v.Id));
+            var tree = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId && v.CategoryId == CategoryId && (id == null || id != v.Id));
 
             return Json(tree.Data);
         }
@@ -124,7 +124,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> categoryTree = new List<SelectListItem>();
 
-            var tree = _categoryService.Find(v => v.CategoryId == CategoryId);
+            var tree = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId && v.CategoryId == CategoryId);
 
             return Json(tree.Data);
         }
