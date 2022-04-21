@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [IntaKurumsal]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Database [IntaKurumsal]    Script Date: 21.04.2022 16:49:32 ******/
 CREATE DATABASE [IntaKurumsal]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,10 +80,10 @@ ALTER DATABASE [IntaKurumsal] SET QUERY_STORE = OFF
 GO
 USE [IntaKurumsal]
 GO
-/****** Object:  User [sa1]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  User [sa1]    Script Date: 21.04.2022 16:49:32 ******/
 CREATE USER [sa1] FOR LOGIN [sa1] WITH DEFAULT_SCHEMA=[dbo]
 GO
-/****** Object:  Table [dbo].[Banner]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[Banner]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[Banner](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[BannerType]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[BannerType]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -130,7 +130,7 @@ CREATE TABLE [dbo].[BannerType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +166,7 @@ CREATE TABLE [dbo].[Category](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CategorySpecialty]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[CategorySpecialty]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -194,7 +194,7 @@ CREATE TABLE [dbo].[CategorySpecialty](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ContactInformation]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[ContactInformation]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -227,7 +227,7 @@ CREATE TABLE [dbo].[ContactInformation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[EditorTemplate]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[EditorTemplate]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +248,7 @@ CREATE TABLE [dbo].[EditorTemplate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FileUpload]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FileUpload]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -269,7 +269,7 @@ CREATE TABLE [dbo].[FileUpload](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FirmVariables]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FirmVariables]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,7 +289,7 @@ CREATE TABLE [dbo].[FirmVariables](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FormElement]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FormElement]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -315,7 +315,7 @@ CREATE TABLE [dbo].[FormElement](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FormElementOptions]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FormElementOptions]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -337,7 +337,7 @@ CREATE TABLE [dbo].[FormElementOptions](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FormGroup]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FormGroup]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -357,7 +357,7 @@ CREATE TABLE [dbo].[FormGroup](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FormType]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[FormType]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -378,7 +378,7 @@ CREATE TABLE [dbo].[FormType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GeneralSettings]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[GeneralSettings]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -411,7 +411,7 @@ CREATE TABLE [dbo].[GeneralSettings](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Language]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[Language]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -430,7 +430,7 @@ CREATE TABLE [dbo].[Language](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LogMessage]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[LogMessage]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -450,14 +450,14 @@ CREATE TABLE [dbo].[LogMessage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MessageHistory]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[MessageHistory]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MessageHistory](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[LanguageCode] [nvarchar](10) NULL,
+	[LanguageId] [int] NULL,
 	[MessageTypeId] [int] NULL,
 	[ClientName] [nvarchar](50) NULL,
 	[ClientSurname] [nvarchar](50) NULL,
@@ -476,7 +476,7 @@ CREATE TABLE [dbo].[MessageHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MessageType]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[MessageType]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -495,7 +495,7 @@ CREATE TABLE [dbo].[MessageType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PageType]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[PageType]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -522,7 +522,7 @@ CREATE TABLE [dbo].[PageType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Record]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[Record]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -554,7 +554,7 @@ CREATE TABLE [dbo].[Record](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RecordFile]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[RecordFile]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -582,7 +582,7 @@ CREATE TABLE [dbo].[RecordFile](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RecordImage]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[RecordImage]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -610,7 +610,7 @@ CREATE TABLE [dbo].[RecordImage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RecordSpecialty]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[RecordSpecialty]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -638,7 +638,7 @@ CREATE TABLE [dbo].[RecordSpecialty](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SEOIndex]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SEOIndex]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -646,7 +646,7 @@ GO
 CREATE TABLE [dbo].[SEOIndex](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[SystemUserId] [int] NULL,
-	[LanguageCode] [nvarchar](10) NULL,
+	[LanguageId] [nvarchar](10) NULL,
 	[Url] [nvarchar](max) NULL,
 	[RedirectUrl] [nvarchar](max) NULL,
 	[RecordDate] [datetime] NOT NULL,
@@ -657,7 +657,7 @@ CREATE TABLE [dbo].[SEOIndex](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SpecialtyType]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SpecialtyType]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -671,7 +671,7 @@ CREATE TABLE [dbo].[SpecialtyType](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StaticText]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[StaticText]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -690,7 +690,7 @@ CREATE TABLE [dbo].[StaticText](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemAction]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemAction]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -707,7 +707,7 @@ CREATE TABLE [dbo].[SystemAction](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemActionRole]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemActionRole]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -722,7 +722,7 @@ CREATE TABLE [dbo].[SystemActionRole](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemMenu]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemMenu]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -744,7 +744,7 @@ CREATE TABLE [dbo].[SystemMenu](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemMenuRole]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemMenuRole]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -760,7 +760,7 @@ CREATE TABLE [dbo].[SystemMenuRole](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemRole]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemRole]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -777,7 +777,7 @@ CREATE TABLE [dbo].[SystemRole](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemUser]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemUser]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -802,7 +802,7 @@ CREATE TABLE [dbo].[SystemUser](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SystemUserRole]    Script Date: 20.04.2022 14:57:25 ******/
+/****** Object:  Table [dbo].[SystemUserRole]    Script Date: 21.04.2022 16:49:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -825,6 +825,12 @@ INSERT [dbo].[Banner] ([Id], [SystemUserId], [LanguageId], [BannerTypeId], [Name
 GO
 INSERT [dbo].[Banner] ([Id], [SystemUserId], [LanguageId], [BannerTypeId], [Name], [Link], [Target], [ShortExplanation], [OrderNumber], [TargetId], [Image], [ImageId], [RecordDate], [IsActive]) VALUES (5012, NULL, NULL, 2015, N'Banner 2', NULL, NULL, NULL, 0, NULL, N'', NULL, CAST(N'2022-04-18T17:01:38.760' AS DateTime), 0)
 GO
+INSERT [dbo].[Banner] ([Id], [SystemUserId], [LanguageId], [BannerTypeId], [Name], [Link], [Target], [ShortExplanation], [OrderNumber], [TargetId], [Image], [ImageId], [RecordDate], [IsActive]) VALUES (5013, 1, 1, NULL, N'İngilizce banner', NULL, NULL, NULL, 0, NULL, NULL, NULL, CAST(N'2022-04-21T11:04:39.937' AS DateTime), 0)
+GO
+INSERT [dbo].[Banner] ([Id], [SystemUserId], [LanguageId], [BannerTypeId], [Name], [Link], [Target], [ShortExplanation], [OrderNumber], [TargetId], [Image], [ImageId], [RecordDate], [IsActive]) VALUES (5014, NULL, 5, NULL, N'ingilizce', NULL, NULL, NULL, 0, NULL, N'', 1069, CAST(N'2022-04-21T11:07:18.187' AS DateTime), 0)
+GO
+INSERT [dbo].[Banner] ([Id], [SystemUserId], [LanguageId], [BannerTypeId], [Name], [Link], [Target], [ShortExplanation], [OrderNumber], [TargetId], [Image], [ImageId], [RecordDate], [IsActive]) VALUES (5015, NULL, 4, NULL, N'türkçe banner', NULL, NULL, NULL, 0, NULL, NULL, NULL, CAST(N'2022-04-21T11:07:36.473' AS DateTime), 0)
+GO
 SET IDENTITY_INSERT [dbo].[Banner] OFF
 GO
 SET IDENTITY_INSERT [dbo].[BannerType] ON 
@@ -840,6 +846,40 @@ GO
 SET IDENTITY_INSERT [dbo].[Category] ON 
 GO
 INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6029, 1, 1, 2, 0, NULL, NULL, N'Anasayfa', N'anasayfa', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6030, NULL, 5, 2, 0, NULL, NULL, N'Home', N'home', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6031, 1, 5, 2, 0, NULL, NULL, N'Products', N'products', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6032, 1, 5, 2, 0, NULL, NULL, N'About', N'about', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6033, 1, 5, 2, 0, NULL, NULL, N'Contact', N'contact', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6034, NULL, NULL, 2, 0, NULL, NULL, N'Ana sayfa', N'ana-sayfa', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, 1064, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6035, 1, 5, 2, 6031, NULL, NULL, N'Laptop', N'laptop', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6036, NULL, NULL, 2, 0, NULL, NULL, N'10', N'10', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6037, NULL, NULL, 2, 0, NULL, NULL, N'10', N'10', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, 1065, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6039, NULL, 4, 2, 0, NULL, NULL, N'Biz Kimiz', N'biz-kimiz', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6040, 1, 4, 2, 0, NULL, NULL, N'Orion'' u keşfet', N'orion-u-kesfet', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6041, 1, 4, 2, 0, NULL, NULL, N'Neler yapıyoruz', N'neler-yapiyoruz', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6042, 1, 4, 2, 0, NULL, NULL, N'Donanım', N'donanim', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6043, 1, 4, 2, 0, NULL, NULL, N'Güncel', N'guncel', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6044, 1, 4, 2, 0, NULL, NULL, N'Kimlerle çalışıyoruz', N'kimlerle-calisiyoruz', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6045, 1, 4, 2, 0, NULL, NULL, N'Bize ulaşın', N'bize-ulasin', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6046, 1, 4, 2, 6039, NULL, NULL, N'Misyon', N'misyon', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
+GO
+INSERT [dbo].[Category] ([Id], [SystemUserId], [LanguageId], [PageTypeId], [CategoryId], [FormGroupId], [Code], [Name], [CategoryUrl], [Title], [MetaDecription], [MetaKeywords], [ShortExplanation], [CanBeDeleted], [CanSubCategoryBeAdded], [Image], [ImageTag], [ImageTitle], [Explanation], [OrderNumber], [ImageId], [RecordDate], [IsActive], [CategoryLink]) VALUES (6047, 1, 4, 2, 6039, NULL, NULL, N'Deneme', N'deneme', NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Category] OFF
 GO
@@ -912,6 +952,14 @@ GO
 INSERT [dbo].[GeneralSettings] ([Id], [LanguageId], [SystemUserId], [EmailIpAdress], [EmailAdress], [EmailPort], [EmailPassword], [DomainName], [CdnUrl], [ImageUploadPath], [FileUploadPath], [DeveloperName], [DeveloperEmail], [CategoryImageSmallWidth], [CategoryImageSmallHeight], [CategoryImageBigWidth], [CategoryImageBigHeight], [ContentImageSmallWidth], [ContentImageSmallHeight], [ContentImageBigWidth], [ContentImageBigHeight]) VALUES (7, 0, 0, N'1', N'1', 1, N'1', N'https://localhost:44338/', N'https://localhost:44338/Upload/Image', N'~/Upload/Image', N'~/Upload/File', N'Erdoğan KABA', N'erdogankb57@gmail.com', 200, 200, 1000, 1000, 200, 200, 1000, 1000)
 GO
 SET IDENTITY_INSERT [dbo].[GeneralSettings] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Language] ON 
+GO
+INSERT [dbo].[Language] ([Id], [Code], [Name], [Description], [OrderNumber], [RecordDate], [IsActive]) VALUES (4, N'tr', N'Türkçe', NULL, 1, CAST(N'2022-04-21T09:20:46.517' AS DateTime), 1)
+GO
+INSERT [dbo].[Language] ([Id], [Code], [Name], [Description], [OrderNumber], [RecordDate], [IsActive]) VALUES (5, N'en', N'İngilizce', NULL, 1, CAST(N'2022-04-21T09:20:54.467' AS DateTime), 1)
+GO
+SET IDENTITY_INSERT [dbo].[Language] OFF
 GO
 SET IDENTITY_INSERT [dbo].[LogMessage] ON 
 GO
@@ -1140,9 +1188,9 @@ SET IDENTITY_INSERT [dbo].[LogMessage] OFF
 GO
 SET IDENTITY_INSERT [dbo].[MessageHistory] ON 
 GO
-INSERT [dbo].[MessageHistory] ([Id], [LanguageCode], [MessageTypeId], [ClientName], [ClientSurname], [Email], [Phone], [Subject], [Explanation], [IsArchive], [IsRead], [ArchiveDate], [IpNumber], [RecordDate]) VALUES (2, N'1', 1, N'1', N'11', N'1', N'1', N'1', N'1', 1, 1, NULL, NULL, CAST(N'2021-10-18T19:17:57.513' AS DateTime))
+INSERT [dbo].[MessageHistory] ([Id], [LanguageId], [MessageTypeId], [ClientName], [ClientSurname], [Email], [Phone], [Subject], [Explanation], [IsArchive], [IsRead], [ArchiveDate], [IpNumber], [RecordDate]) VALUES (2, 1, 1, N'1', N'11', N'1', N'1', N'1', N'1', 1, 1, NULL, NULL, CAST(N'2021-10-18T19:17:57.513' AS DateTime))
 GO
-INSERT [dbo].[MessageHistory] ([Id], [LanguageCode], [MessageTypeId], [ClientName], [ClientSurname], [Email], [Phone], [Subject], [Explanation], [IsArchive], [IsRead], [ArchiveDate], [IpNumber], [RecordDate]) VALUES (3, N'1', 1, N'1', N'1', N'1', N'1', N'1', N'1', 1, 1, NULL, NULL, CAST(N'2021-10-18T19:27:31.243' AS DateTime))
+INSERT [dbo].[MessageHistory] ([Id], [LanguageId], [MessageTypeId], [ClientName], [ClientSurname], [Email], [Phone], [Subject], [Explanation], [IsArchive], [IsRead], [ArchiveDate], [IpNumber], [RecordDate]) VALUES (3, 1, 1, N'1', N'1', N'1', N'1', N'1', N'1', 1, 1, NULL, NULL, CAST(N'2021-10-18T19:27:31.243' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[MessageHistory] OFF
 GO

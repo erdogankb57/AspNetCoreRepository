@@ -26,7 +26,8 @@ var loadRecord = function () {
             {
                 "mRender": function (data, type, row) {
 
-                    var link = '<a href="/Category/Add?id=' + row.Id + '&SearchId=' + SearchCategoryIdRequest + '" class="editor_edit">Düzenle</a> ';
+                    var link = '<a href="/Category/Add?SearchId=' + row.Id + '" class="editor_edit">Alt Kategori Ekle</a> ';
+                    link += '<a href="/Category/Add?id=' + row.Id + '" class="editor_edit">Düzenle</a> ';
                     if (row.CanBeDeleted) {
                         link += '<a href="javascript:void(0)" onclick="javascript:deleteRecord(' + row.Id + ')" class="editor_remove">Sil</a>'
                     }

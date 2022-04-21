@@ -639,7 +639,7 @@ table.dataTable .editor_edit {
     -moz-border-radius: 5px;
     border-radius: 5px;
     font-size: 11px;
-    float: right;
+    float: left;
 }
 
     table.dataTable .editor_edit:hover {
@@ -658,7 +658,7 @@ table.dataTable .editor_remove {
     -moz-border-radius: 5px;
     border-radius: 5px;
     font-size: 11px;
-    float: right;
+    float: left;
 }
 
     table.dataTable .editor_remove:hover {
