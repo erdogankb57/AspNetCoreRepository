@@ -20,14 +20,6 @@
 
     </form>
 </div>
-@{
-    if (Model.Image == null)
-    {
-        <script>
-            $("#categoryImagePanel").hide();
-        </script>
-    }
-}
 <script>
     var SearchCategoryIdRequest = @ViewBag.SelectedCategoryId;
 </script>

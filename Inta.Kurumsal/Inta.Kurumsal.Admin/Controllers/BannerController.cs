@@ -41,7 +41,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult Add(int? id)
         {
             BannerDto banner = new BannerDto();
-            var bannerTypes = _bannerTypeService.Find(v=> v.LanguageId == _authenticationData.LanguageId);
+            var bannerTypes = _bannerTypeService.Find(v => v.LanguageId == _authenticationData.LanguageId);
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(bannerTypes.Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
@@ -94,28 +94,23 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<BannerDto> data = null;
             if (FileImage != null)
             {
-                var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
-                if (bannerType != null && bannerType.Data != null)
+                request.Image = "";
+                var imageResult = ImageManager.ImageBase64Upload(FileImage);
+
+                FileUploadDto fileUpload = new FileUploadDto
                 {
-                    request.Image = "";
-                    var imageResult = ImageManager.ImageBase64Upload(FileImage);
+                    FileBase64Data = imageResult.FileBase64Data,
+                    Extension = imageResult.Extension,
+                    RecordDate = DateTime.Now,
+                    Width = imageResult.Width,
+                    Height = imageResult.Height,
+                    ContentType = imageResult.ContentType,
+                    FileName = imageResult.FileName,
+                    IsImage = true
+                };
 
-                    FileUploadDto fileUpload = new FileUploadDto
-                    {
-                        FileBase64Data = imageResult.FileBase64Data,
-                        Extension = imageResult.Extension,
-                        RecordDate = DateTime.Now,
-                        Width = imageResult.Width,
-                        Height = imageResult.Height,
-                        ContentType = imageResult.ContentType,
-                        FileName = imageResult.FileName,
-                        IsImage = true
-                    };
-
-                    var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                    request.ImageId = fileUploadEntity.Data.Id;
-                }
-
+                var fileUploadEntity = _fileUploadService.Save(fileUpload);
+                request.ImageId = fileUploadEntity.Data.Id;
             }
 
             if (request.Id == 0)
