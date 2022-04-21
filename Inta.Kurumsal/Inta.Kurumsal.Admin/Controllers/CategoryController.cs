@@ -82,7 +82,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             List<SelectListItem> formGroup = new List<SelectListItem>();
             formGroup.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
 
-            var formGroupData = _formGroupService.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
+            var formGroupData = _formGroupService.Find(v => v.LanguageId == _authenticationData.LanguageId)?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList();
             formGroup.AddRange(formGroupData);
 
             ViewBag.formGroup = formGroup;
@@ -172,12 +172,15 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _categoryService.Find(v=> v.LanguageId== _authenticationData.LanguageId).Data;
+            var result = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
 
             if (!string.IsNullOrEmpty(request.columns[0].search.value))
                 result = result.Where(v => v.CategoryId == Convert.ToInt32(request.columns[0].search.value)).ToList();
             else
                 result = result.Where(v => v.CategoryId == 0).ToList();
+
+            if (!string.IsNullOrEmpty(request.columns[1].search.value))
+                result = result.Where(v => v.Name.Contains(request.columns[1].search.value, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();

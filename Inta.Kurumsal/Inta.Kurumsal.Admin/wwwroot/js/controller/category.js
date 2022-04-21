@@ -223,12 +223,7 @@ var dataTableUpdate = function () {
 
 var searchDataList = function () {
     table.columns([0]).search($("#SearchId").val(), "EQUALS")
-        .columns([1]).search("test", "sds")
-        .columns([2]).search("test", "sds")
-        .columns([3]).search("test", "sds")
-        .columns([4]).search("test", "sds")
-        .columns([5]).search("test", "sds")
-        .columns([6]).search("test", "sds")
+        .columns([1]).search($("#categoryName").val(), "EQUALS")
         .draw();
 }
 

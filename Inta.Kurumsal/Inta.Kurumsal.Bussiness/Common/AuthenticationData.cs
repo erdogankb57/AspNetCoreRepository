@@ -61,12 +61,12 @@ namespace Inta.Kurumsal.Bussiness.Common
         {
             get
             {
+                JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
+
                 if (_httpContextAccessor.HttpContext.Session.GetString("AuthData") != null)
-                {
-                    JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
-                    var data = serializer.Deserialize(_httpContextAccessor.HttpContext.Session.GetString("AuthData"));
-                    return data;
-                }
+                    return serializer.Deserialize(_httpContextAccessor.HttpContext.Session.GetString("AuthData"));
+                else if (_httpContextAccessor.HttpContext.Request.Cookies["AuthData"] != null)
+                    return serializer.Deserialize(_httpContextAccessor.HttpContext.Request.Cookies["AuthData"]);
                 else
                     return new Dictionary<string, string>();
             }

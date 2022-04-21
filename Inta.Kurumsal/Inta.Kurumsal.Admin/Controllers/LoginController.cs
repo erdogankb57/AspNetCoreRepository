@@ -20,7 +20,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
-            list.AddRange(_languageService.Find(v=> v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
+            list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.languageList = list;
 
             return View();
@@ -45,6 +45,15 @@ namespace Inta.Kurumsal.Admin.Controllers
 
                 HttpContext.Session.SetString("AuthData", authData);
 
+                if (createPersistentCookie == true)
+                {
+                    CookieOptions cookie = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(1)
+                    };
+                    Response.Cookies.Append("AuthData", authData);
+                }
+
                 if (!string.IsNullOrEmpty(HttpContext.Request.Query["ReturnUrl"]))
                 {
                     return Redirect(HttpContext.Request.Query["ReturnUrl"]);
@@ -62,6 +71,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult SignOut()
         {
             HttpContext.Session.Clear();
+            HttpContext.Response.Cookies.Delete("AuthData");
             return RedirectToAction("Index", "Login");
         }
 

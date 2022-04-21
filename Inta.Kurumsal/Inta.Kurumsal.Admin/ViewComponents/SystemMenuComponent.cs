@@ -11,12 +11,14 @@ namespace Inta.Kurumsal.Admin.ViewComponents
         private ISystemMenuService _systemMenuService = null;
         private ISystemUserService _userService = null;
         private ISystemMenuRoleService _roleService = null;
+        private IAuthenticationData _authenticationData = null;
 
-        public SystemMenuComponent(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService)
+        public SystemMenuComponent(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService, IAuthenticationData authenticationData)
         {
             _systemMenuService = systemMenuService;
             _userService = userService;
             _roleService = roleService;
+            _authenticationData = authenticationData;
         }
 
         public IViewComponentResult Invoke()
@@ -28,15 +30,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 
         public List<SystemMenuModel> GetMenu()
         {
-            //int userId = Convert.ToInt32(ViewBag.SystemUserId);
-            JavaScript<Dictionary<string, string>> serializer = new JavaScript<Dictionary<string, string>>();
-            var data = serializer.Deserialize(HttpContext.Session.GetString("AuthData"));
-
-            string userName = string.Empty;
-            if (data != null)
-                userName = data["userName"].ToString();
-
-            var user = _userService.Find(v => v.UserName == userName).Data.FirstOrDefault();
+            var user = _userService.Find(v => v.UserName == _authenticationData.UserName).Data.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)
             {

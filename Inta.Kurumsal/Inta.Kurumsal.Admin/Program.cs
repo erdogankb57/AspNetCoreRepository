@@ -64,5 +64,6 @@ app.MapControllerRoute(
     name: "file",
     pattern: "{controller=File}/{action=Image}/{Id}/{width}/{filename}");
 
+app.UseCookiePolicy();
 
 app.Run();
