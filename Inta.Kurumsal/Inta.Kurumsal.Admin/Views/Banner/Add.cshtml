@@ -29,7 +29,7 @@
                         <label for="exampleFormControlInput1">Banner Tipi</label>
                     </div>
                     <div class="col-lg-9">
-                        @(Html.DropDownListForService<BannerTypeDto,BannerType>("BannerType", "Name","Id","BannerTypeId",Model.BannerTypeId.ToString()))
+                        @(Html.DropDownListForService<BannerTypeDto,BannerType>("BannerType", "Name","Id","BannerTypeId",Model.BannerTypeId.ToString(),true,"Seçiniz",""))
                     </div>
                 </div>
             </div>
