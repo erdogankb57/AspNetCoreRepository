@@ -5,14 +5,8 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface ISystemActionRoleService
+    public interface ISystemActionRoleService : IBaseService<SystemActionRoleDto, SystemActionRole>
     {
-        DataResult<SystemActionRoleDto> GetById(int id);
-        DataResult<List<SystemActionRoleDto>> Find(Expression<Func<SystemActionRole, bool>> filter = null);
-        DataResult<SystemActionRoleDto> Save(SystemActionRoleDto dto);
-        DataResult<SystemActionRoleDto> Update(SystemActionRoleDto dto);
-        DataResult<SystemActionRoleDto> Delete(SystemActionRoleDto dto);
-        DataResult<SystemActionRoleDto> Get(Expression<Func<SystemActionRole, bool>> filter = null);
-
+  
     }
 }

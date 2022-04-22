@@ -29,7 +29,6 @@ foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.C
     if (impl != null) builder.Services.AddTransient(intfc, impl);
 }
 /*Bussiness katmanýndaki classlar otomatik olarak enjecte edilir.*/
-
 builder.Services.AddSession();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpContextAccessor();
@@ -38,6 +37,8 @@ builder.Services.AddMemoryCache();
 var app = builder.Build();
 
 AppDomain.CurrentDomain.SetData("Language", 1);
+
+Html.SetHttpContext(app.Services.GetService<IHttpContextAccessor>());
 
 
 // Configure the HTTP request pipeline.

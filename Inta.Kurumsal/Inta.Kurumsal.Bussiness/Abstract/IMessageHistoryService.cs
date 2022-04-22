@@ -5,14 +5,8 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IMessageHistoryService
+    public interface IMessageHistoryService : IBaseService<MessageHistoryDto, MessageHistory>
     {
-        DataResult<MessageHistoryDto> GetById(int id);
-        DataResult<List<MessageHistoryDto>> Find(Expression<Func<MessageHistory, bool>> filter = null);
-        DataResult<MessageHistoryDto> Save(MessageHistoryDto dto);
-        DataResult<MessageHistoryDto> Update(MessageHistoryDto dto);
-        DataResult<MessageHistoryDto> Delete(MessageHistoryDto dto);
-        DataResult<MessageHistoryDto> Get(Expression<Func<MessageHistory, bool>> filter = null);
-
+      
     }
 }

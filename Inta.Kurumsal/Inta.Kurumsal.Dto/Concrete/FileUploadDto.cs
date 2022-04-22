@@ -1,6 +1,8 @@
-﻿namespace Inta.Kurumsal.Dto.Concrete
+﻿using Inta.Kurumsal.Dto.Abstract;
+
+namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class FileUploadDto
+    public class FileUploadDto : IDto
     {
         public int Id { get; set; }
         public string? FileName { get; set; }

@@ -5,14 +5,8 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface ISystemActionService
+    public interface ISystemActionService : IBaseService<SystemActionDto, SystemAction>
     {
-        DataResult<SystemActionDto> GetById(int id);
-        DataResult<List<SystemActionDto>> Find(Expression<Func<SystemAction, bool>> filter = null);
-        DataResult<SystemActionDto> Save(SystemActionDto dto);
-        DataResult<SystemActionDto> Update(SystemActionDto dto);
-        DataResult<SystemActionDto> Delete(SystemActionDto dto);
-        DataResult<SystemActionDto> Get(Expression<Func<SystemAction, bool>> filter = null);
-
+        
     }
 }

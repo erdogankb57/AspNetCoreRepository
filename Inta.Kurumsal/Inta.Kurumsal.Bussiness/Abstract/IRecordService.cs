@@ -5,14 +5,8 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IRecordService
+    public interface IRecordService : IBaseService<RecordDto, Record>
     {
-        DataResult<RecordDto> GetById(int id);
-        DataResult<List<RecordDto>> Find(Expression<Func<Record, bool>> filter = null);
-        DataResult<RecordDto> Save(RecordDto dto);
-        DataResult<RecordDto> Update(RecordDto dto);
-        DataResult<RecordDto> Delete(RecordDto dto);
-        DataResult<RecordDto> Get(Expression<Func<Record, bool>> filter = null);
 
     }
 }

@@ -1,6 +1,8 @@
+using Inta.Kurumsal.Dto.Abstract;
+
 namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class SystemUserDto
+    public class SystemUserDto : IDto
 	{
 		public SystemUserDto()
 		{

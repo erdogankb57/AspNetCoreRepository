@@ -5,14 +5,9 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IGeneralSettingsService
+    public interface IGeneralSettingsService : IBaseService<GeneralSettingsDto, GeneralSettings>
     {
-        DataResult<GeneralSettingsDto> GetById(int id);
-        DataResult<List<GeneralSettingsDto>> Find(Expression<Func<GeneralSettings, bool>> filter = null);
-        DataResult<GeneralSettingsDto> Save(GeneralSettingsDto dto);
-        DataResult<GeneralSettingsDto> Update(GeneralSettingsDto dto);
-        DataResult<GeneralSettingsDto> Delete(GeneralSettingsDto dto);
-        DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>> filter = null);
+ 
 
     }
 }

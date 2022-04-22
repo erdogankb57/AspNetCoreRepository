@@ -5,15 +5,7 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IBannerTypeService
+    public interface IBannerTypeService: IBaseService<BannerTypeDto, BannerType>
     {
-        DataResult<BannerTypeDto> GetById(int id);
-        DataResult<List<BannerTypeDto>> Find(Expression<Func<BannerType, bool>> filter = null);
-        DataResult<BannerTypeDto> Save(BannerTypeDto dto);
-        DataResult<BannerTypeDto> Update(BannerTypeDto dto);
-        DataResult<BannerTypeDto> Delete(BannerTypeDto dto);
-        DataResult<BannerTypeDto> Get(Expression<Func<BannerType, bool>> filter = null);
-
-
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Inta.Kurumsal.Dto.Abstract;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class SystemActionRoleDto
+    public class SystemActionRoleDto : IDto
     {
         public SystemActionRoleDto()
         {

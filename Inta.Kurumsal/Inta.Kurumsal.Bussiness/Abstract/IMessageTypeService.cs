@@ -5,14 +5,9 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IMessageTypeService
+    public interface IMessageTypeService : IBaseService<MessageTypeDto, MessageType>
     {
-        DataResult<MessageTypeDto> GetById(int id);
-        DataResult<List<MessageTypeDto>> Find(Expression<Func<MessageType, bool>> filter = null);
-        DataResult<MessageTypeDto> Save(MessageTypeDto dto);
-        DataResult<MessageTypeDto> Update(MessageTypeDto dto);
-        DataResult<MessageTypeDto> Delete(MessageTypeDto dto);
-        DataResult<MessageTypeDto> Get(Expression<Func<MessageType, bool>> filter = null);
+
 
     }
 }

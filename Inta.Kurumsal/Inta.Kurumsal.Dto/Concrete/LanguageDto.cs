@@ -1,6 +1,8 @@
+using Inta.Kurumsal.Dto.Abstract;
+
 namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class LanguageDto
+    public class LanguageDto : IDto
 	{
 		public LanguageDto()
 		{

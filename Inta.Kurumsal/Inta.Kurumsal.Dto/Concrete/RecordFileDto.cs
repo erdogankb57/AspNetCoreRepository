@@ -1,6 +1,8 @@
-﻿namespace Inta.Kurumsal.Dto.Concrete
+﻿using Inta.Kurumsal.Dto.Abstract;
+
+namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class RecordFileDto 
+    public class RecordFileDto : IDto
 	{
 		public RecordFileDto()
 		{

@@ -5,14 +5,9 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IFileUploadService
+    public interface IFileUploadService : IBaseService<FileUploadDto, FileUpload>
     {
-        DataResult<FileUploadDto> GetById(int id);
-        DataResult<List<FileUploadDto>> Find(Expression<Func<FileUpload, bool>> filter = null);
-        DataResult<FileUploadDto> Save(FileUploadDto dto);
-        DataResult<FileUploadDto> Update(FileUploadDto dto);
-        DataResult<FileUploadDto> Delete(FileUploadDto dto);
-        DataResult<FileUploadDto> Get(Expression<Func<FileUpload, bool>> filter = null);
+  
 
     }
 }

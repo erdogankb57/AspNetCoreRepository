@@ -1,6 +1,8 @@
+using Inta.Kurumsal.Dto.Abstract;
+
 namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class PageTypeDto
+    public class PageTypeDto : IDto
 	{
 		public PageTypeDto()
 		{

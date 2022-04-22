@@ -5,14 +5,9 @@ using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Abstract
 {
-    public interface IFormElementOptionsService
+    public interface IFormElementOptionsService : IBaseService<FormElementOptionsDto, FormElementOptions>
     {
-        DataResult<FormElementOptionsDto> GetById(int id);
-        DataResult<List<FormElementOptionsDto>> Find(Expression<Func<FormElementOptions, bool>> filter = null);
-        DataResult<FormElementOptionsDto> Save(FormElementOptionsDto dto);
-        DataResult<FormElementOptionsDto> Update(FormElementOptionsDto dto);
-        DataResult<FormElementOptionsDto> Delete(FormElementOptionsDto dto);
-        DataResult<FormElementOptionsDto> Get(Expression<Func<FormElementOptions, bool>> filter = null);
+  
 
     }
 }

@@ -1,6 +1,8 @@
+using Inta.Kurumsal.Dto.Abstract;
+
 namespace Inta.Kurumsal.Dto.Concrete
 {
-    public class CategoryDto
+    public class CategoryDto : IDto
     {
         public CategoryDto()
         {

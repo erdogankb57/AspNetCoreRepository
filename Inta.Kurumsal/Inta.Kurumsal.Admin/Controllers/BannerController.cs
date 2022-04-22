@@ -41,11 +41,6 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult Add(int? id)
         {
             BannerDto banner = new BannerDto();
-            var bannerTypes = _bannerTypeService.Find(v => v.LanguageId == _authenticationData.LanguageId);
-            List<SelectListItem> list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
-            list.AddRange(bannerTypes.Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
-            ViewBag.bannerTypes = list;
             if (id.HasValue)
                 banner = _bannerService.GetById(id ?? 0).Data;
 
