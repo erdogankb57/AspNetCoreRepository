@@ -35,3 +35,16 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Logging.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Entity.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.csproj.CopyComplete
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.EntityFramework.Core.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Extension.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Logging.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Dto.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Entity.dll
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Dto.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.EntityFramework.Core.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Extension.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Logging.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Entity.pdb
+C:\Users\Erdoğan\source\repos\erdogankb57\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Bussiness\obj\Debug\net6.0\Inta.Kurumsal.Bussiness.csproj.CopyComplete
