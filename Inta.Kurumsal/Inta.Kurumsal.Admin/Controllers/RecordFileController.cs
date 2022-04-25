@@ -11,13 +11,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class RecordFileController : BaseController
     {
         private IRecordFileService _service = null;
-        private IFileUploadService _fileUploadService = null;
         private static int ContentId = 0;
 
-        public RecordFileController(IRecordFileService service, IFileUploadService fileUploadService)
+        public RecordFileController(IRecordFileService service)
         {
             _service = service;
-            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index(int? Id)

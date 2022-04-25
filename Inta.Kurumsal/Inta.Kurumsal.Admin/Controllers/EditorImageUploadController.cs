@@ -9,10 +9,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class EditorImageUploadController : BaseController
     {
-        private IFileUploadService _fileUploadService = null;
-        public EditorImageUploadController(IFileUploadService fileUploadService)
+
+        public EditorImageUploadController()
         {
-            _fileUploadService = fileUploadService;
+
         }
         public ActionResult Index()
         {
@@ -21,13 +21,14 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult GetImageList()
         {
-            var result = _fileUploadService.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
-            {
-                Name = s.Id + "-" + s.FileName,
-                FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
-            });
+            //var result = _fileUploadService.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
+            //{
+            //    Name = s.Id + "-" + s.FileName,
+            //    FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
+            //});
 
-            return Json(result);
+            //return Json(result);
+            return Json("");
         }
 
 
@@ -36,22 +37,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             if (Image != null)
             {
-                //string filePath = ConfigurationManager.AppSettings["EditorImageUpload"].ToString();
-                var imageResult = ImageManager.ImageBase64Upload(Image);
-
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = imageResult.FileBase64Data,
-                    Extension = imageResult.Extension,
-                    RecordDate = DateTime.Now,
-                    Width = imageResult.Width,
-                    Height = imageResult.Height,
-                    ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName,
-                    IsImage = true
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
+                var imageResult = ImageManager.ImageUploadSingleCopy(Image);
             }
 
             return Json("OK");

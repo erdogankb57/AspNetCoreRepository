@@ -27,9 +27,6 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<EditorTemplate, EditorTemplateDto>();
             CreateMap<EditorTemplateDto, EditorTemplate>();
 
-            CreateMap<FileUpload, FileUploadDto>();
-            CreateMap<FileUploadDto, FileUpload>();
-
             CreateMap<FirmVariables, FirmVariablesDto>();
             CreateMap<FirmVariablesDto, FirmVariables>();
 
@@ -122,11 +119,6 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<DataResult<EditorTemplateDto>, DataResult<EditorTemplate>>();
             CreateMap<DataResult<IList<EditorTemplate>>, DataResult<List<EditorTemplateDto>>>();
             CreateMap<DataResult<List<EditorTemplateDto>>, DataResult<IList<EditorTemplate>>>();
-
-            CreateMap<DataResult<FileUpload>, DataResult<FileUploadDto>>();
-            CreateMap<DataResult<FileUploadDto>, DataResult<FileUpload>>();
-            CreateMap<DataResult<IList<FileUpload>>, DataResult<List<FileUploadDto>>>();
-            CreateMap<DataResult<List<FileUploadDto>>, DataResult<IList<FileUpload>>>();
 
             CreateMap<DataResult<FirmVariables>, DataResult<FirmVariablesDto>>();
             CreateMap<DataResult<FirmVariablesDto>, DataResult<FirmVariables>>();

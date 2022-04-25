@@ -14,17 +14,15 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IRecordService _recordService = null;
         private ICategoryService _categoryService = null;
         private IGeneralSettingsService _settingsService = null;
-        private IFileUploadService _fileUploadService = null;
         private IAuthenticationData _authenticationData = null;
         private static int SelectedCategoryId = 0;
 
 
-        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
+        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData)
         {
             _recordService = recordService;
             _categoryService = categoryService;
             _settingsService = settingsService;
-            _fileUploadService = fileUploadService;
             _authenticationData = authenticationData;
         }
 

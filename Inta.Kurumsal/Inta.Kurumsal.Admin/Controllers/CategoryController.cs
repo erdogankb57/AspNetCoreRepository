@@ -15,19 +15,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IPageTypeService _pageTypeService = null;
         private IFormGroupService _formGroupService = null;
         private IGeneralSettingsService _settingsService = null;
-        private IFileUploadService _fileUploadService = null;
         private IAuthenticationData _authenticationData = null;
 
         private static int SelectedCategoryId = 0;
 
 
-        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
+        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData)
         {
             _categoryService = categoryService;
             _pageTypeService = pageTypeService;
             _formGroupService = formGroupService;
             _settingsService = settingsService;
-            _fileUploadService = fileUploadService;
             _authenticationData = authenticationData;
         }
 

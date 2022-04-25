@@ -11,12 +11,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     public class ContactInformationController : BaseController
     {
         private IContactInformationService _contactInformationService = null;
-        private IFileUploadService _fileUploadService = null;
         private IAuthenticationData _authenticationData = null;
-        public ContactInformationController(IContactInformationService contactInformationService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
+        public ContactInformationController(IContactInformationService contactInformationService, IAuthenticationData authenticationData)
         {
             _contactInformationService = contactInformationService;
-            _fileUploadService = fileUploadService;
             _authenticationData = authenticationData;
         }
 

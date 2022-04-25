@@ -15,13 +15,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IBannerService _bannerService = null;
         private IBannerTypeService _bannerTypeService = null;
-        private IFileUploadService _fileUploadService = null;
         private IAuthenticationData _authenticationData = null;
-        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IFileUploadService fileUploadService, IAuthenticationData authenticationData)
+        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IAuthenticationData authenticationData)
         {
             _bannerService = bannerService;
             _bannerTypeService = bannerTypeService;
-            _fileUploadService = fileUploadService;
             _authenticationData = authenticationData;
 
         }

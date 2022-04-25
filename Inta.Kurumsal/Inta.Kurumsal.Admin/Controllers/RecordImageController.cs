@@ -13,12 +13,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         private static int ContentId = 0;
         private IRecordImageService _service = null;
         private IGeneralSettingsService _settingsService = null;
-        private IFileUploadService _fileUploadService = null;
-        public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService, IFileUploadService fileUploadService)
+        public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService)
         {
             _service = service;
             _settingsService = settingsService;
-            _fileUploadService = fileUploadService;
         }
 
         public ActionResult Index(int? Id)
