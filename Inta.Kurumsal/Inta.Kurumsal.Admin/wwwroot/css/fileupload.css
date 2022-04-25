@@ -16,3 +16,9 @@
     .content h1 {
         font-size:20px;
     }
+
+
+#fileListImages a img {
+    border: solid 2px #000000; width:120px; height:120px; margin:10px 10px
+}
+

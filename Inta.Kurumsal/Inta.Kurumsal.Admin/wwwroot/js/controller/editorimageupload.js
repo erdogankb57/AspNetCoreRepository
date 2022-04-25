@@ -1,4 +1,6 @@
 ﻿$(function () {
+
+
     var ListImageLoad = function () {
         $('#fileList').find('option').remove();
 
@@ -8,14 +10,23 @@
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             success: function (data) {
+                var img = "";
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].FullName == window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src.split(window.origin)[1]) {
-                        $("#fileList").append("<option value='" + data[i].FullName + "' selected>" + data[i].Name + "  </option>");
+                        img += "<a href='#'><img src='" + data[i].FullName + "' class='selected' /></a>";
                     } else {
-                        $("#fileList").append("<option value='" + data[i].FullName + "'>" + data[i].Name + "</option>");
+                        img += "<a href='#'><img src='" + data[i].FullName + "'  /></a>";
                     }
-                    
+
                 }
+                $("#fileListImages").html(img);
+
+
+                $("#fileListImages img").click(function () {
+                    $("#imagePreview").css("display", "block");
+                    $("#imagePreview").attr("src", $(this).attr("src"));
+                });
+
             }, error: function (data) {
 
             }
@@ -24,10 +35,6 @@
     }
     ListImageLoad();
 
-    $("#fileList").change(function () {
-        $("#imagePreview").css("display", "block");
-        $("#imagePreview").attr("src", $(this).val());
-    });
 
     $("#saveForm").submit(function (e) {
         e.preventDefault();
