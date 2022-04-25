@@ -36,8 +36,6 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-AppDomain.CurrentDomain.SetData("Language", 1);
-
 Html.SetHttpContext(app.Services.GetService<IHttpContextAccessor>());
 
 

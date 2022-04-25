@@ -22,7 +22,7 @@ namespace Inta.Kurumsal.Bussiness.Common
         {
             httpContext = context;
         }
-        public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue) where TDto : IDto where TEntity : IEntity
+        public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue, Expression<Func<TEntity, bool>> filter = null) where TDto : IDto where TEntity : IEntity
         {
             var serviceType = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t => t.Name == "I" + serviceName + "Service");
             var service = (IBaseService<TDto, TEntity>)httpContext.HttpContext.RequestServices.GetService(serviceType);
@@ -30,7 +30,7 @@ namespace Inta.Kurumsal.Bussiness.Common
             StringBuilder sHtml = new StringBuilder();
             sHtml.Append(@$"<select type=""select"" name=""{objectName}"" id=""{objectName}"" class=""form-control"" {(isRequired ? "required" : "")}>");
             sHtml.Append($@"<option value=""{ DefaultValue }"" >{DefaultText}</option>");
-            foreach (var item in service.Find()?.Data)
+            foreach (var item in service.Find(filter)?.Data)
             {
                 var text = item.GetType().GetProperty(DisplayName).GetValue(item);
                 var val = item.GetType().GetProperty(ValueName).GetValue(item);

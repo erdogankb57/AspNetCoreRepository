@@ -45,7 +45,17 @@
       "ProjectGuid": "e0d99388-cac4-43ce-9591-85e9f80eb497",
       "DisplayName": "Inta.Framework.Extension",
       "ColorIndex": 7
+    },
+    "7cda91d0-8fa7-4562-bf4a-09482e91b8ac": {
+      "ProjectGuid": "7cda91d0-8fa7-4562-bf4a-09482e91b8ac",
+      "DisplayName": "Inta.Framework.Logging",
+      "ColorIndex": 8
+    },
+    "047dc8c0-95f0-4468-ada2-7bc99dcf5970": {
+      "ProjectGuid": "047dc8c0-95f0-4468-ada2-7bc99dcf5970",
+      "DisplayName": "Data",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 10
 }

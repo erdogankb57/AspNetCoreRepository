@@ -10,6 +10,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         private ISystemMenuService _systemMenuService = null;
         private ISystemUserService _userService = null;
         private ISystemRoleService _systemRoleService = null;
+        private IAuthenticationData _authenticationData = null;
 
         public BaseController()
         {
@@ -20,6 +21,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             _systemMenuService = filterContext.HttpContext.RequestServices.GetService<ISystemMenuService>();
             _userService = filterContext.HttpContext.RequestServices.GetService<ISystemUserService>();
             _systemRoleService = filterContext.HttpContext.RequestServices.GetService<ISystemRoleService>();
+            _authenticationData = filterContext.HttpContext.RequestServices.GetService<IAuthenticationData>();
+
 
             var descriptor = ((ControllerActionDescriptor)filterContext.ActionDescriptor);
             string actionName = descriptor.ActionName;
@@ -41,7 +44,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
 
             ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
-            ViewBag.LanguageId = AppDomain.CurrentDomain.GetData("Language");
+            ViewBag.LanguageId = _authenticationData.LanguageId;
         }
     }
 }

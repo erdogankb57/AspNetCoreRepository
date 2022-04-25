@@ -4,6 +4,8 @@
     targets.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
     targets.Add(new SelectListItem { Text = "Farklı sekmede aç", Value = "1" });
     targets.Add(new SelectListItem { Text = "Aynı sayfada aç", Value = "1" });
+
+    int languageId = Convert.ToInt32(ViewBag.LanguageId);
 }
 <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -29,7 +31,8 @@
                         <label for="exampleFormControlInput1">Banner Tipi</label>
                     </div>
                     <div class="col-lg-9">
-                        @(Html.DropDownListForService<BannerTypeDto,BannerType>("BannerType", "Name","Id","BannerTypeId",Model.BannerTypeId.ToString(),true,"Seçiniz",""))
+                        @(Html.DropDownListForService<BannerTypeDto, BannerType>("BannerType", "Name", "Id", "BannerTypeId", Model.BannerTypeId.ToString(), true, "Seçiniz", "", v => v.LanguageId==languageId))
+
                     </div>
                 </div>
             </div>
