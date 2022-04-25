@@ -270,7 +270,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             CategoryDto category = _categoryService.GetById(id).Data;
-            category.ImageId = null;
+            category.Image = null;
             _categoryService.Update(category);
 
             return Json("OK");

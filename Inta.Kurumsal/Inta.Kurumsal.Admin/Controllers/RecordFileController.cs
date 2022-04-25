@@ -54,32 +54,13 @@ namespace Inta.Kurumsal.Admin.Controllers
             RecordFileDto contentFile = null;
             foreach (var item in file)
             {
-                var fileResult = FileManager.FileBase64Upload(item);
-
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = fileResult.FileBase64Data,
-                    Extension = fileResult.Extension,
-                    RecordDate = DateTime.Now,
-                    ContentType = fileResult.ContentType,
-                    FileName = fileResult.FileName,
-                    IsImage = false
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-
-                contentFile = new RecordFileDto
-                {
-                    RecordId = ContentId,
-                    Name = "",
-                    FileId = fileUploadEntity.Data.Id,
-                    RecordDate = DateTime.Now,
-                    OrderNumber = 0
-                };
+                var fileName = FileManager.FileUpload(item);
+                contentFile = new RecordFileDto { RecordId = ContentId, Name = "", FileName = fileName, RecordDate = DateTime.Now, OrderNumber = 0 };
 
                 var result = _service.Save(contentFile);
                 resultData.Add(result.Data);
             }
+
 
 
             data.Data = resultData;
@@ -119,21 +100,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (FileName != null)
             {
-
-                var fileResult = FileManager.FileBase64Upload(FileName);
-
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = fileResult.FileBase64Data,
-                    Extension = fileResult.Extension,
-                    RecordDate = DateTime.Now,
-                    ContentType = fileResult.ContentType,
-                    FileName = fileResult.FileName,
-                    IsImage = false
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                request.FileId = fileUploadEntity.Data.Id;
+                request.FileName = FileManager.FileUpload(FileName);
             }
 
             if (request.Id == 0)

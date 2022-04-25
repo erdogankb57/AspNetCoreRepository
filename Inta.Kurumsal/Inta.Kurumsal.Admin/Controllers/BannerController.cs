@@ -150,7 +150,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             var banner = _bannerService.GetById(id).Data;
-            banner.ImageId = null;
+            banner.Image = null;
             _bannerService.Update(banner);
 
             return Json("OK");

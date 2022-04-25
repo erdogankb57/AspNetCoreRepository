@@ -57,37 +57,22 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             foreach (var item in file)
             {
-                RecordImageDto content = new RecordImageDto
-                {
-                    RecordId = ContentId,
-                    Name = "",
-                    RecordDate = DateTime.Now,
-                    OrderNumber = 0
-                }; ;
+                RecordImageDto content = new RecordImageDto { RecordId = ContentId, Name = "", RecordDate = DateTime.Now, OrderNumber = 0 }; ;
 
                 if (item != null)
                 {
-                    var imageResult = ImageManager.ImageBase64Upload(item);
+                    var settings = _settingsService.Find().Data.FirstOrDefault();
 
-                    FileUploadDto fileUpload = new FileUploadDto
-                    {
-                        FileBase64Data = imageResult.FileBase64Data,
-                        Extension = imageResult.Extension,
-                        RecordDate = DateTime.Now,
-                        Width = imageResult.Width,
-                        Height = imageResult.Height,
-                        ContentType = imageResult.ContentType,
-                        FileName = imageResult.FileName,
-                        IsImage = true
-                    };
-
-                    var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                    content.ImageId = fileUploadEntity.Data.Id;
+                    if (settings != null)
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                    else
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, 100, 500);
                 }
 
                 var result = _service.Save(content);
                 resultData.Add(result.Data);
             }
+
 
 
             data.Data = resultData;
@@ -128,24 +113,15 @@ namespace Inta.Kurumsal.Admin.Controllers
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
             string filePath = "";
 
+
             if (ImageName != null)
             {
-                var imageResult = ImageManager.ImageBase64Upload(ImageName);
+                var settings = _settingsService.Find().Data.FirstOrDefault();
 
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = imageResult.FileBase64Data,
-                    Extension = imageResult.Extension,
-                    RecordDate = DateTime.Now,
-                    Width = imageResult.Width,
-                    Height = imageResult.Height,
-                    ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName,
-                    IsImage = true
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                request.ImageId = fileUploadEntity.Data.Id;
+                if (settings != null)
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                else
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, 100, 500);
             }
 
             if (request.Id == 0)

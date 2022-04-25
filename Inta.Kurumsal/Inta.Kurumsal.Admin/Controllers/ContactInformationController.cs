@@ -141,7 +141,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             ContactInformationDto contact = _contactInformationService.GetById(id).Data;
-            contact.ImageId = null;
+            contact.Image = null;
             _contactInformationService.Update(contact);
 
             return Json("OK");

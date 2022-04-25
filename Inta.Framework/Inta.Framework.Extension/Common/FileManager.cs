@@ -19,7 +19,7 @@ namespace Inta.Framework.Extension.Common
 
             if (File.Length > 0)
             {
-                using (var stream = new FileStream(configuration.GetSection("FileUpload").ToString() + random + extension , FileMode.Create))
+                using (var stream = new FileStream(Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString() + random + extension , FileMode.Create))
                 {
                     File.CopyTo(stream);
                 }

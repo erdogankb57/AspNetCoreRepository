@@ -232,7 +232,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult DeleteImage(int id)
         {
             RecordDto content = _recordService.GetById(id).Data;
-            content.ImageId = null;
+            content.Image = null;
             _recordService.Update(content);
 
             return Json("OK");
