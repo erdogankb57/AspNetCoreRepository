@@ -244,7 +244,7 @@ $(document).ready(function () {
                         // ProgressStart($("#progressbar"), parseInt(percentComplete * 100), 1);
 
                         $("#progressbar").progressbar({
-                            value: parseInt(percentComplete * 100)
+                            value: parseInt(percentComplete * 100/1.1)
                         });
                     }
                 }, false);
@@ -272,7 +272,12 @@ $(document).ready(function () {
                     showAlert(".popupMessage", "Kayıt işlemi sırasında hata oluştu. Lütfen alanları kontrol ediniz.", "error");
                 }, 100);
             },
-            async: true
+            async: true,
+            complete: function () {
+                $("#progressbar").progressbar({
+                    value: 100
+                });
+            }
         });
 
 
