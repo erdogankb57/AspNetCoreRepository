@@ -176,22 +176,18 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<RecordDto> data = null;
             if (Image != null)
             {
+                var settings = _settingsService.Find().Data.FirstOrDefault();
+                string filePath = "";
 
-                var imageResult = ImageManager.ImageBase64Upload(Image);
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = imageResult.FileBase64Data,
-                    Extension = imageResult.Extension,
-                    RecordDate = DateTime.Now,
-                    Width = imageResult.Width,
-                    Height = imageResult.Height,
-                    ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName,
-                    IsImage = true
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                request.ImageId = fileUploadEntity.Data.Id;
+                if (settings != null)
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                else
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image,  100, 500);
+            }
+            else
+            {
+                if (content?.Data?.Image != null)
+                    request.Image = content.Data.Image;
             }
 
             if (String.IsNullOrEmpty(request.RecordUrl))

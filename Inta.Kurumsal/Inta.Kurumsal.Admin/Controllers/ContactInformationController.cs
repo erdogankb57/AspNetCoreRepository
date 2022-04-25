@@ -100,24 +100,9 @@ namespace Inta.Kurumsal.Admin.Controllers
             //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
 
             if (FileImage != null)
-            {
-                var imageResult = ImageManager.ImageBase64Upload(FileImage);
-
-                FileUploadDto fileUpload = new FileUploadDto
-                {
-                    FileBase64Data = imageResult.FileBase64Data,
-                    Extension = imageResult.Extension,
-                    RecordDate = DateTime.Now,
-                    Width = imageResult.Width,
-                    Height = imageResult.Height,
-                    ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName,
-                    IsImage = true
-                };
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                request.ImageId = fileUploadEntity.Data.Id;
-            }
-
+                request.Image = ImageManager.ImageUploadSingleCopy(FileImage);
+            else if (contactInformation.Data != null)
+                request.Image = contactInformation.Data.Image;
 
 
             if (request.Id == 0)
