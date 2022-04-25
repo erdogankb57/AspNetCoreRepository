@@ -41,8 +41,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
-
-
+            
             ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
             ViewBag.LanguageId = _authenticationData.LanguageId;
         }

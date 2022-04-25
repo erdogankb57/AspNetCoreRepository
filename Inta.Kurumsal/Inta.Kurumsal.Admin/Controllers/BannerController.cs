@@ -89,23 +89,13 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<BannerDto> data = null;
             if (FileImage != null)
             {
-                request.Image = "";
-                var imageResult = ImageManager.ImageBase64Upload(FileImage);
-
-                FileUploadDto fileUpload = new FileUploadDto
+                 var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
+                if (bannerType != null && bannerType.Data != null)
                 {
-                    FileBase64Data = imageResult.FileBase64Data,
-                    Extension = imageResult.Extension,
-                    RecordDate = DateTime.Now,
-                    Width = imageResult.Width,
-                    Height = imageResult.Height,
-                    ContentType = imageResult.ContentType,
-                    FileName = imageResult.FileName,
-                    IsImage = true
-                };
-
-                var fileUploadEntity = _fileUploadService.Save(fileUpload);
-                request.ImageId = fileUploadEntity.Data.Id;
+                    int imageSmallWidth = bannerType.Data.SmallImageWidth ?? 100;
+                    int imageBigWidth = bannerType.Data.BigImageWidth ?? 500;
+                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
+                }
             }
 
             if (request.Id == 0)
