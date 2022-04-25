@@ -21,14 +21,21 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult GetImageList()
         {
-            //var result = _fileUploadService.Find(v=> v.IsImage == true)?.Data.OrderByDescending(o => o.Id).Select(s => new
-            //{
-            //    Name = s.Id + "-" + s.FileName,
-            //    FullName = $"/upload/Image/{s.Id}/{s.Width}/{s.Id}" + s.Extension
-            //});
 
-            //return Json(result);
-            return Json("");
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
+
+            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
+
+            List<FileInfo> imageList = new List<FileInfo>();
+     
+            DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString());
+
+            string supportedExtensions = "*.jpg,*.gif,*.png,*.bmp,*.jpe,*.jpeg,*.wmf,*.emf,*.xbm,*.ico,*.eps,*.tif,*.tiff,*.g01,*.g02,*.g03,*.g04,*.g05,*.g06,*.g07,*.g08";
+
+            var result = d.GetFiles("*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s.FullName).ToLower())).OrderByDescending(f => f.LastWriteTime).Select(s => new { Name = s.Name, FullName = configuration.GetSection("FileShowFolder").Value.ToString() + s.Name }).ToList();
+
+            return Json(result);
         }
 
 
