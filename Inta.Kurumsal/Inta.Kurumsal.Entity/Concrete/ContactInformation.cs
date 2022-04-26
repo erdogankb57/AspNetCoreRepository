@@ -51,8 +51,6 @@ namespace Inta.Kurumsal.Entity.Concrete
 		public string? FormSendEmail { get; set; }
 		[Column("OrderNumber")]
 		public int? OrderNumber { get; set; }
-		[Column("ImageId")]
-		public int? ImageId { get; set; }
 		[Column("RecordDate")]
 		public DateTime? RecordDate { get; set; }
 		[Column("IsActive")]

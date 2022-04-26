@@ -25,7 +25,6 @@ namespace Inta.Kurumsal.Dto.Concrete
 		public string? QrCode { get; set; }
 		public string? FormSendEmail { get; set; }
 		public int? OrderNumber { get; set; }
-		public int? ImageId { get; set; }
 		public DateTime? RecordDate { get; set; }
 		public bool IsActive { get; set; }
 	}

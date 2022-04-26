@@ -17,7 +17,6 @@ namespace Inta.Kurumsal.Dto.Concrete
 		public int? TargetId { get; set; }
 		public string? ShortExplanation { get; set; }
 		public int OrderNumber { get; set; }
-		public int? ImageId { get; set; }
 		public string? Image { get; set; }
 		public bool IsActive { get; set; }
     }

@@ -28,7 +28,6 @@ namespace Inta.Kurumsal.Dto.Concrete
         public string? Image { get; set; }
         public string? ImageTag { get; set; }
         public string? ImageTitle { get; set; }
-        public int? ImageId { get; set; }
         public int? OrderNumber { get; set; }
         public DateTime? RecordDate { get; set; }
         public bool IsActive { get; set; }

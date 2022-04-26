@@ -46,8 +46,6 @@ namespace Inta.Kurumsal.Entity.Concrete
 		public string? Explanation { get; set; }
 		[Column("Image")]
 		public string? Image { get; set; }
-		[Column("ImageId")]
-		public int? ImageId { get; set; }
 		[Column("OrderNumber")]
 		public int? OrderNumber { get; set; }
 		[Column("RecordDate")]
