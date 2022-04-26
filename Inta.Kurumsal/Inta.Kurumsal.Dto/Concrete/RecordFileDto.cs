@@ -19,7 +19,6 @@ namespace Inta.Kurumsal.Dto.Concrete
 		public string? FileTitleName { get; set; }
 		public string? TargetId { get; set; }
 		public bool HomePageStatus { get; set; }
-		public int? FileId { get; set; }
 		public int? OrderNumber { get; set; }
 		public DateTime RecordDate { get; set; }
 		public bool IsActive { get; set; }
