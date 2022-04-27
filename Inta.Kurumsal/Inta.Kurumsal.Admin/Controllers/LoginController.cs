@@ -28,6 +28,11 @@ namespace Inta.Kurumsal.Admin.Controllers
         [AllowAnonymous]
         public ActionResult SignIn(string userName, string password, string LanguageId, bool? createPersistentCookie)
         {
+            List<SelectListItem> list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
+            list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
+            ViewBag.languageList = list;
+
             var user = _userService.Get(g => g.UserName == userName && g.Password == password && g.IsActive);
             if (user.Data != null)
             {
