@@ -139,9 +139,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _recordService.Find(v=> v.LanguageId == _authenticationData.LanguageId)?.Data;
-            if (SelectedCategoryId != 0)
-                result = result?.Where(v => v.CategoryId == SelectedCategoryId)?.ToList();
+            var result = _recordService.Find(v => v.LanguageId == _authenticationData.LanguageId)?.Data;
+
+            result = result?.Where(v => v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -180,7 +180,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 if (settings != null)
                     request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
                 else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image,  100, 500);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
             }
             else
             {

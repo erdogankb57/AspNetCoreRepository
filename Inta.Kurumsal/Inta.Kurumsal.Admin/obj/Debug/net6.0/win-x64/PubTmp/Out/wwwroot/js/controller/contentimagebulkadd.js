@@ -19,33 +19,25 @@
         var formData = new FormData();
     
         $.ajax({
-            xhr: function () {
-                var xhr = new window.XMLHttpRequest();
+            //xhr: function () {
+            //    var xhr = new window.XMLHttpRequest();
 
-                /// Upload progress
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        //Do something with upload progress
-                       // ProgressStart($('#progress' + i + ''), parseInt(percentComplete * 100), 1);
-                        $("#progress" + i).html(parseInt(percentComplete * 100));
-                    }
-                }, false);
+            //    / Upload progress
+            //    xhr.upload.addEventListener("progress", function (evt) {
+            //        if (evt.lengthComputable) {
+            //            var percentComplete = evt.loaded / evt.total;
+            //            //Do something with upload progress
+            //           // ProgressStart($('#progress' + i + ''), parseInt(percentComplete * 100), 1);
 
-                // Download progress
-                xhr.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        // Do something with download progress
-                       // ProgressStart($('#progress' + i + ''), parseInt(percentComplete * 100), 1);
+            //            $("#progress" + i).progressbar({
+            //                value: parseInt(percentComplete * 100
+            //            });
+            //        }
+            //    }, false);
 
-                        $("#progress" + i).html(parseInt(percentComplete * 100));
 
-                    }
-                }, false);
-
-                return xhr;
-            },
+            //    return xhr;
+            //},
             url: "/ContentImage/ImageBulkSave",
             type: "POST",
             data: formData,
@@ -53,8 +45,7 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                console.log(parseInt($(".file-upload").get(0).files.length) == i);
-
+            
      
                 if (data.ResultType == 0) {
                     setTimeout(function () {

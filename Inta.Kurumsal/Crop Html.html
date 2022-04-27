@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #cropImages { width: 150px; height: 150px; position:absolute; }
+  #imagesArea{
+  width:500px;height:500px; border:solid 1px #000; overflow:hidden; position:relative;
+  }
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+	
+	
+    $("#cropImages").draggable({
+		drag:function(event,ui){
+		
+		var areaWidth = $("#imagesArea").width();
+		var areaHeight = $("#imagesArea").height();
+		
+		var cropImagesWidth = $("#cropImages").width();
+		var cropImagesHeight = $("#cropImages").height();
+		
+			if (ui.position.left<0)
+			{
+				ui.position.left = 0;
+			}
+			
+			if (ui.position.top<0)
+			{
+				ui.position.top = 0;
+			}
+			
+			if (ui.position.top + cropImagesHeight>areaHeight){
+				ui.position.top = areaHeight-cropImagesHeight;
+			}
+			
+			if (ui.position.left + cropImagesWidth>areaWidth){
+				ui.position.left = areaWidth-cropImagesWidth;
+			}
+
+		}
+	});
+	
+	$("#cropImages").resizable({
+		aspectRatio: 1,
+		resize:function(event,ui){
+		console.log(ui);
+		var areaWidth = $("#imagesArea").width();
+		var areaHeight = $("#imagesArea").height();
+		
+		var cropImagesWidth = $("#cropImages").width();
+		var cropImagesHeight = $("#cropImages").height();
+			
+			if (ui.size.width + ui.position.left>areaWidth){
+				ui.size.width = areaWidth-ui.position.left;
+			}
+			
+			if (ui.size.height + ui.position.top>areaWidth){
+				ui.size.height = areaHeight-ui.position.top;
+			}
+			
+	
+		}
+	});
+  } );
+  </script>
+</head>
+<body>
+ 
+ <div id="imagesArea">
+	<div id="cropImages" class="ui-widget-content">
+	  <p>Drag me around</p>
+	</div>
+</div>
+ 
+</body>
+</html>

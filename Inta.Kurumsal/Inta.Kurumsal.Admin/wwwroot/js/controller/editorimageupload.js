@@ -1,5 +1,5 @@
 ﻿$(function () {
-
+    setTimeout(function () { $("#fileListImages").perfectScrollbar(); }, 200);
 
     var ListImageLoad = function () {
         $('#fileList').find('option').remove();

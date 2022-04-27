@@ -56,3 +56,14 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.genruntimeconfig.cache
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.csproj.AssemblyReference.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\AutoMapper.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Microsoft.Extensions.DependencyModel.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Newtonsoft.Json.Bson.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Inta.Kurumsal.Bussiness.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Inta.Kurumsal.Bussiness.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\bin\Debug\net6.0\win-x64\Inta.Kurumsal.Dto.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Debug\net6.0\win-x64\Inta.Kurumsal.Admin.MvcApplicationPartsAssemblyInfo.cs

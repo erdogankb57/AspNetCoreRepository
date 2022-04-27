@@ -21,7 +21,7 @@ var loadRecord = function () {
             { "data": "Id" },
             {
                 "mRender": function (data, type, row) {
-                    return row.Image != null ? '<img width="50" height="50" src="/file/Image/' + row.ImageId +'?width=200" class="table-img"/>' : "";
+                    return row.Image != null ? '<img width="50" height="50" src="' + UploadFolder + "k_" + row.Image.toString() + '" class="table-img"/>' : "";
                 }
             },
             { "data": "Name" },
