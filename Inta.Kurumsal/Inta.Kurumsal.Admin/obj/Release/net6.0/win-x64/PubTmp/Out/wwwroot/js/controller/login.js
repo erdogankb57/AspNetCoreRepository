@@ -18,17 +18,17 @@
             processData: false,
             success: function (data) {
 
-                if (data.Status == "OK") {
-                    location.href = data.ReturnUrl;
+                if (data == "OK") {
+                    location.href = "/Home"
                 } else {
-                    showAlert(".loginMessage", data.Message, "error");
+                    showAlert(".loginMessage", "Kullanıcı adı veya şifre yanlış.", "error");
                 }
                 $(this).find("button[type='submit']").prop('disabled', false);
 
 
             }, error: function (data) {
                 setTimeout(function () {
-                    showAlert(".popupMessage", "Login işlemi sırasında hata oluştu. Lütfen tekrar deneyiniz.", "error");
+                    showAlert(".popupMessage", "Kayıt işlemi sırasında hata oluştu. Lütfen alanları kontrol ediniz.", "error");
                 }, 100);
             }
         });

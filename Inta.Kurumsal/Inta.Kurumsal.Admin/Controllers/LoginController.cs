@@ -22,11 +22,13 @@ namespace Inta.Kurumsal.Admin.Controllers
             list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.languageList = list;
 
+            ViewBag.ReturnUrl = Request.Query["ReturnUrl"].ToString();
+
             return View();
         }
         [AllowAnonymous]
         [ResponseCache(NoStore = true, Duration = 0)]
-        public ActionResult SignIn(string userName, string password, string LanguageId, bool? createPersistentCookie)
+        public ActionResult SignIn(string userName, string password, string LanguageId, bool? createPersistentCookie, string ReturnUrl)
         {
             List<SelectListItem> list = new List<SelectListItem>();
             list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
@@ -58,18 +60,18 @@ namespace Inta.Kurumsal.Admin.Controllers
                     Response.Cookies.Append("AuthData", authData);
                 }
 
-                if (!string.IsNullOrEmpty(HttpContext.Request.Query["ReturnUrl"]))
+                if (!string.IsNullOrEmpty(ReturnUrl))
                 {
                     //return Redirect(HttpContext.Request.Query["ReturnUrl"]);
-                    return Json("OK");
+                    return Json(new { Status = "OK", ReturnUrl = ReturnUrl, Message = "" });
                 }
                 else
-                    return Json("OK");
+                    return Json(new { Status = "OK", ReturnUrl = "/Home", Message = "" });
 
             }
             else
             {
-                return Json("Kullanıcı adı veya şifre hatalı");
+                return Json(new { Status = "Error", ReturnUrl = ReturnUrl, Message = "Kullanıcı adı veya şifre hatalı." });
             }
         }
         public ActionResult SignOut()

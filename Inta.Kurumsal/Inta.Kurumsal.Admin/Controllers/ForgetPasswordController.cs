@@ -39,5 +39,6 @@ namespace Inta.Kurumsal.Admin.Controllers
                 return RedirectToAction("Index");
             }
         }
+
     }
 }

@@ -65,7 +65,9 @@
                     showAlert(".popupMessage", "Resim yükleme işlemi sırasında hata oluştu. Lütfen dosya ismini kontrol ediniz.", "error");
                 }
 
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
+                $('#saveForm').trigger("reset");
+
 
             }, error: function (data) {
                 setTimeout(function () {
