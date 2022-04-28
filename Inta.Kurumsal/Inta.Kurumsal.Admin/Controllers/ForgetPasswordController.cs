@@ -30,13 +30,13 @@ namespace Inta.Kurumsal.Admin.Controllers
                 mails.Add(user.Data.Email);
                 mailManager.Send(mails, "Şifreniz", "Şifreniz : " + user.Data.Password);
 
-                ViewBag.Error = "Şifreniz e-mail adresinize gönderildi.";
-                return View("Index");
+                TempData["Error"] = "Şifreniz e-mail adresinize gönderildi.";
+                return RedirectToAction("Index");
             }
             else
             {
-                ViewBag.Error = "Bu E-mail adresi sistemde kayıtlı değil. Lütfen e-mail adresinizi kontrol ediniz.";
-                return View("Index");
+                TempData["Error"] = "Bu E-mail adresi sistemde kayıtlı değil. Lütfen e-mail adresinizi kontrol ediniz.";
+                return RedirectToAction("Index");
             }
         }
     }
