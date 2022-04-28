@@ -11,6 +11,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         private ISystemUserService _userService = null;
         private ISystemRoleService _systemRoleService = null;
         private IAuthenticationData _authenticationData = null;
+        private IConfiguration _configuration = null;
 
         public BaseController()
         {
@@ -22,6 +23,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             _userService = filterContext.HttpContext.RequestServices.GetService<ISystemUserService>();
             _systemRoleService = filterContext.HttpContext.RequestServices.GetService<ISystemRoleService>();
             _authenticationData = filterContext.HttpContext.RequestServices.GetService<IAuthenticationData>();
+            _configuration = filterContext.HttpContext.RequestServices.GetService<IConfiguration>();
 
 
             var descriptor = ((ControllerActionDescriptor)filterContext.ActionDescriptor);
@@ -38,11 +40,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             }
 
-
-            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            IConfigurationRoot configuration = builder.Build();
-            
-            ViewBag.FileShowFolder = configuration.GetSection("FileShowFolder").Value.ToString();
+            ViewBag.FileShowFolder = _configuration.GetSection("FileShowFolder").Value.ToString();
             ViewBag.LanguageId = _authenticationData.LanguageId;
         }
     }
