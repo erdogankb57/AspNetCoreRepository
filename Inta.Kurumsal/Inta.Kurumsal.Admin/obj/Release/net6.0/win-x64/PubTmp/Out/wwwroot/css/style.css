@@ -639,7 +639,7 @@ table.dataTable .editor_edit {
     -moz-border-radius: 5px;
     border-radius: 5px;
     font-size: 11px;
-    float: right;
+    float: left;
 }
 
     table.dataTable .editor_edit:hover {
@@ -658,7 +658,7 @@ table.dataTable .editor_remove {
     -moz-border-radius: 5px;
     border-radius: 5px;
     font-size: 11px;
-    float: right;
+    float: left;
 }
 
     table.dataTable .editor_remove:hover {
@@ -959,11 +959,9 @@ a {
     display: block;
 }
 
-    #saveForm .form-group:not([style*="display:none"]):nth-child(2n) {
-        background: #f1f1f1;
-        border-top: solid 1px #c6c6c6;
-        border-bottom: solid 1px #c6c6c6;
-    }
+#saveForm .form-group {
+    border-bottom: solid 1px #e3e3e3;
+}
 
 .small-image-content {
     border: 3px solid #fff;
@@ -982,3 +980,4 @@ a {
 .form-control:focus {
     background: #f0f3fc;
 }
+

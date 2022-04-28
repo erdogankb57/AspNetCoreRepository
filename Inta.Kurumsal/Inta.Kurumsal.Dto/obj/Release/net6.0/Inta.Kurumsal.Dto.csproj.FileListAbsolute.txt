@@ -1,0 +1,12 @@
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Release\net6.0\Inta.Kurumsal.Dto.deps.json
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Release\net6.0\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Release\net6.0\ref\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Release\net6.0\Inta.Kurumsal.Dto.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.csproj.AssemblyReference.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.AssemblyInfoInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.AssemblyInfo.cs
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.csproj.CoreCompileInputs.cache
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\ref\Inta.Kurumsal.Dto.dll
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Release\net6.0\Inta.Kurumsal.Dto.pdb

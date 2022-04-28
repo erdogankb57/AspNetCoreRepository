@@ -44,8 +44,8 @@
                 <div class="container">
 
                     <div class="login-content">
-                        @using (Html.BeginForm("SignIn", "login", FormMethod.Post, new { @novalidate = "novalidate" }))
-                        {
+                        <form id="loginForm" method="post" novalidate>
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-sm-12"><input type="text" name="UserName" class="form-control" required="required" placeholder="Kullanıcı adı veya e-mail" /></div>
+                                    <div class="col-sm-12"><input type="text" name="UserName" class="form-control" required="required" placeholder="Kullanıcı adı veya e-mail" value="" /></div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -73,10 +73,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-sm-12"><input type="password" name="Password" class="form-control" required="required" placeholder="Şifreniz" /></div>
+                                    <div class="col-sm-12"><input type="password" name="Password" class="form-control" required="required" placeholder="Şifreniz" value="" /></div>
                                 </div>
                             </div>
-                            @if (languageList!= null && languageList.Count > 1)
+                            @if (languageList != null && languageList.Count > 1)
                             {
                                 <div class="form-group">
                                     <div class="row" style="padding: 0 0 0 15px;">
@@ -87,7 +87,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",null,true,"Seçiniz",""))
+                                            @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId","",true,"Seçiniz","",v=> v.IsActive))
 
                                         </div>
                                     </div>
@@ -108,11 +108,11 @@
                                     <div class="col-lg-12"><input type="submit" class="btn btn-standart" value="Oturum Aç" style="width:100%;" /></div>
                                 </div>
                             </div>
-                        }
+                        </form>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12" style="color:red; font-size:12px;">
-                                    @ViewBag.Error
+                                    <div class="loginMessage"></div>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +132,7 @@
 
         </div>
     </div>
-
+    <script src="~/js/general.js"></script>
+    <script src="~/js/controller/login.js"></script>
 </body>
 </html>

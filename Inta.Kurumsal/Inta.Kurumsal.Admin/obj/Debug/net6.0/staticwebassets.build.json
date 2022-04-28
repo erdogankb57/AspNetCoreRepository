@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hU7ZEgwUYKyntt0ixxOq/h1ZIfW9rcXNZFMmJyrTSNk=",
+  "Hash": "yiKLqQZVytq4ssMM+r0XwKdIhsxNUag8U0W3UEjvf1o=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -6715,6 +6715,23 @@
       "OriginalItemSpec": "wwwroot\\js\\controller\\generalsettings.js"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\js\\controller\\login.js",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "js/controller/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\controller\\login.js"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\js\\controller\\messagehistory.js",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -7070,6 +7087,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\validation.js"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\c-to-c-rest-vs-grpc-6651ba43-1cbb-4adc-8db0-185b1ca38805.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/c-to-c-rest-vs-grpc-6651ba43-1cbb-4adc-8db0-185b1ca38805.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\c-to-c-rest-vs-grpc-6651ba43-1cbb-4adc-8db0-185b1ca38805.jpg"
     }
   ]
 }

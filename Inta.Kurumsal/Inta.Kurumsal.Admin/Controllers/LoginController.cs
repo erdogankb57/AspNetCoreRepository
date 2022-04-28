@@ -19,17 +19,16 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult Index()
         {
             List<SelectListItem> list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.languageList = list;
 
             return View();
         }
         [AllowAnonymous]
+        [ResponseCache(NoStore = true, Duration = 0)]
         public ActionResult SignIn(string userName, string password, string LanguageId, bool? createPersistentCookie)
         {
             List<SelectListItem> list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
             list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.languageList = list;
 
@@ -61,16 +60,16 @@ namespace Inta.Kurumsal.Admin.Controllers
 
                 if (!string.IsNullOrEmpty(HttpContext.Request.Query["ReturnUrl"]))
                 {
-                    return Redirect(HttpContext.Request.Query["ReturnUrl"]);
+                    //return Redirect(HttpContext.Request.Query["ReturnUrl"]);
+                    return Json("OK");
                 }
                 else
-                    return RedirectToAction("Index", "Home");
+                    return Json("OK");
 
             }
             else
             {
-                ViewBag.Error = "Kullanıcı adı veya şifre hatalı";
-                return View("Index");
+                return Json("Kullanıcı adı veya şifre hatalı");
             }
         }
         public ActionResult SignOut()
