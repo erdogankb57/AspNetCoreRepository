@@ -31,10 +31,10 @@ namespace Inta.Kurumsal.Admin.Controllers
 
         public ActionResult Index()
         {
-            if (!string.IsNullOrEmpty(HttpContext.Request.Query["SearchId"]))
+            if (!string.IsNullOrEmpty(HttpContext.Request.Query["CategoryId"]))
             {
-                ViewBag.SelectedCategoryId = HttpContext.Request.Query["SearchId"];
-                SelectedCategoryId = Convert.ToInt32(HttpContext.Request.Query["SearchId"]);
+                ViewBag.SelectedCategoryId = HttpContext.Request.Query["CategoryId"];
+                SelectedCategoryId = Convert.ToInt32(HttpContext.Request.Query["CategoryId"]);
             }
             else
             {
@@ -60,10 +60,10 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (id == null)
             {
-                if (!string.IsNullOrEmpty(HttpContext.Request.Query["SearchId"]))
+                if (!string.IsNullOrEmpty(HttpContext.Request.Query["CategoryId"]))
                 {
-                    ViewBag.SelectedCategoryId = HttpContext.Request.Query["SearchId"];
-                    SelectedCategoryId = Convert.ToInt32(HttpContext.Request.Query["SearchId"]);
+                    ViewBag.SelectedCategoryId = HttpContext.Request.Query["CategoryId"];
+                    SelectedCategoryId = Convert.ToInt32(HttpContext.Request.Query["CategoryId"]);
                 }
                 else
                 {
