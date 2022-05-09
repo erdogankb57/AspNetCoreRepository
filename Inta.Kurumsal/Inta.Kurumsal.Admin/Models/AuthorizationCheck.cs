@@ -53,7 +53,7 @@ namespace Inta.Kurumsal.Admin.Models
             }
             else
             {
-                context.Result = new RedirectResult("/Login?ReturnUrl=" + context.HttpContext.Request.Path);
+                context.Result = new RedirectResult("/Login?ReturnUrl=" + context.HttpContext.Request.Path + context.HttpContext.Request.QueryString);
             }
 
 

@@ -65,6 +65,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 request.RecordDate = DateTime.Now;
                 request.LanguageId = _authenticationData.LanguageId;
+                request.OrderNumber = 0;
                 data = _firmVariablesService.Save(request);
             }
             else

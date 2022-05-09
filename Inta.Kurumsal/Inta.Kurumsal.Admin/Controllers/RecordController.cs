@@ -141,7 +141,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             var result = _recordService.Find(v => v.LanguageId == _authenticationData.LanguageId)?.Data;
 
-            result = result?.Where(v => v.CategoryId == SelectedCategoryId)?.ToList();
+            result = result?.Where(v => SelectedCategoryId ==0 || v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)

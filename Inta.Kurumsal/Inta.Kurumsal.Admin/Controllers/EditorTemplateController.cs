@@ -12,9 +12,10 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IEditorTemplateService _editorTemplateService = null;
         private IAuthenticationData _authenticationData = null;
 
-        public EditorTemplateController(IEditorTemplateService editorTemplateService)
+        public EditorTemplateController(IEditorTemplateService editorTemplateService, IAuthenticationData authenticationData)
         {
             _editorTemplateService = editorTemplateService;
+            _authenticationData = authenticationData;
         }
 
         public ActionResult Index()
