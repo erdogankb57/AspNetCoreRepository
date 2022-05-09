@@ -125,6 +125,22 @@ $(document).ready(function () {
     });
 
     $('.nav-menu').perfectScrollbar("update");
+
+    $("#dropDownLanguage select").change(function () {
+        $.ajax({
+            url: "/Language/SetLanguage",
+            type: "POST",
+            dataType: 'json',
+            data: { "id": $(this).val() },
+            success: function (response) {
+                if (response == "OK") {
+                    location.reload();
+                }
+            },
+            error: function (response) {
+            }
+        });
+    })
 })
 
 $(function () {

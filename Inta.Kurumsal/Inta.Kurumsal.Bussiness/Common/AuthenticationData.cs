@@ -45,7 +45,16 @@ namespace Inta.Kurumsal.Bussiness.Common
                     return "";
             }
         }
-
+        public string LoginDate
+        {
+            get
+            {
+                if (GetAuthenticationData.ContainsKey("loginDate"))
+                    return GetAuthenticationData["loginDate"].ToString();
+                else
+                    return "";
+            }
+        }
         public bool HasSession
         {
             get

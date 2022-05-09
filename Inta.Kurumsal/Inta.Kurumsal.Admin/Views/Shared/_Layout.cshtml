@@ -56,90 +56,101 @@
                          var UploadFolder = '@(ViewBag.FileShowFolder)';
 
 
-                     </script>
-                     <div id="menuOpacity"></div>
-                     <div class="loading-content">
-                         <div class="loading">
-                             <div class="spinner-border m-5" role="status">
-                                 <span class="sr-only">Loading...</span>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="main-left">
-                         <div class="brand">
-                             <a href="/"><img src="@Url.Content("~/images/logo.png")" width="80" /></a>
-                         </div>
-                         <div class="nav-menu-container">
-                             @await Component.InvokeAsync("SystemMenuComponent")
-                             @*            @Html.Action("GetSystemMenu", "SystemMenu")
-                             *@
-                             <div class="copyright">İNTA Yazılım Hizmetleri</div>
-                         </div>
-                         <a href="javascript:void(0)" class="close-mobile">X</a>
-                     </div>
-                     <div class="main-right">
+    </script>
+    <div id="menuOpacity"></div>
+    <div class="loading-content">
+        <div class="loading">
+            <div class="spinner-border m-5" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="brand">
+            <a href="/"><img src="@Url.Content("~/images/logo.png")" width="80" /></a>
+        </div>
+        <div class="nav-menu-container">
+            @await Component.InvokeAsync("SystemMenuComponent")
+            <div class="copyright">İNTA Yazılım Hizmetleri</div>
+        </div>
+        <a href="javascript:void(0)" class="close-mobile">X</a>
+    </div>
+    <div class="main-right">
 
-                         <div class="header">
+        <div class="header">
 
-                             <div class="container-fluid">
-                                 <div class="row">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="row">
 
-                                     <div class="col-3 col-lg-3 col-md-3 col-sm-4 col-xs-4">
-                                         <a href="javascript:void(0)" class="show-mobile">
-                                             <span class="line"></span>
-                                             <span class="line"></span>
-                                             <span class="line"></span>
-                                         </a>
-                                     </div>
-
-                                     <div class="col-9 col-lg-9 col-md-9 col-sm-8 col-xs-8">
-
-                                         <div class="user">
-                                             <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                 <i class="fa fa-2x fa-user"></i>
-                                                 <span>
-                                                     Merhaba, @ViewBag.UserName  <br />
-                                                     @ViewBag.RoleName
-                                                 </span>
-                                             </a>
-
-
-                                             <div class="account dropdown-menu dropdown-menu-right">
-                                                 <div class="account_arrow"></div>
-                                                 <div class="user-box">
-                                                     <div class="name">
-                                                         @ViewBag.UserName <br />
-                                                         @ViewBag.RoleName
-                                                     </div>
-                                                     <div class="image">
-                                                         <img src="@Url.Content("~/images/user.jpg")" />
-                                                     </div>
-                                                 </div>
-                                                 <div class="link">
-                                                     <ul>
-                                                         <li><a href="/Account">Hesabım</a></li>
-                                                         <li>
-                                                             <a href="/MessageHistory">
-                                                                 Mesajlarım @{
-                                                    if (Convert.ToInt32(ViewBag.MessageCount) > 0)
-                                                    {
-                                                        <span>@ViewBag.MessageCount</span>
-                                                    }
-                                                }
-                                            </a>
-                                        </li>
-                                        <li><a href="/Login/SignOut">Çıkış</a></li>
-                                    </ul>
-                                </div>
+                        <div class="col-3 col-sm-3  col-md-3 col-lg-4">
+                            <a href="javascript:void(0)" class="show-mobile">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 col-sm-4  col-md-4 col-lg-4">
+                            <div id="dropDownLanguage">
+                                @{
+                                    string languageId = ViewBag.LanguageId.ToString();
+                                }
+                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Seçiniz","",v=> v.IsActive))
 
                             </div>
                         </div>
+                        <div class="col-5 col-sm-5  col-md-5 col-lg-4">
+
+
+                            <div class="user">
+
+
+                                <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-2x fa-user"></i>
+                                    <span>
+                                        Merhaba, @ViewBag.UserName  <br />
+                                        @ViewBag.RoleName
+                                    </span>
+                                </a>
+
+
+                                <div class="account dropdown-menu dropdown-menu-right">
+                                    <div class="account_arrow"></div>
+                                    <div class="user-box">
+                                        <div class="name">
+                                            @ViewBag.UserName <br />
+                                            @ViewBag.RoleName
+                                        </div>
+                                        <div class="image">
+                                            <img src="@Url.Content("~/images/user.jpg")" />
+                                        </div>
+                                    </div>
+                                    <div class="link">
+                                        <ul>
+                                            <li><a href="/Account">Hesabım</a></li>
+                                            <li>
+                                                <a href="/MessageHistory">
+                                                    Mesajlarım @{
+                                                        if (Convert.ToInt32(ViewBag.MessageCount) > 0)
+                                                        {
+                                                            <span>@ViewBag.MessageCount</span>
+                                                        }
+                                                    }
+                                                </a>
+                                            </li>
+                                            <li><a href="/Login/SignOut">Çıkış</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
 
 
 
+
+                        </div>
 
                     </div>
-
                 </div>
             </div>
 
