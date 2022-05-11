@@ -83,24 +83,16 @@
                 <div class="col-12">
                     <div class="row">
 
-                        <div class="col-3 col-sm-3  col-md-3 col-lg-4">
+                        <div class="col-6 col-sm-6  col-md-6 col-lg-6">
                             <a href="javascript:void(0)" class="show-mobile">
                                 <span class="line"></span>
                                 <span class="line"></span>
                                 <span class="line"></span>
                             </a>
                         </div>
-                        <div class="col-4 col-sm-4  col-md-4 col-lg-4">
-                            <div id="dropDownLanguage">
-                                @{
-                                    string languageId = ViewBag.LanguageId.ToString();
-                                }
-                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Seçiniz","",v=> v.IsActive))
-
-                            </div>
-                        </div>
-                        <div class="col-5 col-sm-5  col-md-5 col-lg-4">
-
+      
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                            
 
                             <div class="user">
 
@@ -144,7 +136,13 @@
 
                                 </div>
                             </div>
+                            <div id="dropDownLanguage">
+                                @{
+                                    string languageId = ViewBag.LanguageId.ToString();
+                                }
+                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Dil Seçiniz","",v=> v.IsActive))
 
+                            </div>
 
 
 

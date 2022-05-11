@@ -127,6 +127,7 @@ var deleteRecord = function (id) {
 $(document).ready(function () {
     loadRecord();
 
+
     $("#saveForm").submit(function (e) {
         e.preventDefault();
 
@@ -139,16 +140,7 @@ $(document).ready(function () {
         CKEDITOR.instances['HtmlContent'].updateElement();
         var formData = new FormData($('form')[0]);
 
-        
-        //var formData = {
-        //    Name: $("#Name").val(),
-        //    HtmlContent: CKEDITOR.instances['HtmlContent'].getData(),
-        //    IsActive: $("#IsActive").is("checked"),
-        //    OrderNumber: $("#OrderNumber").val(),
-        //    Id: $("#Id").val()
-        //};
-
-
+ 
         $.ajax({
             url: "/EditorTemplate/Save",
             type: "POST",
@@ -168,12 +160,14 @@ $(document).ready(function () {
                         showAlert(".popupMessage", "Kayıt işlemi başarıyla tamamlandı.", "success");
                     }, 100);
                 }
-                else
+                else {
                     setTimeout(function () {
                         showAlert(".popupMessage", "Kayıt işlemi sırasında hata oluştu. Lütfen alanları kontrol ediniz.", "error");
                     }, 100);
+                }
+                                
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
-                $(this).find("button[type='submit']").prop('disabled', false);
 
             }, error: function (data) {
                 setTimeout(function () {
