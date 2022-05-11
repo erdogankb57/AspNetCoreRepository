@@ -3,6 +3,7 @@ var loadRecord = function () {
 
 
     table = $('#dataTable').DataTable({
+        "autoWidth": false,
         "ajax":
         {
             "url": "/Category/GetDataList",
