@@ -4,6 +4,7 @@ var htmlContent = null;
 var loadRecord = function () {
 
     table = $('#dataTable').DataTable({
+        "autoWidth": false,
         "ajax":
         {
             "url": "/EditorTemplate/GetDataList",

@@ -17,6 +17,7 @@ var addUserRole = function () {
 var loadRecord = function () {
 
     table = $('#dataTable').DataTable({
+        "autoWidth": false,
         "ajax":
         {
             "url": "/SystemUser/GetDataList",
