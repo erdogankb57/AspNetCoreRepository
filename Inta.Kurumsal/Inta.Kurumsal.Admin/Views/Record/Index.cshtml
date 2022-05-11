@@ -46,7 +46,6 @@
 
 <div class="form-content">
     <div class="listMessage">
-
     </div>
 
     <div class="row">
@@ -68,27 +67,28 @@
         </div>
 
         <div class="col-lg-12">
-
-            <table id="dataTable" class="display" style="display:none;">
-                <thead>
-                    <tr>
-                        <th width="20"><input type="checkbox" name="select_all" value="1" id="example-select-all" style="margin: 0 0 0 -8px"></th>
-                        <th width="20">Id</th>
-                        <th>İçerik Adı</th>
-                        <th width="80">Sıra Numarası</th>
-                        <th width="230">İşlemler</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th width="20"></th>
-                        <th>Id</th>
-                        <th>İçerik Adı</th>
-                        <th></th>
-                        <th>İşlemler</th>
-                    </tr>
-                </tfoot>
-            </table>
+            <div class="table-responsive">
+                <table id="dataTable" class="display" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th width="20"><input type="checkbox" name="select_all" value="1" id="example-select-all" style="margin: 0 0 0 -8px"></th>
+                            <th width="20">Id</th>
+                            <th>İçerik Adı</th>
+                            <th width="80">Sıra Numarası</th>
+                            <th width="230">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th width="20"></th>
+                            <th>Id</th>
+                            <th>İçerik Adı</th>
+                            <th></th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -99,5 +99,5 @@
 
 
 @section scripts{
-    <script src="~/js/controller/record.js"></script>
+<script src="~/js/controller/record.js"></script>
 }
