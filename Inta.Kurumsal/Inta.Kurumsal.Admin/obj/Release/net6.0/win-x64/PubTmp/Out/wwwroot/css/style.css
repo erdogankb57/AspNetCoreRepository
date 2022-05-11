@@ -336,6 +336,10 @@ input[type=number]:focus,
                 text-align: center;
             }
 
+    .main-right .header #dropDownLanguage {
+        margin: 27px 0 0 0;
+        float: right;
+    }
 
 .main-right .content {
     float: left;
@@ -875,7 +879,7 @@ a {
     margin: 10px 0 10px 0;
     text-decoration: none;
     transition: 0.5s;
-    min-height:80px;
+    min-height: 80px;
 }
 
 
@@ -979,9 +983,4 @@ a {
 
 .form-control:focus {
     background: #f0f3fc;
-}
-
-
-.header #dropDownLanguage {
-    margin: 20px 0 0 0; float:right;
 }
