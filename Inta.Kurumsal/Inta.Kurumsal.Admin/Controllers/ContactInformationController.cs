@@ -12,10 +12,12 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IContactInformationService _contactInformationService = null;
         private IAuthenticationData _authenticationData = null;
-        public ContactInformationController(IContactInformationService contactInformationService, IAuthenticationData authenticationData)
+        private IConfiguration _configuration = null;
+        public ContactInformationController(IContactInformationService contactInformationService, IAuthenticationData authenticationData, IConfiguration configuration)
         {
             _contactInformationService = contactInformationService;
             _authenticationData = authenticationData;
+            _configuration = configuration;
         }
 
         public ActionResult Index()
@@ -60,7 +62,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _contactInformationService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
+            var result = _contactInformationService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
             List<ContactInformationDto> contactInformations = new List<ContactInformationDto>();
             if (request.order[0].dir == "asc")
             {
@@ -95,10 +97,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             DataResult<ContactInformationDto> data = null;
             var contactInformation = _contactInformationService.GetById(request.Id);
-            //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-
+            string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
             if (FileImage != null)
-                request.Image = ImageManager.ImageUploadSingleCopy(FileImage);
+                request.Image = ImageManager.ImageUploadSingleCopy(FileImage, filePath);
             else if (contactInformation.Data != null)
                 request.Image = contactInformation.Data.Image;
 

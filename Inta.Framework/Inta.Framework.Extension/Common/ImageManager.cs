@@ -10,21 +10,12 @@ namespace Inta.Framework.Extension.Common
     public class ImageManager
     {
 
-        public static string ImageUploadDoubleCopy(IFormFile ImageFile, int SmallImageWidth, int BigImageWidth)
+        public static string ImageUploadDoubleCopy(IFormFile ImageFile, int SmallImageWidth, int BigImageWidth, string imageFilePath)
         {
             StringManager stringManager = new StringManager();
 
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
-
-            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            IConfigurationRoot configuration = builder.Build();
-
-
-
-            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
-
-
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
             random = stringManager.TextUrlCharReplace(random);
@@ -75,16 +66,16 @@ namespace Inta.Framework.Extension.Common
 
             return ImageName;
         }
-        public static string ImageUploadSingleCopy(IFormFile ImageFile, int ImageWidth)
+        public static string ImageUploadSingleCopy(IFormFile ImageFile, int ImageWidth, string imageFilePath)
         {
             StringManager stringManager = new StringManager();
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
 
-            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            IConfigurationRoot configuration = builder.Build();
+            //IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            //IConfigurationRoot configuration = builder.Build();
 
-            string imageFilePath = configuration.GetSection("FileUpload").Value.ToString();
+            //string imageFilePath = configuration.GetSection("FileUpload").Value.ToString();
 
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
@@ -124,16 +115,11 @@ namespace Inta.Framework.Extension.Common
             return ImageName;
         }
 
-        public static string ImageUploadSingleCopy(IFormFile ImageFile)
+        public static string ImageUploadSingleCopy(IFormFile ImageFile,string imageFilePath)
         {
             StringManager stringManager = new StringManager();
             string ImageName = "";
             string extension = System.IO.Path.GetExtension(ImageFile.FileName.ToLower());
-
-            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            IConfigurationRoot configuration = builder.Build();
-
-            string imageFilePath = Directory.GetCurrentDirectory().ToString() + configuration.GetSection("FileUpload").Value.ToString();
 
             string random = ImageFile.FileName.Replace(extension, "") + "_" + Guid.NewGuid().ToString();
             random = stringManager.TextUrlCharReplace(random);

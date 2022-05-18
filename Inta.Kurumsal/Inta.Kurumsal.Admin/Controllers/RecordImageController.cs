@@ -13,10 +13,12 @@ namespace Inta.Kurumsal.Admin.Controllers
         private static int ContentId = 0;
         private IRecordImageService _service = null;
         private IGeneralSettingsService _settingsService = null;
-        public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService)
+        private IConfiguration _configuration = null;
+        public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService, IConfiguration configuration)
         {
             _service = service;
             _settingsService = settingsService;
+            _configuration = configuration;
         }
 
         public ActionResult Index(int? Id)
@@ -50,8 +52,6 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             DataResult<List<RecordImageDto>> data = new DataResult<List<RecordImageDto>>();
             List<RecordImageDto> resultData = new List<RecordImageDto>();
-            //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-            string filePath = "";
 
             foreach (var item in file)
             {
@@ -60,11 +60,12 @@ namespace Inta.Kurumsal.Admin.Controllers
                 if (item != null)
                 {
                     var settings = _settingsService.Find().Data.FirstOrDefault();
+                    string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
 
                     if (settings != null)
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, settings.ContentImageSmallWidth, settings.ContentImageBigWidth, filePath);
                     else
-                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, 100, 500);
+                        content.ImageName = ImageManager.ImageUploadDoubleCopy(item, 100, 500, filePath);
                 }
 
                 var result = _service.Save(content);
@@ -108,18 +109,16 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             DataResult<RecordImageDto> data = null;
             var content = _service.GetById(request.Id);
-            //string filePath = ConfigurationManager.AppSettings["ImageUpload"].ToString();
-            string filePath = "";
-
+            string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
 
             if (ImageName != null)
             {
                 var settings = _settingsService.Find().Data.FirstOrDefault();
 
                 if (settings != null)
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, settings.ContentImageSmallWidth, settings.ContentImageBigWidth, filePath);
                 else
-                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, 100, 500);
+                    request.ImageName = ImageManager.ImageUploadDoubleCopy(ImageName, 100, 500, filePath);
             }
 
             if (request.Id == 0)

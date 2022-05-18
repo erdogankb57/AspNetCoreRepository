@@ -57,7 +57,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                     {
                         Expires = DateTime.Now.AddDays(1)
                     };
-                    Response.Cookies.Append("AuthData", authData);
+                    Response.Cookies.Append("AuthData", authData, cookie);
                 }
 
                 if (!string.IsNullOrEmpty(ReturnUrl))

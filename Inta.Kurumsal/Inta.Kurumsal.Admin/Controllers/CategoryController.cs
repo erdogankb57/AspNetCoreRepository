@@ -16,17 +16,19 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IFormGroupService _formGroupService = null;
         private IGeneralSettingsService _settingsService = null;
         private IAuthenticationData _authenticationData = null;
+        private IConfiguration _configuration = null;
 
         private static int SelectedCategoryId = 0;
 
 
-        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData)
+        public CategoryController(ICategoryService categoryService, IPageTypeService pageTypeService, IFormGroupService formGroupService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData, IConfiguration configuration)
         {
             _categoryService = categoryService;
             _pageTypeService = pageTypeService;
             _formGroupService = formGroupService;
             _settingsService = settingsService;
             _authenticationData = authenticationData;
+            _configuration = configuration;
         }
 
         public ActionResult Index()
@@ -215,11 +217,12 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (Image != null)
             {
                 var settings = _settingsService.Find().Data.FirstOrDefault();
+                string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
 
                 if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth,filePath);
                 else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500, filePath);
             }
 
             if (String.IsNullOrEmpty(request.CategoryUrl))

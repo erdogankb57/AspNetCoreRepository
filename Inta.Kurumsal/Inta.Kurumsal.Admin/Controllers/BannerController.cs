@@ -16,11 +16,13 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IBannerService _bannerService = null;
         private IBannerTypeService _bannerTypeService = null;
         private IAuthenticationData _authenticationData = null;
-        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IAuthenticationData authenticationData)
+        private IConfiguration _configuration = null;
+        public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IAuthenticationData authenticationData, IConfiguration configuration)
         {
             _bannerService = bannerService;
             _bannerTypeService = bannerTypeService;
             _authenticationData = authenticationData;
+            _configuration = configuration;
 
         }
         public ActionResult Index()
@@ -87,12 +89,14 @@ namespace Inta.Kurumsal.Admin.Controllers
             DataResult<BannerDto> data = null;
             if (FileImage != null)
             {
-                 var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
+                var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
                 if (bannerType != null && bannerType.Data != null)
                 {
+                    string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
+
                     int imageSmallWidth = bannerType.Data.SmallImageWidth ?? 100;
                     int imageBigWidth = bannerType.Data.BigImageWidth ?? 500;
-                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(FileImage, imageSmallWidth, imageBigWidth, filePath);
                 }
             }
 

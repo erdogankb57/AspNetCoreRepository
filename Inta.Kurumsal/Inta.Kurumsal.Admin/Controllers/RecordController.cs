@@ -16,14 +16,16 @@ namespace Inta.Kurumsal.Admin.Controllers
         private IGeneralSettingsService _settingsService = null;
         private IAuthenticationData _authenticationData = null;
         private static int SelectedCategoryId = 0;
+        private IConfiguration _configuration = null;
 
 
-        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData)
+        public RecordController(IRecordService recordService, ICategoryService categoryService, IGeneralSettingsService settingsService, IAuthenticationData authenticationData, IConfiguration configuration)
         {
             _recordService = recordService;
             _categoryService = categoryService;
             _settingsService = settingsService;
             _authenticationData = authenticationData;
+            _configuration = configuration;
         }
 
         public ActionResult Index()
@@ -141,7 +143,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             var result = _recordService.Find(v => v.LanguageId == _authenticationData.LanguageId)?.Data;
 
-            result = result?.Where(v => SelectedCategoryId ==0 || v.CategoryId == SelectedCategoryId)?.ToList();
+            result = result?.Where(v => SelectedCategoryId == 0 || v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
@@ -175,12 +177,12 @@ namespace Inta.Kurumsal.Admin.Controllers
             if (Image != null)
             {
                 var settings = _settingsService.Find().Data.FirstOrDefault();
-                string filePath = "";
+                string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
 
                 if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.ContentImageSmallWidth, settings.ContentImageBigWidth, filePath);
                 else
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500, filePath);
             }
             else
             {
