@@ -2,6 +2,7 @@
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
+using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using System.Linq.Expressions;
@@ -30,6 +31,14 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<CategoryDto>>>(data);
+
+            return result;
+        }
+
+        public DataResult<List<CategoryAndPageTypeDto>> GetCategoryAndPageTypeList(int categoryId)
+        {
+            var data = manager.FindCategoryAndPageTypeList(categoryId);
+            var result = _mapper.Map<DataResult<List<CategoryAndPageTypeDto>>>(data);
 
             return result;
         }

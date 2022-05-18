@@ -1,6 +1,6 @@
 ﻿namespace Inta.Kurumsal.Entity.ComplexType
 {
-    public class CategoryModel
+    public class CategoryAndPageType
     {
         public int Id { get; set; }
         public string Name { get; set; }

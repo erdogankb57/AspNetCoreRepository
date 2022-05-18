@@ -23,7 +23,7 @@ namespace Inta.Kurumsal.DataAccess.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
-            modelBuilder.Entity<CategoryModel>();
+            modelBuilder.Entity<CategoryAndPageType>();
 
         }
 

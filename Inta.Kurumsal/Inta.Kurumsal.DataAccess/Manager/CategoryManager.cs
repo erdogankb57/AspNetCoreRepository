@@ -14,20 +14,22 @@ namespace Inta.Kurumsal.DataAccess.Manager
         {
         }
 
-        public DataResult<IList<CategoryModel>> GetCategoryWithTree()
+
+
+        public DataResult<IList<CategoryAndPageType>> GetCategoryWithTree()
         {
-            DataResult<IList<CategoryModel>> result = new DataResult<IList<CategoryModel>>();
+            DataResult<IList<CategoryAndPageType>> result = new DataResult<IList<CategoryAndPageType>>();
             using (var context = new DefaultDataContext())
             {
                 try
                 {
-                    result.Data = context.Set<CategoryModel>()
-                        .FromSqlRaw<CategoryModel>("select  * from Category").ToList();
+                    result.Data = context.Set<CategoryAndPageType>()
+                        .FromSqlRaw<CategoryAndPageType>("select  * from Category").ToList();
                     result.ResultType = Inta.EntityFramework.Core.Model.MessageTypeResult.Success;
                 }
                 catch (Exception ex)
                 {
-                    result.Data = new List<CategoryModel>();
+                    result.Data = new List<CategoryAndPageType>();
                     result.ResultType = Inta.EntityFramework.Core.Model.MessageTypeResult.Error;
                     result.ErrorMessage = ex.ToString();
                 }
@@ -36,23 +38,24 @@ namespace Inta.Kurumsal.DataAccess.Manager
         }
 
 
-        public DataResult<List<CategoryModel>> FindCategoryList(Expression<Func<Category, bool>> filter)
+        public DataResult<List<CategoryAndPageType>> FindCategoryAndPageTypeList(int categoryId)
         {
-            DataResult<List<CategoryModel>> result = new DataResult<List<CategoryModel>>();
+            DataResult<List<CategoryAndPageType>> result = new DataResult<List<CategoryAndPageType>>();
             using (var context = new DefaultDataContext())
             {
                 var categorys = from pt in context.PageTypes
-                           join ct in context.Categorys.Where(filter) on pt.Id equals ct.PageTypeId
-                           select new CategoryModel
-                           {
-                               Id = ct.Id,
-                               CategoryLink = ct.CategoryLink,
-                               CategoryUrl = ct.CategoryUrl,
-                               Name = ct.Name,
-                               ControllerName = pt.ControllerName,
-                               ActionName = pt.ActionName,
-                               ViewName = pt.ViewName
-                           };
+                                join ct in context.Categorys on pt.Id equals ct.PageTypeId
+                                where ct.Id == categoryId
+                                select new CategoryAndPageType
+                                {
+                                    Id = ct.Id,
+                                    CategoryLink = ct.CategoryLink,
+                                    CategoryUrl = ct.CategoryUrl,
+                                    Name = ct.Name,
+                                    ControllerName = pt.ControllerName,
+                                    ActionName = pt.ActionName,
+                                    ViewName = pt.ViewName
+                                };
 
                 result.Data = categorys.ToList();
             }
