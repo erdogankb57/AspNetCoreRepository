@@ -62,7 +62,6 @@ namespace Inta.Kurumsal.Admin.Controllers
 
                 if (!string.IsNullOrEmpty(ReturnUrl))
                 {
-                    //return Redirect(HttpContext.Request.Query["ReturnUrl"]);
                     return Json(new { Status = "OK", ReturnUrl = ReturnUrl, Message = "" });
                 }
                 else
