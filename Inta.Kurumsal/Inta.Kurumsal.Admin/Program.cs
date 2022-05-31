@@ -1,3 +1,4 @@
+using Inta.Framework.Logging.Log;
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Bussiness.Common;
 using Inta.Kurumsal.Bussiness.Service;
@@ -54,6 +55,8 @@ Html.SetHttpContext(app.Services.GetService<IHttpContextAccessor>());
         //Yapýlan istek bir ajax isteði deðil ise
         if (context.Request.Headers["x-requested-with"] != "XMLHttpRequest")
             context.Response.Redirect("/ErrorPage/Index");
+
+        LogManager.InsertLog(exception, "Application Error", null);
     }));
 
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
