@@ -1,4 +1,34 @@
-﻿$(function () {
+﻿var CropImage = function () {
+    var imageWidth = 700;
+    var imageHeight = 700;
+    var boxWidth = 500;
+    var oranDurumu = true;
+    var boxHeight = boxWidth * imageHeight / imageWidth;
+    if (oranDurumu == false) {
+        boxHeight = boxWidth;
+    }
+    var x = imageWidth / 2 - boxWidth / 2;
+    var y = imageHeight / 2 - boxHeight / 2;
+    var x1 = x + boxWidth;
+    var y1 = y + boxHeight;
+
+    $("#imagePreview").Jcrop({
+        aspectRatio: oranDurumu ? imageWidth / imageHeight : false,
+        setSelect: [x, y, x1, y1],
+        allowSelect: true,
+        allowMove: true,
+        allowResize: true,
+        fixedSupport: true,
+        boxWidth: boxWidth,
+        boxHeight: boxHeight,
+        trueSize: [imageWidth, imageHeight],
+        onSelect: function (c) {
+            console.log(c);
+        }
+    });
+}
+
+$(function () {
     setTimeout(function () { $("#fileListImages").perfectScrollbar(); }, 200);
 
     var ListImageLoad = function () {
@@ -37,37 +67,9 @@
 
     }
 
-    var CropImage = function () {
-        var imageWidth = 700;
-        var imageHeight = 700;
-        var boxWidth = 500;
-        var oranDurumu = true;
-        var boxHeight = boxWidth * imageHeight / imageWidth;
-        if (oranDurumu == false) {
-            boxHeight = boxWidth;
-        }
-        var x = imageWidth / 2 - boxWidth / 2;
-        var y = imageHeight / 2 - boxHeight / 2;
-        var x1 = x + boxWidth;
-        var y1 = y + boxHeight;
 
-        $("#imagePreview").Jcrop({
-            aspectRatio: oranDurumu ? imageWidth / imageHeight : false,
-            setSelect: [x, y, x1, y1],
-            allowSelect: true,
-            allowMove: true,
-            allowResize: true,
-            fixedSupport: true,
-            boxWidth: boxWidth,
-            boxHeight: boxHeight,
-            trueSize: [imageWidth, imageHeight],
-            onSelect: function (c) {
-                console.log(c);
-            }
-        });
-    }
     ListImageLoad();
-    CropImage();
+   
 
 
     $("#saveForm").submit(function (e) {
