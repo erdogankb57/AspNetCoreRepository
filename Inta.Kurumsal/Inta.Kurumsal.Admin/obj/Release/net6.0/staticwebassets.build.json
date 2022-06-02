@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+hE63oQK+t9+Sans1ILmooNoFlm6lUPt35bQSGMmp18=",
+  "Hash": "Ad8sG8jST48eAQcfvCI9aKXE+vOKjaghXUC3HIUYcXI=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7087,6 +7087,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\validation.js"
+    },
+    {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/EditorImages/csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg"
     }
   ]
 }

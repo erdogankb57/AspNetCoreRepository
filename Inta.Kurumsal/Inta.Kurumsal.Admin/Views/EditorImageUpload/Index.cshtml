@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
     <!-- Bootstrap core CSS -->
     <link href="@Url.Content("~/css/reset.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/image-crop.css")" rel="stylesheet" />
     <link href="@Url.Content("~/css/perfect-scrollbar.v0.5.2.css")" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
@@ -68,8 +69,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="col-lg-12">
-                                <div id="fileListImages" >
-
+                                <div id="fileListImages">
                                 </div>
                             </div>
                         </div>
@@ -107,8 +107,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
-                                <img id="imagePreview" alt="Lütfen bir resim seçiniz." style="max-width:100%; max-height:100%; display:none;" />
+                            <div class="col-lg-12" id="jcrop">
+                                <img id="imagePreview" alt="Lütfen bir resim seçiniz."/>
                             </div>
 
                         </div>
@@ -128,15 +128,15 @@
 
 
     <script>
-            $(function(){
+        $(function(){
             if (window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != "") {
                 $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);
                 $("#imagePreview").show();
 
             }
-            });
+        });
             var returnData = function () {
-                var src = $("#imagePreview").attr("src");
+            var src = $("#imagePreview").attr("src");
                 if (src != undefined && src != null) {
                     window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
                 } else {
@@ -144,17 +144,17 @@
 
                 }
 
-            };
+        };
     </script>
     <script src="@Url.Content("~/js/controller/editorimageupload.js")"></script>
     <script src="@Url.Content("~/js/perfect-scrollbar.v0.5.2.js")"></script>
     <script src="@Url.Content("~/js/general.js")"></script>
+    <script src="@Url.Content("~/js/jquery.Jcrop.min.js")"></script>
+
 
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <script src="@Url.Content("~/css/assets/dist/js/bootstrap.js")"></script>
-
-
 </body>
 </html>
