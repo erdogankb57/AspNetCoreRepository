@@ -1,4 +1,6 @@
-﻿var CropImage = function () {
+﻿var CropCoordinat;
+
+var ResizeImage = function () {
     var imageWidth = 700;
     var imageHeight = 700;
 
@@ -31,12 +33,44 @@
             boxHeight: imageHeight,
             trueSize: [imageWidth, imageHeight],
             onSelect: function (c) {
-                console.log(c);
+                CropCoordinat = c;
             }
         });
     }
     img.src = $("#imagePreview").attr("src");
 
+}
+
+var CropImage = function () {
+    var w = CropCoordinat.w;
+    var h = CropCoordinat.h;
+    var x = CropCoordinat.x;
+    var y = CropCoordinat.y;
+
+    var splitImageUrl = $("#imagePreview").attr("src").split("/");
+
+
+    $.ajax({
+        url: "/EditorImageUpload/CropImage",
+        type: "POST",
+        data: { "imageName": splitImageUrl[splitImageUrl.length - 1], "width": w, "height": h, "x": x, "y": y },
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        success: function (data) {
+            if (data == "OK") {
+                setTimeout(function () {
+                    showAlert(".popupMessage", "Resim başarıyla croplandı.", "success");
+                }, 100);
+            }
+
+        }, error: function (data) {
+            setTimeout(function () {
+                showAlert(".popupMessage", "Resim croplama sırasında hata oluştu.", "error");
+            }, 100);
+        }
+    });
+
+    console.log(CropCoordinat);
 }
 
 $(function () {
@@ -67,7 +101,7 @@ $(function () {
                     $("#jcrop").html("<img src='' id='imagePreview' />");
                     $("#imagePreview").css("display", "block");
                     $("#imagePreview").attr("src", $(this).attr("src"));
-                    CropImage();
+                    ResizeImage();
 
                 });
 
@@ -80,7 +114,7 @@ $(function () {
 
 
     ListImageLoad();
-   
+
 
 
     $("#saveForm").submit(function (e) {

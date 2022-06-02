@@ -3,6 +3,7 @@ using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
@@ -18,7 +19,29 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             return View();
         }
+        public ActionResult CropImage(string imageName, int width, int height, int x, int y)
+        {
+            string imageUrl = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("FileUploadEditor").Value.ToString();
 
+            // Create a new image at the cropped size
+            Bitmap cropped = new Bitmap(width, height);
+
+            //Load image from file
+            using (Image image = Image.FromFile(imageUrl + imageName))
+            {
+                // Create a Graphics object to do the drawing, *with the new bitmap as the target*
+                using (Graphics g = Graphics.FromImage(cropped))
+                {
+                    // Draw the desired area of the original into the graphics object
+                    g.DrawImage(image, new Rectangle(0, 0, width, height), new Rectangle(x, y, width, height), GraphicsUnit.Pixel);
+                    image.Dispose();
+                    g.Dispose();
+                    // Save the result
+                    cropped.Save(imageUrl + imageName);
+                }
+            }
+            return Json("OK");
+        }
         public ActionResult GetImageList()
         {
 

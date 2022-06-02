@@ -107,9 +107,18 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12" id="jcrop">
-                                <img id="imagePreview" alt="Lütfen bir resim seçiniz." />
+                            <div class="col-lg-12">
+                                <div class="form-group" id="jcrop">
+                                    <img id="imagePreview" alt="Lütfen bir resim seçiniz." />
+                                </div>
                             </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-standart" onclick="CropImage()" value="Resmi Cropla" />
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -141,7 +150,7 @@
             if (window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != "") {
                 $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);
                 $("#imagePreview").show();
-                 CropImage();
+                 ResizeImage();
 
             }
         });

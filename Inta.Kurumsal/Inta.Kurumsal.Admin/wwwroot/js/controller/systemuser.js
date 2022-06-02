@@ -153,9 +153,8 @@ $(document).ready(function () {
             url: "/SystemUser/Save",
             type: "POST",
             data: formData,
+            contentType: 'application/json',
             dataType: 'json',
-            processData: false,
-            contentType: false,
             success: function (data) {
                 if (data.ResultType == 0) {
                     console.log($("#Id").val());
