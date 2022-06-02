@@ -25,8 +25,10 @@
             allowMove: true,
             allowResize: true,
             fixedSupport: true,
-            boxWidth: boxWidth,
-            boxHeight: boxHeight,
+            //boxWidth: boxWidth,
+            //boxHeight: boxHeight,
+            boxWidth: imageWidth,
+            boxHeight: imageHeight,
             trueSize: [imageWidth, imageHeight],
             onSelect: function (c) {
                 console.log(c);
