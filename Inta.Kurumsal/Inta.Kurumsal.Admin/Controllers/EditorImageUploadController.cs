@@ -26,7 +26,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             List<FileInfo> imageList = new List<FileInfo>();
 
-            DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString());
+            DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("FileUploadEditor").Value.ToString());
 
             string supportedExtensions = "*.jpg,*.gif,*.png,*.bmp,*.jpe,*.jpeg,*.wmf,*.emf,*.xbm,*.ico,*.eps,*.tif,*.tiff,*.g01,*.g02,*.g03,*.g04,*.g05,*.g06,*.g07,*.g08";
 
