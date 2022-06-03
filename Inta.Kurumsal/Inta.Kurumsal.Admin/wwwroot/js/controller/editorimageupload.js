@@ -57,7 +57,10 @@ var CropImage = function () {
         dataType: 'json',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success: function (data) {
-            if (data == "OK") {
+            if (data.ResultMessage == "OK") {
+                console.log(data.ImageUrl);
+                $("#jcrop").html("<img id='imagePreview' src='" + data.ImageUrl +"'/>");
+                ResizeImage();
                 setTimeout(function () {
                     showAlert(".popupMessage", "Resim başarıyla croplandı.", "success");
                 }, 100);

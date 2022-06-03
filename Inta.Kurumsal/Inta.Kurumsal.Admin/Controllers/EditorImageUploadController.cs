@@ -40,7 +40,11 @@ namespace Inta.Kurumsal.Admin.Controllers
                     cropped.Save(imageUrl + imageName);
                 }
             }
-            return Json("OK");
+            return Json(new
+            {
+                ResultMessage = "OK",
+                ImageUrl = _configuration.GetSection("FileUploadEditorShowFolder").Value.ToString() + imageName + "?d=" + DateTime.Now.ToString()
+            });
         }
         public ActionResult GetImageList()
         {
