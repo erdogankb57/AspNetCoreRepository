@@ -53,7 +53,7 @@ var CropImage = function () {
     $.ajax({
         url: "/EditorImageUpload/CropImage",
         type: "POST",
-        data: { "imageName": splitImageUrl[splitImageUrl.length - 1], "width": w, "height": h, "x": x, "y": y },
+        data: { "imageName": splitImageUrl[splitImageUrl.length - 1].split("?")[0], "width": w, "height": h, "x": x, "y": y },
         dataType: 'json',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success: function (data) {
@@ -61,6 +61,7 @@ var CropImage = function () {
                 console.log(data.ImageUrl);
                 $("#jcrop").html("<img id='imagePreview' src='" + data.ImageUrl +"'/>");
                 ResizeImage();
+                ListImageLoad();
                 setTimeout(function () {
                     showAlert(".popupMessage", "Resim başarıyla croplandı.", "success");
                 }, 100);
@@ -76,44 +77,46 @@ var CropImage = function () {
     console.log(CropCoordinat);
 }
 
+var ListImageLoad = function () {
+    $('#fileList').find('option').remove();
+
+    $.ajax({
+        url: "/EditorImageUpload/GetImageList",
+        type: "GET",
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        success: function (data) {
+            var img = "";
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].FullName == window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src.split(window.origin)[1]) {
+                    img += "<a href='#'><img src='" + data[i].FullName + "' class='selected' /></a>";
+                } else {
+                    img += "<a href='#'><img src='" + data[i].FullName + "'  /></a>";
+                }
+
+            }
+            $("#fileListImages").html(img);
+
+
+            $("#fileListImages img").click(function () {
+                $("#jcrop").html("<img src='' id='imagePreview' />");
+                $("#imagePreview").css("display", "block");
+                $("#imagePreview").attr("src", $(this).attr("src"));
+                ResizeImage();
+
+            });
+
+        }, error: function (data) {
+
+        }
+    });
+
+}
+
+
 $(function () {
     setTimeout(function () { $("#fileListImages").perfectScrollbar(); }, 200);
 
-    var ListImageLoad = function () {
-        $('#fileList').find('option').remove();
-
-        $.ajax({
-            url: "/EditorImageUpload/GetImageList",
-            type: "GET",
-            dataType: 'json',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            success: function (data) {
-                var img = "";
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].FullName == window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src.split(window.origin)[1]) {
-                        img += "<a href='#'><img src='" + data[i].FullName + "' class='selected' /></a>";
-                    } else {
-                        img += "<a href='#'><img src='" + data[i].FullName + "'  /></a>";
-                    }
-
-                }
-                $("#fileListImages").html(img);
-
-
-                $("#fileListImages img").click(function () {
-                    $("#jcrop").html("<img src='' id='imagePreview' />");
-                    $("#imagePreview").css("display", "block");
-                    $("#imagePreview").attr("src", $(this).attr("src"));
-                    ResizeImage();
-
-                });
-
-            }, error: function (data) {
-
-            }
-        });
-
-    }
 
 
     ListImageLoad();
