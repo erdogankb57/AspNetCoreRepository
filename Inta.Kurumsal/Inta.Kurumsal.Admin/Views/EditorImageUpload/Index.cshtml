@@ -146,24 +146,31 @@
     <script src="@Url.Content("~/css/assets/dist/js/bootstrap.js")"></script>
 
     <script>
-        $(function(){
-            if (window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != "") {
+            $(function(){
+                if (window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src != "") {
                 $("#imagePreview").attr("src", window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.src);
                 $("#imagePreview").show();
-                 ResizeImage();
-
-            }
-        });
-            var returnData = function () {
-            var src = $("#imagePreview").attr("src");
-                if (src != undefined && src != null) {
-                    window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
-                } else {
-                    showAlert(".popupMessage", "Lütfen resim seçiniz!", "error");
+                ResizeImage();
 
                 }
+            });
+                var returnData = function () {
+                var src = $("#imagePreview").attr("src");
+                    if (src != undefined && src != null) {
+                        const img = new Image();
+                        img.onload = function () {
+                            window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.width = img.width;
+                            window.top.opener.CKEDITOR.dialog.getCurrent().preview.$.height = img.height;
 
-        };
+                        }
+                        img.src = $("#imagePreview").attr("src");
+                        window.top.opener.CKEDITOR.dialog.getCurrent().setValueOf('info', 'txtUrl', src); window.top.close(); window.top.opener.focus();
+                    } else {
+                        showAlert(".popupMessage", "Lütfen resim seçiniz!", "error");
+
+                    }
+
+            };
     </script>
 </body>
 </html>
