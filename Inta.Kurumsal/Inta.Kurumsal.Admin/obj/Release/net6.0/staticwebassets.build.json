@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ad8sG8jST48eAQcfvCI9aKXE+vOKjaghXUC3HIUYcXI=",
+  "Hash": "13uvkZN/D1YXv8tmY2AR9OCDB/5rAP6eWrc7WDUNuEg=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -6188,6 +6188,23 @@
       "OriginalItemSpec": "wwwroot\\css\\fileupload.css"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\css\\image-crop.css",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "css/image-crop.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\image-crop.css"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\css\\jquery.dataTables.min.css",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -7004,6 +7021,23 @@
       "OriginalItemSpec": "wwwroot\\js\\jquery.dataTables.min.js"
     },
     {
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\js\\jquery.Jcrop.min.js",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "js/jquery.Jcrop.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery.Jcrop.min.js"
+    },
+    {
       "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\js\\jquery-3.5.0.js",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
@@ -7089,12 +7123,12 @@
       "OriginalItemSpec": "wwwroot\\js\\validation.js"
     },
     {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg",
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
       "BasePath": "_content/Inta.Kurumsal.Admin",
-      "RelativePath": "Uploads/EditorImages/csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg",
+      "RelativePath": "Uploads/EditorImages/1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7103,7 +7137,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\csharp-1-1-680d2684-2831-417a-8841-34fb8b1eb881.jpg"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png"
     }
   ]
 }

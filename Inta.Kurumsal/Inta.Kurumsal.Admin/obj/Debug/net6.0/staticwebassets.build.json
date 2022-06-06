@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zJwOPqCRQXhBAN2G2NCuyeX40Fa1E0H2PHNG2nT9knE=",
+  "Hash": "tWCQjk86KcPnyYY5NJ+o2bXqp27Eed+qW2XMygdgjz0=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7123,12 +7123,12 @@
       "OriginalItemSpec": "wwwroot\\js\\validation.js"
     },
     {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-d15b4e21-4324-499a-be82-567e41186e8e.png",
+      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png",
       "SourceId": "Inta.Kurumsal.Admin",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
       "BasePath": "_content/Inta.Kurumsal.Admin",
-      "RelativePath": "Uploads/EditorImages/1-klijp3uwtgae-q9xuc-pva-d15b4e21-4324-499a-be82-567e41186e8e.png",
+      "RelativePath": "Uploads/EditorImages/1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7137,24 +7137,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-d15b4e21-4324-499a-be82-567e41186e8e.png"
-    },
-    {
-      "Identity": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\c-to-c-rest-vs-grpc-a00656a6-95eb-46af-a173-45294fc7d7a8.jpg",
-      "SourceId": "Inta.Kurumsal.Admin",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
-      "BasePath": "_content/Inta.Kurumsal.Admin",
-      "RelativePath": "Uploads/EditorImages/c-to-c-rest-vs-grpc-a00656a6-95eb-46af-a173-45294fc7d7a8.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\c-to-c-rest-vs-grpc-a00656a6-95eb-46af-a173-45294fc7d7a8.jpg"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png"
     }
   ]
 }
