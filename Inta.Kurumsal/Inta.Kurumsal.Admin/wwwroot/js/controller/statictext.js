@@ -129,7 +129,7 @@ $(document).ready(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
 
         var formData = new FormData($('#saveForm')[0]);
@@ -157,7 +157,7 @@ $(document).ready(function () {
                         showAlert(".popupMessage", "Kayıt işlemi sırasında hata oluştu. Lütfen alanları kontrol ediniz.", "error");
                     }, 100);
 
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
             }, error: function (data) {
                 setTimeout(function () {

@@ -129,7 +129,7 @@ $(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
 
         var form = new FormData($('form')[0]);

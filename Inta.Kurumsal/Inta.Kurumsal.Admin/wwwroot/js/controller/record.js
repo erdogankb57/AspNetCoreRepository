@@ -199,7 +199,7 @@ $(document).ready(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
 
         if ($("#CategoryId").val() == null) {
@@ -212,7 +212,7 @@ $(document).ready(function () {
         CKEDITOR.instances['ShortContent'].updateElement();
         CKEDITOR.instances['ShortExplanation'].updateElement();
 
-        $(this).find("button[type='submit']").prop('disabled', false);
+        $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
     });
 
