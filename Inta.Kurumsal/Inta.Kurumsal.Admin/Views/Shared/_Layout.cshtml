@@ -90,9 +90,9 @@
                                 <span class="line"></span>
                             </a>
                         </div>
-      
+
                         <div class="col-10 col-sm-10 col-md-10 col-lg-10">
-                            
+
 
                             <div class="user">
 
@@ -140,7 +140,19 @@
                                 @{
                                     string languageId = ViewBag.LanguageId.ToString();
                                 }
-                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Dil Seçiniz","",v=> v.IsActive))
+                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Dil Seçiniz","", new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionModel>{
+                                new Inta.EntityFramework.Core.DynamicExpression.ExpressionModel{
+                                ExpressionName = "IsActive",
+                                Item = new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
+                                new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
+                                Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
+                                PropertyName = "IsActive",
+                                Value = true,
+                                MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None
+                                }
+                                }
+                                }
+                                }))
 
                             </div>
 
