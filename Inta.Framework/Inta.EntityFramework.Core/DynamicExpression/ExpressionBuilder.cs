@@ -52,7 +52,12 @@ namespace Inta.EntityFramework.Core.DynamicExpression
             foreach (var item in expressionItems)
             {
                 Expression member = Expression.Property(parameterExpression, item.PropertyName.ToString());
-                Expression constant = Expression.Convert(Expression.Constant(item.Value), item.Value.GetType());
+                Expression constant = null;
+                if (item.Operator == ExpressionOperators.Contains)
+                    constant = Expression.Convert(Expression.Constant(item.Value), item.Value.GetType());
+                else
+                    constant = Expression.Convert(Expression.Constant(item.Value), member.Type);
+
                 Expression condition = null;
                 if (item.Operator == ExpressionOperators.Equals)
                     condition = Expression.Equal(member, constant);
