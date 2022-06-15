@@ -11,6 +11,8 @@ namespace Inta.EntityFramework.Core.DynamicExpression
         None,
         And,
         Or,
+        Not
+
 
 
     }

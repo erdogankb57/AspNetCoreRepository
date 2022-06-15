@@ -10,12 +10,14 @@ namespace Inta.EntityFramework.Core.DynamicExpression
     {
         None,
         Equals,
+        NotEquals,
         GreaterThan,
         LessThan,
         GreaterThanOrEqual,
         LessThanOrEqual,
-        Contains,
+        Like,
         StartsWith,
-        EndsWith
+        EndsWith,
+        Contains
     }
 }

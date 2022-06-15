@@ -25,9 +25,8 @@ namespace Inta.Kurumsal.Bussiness.Common
         }
         public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue, List<ExpressionModel> expressionModels) where TDto : IDto where TEntity : IEntity
         {
-            ParameterExpression parameter = Expression.Parameter(typeof(TEntity), "item");
             ExpressionBuilder<TEntity> expressionBuilder = new ExpressionBuilder<TEntity>();
-            Expression<Func<TEntity, bool>> newFilter = Expression.Lambda<Func<TEntity, bool>>(expressionBuilder.CreateExpression(expressionModels, parameter), parameter);
+            Expression<Func<TEntity, bool>> newFilter = expressionBuilder.CreateExpression(expressionModels);
 
             var serviceType = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t => t.Name == "I" + serviceName + "Service");
             var service = (IBaseService<TDto, TEntity>)httpContext.HttpContext.RequestServices.GetService(serviceType);

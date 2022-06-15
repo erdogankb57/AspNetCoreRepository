@@ -97,10 +97,16 @@
                                             Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.None,
                                             Item = new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
                                             new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
-                                                MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
-                                                Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
-                                                PropertyName = "IsActive",
-                                                Value = true
+                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
+                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
+                                            PropertyName = "IsActive",
+                                            Value = true
+                                            },
+                                            new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
+                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.And,
+                                            PropertyName = "Id",
+                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Contains,
+                                            Value = new List<int>{ 4,5}
                                             }
                                             }
                                             }
