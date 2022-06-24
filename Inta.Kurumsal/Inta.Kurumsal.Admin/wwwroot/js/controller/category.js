@@ -1,7 +1,7 @@
 ﻿var table = null;
 
 var loadRecord = function () {
-  
+
 
 
     table = $('#dataTable').DataTable({
@@ -15,12 +15,12 @@ var loadRecord = function () {
                 var dict = [];
 
                 dict.push({
-                    "Key": "SearchId",
+                    "Key": "CategoryId",
                     "Value": $("#SearchId").val()
                 });
 
                 dict.push({
-                    "Key": "CategoryName",
+                    "Key": "Name",
                     "Value": $("#categoryName").val()
                 });
 
@@ -242,9 +242,11 @@ var dataTableUpdate = function () {
 }
 
 var searchDataList = function () {
-    table.columns([0]).search($("#SearchId").val(), "EQUALS")
-        .columns([1]).search($("#categoryName").val(), "EQUALS")
-        .draw();
+    //table.columns([0]).search($("#SearchId").val(), "EQUALS")
+    //    .columns([1]).search($("#categoryName").val(), "EQUALS")
+    //    .draw();
+
+    table.draw();
 }
 
 $(document).ready(function () {
