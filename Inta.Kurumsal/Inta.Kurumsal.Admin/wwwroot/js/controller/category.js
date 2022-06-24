@@ -16,7 +16,7 @@ var loadRecord = function () {
 
                 dict.push({
                     "Key": "CategoryId",
-                    "Value": $("#SearchId").val()
+                    "Value": 0
                 });
 
                 dict.push({

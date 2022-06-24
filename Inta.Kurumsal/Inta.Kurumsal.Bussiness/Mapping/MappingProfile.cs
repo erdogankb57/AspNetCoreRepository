@@ -4,6 +4,7 @@ using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.ComplexType;
 using Inta.Kurumsal.Entity.Concrete;
+using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Bussiness.Mapping
 {
@@ -17,6 +18,10 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<DataResult<BannerTypeDto>, DataResult<BannerType>>();
             CreateMap<DataResult<IList<BannerType>>, DataResult<List<BannerTypeDto>>>();
             CreateMap<DataResult<List<BannerTypeDto>>, DataResult<IList<BannerType>>>();
+            CreateMap<Expression<Func<BannerType, bool>>, Expression<Func<BannerTypeDto, bool>>>();
+            CreateMap<Expression<Func<BannerTypeDto, bool>>, Expression<Func<BannerType, bool>>>();
+
+
 
             CreateMap<Banner, BannerDto>();
             CreateMap<BannerDto, Banner>();

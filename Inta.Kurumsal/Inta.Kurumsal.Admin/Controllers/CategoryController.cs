@@ -174,8 +174,8 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            var result = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
-
+       
+            var result = _categoryService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
 
             if (!string.IsNullOrEmpty(request.SearchParameters[0].Value))
                 result = result.Where(v => v.CategoryId == Convert.ToInt32(request.SearchParameters[0].Value)).ToList();

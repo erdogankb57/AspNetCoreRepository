@@ -56,7 +56,9 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                 if (item.Operator == ExpressionOperators.Contains)
                     constant = Expression.Convert(Expression.Constant(item.Value), item.Value.GetType());
                 else
+                {
                     constant = Expression.Convert(Expression.Constant(item.Value), member.Type);
+                }
 
                 Expression condition = null;
                 if (item.Operator == ExpressionOperators.Equals)
@@ -78,8 +80,7 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                 else if (item.Operator == ExpressionOperators.EndsWith)
                     condition = Expression.Call(member, stringEndsWithMethod, constant);
                 else if (item.Operator == ExpressionOperators.Contains)
-                    condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains",
-      new Type[] { member.Type }), member);
+                    condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
 
                 EnpressionList.Add(condition);
             }
