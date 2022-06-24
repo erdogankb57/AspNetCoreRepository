@@ -174,13 +174,14 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             var result = _categoryService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
 
-            if (!string.IsNullOrEmpty(request.columns[0].search.value))
-                result = result.Where(v => v.CategoryId == Convert.ToInt32(request.columns[0].search.value)).ToList();
+
+            if (!string.IsNullOrEmpty(request.SearchParameters[0].Value))
+                result = result.Where(v => v.CategoryId == Convert.ToInt32(request.SearchParameters[0].Value)).ToList();
             else
                 result = result.Where(v => v.CategoryId == 0).ToList();
 
-            if (!string.IsNullOrEmpty(request.columns[1].search.value))
-                result = result.Where(v => v.Name.Contains(request.columns[1].search.value, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (!string.IsNullOrEmpty(request.SearchParameters[1].Value))
+                result = result.Where(v => v.Name.Contains(request.SearchParameters[1].Value, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();
@@ -220,7 +221,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 string filePath = Directory.GetCurrentDirectory().ToString() + _configuration.GetSection("ImagesUpload").Value.ToString();
 
                 if (settings != null)
-                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth,filePath);
+                    request.Image = ImageManager.ImageUploadDoubleCopy(Image, settings.CategoryImageSmallWidth, settings.CategoryImageBigWidth, filePath);
                 else
                     request.Image = ImageManager.ImageUploadDoubleCopy(Image, 100, 500, filePath);
             }

@@ -1,5 +1,7 @@
 ﻿var table = null;
+
 var loadRecord = function () {
+  
 
 
     table = $('#dataTable').DataTable({
@@ -9,8 +11,24 @@ var loadRecord = function () {
             "url": "/Category/GetDataList",
             "type": "post",
             "datatype": "json",
-            "data": {
-                "id": "1"
+            "data": function (d) {
+                var dict = [];
+
+                dict.push({
+                    "Key": "SearchId",
+                    "Value": $("#SearchId").val()
+                });
+
+                dict.push({
+                    "Key": "CategoryName",
+                    "Value": $("#categoryName").val()
+                });
+
+                if (d != undefined) {
+                    d.SearchParameters = dict;
+                }
+
+                return d;
             }
         },
         lengthMenu: lengthMenu,

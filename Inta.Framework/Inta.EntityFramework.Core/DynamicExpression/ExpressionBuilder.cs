@@ -14,7 +14,7 @@ namespace Inta.EntityFramework.Core.DynamicExpression
         public Expression<Func<TEntity, bool>> CreateExpression(List<ExpressionModel> expressionModel)
         {
             ParameterExpression parameter = Expression.Parameter(typeof(TEntity), "item");
-            ExpressionBuilder<TEntity> expressionBuilder = new ExpressionBuilder<TEntity>();
+            //ExpressionBuilder<TEntity> expressionBuilder = new ExpressionBuilder<TEntity>();
 
             Expression expressionResult = null;
 

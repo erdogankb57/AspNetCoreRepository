@@ -14,6 +14,13 @@ namespace Inta.Kurumsal.Admin.Models
         public List<Column> columns { get; set; }
         public Search search { get; set; }
         public List<Order> order { get; set; }
+        public List<SearchParameterItem> SearchParameters { get; set; }
+    }
+
+    public class SearchParameterItem
+    {
+        public string Key { get; set; }
+        public string Value { get; set; }
     }
 
     public class Column
