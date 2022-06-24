@@ -16,16 +16,34 @@ var loadRecord = function () {
 
                 dict.push({
                     "Key": "CategoryId",
-                    "Value": 0
+                    "Value": parseInt($("#SearchId").val()),
+                    "MergeOperator": 1,
+                    "Operator": 1
                 });
 
                 dict.push({
                     "Key": "Name",
-                    "Value": $("#categoryName").val()
+                    "Value": $("#categoryName").val(),
+                    "MergeOperator": 1,
+                    "Operator": 7
                 });
 
+                //dict.push({
+                //    "Key": "IsActive",
+                //    "Value": true,
+                //    "MergeOperator": 1,
+                //    "Operator": 1
+                //});
+
+                //dict.push({
+                //    "Key": "Id",
+                //    "Value": [6041,6043],
+                //    "MergeOperator": 1,
+                //    "Operator": 10
+                //});
+
                 if (d != undefined) {
-                    d.SearchParameters = dict;
+                    d.SearchParameter = JSON.stringify(dict);
                 }
 
                 return d;

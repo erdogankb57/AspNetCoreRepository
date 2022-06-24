@@ -1,4 +1,5 @@
 ﻿using Inta.EntityFramework.Core.Abstract;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,57 +50,81 @@ namespace Inta.EntityFramework.Core.DynamicExpression
 
             List<Expression> EnpressionList = new List<Expression>();
             Expression expressionResult = null;
-            foreach (var item in expressionItems)
+
+            try
             {
-                Expression member = Expression.Property(parameterExpression, item.PropertyName.ToString());
-                Expression constant = null;
-                if (item.Operator == ExpressionOperators.Contains)
-                    constant = Expression.Convert(Expression.Constant(item.Value), item.Value.GetType());
-                else
+                foreach (var item in expressionItems)
                 {
-                    constant = Expression.Convert(Expression.Constant(item.Value), member.Type);
+                    Expression member = Expression.Property(parameterExpression, item.PropertyName.ToString());
+                    Expression constant = null;
+
+                    if (item.Operator == ExpressionOperators.Contains)
+                        constant = Expression.Convert(Expression.Constant(item.Value), item.Value.GetType());
+                    else
+                    {
+                        constant = Expression.Convert(Expression.Constant(item.Value), member.Type);
+                    }
+
+                    Expression condition = null;
+                    if (item.Operator == ExpressionOperators.Equals)
+                        condition = Expression.Equal(member, constant);
+                    else if (item.Operator == ExpressionOperators.GreaterThan)
+                        condition = Expression.GreaterThan(member, constant);
+                    else if (item.Operator == ExpressionOperators.GreaterThanOrEqual)
+                        condition = Expression.GreaterThanOrEqual(member, constant);
+                    else if (item.Operator == ExpressionOperators.LessThan)
+                        condition = Expression.LessThan(member, constant);
+                    else if (item.Operator == ExpressionOperators.LessThanOrEqual)
+                        condition = Expression.LessThanOrEqual(member, constant);
+                    else if (item.Operator == ExpressionOperators.NotEquals)
+                        condition = Expression.NotEqual(member, constant);
+                    else if (item.Operator == ExpressionOperators.Like)
+                        condition = Expression.Call(member, stringContainsMethod, constant);
+                    else if (item.Operator == ExpressionOperators.StartsWith)
+                        condition = Expression.Call(member, stringStartsWithMethod, constant);
+                    else if (item.Operator == ExpressionOperators.EndsWith)
+                        condition = Expression.Call(member, stringEndsWithMethod, constant);
+                    else if (item.Operator == ExpressionOperators.Contains)
+                    {
+                        if (item.Value.GetType() == typeof(JArray))
+                        {
+                            List<int> ob = new List<int>();
+                            var val = ((Newtonsoft.Json.Linq.JContainer)item.Value);
+                            foreach (var i in val)
+                            {
+                                ob.Add(Convert.ToInt32(i));
+                            }
+                            condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
+
+                        }
+                        else
+                            condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
+                    }
+
+                    if (condition != null)
+                        EnpressionList.Add(condition);
                 }
 
-                Expression condition = null;
-                if (item.Operator == ExpressionOperators.Equals)
-                    condition = Expression.Equal(member, constant);
-                else if (item.Operator == ExpressionOperators.GreaterThan)
-                    condition = Expression.GreaterThan(member, constant);
-                else if (item.Operator == ExpressionOperators.GreaterThanOrEqual)
-                    condition = Expression.GreaterThanOrEqual(member, constant);
-                else if (item.Operator == ExpressionOperators.LessThan)
-                    condition = Expression.LessThan(member, constant);
-                else if (item.Operator == ExpressionOperators.LessThanOrEqual)
-                    condition = Expression.LessThanOrEqual(member, constant);
-                else if (item.Operator == ExpressionOperators.NotEquals)
-                    condition = Expression.NotEqual(member, constant);
-                else if (item.Operator == ExpressionOperators.Like)
-                    condition = Expression.Call(member, stringContainsMethod, constant);
-                else if (item.Operator == ExpressionOperators.StartsWith)
-                    condition = Expression.Call(member, stringStartsWithMethod, constant);
-                else if (item.Operator == ExpressionOperators.EndsWith)
-                    condition = Expression.Call(member, stringEndsWithMethod, constant);
-                else if (item.Operator == ExpressionOperators.Contains)
-                    condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
+                for (int i = 0; i < EnpressionList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        expressionResult = EnpressionList[i];
+                    }
+                    else
+                    {
+                        if (expressionItems[i].MergeOperator == MergeOperator.And)
+                            expressionResult = Expression.AndAlso(EnpressionList[i], expressionResult);
+                        else if (expressionItems[i].MergeOperator == MergeOperator.Or)
+                            expressionResult = Expression.Or(EnpressionList[i], expressionResult);
+                    }
+                }
 
-                EnpressionList.Add(condition);
             }
-
-            for (int i = 0; i < EnpressionList.Count; i++)
+            catch (Exception ex)
             {
-                if (i == 0)
-                {
-                    expressionResult = EnpressionList[i];
-                }
-                else
-                {
-                    if (expressionItems[i].MergeOperator == MergeOperator.And)
-                        expressionResult = Expression.AndAlso(EnpressionList[i], expressionResult);
-                    else if (expressionItems[i].MergeOperator == MergeOperator.Or)
-                        expressionResult = Expression.Or(EnpressionList[i], expressionResult);
-                }
-            }
 
+            }
             return expressionResult;
         }
     }

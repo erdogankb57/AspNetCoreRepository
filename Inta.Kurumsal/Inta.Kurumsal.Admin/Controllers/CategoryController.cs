@@ -174,22 +174,23 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-       
-            var result = _categoryService.Find(v=> v.LanguageId == _authenticationData.LanguageId).Data;
+            ExpressionBuilder<Category> expressionBuilder = new ExpressionBuilder<Category>();
+            List<ExpressionItem> expressionItems = new List<ExpressionItem>();
+            expressionItems.Add(new ExpressionItem { MergeOperator = MergeOperator.And, Operator = ExpressionOperators.Equals, PropertyName = "LanguageId", Value = _authenticationData.LanguageId });
+            foreach (var item in request.SearchParameterItem)
+            {
+                if (item.Value != null && item.Value.ToString() != "")
+                    expressionItems.Add(new ExpressionItem { MergeOperator = (MergeOperator)item.MergeOperator, Operator = (ExpressionOperators)item.Operator, PropertyName = item.Key, Value = item.Value });
+            }
+            var query = expressionBuilder.CreateExpression(new List<ExpressionModel> { new ExpressionModel { ExpressionName = "Filter", MergeOperator = MergeOperator.None, Operator = ExpressionOperators.None, Item = expressionItems } });
 
-            if (!string.IsNullOrEmpty(request.SearchParameters[0].Value))
-                result = result.Where(v => v.CategoryId == Convert.ToInt32(request.SearchParameters[0].Value)).ToList();
-            else
-                result = result.Where(v => v.CategoryId == 0).ToList();
-
-            if (!string.IsNullOrEmpty(request.SearchParameters[1].Value))
-                result = result.Where(v => v.Name.Contains(request.SearchParameters[1].Value, StringComparison.OrdinalIgnoreCase)).ToList();
+            var result = _categoryService.Find(query).Data;
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();
 
             if (request.order[0].dir == "asc")
-            {
+            { 
                 if (request.order[0].column == 1)
                     result = result.OrderBy(o => o.Id).ToList();
                 else if (request.order[0].column == 2)

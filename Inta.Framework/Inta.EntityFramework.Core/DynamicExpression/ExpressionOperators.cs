@@ -8,16 +8,16 @@ namespace Inta.EntityFramework.Core.DynamicExpression
 {
     public enum ExpressionOperators
     {
-        None,
-        Equals,
-        NotEquals,
-        GreaterThan,
-        LessThan,
-        GreaterThanOrEqual,
-        LessThanOrEqual,
-        Like,
-        StartsWith,
-        EndsWith,
-        Contains
+        None = 0,
+        Equals = 1,
+        NotEquals = 2,
+        GreaterThan = 3,
+        LessThan = 4,
+        GreaterThanOrEqual = 5,
+        LessThanOrEqual = 6,
+        Like = 7,
+        StartsWith = 8,
+        EndsWith = 9,
+        Contains = 10
     }
 }

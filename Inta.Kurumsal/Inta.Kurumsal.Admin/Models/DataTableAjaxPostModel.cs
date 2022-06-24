@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inta.Framework.Extension.Serializer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,13 +15,26 @@ namespace Inta.Kurumsal.Admin.Models
         public List<Column> columns { get; set; }
         public Search search { get; set; }
         public List<Order> order { get; set; }
-        public List<SearchParameterItem> SearchParameters { get; set; }
+        public string SearchParameter { get; set; }
+        public List<SearchParameterItem> SearchParameterItem
+        {
+            get
+            {
+                JavaScript<List<SearchParameterItem>> serializer = new JavaScript<List<SearchParameterItem>>();
+                var result = serializer.Deserialize(SearchParameter);
+
+                return result;
+
+            }
+        }
     }
 
     public class SearchParameterItem
     {
         public string Key { get; set; }
-        public string Value { get; set; }
+        public object Value { get; set; }
+        public int MergeOperator { get; set; }
+        public int Operator { get; set; }
     }
 
     public class Column
