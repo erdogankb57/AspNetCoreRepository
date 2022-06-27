@@ -79,15 +79,15 @@
                                 </div>
                                 @if (languageList != null && languageList.Count > 1)
                                 {
-                                    <div class="form-group">
-                                        <div class="row" style="padding: 0 0 0 15px;">
-                                            Dil Seçiniz
+                                        <div class="form-group">
+                                            <div class="row" style="padding: 0 0 0 15px;">
+                                                Dil Seçiniz
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-12">
                                                 @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId","",true,"Seçiniz","",
                                             new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionModel>
                                             {
@@ -101,20 +101,14 @@
                                             Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
                                             PropertyName = "IsActive",
                                             Value = true
-                                            },
-                                            new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
-                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.And,
-                                            PropertyName = "Id",
-                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Contains,
-                                            Value = new List<int> { 4,5}
                                             }
                                             }
                                             }
                                             }))
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 }
 
                                 <div class="form-group">
