@@ -88,14 +88,24 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     {
                         if (item.Value.GetType() == typeof(JArray))
                         {
-                            List<int> ob = new List<int>();
-                            var val = ((Newtonsoft.Json.Linq.JContainer)item.Value);
-                            foreach (var i in val)
+                            if (member.Type == typeof(Int32))
                             {
-                                ob.Add(Convert.ToInt32(i));
+                                List<int> ob = new List<int>();
+                                var val = ((Newtonsoft.Json.Linq.JContainer)item.Value);
+                                foreach (var i in val)
+                                {
+                                    ob.Add(Convert.ToInt32(i));
+                                }
+                                condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
+                            }else if (member.Type == typeof(string)){
+                                List<string> ob = new List<string>();
+                                var val = ((Newtonsoft.Json.Linq.JContainer)item.Value);
+                                foreach (var i in val)
+                                {
+                                    ob.Add(i.ToString());
+                                }
+                                condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
                             }
-                            condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
-
                         }
                         else
                             condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
