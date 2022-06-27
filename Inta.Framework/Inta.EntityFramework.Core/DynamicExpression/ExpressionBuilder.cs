@@ -97,7 +97,9 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                                     ob.Add(Convert.ToInt32(i));
                                 }
                                 condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
-                            }else if (member.Type == typeof(string)){
+                            }
+                            else if (member.Type == typeof(string))
+                            {
                                 List<string> ob = new List<string>();
                                 var val = ((Newtonsoft.Json.Linq.JContainer)item.Value);
                                 foreach (var i in val)
@@ -105,6 +107,10 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                                     ob.Add(i.ToString());
                                 }
                                 condition = Expression.Call(Expression.Constant(ob), ob.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
+                            }
+                            else
+                            {
+                                throw new Exception("Contains karşılaştırma veri tipi hatası");
                             }
                         }
                         else
