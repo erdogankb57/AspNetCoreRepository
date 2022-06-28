@@ -28,26 +28,26 @@ var loadRecord = function () {
                     "Operator": 7
                 });
 
-                dict.push({
-                    "Key": "IsActive",
-                    "Value": true,
-                    "MergeOperator": 1,
-                    "Operator": 1
-                });
+                //dict.push({
+                //    "Key": "IsActive",
+                //    "Value": true,
+                //    "MergeOperator": 1,
+                //    "Operator": 1
+                //});
 
-                dict.push({
-                    "Key": "Id",
-                    "Value": [6041,6043],
-                    "MergeOperator": 1,
-                    "Operator": 10
-                });
+                //dict.push({
+                //    "Key": "Id",
+                //    "Value": [6041,6043],
+                //    "MergeOperator": 1,
+                //    "Operator": 10
+                //});
 
-                dict.push({
-                    "Key": "Name",
-                    "Value": ["Biz kimiz","Neler yapıyoruz"],
-                    "MergeOperator": 1,
-                    "Operator": 10
-                });
+                //dict.push({
+                //    "Key": "Name",
+                //    "Value": ["Biz kimiz","Neler yapıyoruz"],
+                //    "MergeOperator": 1,
+                //    "Operator": 10
+                //});
 
                 if (d != undefined) {
                     d.SearchParameter = JSON.stringify(dict);

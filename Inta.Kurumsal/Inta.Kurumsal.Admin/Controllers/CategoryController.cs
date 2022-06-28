@@ -7,6 +7,7 @@ using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq.Expressions;
 
 namespace Inta.Kurumsal.Admin.Controllers
 {
@@ -190,7 +191,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();
 
             if (request.order[0].dir == "asc")
-            { 
+            {
                 if (request.order[0].column == 1)
                     result = result.OrderBy(o => o.Id).ToList();
                 else if (request.order[0].column == 2)

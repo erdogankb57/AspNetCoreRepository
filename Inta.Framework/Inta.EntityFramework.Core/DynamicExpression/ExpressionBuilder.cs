@@ -117,6 +117,12 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                             condition = Expression.Call(Expression.Constant(item.Value), item.Value.GetType().GetMethod("Contains", new Type[] { member.Type }), member);
                     }
 
+                    //Alt queryler sisteme eklenir.
+                    if (item.Item != null)
+                    {
+                        condition = Expression.AndAlso(condition, this.CreateExpressionItem(item.Item, parameterExpression));
+                    }
+
                     if (condition != null)
                         EnpressionList.Add(condition);
                 }
