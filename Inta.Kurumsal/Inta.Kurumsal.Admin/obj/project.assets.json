@@ -8325,7 +8325,6 @@
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Inta.Kurumsal.Bussiness >= 1.0.0",
-      "Inta.Kurumsal.DataAccess >= 1.0.0",
       "Inta.Kurumsal.Entity >= 1.0.0",
       "System.Drawing.Common >= 6.0.0"
     ]
@@ -8367,9 +8366,6 @@
           "projectReferences": {
             "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj": {
               "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj"
-            },
-            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.DataAccess\\Inta.Kurumsal.DataAccess.csproj"
             },
             "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
               "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj"

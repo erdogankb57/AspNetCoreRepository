@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Inta.Kurumsal.Bussiness\Inta.Kurumsal.Bussiness.csproj" />
-    <ProjectReference Include="..\Inta.Kurumsal.DataAccess\Inta.Kurumsal.DataAccess.csproj" />
     <ProjectReference Include="..\Inta.Kurumsal.Entity\Inta.Kurumsal.Entity.csproj" />
   
   </ItemGroup>

@@ -140,15 +140,7 @@
                                 @{
                                     string languageId = ViewBag.LanguageId.ToString();
                                 }
-                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Dil Seçiniz","",
-                                new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
-                                new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
-                                PropertyName = "IsActive",
-                                MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
-                                Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
-                                Value = true
-                                }
-                                }))
+                                @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId",languageId,true,"Dil Seçiniz","", v=> v.IsActive == true))
 
                             </div>
 
