@@ -23,10 +23,10 @@ namespace Inta.Kurumsal.Bussiness.Common
         {
             httpContext = context;
         }
-        public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue, List<ExpressionModel> expressionModels) where TDto : IDto where TEntity : IEntity
+        public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue, List<ExpressionItem> expressionItems) where TDto : IDto where TEntity : IEntity
         {
             ExpressionBuilder<TEntity> expressionBuilder = new ExpressionBuilder<TEntity>();
-            Expression<Func<TEntity, bool>> newFilter = expressionBuilder.CreateExpression(expressionModels);
+            Expression<Func<TEntity, bool>> newFilter = expressionBuilder.CreateExpression(expressionItems);
 
             var serviceType = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t => t.Name == "I" + serviceName + "Service");
             var service = (IBaseService<TDto, TEntity>)httpContext.HttpContext.RequestServices.GetService(serviceType);

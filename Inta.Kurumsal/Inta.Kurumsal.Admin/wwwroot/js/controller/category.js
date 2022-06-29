@@ -15,6 +15,13 @@ var loadRecord = function () {
                 var dict = [];
 
                 dict.push({
+                    "Key": "LanguageId",
+                    "Value": 5,
+                    "MergeOperator": 2,
+                    "Operator": 1
+                });
+
+                dict.push({
                     "Key": "CategoryId",
                     "Value": parseInt($("#SearchId").val() == "" ? 0 : $("#SearchId").val()),
                     "MergeOperator": 1,
@@ -24,16 +31,16 @@ var loadRecord = function () {
                 dict.push({
                     "Key": "Name",
                     "Value": $("#categoryName").val(),
-                    "MergeOperator": 1,
+                    "MergeOperator": 2,
                     "Operator": 7
                 });
 
-                //dict.push({
-                //    "Key": "IsActive",
-                //    "Value": true,
-                //    "MergeOperator": 1,
-                //    "Operator": 1
-                //});
+                dict.push({
+                    "Key": "IsActive",
+                    "Value": true,
+                    "MergeOperator": 1,
+                    "Operator": 1
+                });
 
                 //dict.push({
                 //    "Key": "Id",

@@ -12,29 +12,13 @@ namespace Inta.EntityFramework.Core.DynamicExpression
 {
     public class ExpressionBuilder<TEntity> where TEntity : IEntity
     {
-        public Expression<Func<TEntity, bool>> CreateExpression(List<ExpressionModel> expressionModel)
+        public Expression<Func<TEntity, bool>> CreateExpression(List<ExpressionItem> expressionItems)
         {
             ParameterExpression parameter = Expression.Parameter(typeof(TEntity), "item");
             //ExpressionBuilder<TEntity> expressionBuilder = new ExpressionBuilder<TEntity>();
-
             Expression expressionResult = null;
 
-
-            for (int i = 0; i < expressionModel.Count; i++)
-            {
-                if (i == 0)
-                {
-                    expressionResult = CreateExpressionItem(expressionModel[i].Item, parameter);
-                }
-                else
-                {
-                    if (expressionModel[i].MergeOperator == MergeOperator.And)
-                        expressionResult = Expression.AndAlso(expressionResult, CreateExpressionItem(expressionModel[i].Item, parameter));
-                    else if (expressionModel[i].MergeOperator == MergeOperator.Or)
-                        expressionResult = Expression.Or(expressionResult, CreateExpressionItem(expressionModel[i].Item, parameter));
-
-                }
-            }
+            expressionResult = CreateExpressionItem(expressionItems, parameter);
 
             Expression<Func<TEntity, bool>> newFilter = Expression.Lambda<Func<TEntity, bool>>(expressionResult, parameter);
 
@@ -48,8 +32,12 @@ namespace Inta.EntityFramework.Core.DynamicExpression
             MethodInfo stringStartsWithMethod = typeof(string).GetMethod("StartsWith", new[] { typeof(string) });
             MethodInfo stringEndsWithMethod = typeof(string).GetMethod("EndsWith", new[] { typeof(string) });
 
-            List<Expression> EnpressionList = new List<Expression>();
+            List<Expression> ExpressionList = new List<Expression>();
             Expression expressionResult = null;
+
+            Expression<Func<TEntity, bool>> newFilter = null;
+            newFilter = v => v.Id > 0;
+            LambdaExpression lambdaExpression = null;
 
             try
             {
@@ -120,27 +108,37 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     //Alt queryler sisteme eklenir.
                     if (item.Item != null)
                     {
-                        condition = Expression.AndAlso(condition, this.CreateExpressionItem(item.Item, parameterExpression));
+                        if (item.ItemMergeOperator == MergeOperator.None)
+                            throw new Exception("ItemMerge operator none olmamalıdır.");
+                        else if (item.ItemMergeOperator == MergeOperator.And)
+                            condition = Expression.And(condition, this.CreateExpressionItem(item.Item, parameterExpression));
+                        else if (item.ItemMergeOperator == MergeOperator.Or)
+                            condition = Expression.Or(condition, this.CreateExpressionItem(item.Item, parameterExpression));
                     }
 
+
                     if (condition != null)
-                        EnpressionList.Add(condition);
+                        ExpressionList.Add(condition);
                 }
 
-                for (int i = 0; i < EnpressionList.Count; i++)
+                for (int i = 0; i < ExpressionList.Count; i++)
                 {
                     if (i == 0)
                     {
-                        expressionResult = EnpressionList[i];
+                        expressionResult = Expression.And(Expression.NotEqual(Expression.Constant(1), Expression.Constant(2)), ExpressionList[i]);
                     }
                     else
                     {
                         if (expressionItems[i].MergeOperator == MergeOperator.And)
-                            expressionResult = Expression.AndAlso(EnpressionList[i], expressionResult);
+                            expressionResult = Expression.And(expressionResult, ExpressionList[i]);
+
                         else if (expressionItems[i].MergeOperator == MergeOperator.Or)
-                            expressionResult = Expression.Or(EnpressionList[i], expressionResult);
+                            expressionResult = Expression.Or(expressionResult, ExpressionList[i]);
+
                     }
+
                 }
+
 
             }
             catch (Exception ex)

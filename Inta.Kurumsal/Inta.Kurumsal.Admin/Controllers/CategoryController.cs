@@ -183,7 +183,7 @@ namespace Inta.Kurumsal.Admin.Controllers
                 if (item.Value != null && item.Value.ToString() != "")
                     expressionItems.Add(new ExpressionItem { MergeOperator = (MergeOperator)item.MergeOperator, Operator = (ExpressionOperators)item.Operator, PropertyName = item.Key, Value = item.Value });
             }
-            var query = expressionBuilder.CreateExpression(new List<ExpressionModel> { new ExpressionModel { ExpressionName = "Filter", MergeOperator = MergeOperator.None, Operator = ExpressionOperators.None, Item = expressionItems } });
+            var query = expressionBuilder.CreateExpression(expressionItems);
 
             var result = _categoryService.Find(query).Data;
 

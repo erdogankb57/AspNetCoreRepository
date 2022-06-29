@@ -89,20 +89,12 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 @(Html.DropDownListForService<LanguageDto,Language>("Language", "Name","Id","LanguageId","",true,"Seçiniz","",
-                                            new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionModel>
-                                            {
-                                            new Inta.EntityFramework.Core.DynamicExpression.ExpressionModel{
-                                            ExpressionName = "AktifKayitlar",
-                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
-                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.None,
-                                            Item = new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
+                                            new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
                                             new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
-                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
-                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
                                             PropertyName = "IsActive",
-                                            Value = true
-                                            }
-                                            }
+                                            Value = true,
+                                            Operator=Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
+                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None
                                             }
                                             }))
 

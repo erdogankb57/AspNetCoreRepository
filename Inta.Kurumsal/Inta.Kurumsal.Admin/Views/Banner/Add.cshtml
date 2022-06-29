@@ -31,19 +31,14 @@
                     </div>
                     <div class="col-lg-9">
                         @(Html.DropDownListForService<BannerTypeDto, BannerType>("BannerType", "Name", "Id", "BannerTypeId", Model.BannerTypeId.ToString(), true, "Seçiniz", "",
-                            new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionModel>{
-                                new Inta.EntityFramework.Core.DynamicExpression.ExpressionModel{
-                                    ExpressionName = "LanguageId",
-                                    Item = new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
-                                        new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
-                                            Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
-                                            PropertyName = "LanguageId",
-                                            Value = languageId,
-                                            MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None
-                                        }
-                                        }
-                                }
-                                }))
+                        new List<Inta.EntityFramework.Core.DynamicExpression.ExpressionItem>{
+                        new Inta.EntityFramework.Core.DynamicExpression.ExpressionItem{
+                        PropertyName = "LanguageId",
+                        MergeOperator = Inta.EntityFramework.Core.DynamicExpression.MergeOperator.None,
+                        Operator = Inta.EntityFramework.Core.DynamicExpression.ExpressionOperators.Equals,
+                        Value = languageId
+                        }
+                        }))
 
                     </div>
                 </div>
