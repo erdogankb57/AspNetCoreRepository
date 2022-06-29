@@ -20,10 +20,15 @@ namespace Inta.Kurumsal.Admin.Models
         {
             get
             {
-                JavaScript<List<SearchParameterItem>> serializer = new JavaScript<List<SearchParameterItem>>();
-                var result = serializer.Deserialize(SearchParameter);
+                if (!string.IsNullOrEmpty(SearchParameter))
+                {
+                    JavaScript<List<SearchParameterItem>> serializer = new JavaScript<List<SearchParameterItem>>();
+                    var result = serializer.Deserialize(SearchParameter);
+                    return result;
 
-                return result;
+                }
+                else
+                    return new List<SearchParameterItem>();
 
             }
         }
