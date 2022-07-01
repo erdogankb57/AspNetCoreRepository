@@ -121,8 +121,11 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                         ExpressionList.Add(condition);
                 }
 
+                Expression.AndAlso()
+                
                 for (int i = 0; i < ExpressionList.Count; i++)
                 {
+
                     if (i == 0)
                     {
                         expressionResult = Expression.And(Expression.NotEqual(Expression.Constant(1), Expression.Constant(2)), ExpressionList[i]);
@@ -130,7 +133,9 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     else
                     {
                         if (expressionItems[i].MergeOperator == MergeOperator.And)
+                        {
                             expressionResult = Expression.And(expressionResult, ExpressionList[i]);
+                        }
 
                         else if (expressionItems[i].MergeOperator == MergeOperator.Or)
                             expressionResult = Expression.Or(expressionResult, ExpressionList[i]);
@@ -138,7 +143,6 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     }
 
                 }
-
 
             }
             catch (Exception ex)
