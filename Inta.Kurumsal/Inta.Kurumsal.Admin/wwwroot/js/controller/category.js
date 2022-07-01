@@ -15,13 +15,6 @@ var loadRecord = function () {
                 var dict = [];
 
                 dict.push({
-                    "Key": "LanguageId",
-                    "Value": 5,
-                    "MergeOperator": 2,
-                    "Operator": 1
-                });
-
-                dict.push({
                     "Key": "CategoryId",
                     "Value": parseInt($("#SearchId").val() == "" ? 0 : $("#SearchId").val()),
                     "MergeOperator": 1,

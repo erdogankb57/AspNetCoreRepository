@@ -120,9 +120,7 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     if (condition != null)
                         ExpressionList.Add(condition);
                 }
-
-                Expression.AndAlso()
-                
+                                
                 for (int i = 0; i < ExpressionList.Count; i++)
                 {
 
