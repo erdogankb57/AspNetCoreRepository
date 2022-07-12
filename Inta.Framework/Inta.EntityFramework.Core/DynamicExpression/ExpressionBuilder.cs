@@ -115,7 +115,7 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                         else if (item.ItemMergeOperator == MergeOperator.Or)
                             condition = Expression.Or(condition, this.CreateExpressionItem(item.Item, parameterExpression));
                     }
-
+                    
 
                     if (condition != null)
                         ExpressionList.Add(condition);

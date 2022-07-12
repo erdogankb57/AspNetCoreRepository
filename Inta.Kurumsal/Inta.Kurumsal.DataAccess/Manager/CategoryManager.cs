@@ -80,17 +80,16 @@ namespace Inta.Kurumsal.DataAccess.Manager
             {
                 var categorys = from c in context.Categorys
                                 where
-                                (c.CategoryId == categoryId) && c.LanguageId == languageId
+                                c.CategoryId == categoryId && c.LanguageId == languageId
                                 select c;
 
-                if (!String.IsNullOrEmpty(name))
+                if (!string.IsNullOrEmpty(name))
+                {
                     categorys = from c in categorys
                                 where
-                                (c.Name.Contains(name.ToString()))
+                                c.Name.Contains(name.ToString())
                                 select c;
-
-
-
+                }
 
                 result.Data = categorys.ToList();
             }
