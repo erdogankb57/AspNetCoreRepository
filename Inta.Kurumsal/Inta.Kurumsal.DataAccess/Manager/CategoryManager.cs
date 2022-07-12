@@ -64,6 +64,40 @@ namespace Inta.Kurumsal.DataAccess.Manager
             return result;
         }
 
+        public DataResult<List<Category>> CategoryFilter(List<SearchParameterItem> filter)
+        {
+            int categoryId = !String.IsNullOrEmpty(filter.FirstOrDefault(v => v.Key == "CategoryId").Value.ToString()) ?
+                Convert.ToInt32(filter.FirstOrDefault(v => v.Key == "CategoryId").Value) : 0;
+
+            string name = !String.IsNullOrEmpty(filter.FirstOrDefault(v => v.Key == "Name").Value.ToString()) ?
+                filter.FirstOrDefault(v => v.Key == "Name").Value.ToString() : "";
+
+            int languageId = Convert.ToInt32(filter.FirstOrDefault(v => v.Key == "LanguageId").Value);
+
+
+            DataResult<List<Category>> result = new DataResult<List<Category>>();
+            using (var context = new DefaultDataContext())
+            {
+                var categorys = from c in context.Categorys
+                                where
+                                (c.CategoryId == categoryId) && c.LanguageId == languageId
+                                select c;
+
+                if (!String.IsNullOrEmpty(name))
+                    categorys = from c in categorys
+                                where
+                                (c.Name.Contains(name.ToString()))
+                                select c;
+
+
+
+
+                result.Data = categorys.ToList();
+            }
+
+            return result;
+        }
+
         /*
         public DataResult<List<CategoryModel>> FindCategoryList(Expression<Func<Category, bool>> filter)
         {

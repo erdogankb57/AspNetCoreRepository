@@ -4,6 +4,7 @@ using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
+using Inta.Kurumsal.Entity.ComplexType;
 using Inta.Kurumsal.Entity.Concrete;
 using System.Linq.Expressions;
 
@@ -71,6 +72,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             var entity = _mapper.Map<Category>(dto);
             var data = manager.Update(entity);
             var result = _mapper.Map<DataResult<CategoryDto>>(data);
+            return result;
+        }
+
+        public DataResult<List<CategoryDto>> CategoryFilter(List<SearchParameterItemDto> filter)
+        {
+            var entity = _mapper.Map<List<SearchParameterItem>>(filter);
+            var data = manager.CategoryFilter(entity);
+            var result = _mapper.Map<DataResult<List<CategoryDto>>>(data);
             return result;
         }
     }

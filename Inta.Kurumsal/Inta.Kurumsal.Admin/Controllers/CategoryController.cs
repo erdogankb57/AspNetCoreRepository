@@ -3,6 +3,7 @@ using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -175,17 +176,17 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            ExpressionBuilder<Category> expressionBuilder = new ExpressionBuilder<Category>();
-            List<ExpressionItem> expressionItems = new List<ExpressionItem>();
-            expressionItems.Add(new ExpressionItem { MergeOperator = MergeOperator.And, Operator = ExpressionOperators.Equals, PropertyName = "LanguageId", Value = _authenticationData.LanguageId });
-            foreach (var item in request.SearchParameterItem)
+            List<SearchParameterItemDto> searchParameterItemDtos = new List<SearchParameterItemDto>();
+            searchParameterItemDtos = request.SearchParameterItem.Select(s => new SearchParameterItemDto
             {
-                if (item.Value != null && item.Value.ToString() != "")
-                    expressionItems.Add(new ExpressionItem { MergeOperator = (MergeOperator)item.MergeOperator, Operator = (ExpressionOperators)item.Operator, PropertyName = item.Key, Value = item.Value });
-            }
-            var query = expressionBuilder.CreateExpression(expressionItems);
+                Key = s.Key,
+                MergeOperator = s.MergeOperator,
+                Operator = s.Operator,
+                Value = s.Value
+            }).ToList();
+            searchParameterItemDtos.Add(new SearchParameterItemDto { Key = "LanguageId", Value = _authenticationData.LanguageId });
 
-            var result = _categoryService.Find(query).Data;
+            var result = _categoryService.CategoryFilter(searchParameterItemDtos).Data;
 
             if (request.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();

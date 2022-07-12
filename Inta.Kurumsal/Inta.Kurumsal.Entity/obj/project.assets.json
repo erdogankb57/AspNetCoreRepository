@@ -3164,28 +3164,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\e.kaba\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\erdog\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
+      "projectUniqueName": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
       "projectName": "Inta.Kurumsal.Entity",
-      "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
-      "packagesPath": "C:\\Users\\e.kaba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\obj\\",
+      "projectPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
+      "packagesPath": "C:\\Users\\erdog\\.nuget\\packages\\",
+      "outputPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\e.kaba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\erdog\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3198,11 +3195,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj": {
-              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj"
+            "D:\\Repos\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj": {
+              "projectPath": "D:\\Repos\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj"
             },
-            "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj": {
-              "projectPath": "C:\\Users\\e.kaba\\Documents\\GitHub\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj"
+            "D:\\Repos\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj": {
+              "projectPath": "D:\\Repos\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj"
             }
           }
         }
@@ -3231,7 +3228,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.106\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
