@@ -96,23 +96,5 @@ namespace Inta.Kurumsal.DataAccess.Manager
 
             return result;
         }
-
-        /*
-        public DataResult<List<CategoryModel>> FindCategoryList(Expression<Func<Category, bool>> filter)
-        {
-            DataResult<List<CategoryModel>> result = new DataResult<List<CategoryModel>>();
-            
-            var data = this.Find(filter);
-            result.ResultType = data.ResultType;
-            result.Data = data.Data.Select(s => new CategoryModel
-            {
-                Id = s.Id,
-                Name = s.Name,
-                CategoryUrl = !string.IsNullOrEmpty(s.CategoryLink) ? s.CategoryLink : s.CategoryUrl
-            }).ToList();
-
-            return result;
-        }
-        */
     }
 }
