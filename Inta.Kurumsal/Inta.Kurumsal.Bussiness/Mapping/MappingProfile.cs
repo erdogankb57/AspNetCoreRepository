@@ -138,6 +138,8 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<DataResult<RecordDto>, DataResult<Record>>();
             CreateMap<DataResult<IList<Record>>, DataResult<List<RecordDto>>>();
             CreateMap<DataResult<List<RecordDto>>, DataResult<IList<Record>>>();
+            CreateMap<DataResult<List<Record>>, DataResult<List<RecordDto>>>();
+            CreateMap<DataResult<List<RecordDto>>, DataResult<List<Record>>>();
 
             CreateMap<RecordFile, RecordFileDto>();
             CreateMap<RecordFileDto, RecordFile>();
