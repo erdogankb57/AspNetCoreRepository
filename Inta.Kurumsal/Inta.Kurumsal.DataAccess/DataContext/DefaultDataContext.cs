@@ -56,7 +56,7 @@ namespace Inta.Kurumsal.DataAccess.DataContext
 
         public DbSet<SystemUser> SystemUsers { get; set; }
 
-        public DbSet<Record> Records { get; set; }
+        public DbSet<Record> Contents { get; set; }
 
         public DbSet<LogMessage> LogMessages { get; set; }
 

@@ -777,8 +777,7 @@ a {
 .singin {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    position: fixed;
+    overflow-y: scroll;
     background: url(../images/login_bg.jpg) center;
 }
 

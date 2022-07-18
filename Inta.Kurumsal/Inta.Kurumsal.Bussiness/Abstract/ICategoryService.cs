@@ -9,7 +9,5 @@ namespace Inta.Kurumsal.Bussiness.Abstract
     public interface ICategoryService : IBaseService<CategoryDto, Category>
     {
         DataResult<List<CategoryAndPageTypeDto>> GetCategoryAndPageTypeList(int categoryId);
-
-        DataResult<List<CategoryDto>> CategoryFilter(List<SearchParameterItemDto> filter);
     }
 }

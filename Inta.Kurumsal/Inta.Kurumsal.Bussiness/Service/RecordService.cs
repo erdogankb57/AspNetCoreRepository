@@ -2,9 +2,7 @@
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.DataAccess.Manager;
-using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
-using Inta.Kurumsal.Entity.ComplexType;
 using Inta.Kurumsal.Entity.Concrete;
 using System.Linq.Expressions;
 
@@ -18,14 +16,6 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             _mapper = mapper;
             manager = new RecordManager();
-        }
-
-        public DataResult<List<RecordDto>> Filter(List<SearchParameterItemDto> filter)
-        {
-            var entity = _mapper.Map<List<SearchParameterItem>>(filter);
-            var data = manager.Filter(entity);
-            var result = _mapper.Map<DataResult<List<RecordDto>>>(data);
-            return result;
         }
 
         public DataResult<RecordDto> Delete(RecordDto dto)

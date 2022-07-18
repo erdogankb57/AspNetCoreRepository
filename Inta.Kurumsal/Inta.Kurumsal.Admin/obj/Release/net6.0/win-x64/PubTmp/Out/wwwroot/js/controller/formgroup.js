@@ -113,7 +113,7 @@ var deleteRecord = function (id) {
             data: { "ids": id },
             success: function (response) {
                 debugger;
-                table.ajax.reload();
+                table.ajax.reload(null, false)
                 showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success")
 
             },
@@ -135,7 +135,7 @@ var dataTableUpdate = function () {
         data: JSON.stringify(listData),
         success: function (response) {
             debugger;
-            table.ajax.reload();
+            table.ajax.reload(null, false)
             showAlert(".listMessage", "Liste verileri başarıyla güncellendi.", "success")
 
         },
@@ -155,7 +155,7 @@ $(document).ready(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
         var formData = new FormData($('#saveForm')[0]);
         $.ajax({
@@ -171,7 +171,7 @@ $(document).ready(function () {
                     if ($("#Id").val() == "")
                         addRecordModal(null);
 
-                    table.ajax.reload();
+                    table.ajax.reload(null, false)
 
                     setTimeout(function () {
                         showAlert(".popupMessage", "Kayıt işlemi başarıyla tamamlandı.", "success");
@@ -182,7 +182,7 @@ $(document).ready(function () {
                         showAlert(".popupMessage", "Kayıt işlemi sırasında hata oluştu. Lütfen alanları kontrol ediniz.", "error");
                     }, 100);
 
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
             }, error: function (data) {
                 setTimeout(function () {
@@ -225,7 +225,7 @@ $(document).ready(function () {
                 data: { "ids": ids },
                 success: function (response) {
                     debugger;
-                    table.ajax.reload();
+                    table.ajax.reload(null, false)
                     showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success");
                     $("#example-select-all").prop("checked", false);
 

@@ -2,7 +2,6 @@
 using Inta.Framework.Extension.Common;
 using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -142,20 +141,9 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
-            List<SearchParameterItemDto> searchParameterItemDtos = request.SearchParameterItem.Select(s => new SearchParameterItemDto
-            {
-                Key = s.Key,
-                MergeOperator = s.MergeOperator,
-                Operator = s.Operator,
-                Value = s.Value
-            }).ToList();
-            searchParameterItemDtos.Add(new SearchParameterItemDto
-            {
-                Key = "LanguageId",
-                Value = _authenticationData.LanguageId
-            });
-            var result = _recordService.Filter(searchParameterItemDtos)?.Data;
+            var result = _recordService.Find(v => v.LanguageId == _authenticationData.LanguageId)?.Data;
 
+            result = result?.Where(v => SelectedCategoryId == 0 || v.CategoryId == SelectedCategoryId)?.ToList();
             if (request.order[0].dir == "asc")
             {
                 if (request.order[0].column == 1)

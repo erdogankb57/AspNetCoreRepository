@@ -8,23 +8,7 @@ var loadRecord = function () {
         {
             "url": "/Record/GetDataList",
             "type": "post",
-            "datatype": "json",
-            "data": function (d) {
-                var dict = [];
-
-                dict.push({
-                    "Key": "CategoryId",
-                    "Value": parseInt($("#SearchId").val() == "" ? 0 : $("#SearchId").val()),
-                    "MergeOperator": 1,
-                    "Operator": 1
-                });
-
-                if (d != undefined) {
-                    d.SearchParameter = JSON.stringify(dict);
-                }
-
-                return d;
-            }
+            "datatype": "json"
         },
         lengthMenu: lengthMenu,
         "columns": [
@@ -89,10 +73,6 @@ var loadRecord = function () {
             $('#dataTable tbody tr').addClass('selected')
         }
     });
-}
-
-var searchDataList = function () {
-    table.draw();
 }
 
 var addRecordModal = function (id) {

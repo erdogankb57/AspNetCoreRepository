@@ -115,12 +115,13 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                         else if (item.ItemMergeOperator == MergeOperator.Or)
                             condition = Expression.Or(condition, this.CreateExpressionItem(item.Item, parameterExpression));
                     }
-                    
+
 
                     if (condition != null)
                         ExpressionList.Add(condition);
                 }
-                                
+
+                List<Expression> localExpression = new List<Expression>();                               
                 for (int i = 0; i < ExpressionList.Count; i++)
                 {
 

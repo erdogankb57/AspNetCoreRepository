@@ -1,5 +1,7 @@
 ﻿var table = null;
+
 var loadRecord = function () {
+
 
 
     table = $('#dataTable').DataTable({
@@ -9,8 +11,49 @@ var loadRecord = function () {
             "url": "/Category/GetDataList",
             "type": "post",
             "datatype": "json",
-            "data": {
-                "id": "1"
+            "data": function (d) {
+                var dict = [];
+
+                dict.push({
+                    "Key": "CategoryId",
+                    "Value": parseInt($("#SearchId").val() == "" ? 0 : $("#SearchId").val()),
+                    "MergeOperator": 1,
+                    "Operator": 1
+                });
+
+                dict.push({
+                    "Key": "Name",
+                    "Value": $("#categoryName").val(),
+                    "MergeOperator": 2,
+                    "Operator": 7
+                });
+
+                dict.push({
+                    "Key": "IsActive",
+                    "Value": true,
+                    "MergeOperator": 1,
+                    "Operator": 1
+                });
+
+                //dict.push({
+                //    "Key": "Id",
+                //    "Value": [6041,6043],
+                //    "MergeOperator": 1,
+                //    "Operator": 10
+                //});
+
+                //dict.push({
+                //    "Key": "Name",
+                //    "Value": ["Biz kimiz","Neler yapıyoruz"],
+                //    "MergeOperator": 1,
+                //    "Operator": 10
+                //});
+
+                if (d != undefined) {
+                    d.SearchParameter = JSON.stringify(dict);
+                }
+
+                return d;
             }
         },
         lengthMenu: lengthMenu,
@@ -113,7 +156,7 @@ var deleteRecord = function (id) {
             data: { "ids": id },
             success: function (response) {
                 debugger;
-                table.ajax.reload();
+                table.ajax.reload(null, false)
                 showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success")
 
             },
@@ -213,7 +256,7 @@ var dataTableUpdate = function () {
         data: JSON.stringify(listData),
         success: function (response) {
             debugger;
-            table.ajax.reload();
+            table.ajax.reload(null, false)
             showAlert(".listMessage", "Liste verileri başarıyla güncellendi.", "success")
 
         },
@@ -224,9 +267,11 @@ var dataTableUpdate = function () {
 }
 
 var searchDataList = function () {
-    table.columns([0]).search($("#SearchId").val(), "EQUALS")
-        .columns([1]).search($("#categoryName").val(), "EQUALS")
-        .draw();
+    //table.columns([0]).search($("#SearchId").val(), "EQUALS")
+    //    .columns([1]).search($("#categoryName").val(), "EQUALS")
+    //    .draw();
+
+    table.draw();
 }
 
 $(document).ready(function () {
@@ -280,7 +325,7 @@ $(document).ready(function () {
                 data: { "ids": ids },
                 success: function (response) {
                     debugger;
-                    table.ajax.reload();
+                    table.ajax.reload(null, false)
                     showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success");
                     $("#example-select-all").prop("checked", false);
 

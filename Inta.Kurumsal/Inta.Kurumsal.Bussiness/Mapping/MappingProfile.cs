@@ -12,13 +12,6 @@ namespace Inta.Kurumsal.Bussiness.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<SearchParameterItem, SearchParameterItemDto>();
-            CreateMap<SearchParameterItemDto, SearchParameterItem>();
-            CreateMap<DataResult<SearchParameterItem>, DataResult<SearchParameterItemDto>>();
-            CreateMap<DataResult<SearchParameterItemDto>, DataResult<SearchParameterItem>>();
-            CreateMap<DataResult<List<SearchParameterItem>>, DataResult<List<SearchParameterItemDto>>>();
-            CreateMap<DataResult<List<SearchParameterItemDto>>, DataResult<List<SearchParameterItem>>>();
-
             CreateMap<BannerType, BannerTypeDto>();
             CreateMap<BannerTypeDto, BannerType>();
             CreateMap<DataResult<BannerType>, DataResult<BannerTypeDto>>();
@@ -44,8 +37,6 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<DataResult<CategoryDto>, DataResult<Category>>();
             CreateMap<DataResult<IList<Category>>, DataResult<List<CategoryDto>>>();
             CreateMap<DataResult<List<CategoryDto>>, DataResult<IList<Category>>>();
-            CreateMap<DataResult<List<Category>>, DataResult<List<CategoryDto>>>();
-            CreateMap<DataResult<List<CategoryDto>>, DataResult<List<Category>>>();
 
             CreateMap<CategorySpecialty, CategorySpecialtyDto>();
             CreateMap<CategorySpecialtyDto, CategorySpecialty>();
@@ -138,8 +129,6 @@ namespace Inta.Kurumsal.Bussiness.Mapping
             CreateMap<DataResult<RecordDto>, DataResult<Record>>();
             CreateMap<DataResult<IList<Record>>, DataResult<List<RecordDto>>>();
             CreateMap<DataResult<List<RecordDto>>, DataResult<IList<Record>>>();
-            CreateMap<DataResult<List<Record>>, DataResult<List<RecordDto>>>();
-            CreateMap<DataResult<List<RecordDto>>, DataResult<List<Record>>>();
 
             CreateMap<RecordFile, RecordFileDto>();
             CreateMap<RecordFileDto, RecordFile>();

@@ -64,37 +64,22 @@ namespace Inta.Kurumsal.DataAccess.Manager
             return result;
         }
 
-        public DataResult<List<Category>> CategoryFilter(List<SearchParameterItem> filter)
+        /*
+        public DataResult<List<CategoryModel>> FindCategoryList(Expression<Func<Category, bool>> filter)
         {
-            int categoryId = !String.IsNullOrEmpty(filter.FirstOrDefault(v => v.Key == "CategoryId").Value.ToString()) ?
-                Convert.ToInt32(filter.FirstOrDefault(v => v.Key == "CategoryId").Value) : 0;
-
-            string name = !String.IsNullOrEmpty(filter.FirstOrDefault(v => v.Key == "Name").Value.ToString()) ?
-                filter.FirstOrDefault(v => v.Key == "Name").Value.ToString() : "";
-
-            int languageId = Convert.ToInt32(filter.FirstOrDefault(v => v.Key == "LanguageId").Value);
-
-
-            DataResult<List<Category>> result = new DataResult<List<Category>>();
-            using (var context = new DefaultDataContext())
+            DataResult<List<CategoryModel>> result = new DataResult<List<CategoryModel>>();
+            
+            var data = this.Find(filter);
+            result.ResultType = data.ResultType;
+            result.Data = data.Data.Select(s => new CategoryModel
             {
-                var categorys = from c in context.Categorys
-                                where
-                                c.CategoryId == categoryId && c.LanguageId == languageId
-                                select c;
-
-                if (!string.IsNullOrEmpty(name))
-                {
-                    categorys = from c in categorys
-                                where
-                                c.Name.Contains(name.ToString())
-                                select c;
-                }
-
-                result.Data = categorys.ToList();
-            }
+                Id = s.Id,
+                Name = s.Name,
+                CategoryUrl = !string.IsNullOrEmpty(s.CategoryLink) ? s.CategoryLink : s.CategoryUrl
+            }).ToList();
 
             return result;
         }
+        */
     }
 }

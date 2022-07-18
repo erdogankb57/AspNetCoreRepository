@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Inta.Framework",
+    "\\Inta.Framework\\Inta.Framework.Extension",
+    "\\Inta.Framework\\Inta.Framework.Extension\\Common"
   ],
-  "SelectedNode": "\\Inta.Kurumsal.sln",
   "PreviewInSolutionExplorer": false
 }

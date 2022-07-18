@@ -159,7 +159,7 @@ $(document).ready(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
         if ($("#CategoryId").val() == null) {
             setTimeout(function () {
@@ -182,7 +182,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (data) {
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
                 if (data.ResultType == 0) {
                     if ($("#Id").val() == 0) {
