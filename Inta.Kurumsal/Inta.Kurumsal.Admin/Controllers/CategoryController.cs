@@ -175,6 +175,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult GetDataList(DataTableAjaxPostModel request)
         {
+
             ExpressionBuilder<Category> expressionBuilder = new ExpressionBuilder<Category>();
             List<ExpressionItem> expressionItems = new List<ExpressionItem>();
             expressionItems.Add(new ExpressionItem { MergeOperator = MergeOperator.And, Operator = ExpressionOperators.Equals, PropertyName = "LanguageId", Value = _authenticationData.LanguageId });
