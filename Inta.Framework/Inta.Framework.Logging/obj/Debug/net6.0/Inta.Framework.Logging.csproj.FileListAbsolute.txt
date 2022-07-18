@@ -34,3 +34,15 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framew
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\ref\Inta.Framework.Logging.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.pdb
+D:\Repos\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.deps.json
+D:\Repos\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.dll
+D:\Repos\Inta.Framework\Inta.Framework.Logging\bin\Debug\net6.0\Inta.Framework.Logging.pdb
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.csproj.AssemblyReference.cache
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.AssemblyInfoInputs.cache
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.AssemblyInfo.cs
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.csproj.CoreCompileInputs.cache
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.dll
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\refint\Inta.Framework.Logging.dll
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\Inta.Framework.Logging.pdb
+D:\Repos\Inta.Framework\Inta.Framework.Logging\obj\Debug\net6.0\ref\Inta.Framework.Logging.dll
