@@ -29,6 +29,8 @@
     <Folder Include="wwwroot\Uploads\Images\" />
     <Folder Include="wwwroot\Uploads\File\" />
     <Folder Include="wwwroot\Uploads\EditorImages\" />
+    <Folder Include="wwwroot\Uploads\File\" />
+    <Folder Include="wwwroot\Uploads\Images\" />
   </ItemGroup>
 
 </Project>
