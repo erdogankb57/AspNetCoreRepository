@@ -42,9 +42,9 @@ C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsa
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.Dto.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.Entity.dll
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.Bussiness.pdb
-C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.DataAccess.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.Entity.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.EntityFramework.Core.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Framework.Extension.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Framework.Logging.pdb
+C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.DataAccess.pdb
 C:\Users\e.kaba\Documents\GitHub\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Admin\obj\Release\net6.0\win-x64\PubTmp\Out\Inta.Kurumsal.Dto.pdb

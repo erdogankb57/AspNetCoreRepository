@@ -120,7 +120,8 @@ namespace Inta.EntityFramework.Core.DynamicExpression
                     if (condition != null)
                         ExpressionList.Add(condition);
                 }
-                                
+
+                List<Expression> localExpression = new List<Expression>();                               
                 for (int i = 0; i < ExpressionList.Count; i++)
                 {
 

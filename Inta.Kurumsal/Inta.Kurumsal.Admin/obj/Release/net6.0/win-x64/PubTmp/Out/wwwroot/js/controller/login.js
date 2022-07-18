@@ -5,7 +5,7 @@
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
 
         var formData = new FormData($('#loginForm')[0]);
@@ -23,7 +23,7 @@
                 } else {
                     showAlert(".loginMessage", data.Message, "error");
                 }
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
 
             }, error: function (data) {

@@ -110,7 +110,7 @@ var addRecordModal = function (id) {
                         async: false,
                         success: function (response) {
                             if (response == "OK") {
-                                table.ajax.reload();
+                                table.ajax.reload(null, false)
                                 addRecordModal($("#Id").val());
                                 showAlert(".popupMessage", "Resim başarıyla silindi.", "success");
                             }
@@ -141,7 +141,7 @@ var deleteRecord = function (id) {
             data: { "ids": id },
             success: function (response) {
                 debugger;
-                table.ajax.reload();
+                table.ajax.reload(null, false)
                 showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success")
 
             },
@@ -163,7 +163,7 @@ var dataTableUpdate = function () {
         data: JSON.stringify(listData),
         success: function (response) {
             debugger;
-            table.ajax.reload();
+            table.ajax.reload(null, false)
             showAlert(".listMessage", "Liste verileri başarıyla güncellendi.", "success")
 
         },
@@ -182,7 +182,7 @@ $(document).ready(function () {
         if ($(this).FormValidate() == false)
             return;
 
-        $(this).find("button[type='submit']").prop('disabled', true);
+        $("#saveForm").find("button[type='submit']").prop('disabled', true);
 
 
         var formData = new FormData($('#saveForm')[0]);
@@ -201,8 +201,8 @@ $(document).ready(function () {
                     else {
                         addRecordModal($("#Id").val());
                     }
-                    table.ajax.reload();
-                    $(this).find("button[type='submit']").prop('disabled', false);
+                    window["table"].ajax.reload(null, false)
+                    $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
                     setTimeout(function () {
                         showAlert(".popupMessage", "Kayıt işlemi başarıyla tamamlandı.", "success");
@@ -215,7 +215,7 @@ $(document).ready(function () {
 
                 scroolTop(0, 300);
 
-                $(this).find("button[type='submit']").prop('disabled', false);
+                $("#saveForm").find("button[type='submit']").prop('disabled', false);
 
 
             }, error: function (data) {
@@ -259,7 +259,7 @@ $(document).ready(function () {
                 data: { "ids": ids },
                 success: function (response) {
                     debugger;
-                    table.ajax.reload();
+                    table.ajax.reload(null, false)
                     showAlert(".listMessage", "Kayıt silme işlemi başarıyla tamamlandı.", "success");
                     $("#example-select-all").prop("checked", false);
 

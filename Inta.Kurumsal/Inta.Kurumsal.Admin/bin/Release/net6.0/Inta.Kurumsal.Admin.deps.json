@@ -10,7 +10,6 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Inta.Kurumsal.Bussiness": "1.0.0",
-          "Inta.Kurumsal.DataAccess": "1.0.0",
           "Inta.Kurumsal.Entity": "1.0.0",
           "System.Drawing.Common": "6.0.0"
         },
