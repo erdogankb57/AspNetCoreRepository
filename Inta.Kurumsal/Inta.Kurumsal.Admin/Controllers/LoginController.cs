@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             list.AddRange(_languageService.Find(v => v.IsActive).Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
             ViewBag.languageList = list;
 
-            var user = _userService.Get(g => g.UserName == userName && g.Password == password && g.IsActive);
+            var user = _userService.Get(g => (g.UserName == userName || g.Email == userName) && g.Password == password && g.IsActive);
             if (user.Data != null)
             {
                 if (String.IsNullOrEmpty(LanguageId))
