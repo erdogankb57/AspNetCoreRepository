@@ -116,9 +116,6 @@ var addRecordModal = function (id) {
         type: "POST",
         dataType: 'html',
         data: { "id": id },
-        processData: false,
-        contentType: false,
-        cache: false,
         success: function (response) {
             $("#addRecordModal").html($.parseHTML(response));
 
