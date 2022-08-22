@@ -89,11 +89,34 @@ var loadRecord = function () {
 var addRecordModal = function (id) {
 
     $.ajax({
+        xhr: function () {
+            var xhr = new window.XMLHttpRequest();
+
+            /// Upload progress
+            xhr.upload.addEventListener("progress", function (evt) {
+                var percentComplete = evt.loaded / evt.total;
+                console.log(percentComplete);
+                $('.progress').css({
+                    width: percentComplete * 100 + '%'
+                });
+                if (evt.lengthComputable) {
+                   
+                    if (percentComplete === 1) {
+                        $('.progress').addClass('hide');
+                    } else {
+                        $('.progress').removeClass('hide');
+                    }
+                }
+            }, false);
+
+            return xhr;
+        },
         url: "/Banner/Add",
         type: "POST",
         dataType: 'html',
         data: { "id": id },
-        async: false,
+        processData: false,
+        contentType: false,
         success: function (response) {
             $("#addRecordModal").html($.parseHTML(response));
 
