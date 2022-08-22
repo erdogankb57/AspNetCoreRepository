@@ -87,15 +87,17 @@ var loadRecord = function () {
 }
 
 var addRecordModal = function (id) {
+    $('.progress').removeClass('hide');
 
     $.ajax({
         xhr: function () {
+            debugger;
             var xhr = new window.XMLHttpRequest();
 
             /// Upload progress
             xhr.upload.addEventListener("progress", function (evt) {
                 var percentComplete = evt.loaded / evt.total;
-                console.log(percentComplete);
+                console.log(evt);
                 $('.progress').css({
                     width: percentComplete * 100 + '%'
                 });
@@ -104,7 +106,6 @@ var addRecordModal = function (id) {
                     if (percentComplete === 1) {
                         $('.progress').addClass('hide');
                     } else {
-                        $('.progress').removeClass('hide');
                     }
                 }
             }, false);
@@ -117,6 +118,7 @@ var addRecordModal = function (id) {
         data: { "id": id },
         processData: false,
         contentType: false,
+        cache: false,
         success: function (response) {
             $("#addRecordModal").html($.parseHTML(response));
 
