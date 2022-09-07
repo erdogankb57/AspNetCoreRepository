@@ -14,7 +14,29 @@ var loadRecord = function () {
                     "surname": $('#surname').val()
 
                 })
-            }
+            },
+            xhr: function () {
+                debugger;
+                var xhr = new window.XMLHttpRequest();
+
+                /// Upload progress
+                xhr.upload.addEventListener("progress", function (evt) {
+                    var percentComplete = evt.loaded / evt.total;
+                    console.log(evt);
+                    $('.progress').css({
+                        width: percentComplete * 100 + '%'
+                    });
+                    if (evt.lengthComputable) {
+
+                        if (percentComplete === 1) {
+                            $('.progress').addClass('hide');
+                        } else {
+                        }
+                    }
+                }, false);
+
+                return xhr;
+            },
         },
         lengthMenu: lengthMenu,
         "columns": [
