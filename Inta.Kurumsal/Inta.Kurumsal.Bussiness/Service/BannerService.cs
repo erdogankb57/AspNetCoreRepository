@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
