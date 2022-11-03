@@ -9,25 +9,26 @@ namespace Inta.EntityFramework.Core.Base
     //Birde transaction işlemleri test edilmeli.
     public class UnitOfWork<TContext> : IDisposable where TContext : DbContext, new()
     {
-        private static DbContext? _dbContext;
+        private static TContext? DataContext;
         public UnitOfWork()
         {
-            if (_dbContext == null || _dbContext.GetType() != typeof(TContext))
-                _dbContext = new TContext();
+            if (DataContext == null || DataContext.GetType() != typeof(TContext))
+                DataContext = new TContext();
         }
-
+            
+        public TContext? GetDataContext() => DataContext;
         public RepositoryBase<TEntity, TContext> AddRepository<TEntity>() where TEntity : class, IEntity, new()
         {
-            return new RepositoryBase<TEntity, TContext>(_dbContext);
+            return new RepositoryBase<TEntity, TContext>(DataContext);
         }
 
         public void SaveChanges()
         {
-            using (var transaction = _dbContext?.Database.BeginTransaction())
+            using (var transaction = DataContext?.Database.BeginTransaction())
             {
                 try
                 {
-                    _dbContext?.SaveChanges();
+                    DataContext?.SaveChanges();
                     transaction?.Commit();
 
                 }
@@ -45,7 +46,7 @@ namespace Inta.EntityFramework.Core.Base
             {
                 if (disposing)
                 {
-                    _dbContext?.Dispose();
+                    DataContext?.Dispose();
                 }
             }
 
