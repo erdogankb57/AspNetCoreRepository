@@ -16,7 +16,7 @@ namespace Inta.EntityFramework.Core.Base
                 DataContext = new TContext();
         }
             
-        public TContext? GetDataContext() => DataContext;
+        public TContext? GetDataContext => DataContext;
         public RepositoryBase<TEntity, TContext> AddRepository<TEntity>() where TEntity : class, IEntity, new()
         {
             return new RepositoryBase<TEntity, TContext>(DataContext);
