@@ -15,11 +15,12 @@ namespace Inta.Kurumsal.Bussiness.Service
     {
         private IMapper _mapper = null;
         private IRepositoryBase<Banner,DefaultDataContext> manager = null;
+        private UnitOfWork<DefaultDataContext>? unitOfWork = null;
         public BannerService(IMapper mapper)
         {
             _mapper = mapper;
             //manager = new BannerManager();
-            UnitOfWork<DefaultDataContext> unitOfWork = new UnitOfWork<DefaultDataContext>();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
             manager = unitOfWork.AddRepository<Banner>();
         }
 
