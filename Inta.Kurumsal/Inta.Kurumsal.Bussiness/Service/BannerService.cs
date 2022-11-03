@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Abstract;
 using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
@@ -13,11 +14,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class BannerService : IBannerService
     {
         private IMapper _mapper = null;
-        private BannerManager manager = null;
+        private IRepositoryBase<Banner,DefaultDataContext> manager = null;
         public BannerService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new BannerManager();
+            //manager = new BannerManager();
+            UnitOfWork<DefaultDataContext> unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<Banner>();
         }
 
         public DataResult<BannerDto> Delete(BannerDto dto)

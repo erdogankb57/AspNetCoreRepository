@@ -11,6 +11,11 @@ namespace Inta.EntityFramework.Core.Base
 {
     public class RepositoryBase<TEntity, TContext>:IRepositoryBase<TEntity,TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
     {
+        private DbContext? _dbContext = null;
+        public RepositoryBase(DbContext? dbContext = null)
+        {
+            _dbContext = dbContext;
+        }
         public DataResult<TEntity> Delete(TEntity Entity)
         {
             DataResult<TEntity> result = new DataResult<TEntity>();

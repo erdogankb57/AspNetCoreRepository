@@ -7,32 +7,33 @@ namespace Inta.EntityFramework.Core.Base
     //Buradaki hata dbcontext in her seferinde yeniden oluşturulmasıdır.
     //DbContext burada oluşturulup repositorylere parametre olarak geçilecek.
     //Birde transaction işlemleri test edilmeli.
-    public class UnitOfWork<TContext> : IDisposable where TContext:DbContext,new() 
+    public class UnitOfWork<TContext> : IDisposable where TContext : DbContext, new()
     {
-        private DbContext _dbContext;
+        private static DbContext? _dbContext;
         public UnitOfWork()
         {
-            _dbContext = new TContext();
+            if (_dbContext == null || _dbContext.GetType() != typeof(TContext))
+                _dbContext = new TContext();
         }
 
-        public RepositoryBase<TEntity,TContext> AddRepository<TEntity>() where TEntity: class, IEntity, new()
+        public RepositoryBase<TEntity, TContext> AddRepository<TEntity>() where TEntity : class, IEntity, new()
         {
-            return new RepositoryBase<TEntity, TContext>();
+            return new RepositoryBase<TEntity, TContext>(_dbContext);
         }
 
         public void SaveChanges()
         {
-            using (var transaction = _dbContext.Database.BeginTransaction())
+            using (var transaction = _dbContext?.Database.BeginTransaction())
             {
                 try
                 {
-                    _dbContext.SaveChanges();
-                    transaction.Commit();
+                    _dbContext?.SaveChanges();
+                    transaction?.Commit();
 
                 }
                 catch (Exception ex)
                 {
-                    transaction.Rollback();
+                    transaction?.Rollback();
                 }
             }
         }
@@ -44,7 +45,7 @@ namespace Inta.EntityFramework.Core.Base
             {
                 if (disposing)
                 {
-                    _dbContext.Dispose();
+                    _dbContext?.Dispose();
                 }
             }
 
