@@ -4,6 +4,9 @@ using System;
 
 namespace Inta.EntityFramework.Core.Base
 {
+    //Buradaki hata dbcontext in her seferinde yeniden oluşturulmasıdır.
+    //DbContext burada oluşturulup repositorylere parametre olarak geçilecek.
+    //Birde transaction işlemleri test edilmeli.
     public class UnitOfWork<TContext> : IDisposable where TContext:DbContext,new() 
     {
         private DbContext _dbContext;
