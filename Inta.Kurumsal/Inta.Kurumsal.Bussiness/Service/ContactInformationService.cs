@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class ContactInformationService: IContactInformationService
     {
         private IMapper _mapper = null;
-        private ContactInformationManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork = null;
+        private RepositoryBase<ContactInformation, DefaultDataContext> manager = null;
         public ContactInformationService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new ContactInformationManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<ContactInformation>();
         }
 
         public DataResult<ContactInformationDto> Delete(ContactInformationDto dto)
