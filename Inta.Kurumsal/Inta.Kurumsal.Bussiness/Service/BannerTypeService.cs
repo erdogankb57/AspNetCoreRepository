@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class BannerTypeService : IBannerTypeService
     {
         private IMapper _mapper = null;
-        private BannerTypeManager manager = null;
+        RepositoryBase<BannerType, DefaultDataContext> manager = null;
+        UnitOfWork<DefaultDataContext> unitOfWork = null;
         public BannerTypeService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new BannerTypeManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<BannerType>();
         }
 
         public DataResult<BannerTypeDto> Delete(BannerTypeDto dto)

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.ComplexType;
 using Inta.Kurumsal.Dto.Concrete;
@@ -11,20 +13,22 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class CategoryService : ICategoryService
     {
-        private IMapper _mapper = null;
-        private CategoryManager manager = null;
+        private IMapper? _mapper = null;
+        UnitOfWork<DefaultDataContext>? unitOfWork = null;
+        RepositoryBase<Category, DefaultDataContext>? manager = null;
         public CategoryService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new CategoryManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<Category>();
         }
 
         public DataResult<CategoryDto> Delete(CategoryDto dto)
         {
-            var entity = _mapper.Map<Category>(dto);
-            var data = manager.Delete(entity);
-            var result = _mapper.Map<DataResult<CategoryDto>>(data);
-            return result;
+            var entity = _mapper?.Map<Category>(dto);
+            var data = manager?.Delete(entity ?? new Category());
+            var result = _mapper?.Map<DataResult<CategoryDto>>(data);
+            return result ?? new DataResult<CategoryDto>();
         }
 
         public DataResult<List<CategoryDto>> Find(Expression<Func<Category, bool>> filter = null)
@@ -37,9 +41,33 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<List<CategoryAndPageTypeDto>> GetCategoryAndPageTypeList(int categoryId)
         {
-            var data = manager.FindCategoryAndPageTypeList(categoryId);
-            var result = _mapper.Map<DataResult<List<CategoryAndPageTypeDto>>>(data);
+            DataResult<List<CategoryAndPageTypeDto>> result = new DataResult<List<CategoryAndPageTypeDto>>();
 
+            try
+            {
+                var categorys = from pt in unitOfWork?.GetDataContext?.PageTypes
+                                join ct in unitOfWork?.GetDataContext?.Categorys on pt.Id equals ct.PageTypeId
+                                where ct.Id == categoryId
+                                select new CategoryAndPageTypeDto
+                                {
+                                    Id = ct.Id,
+                                    CategoryLink = ct.CategoryLink,
+                                    CategoryUrl = ct.CategoryUrl,
+                                    Name = ct.Name,
+                                    ControllerName = pt.ControllerName,
+                                    ActionName = pt.ActionName,
+                                    ViewName = pt.ViewName
+                                };
+
+                result.Data = categorys.ToList();
+                result.ResultType = MessageTypeResult.Success;
+            }
+            catch (Exception ex)
+            {
+                result.ErrorMessage = ex.ToString();
+                result.ResultType = MessageTypeResult.Error;
+            }
+                    
             return result;
         }
 

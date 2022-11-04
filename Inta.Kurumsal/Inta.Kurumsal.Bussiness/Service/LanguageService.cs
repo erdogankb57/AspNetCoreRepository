@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class LanguageService : ILanguageService
     {
         private IMapper _mapper = null;
-        private LanguageManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork = null;
+        private RepositoryBase<Language, DefaultDataContext> manager = null;
         public LanguageService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new LanguageManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<Language>();
         }
 
         public DataResult<LanguageDto> Delete(LanguageDto dto)
