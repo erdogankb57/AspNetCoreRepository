@@ -56,6 +56,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<Record>(dto);
             var data = manager.Save(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }
@@ -64,6 +65,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<Record>(dto);
             var data = manager.Update(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<RecordDto>>(data);
             return result;
         }

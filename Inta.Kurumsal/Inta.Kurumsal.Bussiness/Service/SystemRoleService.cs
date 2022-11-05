@@ -47,6 +47,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<SystemRole>(dto);
             var data = manager.Save(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }
@@ -55,6 +56,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<SystemRole>(dto);
             var data = manager.Update(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<SystemRoleDto>>(data);
             return result;
         }

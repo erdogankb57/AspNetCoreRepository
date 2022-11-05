@@ -18,7 +18,6 @@ namespace Inta.Kurumsal.Bussiness.Service
         public BannerService(IMapper mapper)
         {
             _mapper = mapper;
-            //manager = new BannerManager();
             unitOfWork = new UnitOfWork<DefaultDataContext>();
             manager = unitOfWork.AddRepository<Banner>();
         }
@@ -57,6 +56,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<Banner>(dto);
             var data = manager.Save(entity);
+            unitOfWork?.SaveChanges();
             var result = _mapper.Map<DataResult<BannerDto>>(data);
             return result;
         }
@@ -65,6 +65,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<Banner>(dto);
             var data = manager.Update(entity);
+            unitOfWork?.SaveChanges();
             var result = _mapper.Map<DataResult<BannerDto>>(data);
             return result;
         }

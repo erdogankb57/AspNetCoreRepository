@@ -54,6 +54,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Save(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }
@@ -79,6 +80,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Update(entity);
+            unitOfWork.SaveChanges();
             var result = _mapper.Map<DataResult<SystemMenuDto>>(data);
             return result;
         }

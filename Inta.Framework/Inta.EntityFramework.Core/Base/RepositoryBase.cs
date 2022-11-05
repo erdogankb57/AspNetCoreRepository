@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace Inta.EntityFramework.Core.Base
 {
-    public class RepositoryBase<TEntity, TContext>:IRepositoryBase<TEntity,TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
+    public class RepositoryBase<TEntity, TContext> : IRepositoryBase<TEntity, TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
     {
         private DbContext? _dbContext = null;
         public RepositoryBase(DbContext? dbContext = null)
@@ -26,7 +26,7 @@ namespace Inta.EntityFramework.Core.Base
                     var deletedEntity = context.Entry(Entity);
                     deletedEntity.State = EntityState.Deleted;
                     context.SaveChanges();
-                    
+
                     result.ResultType = MessageTypeResult.Success;
                     result.Data = Entity;
                 }
@@ -50,7 +50,8 @@ namespace Inta.EntityFramework.Core.Base
             {
                 try
                 {
-                    result.Data = context.Set<TEntity>().SingleOrDefault(filter);
+                    if (filter != null)
+                        result.Data = context.Set<TEntity>().SingleOrDefault(filter);
                     result.ResultType = MessageTypeResult.Success;
                 }
                 catch (Exception ex)
@@ -124,9 +125,13 @@ namespace Inta.EntityFramework.Core.Base
             {
                 try
                 {
-                    var addedEntity = context.Entry(Entity);
-                    addedEntity.State = EntityState.Added;
-                    context.SaveChanges();
+
+                    if (_dbContext != null)
+                    {
+                        var addedEntity = context.Entry(Entity);
+                        addedEntity.State = EntityState.Added;
+                        //context.SaveChanges();
+                    }
 
                     result.Data = Entity;
                     result.ResultType = MessageTypeResult.Success;
@@ -148,25 +153,25 @@ namespace Inta.EntityFramework.Core.Base
         public DataResult<TEntity> Update(TEntity Entity)
         {
             DataResult<TEntity> result = new DataResult<TEntity>();
-            using (var context = new TContext())
+            try
             {
-                try
+                if (_dbContext != null)
                 {
-                    var updatedEntity = context.Entry(Entity);
+                    var updatedEntity = _dbContext.Entry(Entity);
                     updatedEntity.State = EntityState.Modified;
-                    context.SaveChanges();
-
-                    result.Data = Entity;
-                    result.ResultType = MessageTypeResult.Success;
+                    //context.SaveChanges();
                 }
-                catch (Exception ex)
-                {
-                    result.Data = default(TEntity);
-                    result.ResultType = MessageTypeResult.Error;
-                    result.ErrorMessage = ex.ToString();
 
-                    LogManager.InsertLog(ex, this.GetType().Name + " base repository update", Entity);
-                }
+                result.Data = Entity;
+                result.ResultType = MessageTypeResult.Success;
+            }
+            catch (Exception ex)
+            {
+                result.Data = default(TEntity);
+                result.ResultType = MessageTypeResult.Error;
+                result.ErrorMessage = ex.ToString();
+
+                LogManager.InsertLog(ex, this.GetType().Name + " base repository update", Entity);
             }
 
             return result;
