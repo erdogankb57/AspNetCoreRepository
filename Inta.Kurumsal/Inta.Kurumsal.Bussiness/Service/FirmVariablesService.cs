@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -10,12 +12,14 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class FirmVariablesService: IFirmVariablesService
     {
-        private IMapper _mapper = null;
-        private FirmVariablesManager manager = null;
+        private IMapper _mapper;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<FirmVariables, DefaultDataContext> manager;
         public FirmVariablesService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new FirmVariablesManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<FirmVariables>();
         }
 
         public DataResult<FirmVariablesDto> Delete(FirmVariablesDto dto)

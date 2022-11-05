@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -10,12 +12,14 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class FormElementService : IFormElementService
     {
-        private IMapper _mapper = null;
-        private FormElementManager manager = null;
+        private IMapper _mapper;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<FormElement, DefaultDataContext> manager;
         public FormElementService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new FormElementManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<FormElement>();
         }
 
         public DataResult<FormElementDto> Delete(FormElementDto dto)

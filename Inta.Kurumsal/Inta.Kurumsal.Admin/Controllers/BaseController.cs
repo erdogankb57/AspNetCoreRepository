@@ -34,7 +34,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             if (activeMenu.ResultType == EntityFramework.Core.Model.MessageTypeResult.Success && activeMenu.Data != null)
             {
-                ViewBag.ActiveMenuId = _systemMenuService.TopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
+                ViewBag.ActiveMenuId = _systemMenuService.GetTopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
 
                 ViewBag.ActiveMenuAd = activeMenu.Data?.FirstOrDefault()?.Name ?? "";
 

@@ -7,6 +7,6 @@ namespace Inta.Kurumsal.Bussiness.Abstract
 {
     public interface ISystemMenuService : IBaseService<SystemMenuDto, SystemMenu>
     {
-        int TopMenuId(int Id);
+        int GetTopMenuId(int Id);
     }
 }

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class MessageTypeService : IMessageTypeService
     {
         private IMapper _mapper = null;
-        private MessageTypeManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<MessageType, DefaultDataContext> manager;
         public MessageTypeService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new MessageTypeManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<MessageType>();
         }
 
         public DataResult<MessageTypeDto> Delete(MessageTypeDto dto)

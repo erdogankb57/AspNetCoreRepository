@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class SystemMenuService : ISystemMenuService
     {
         private IMapper _mapper = null;
-        private SystemMenuManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<SystemMenu, DefaultDataContext> manager;
         public SystemMenuService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new SystemMenuManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<SystemMenu>();
         }
 
         public DataResult<SystemMenuDto> Delete(SystemMenuDto dto)
@@ -55,9 +59,21 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
+        public int GetTopMenuId(int Id)
+        {
+            return this.TopMenuId(Id);
+        }
+
         public int TopMenuId(int Id)
         {
-            return manager.TopMenuId(Id);
+            int topMenuId = 0;
+            var menu = this.GetById(Id);
+            if (menu.Data != null && menu.Data.SystemMenuId != 0)
+                topMenuId = TopMenuId(menu.Data.SystemMenuId.Value);
+            else if (menu.Data != null)
+                topMenuId = menu.Data.Id;
+
+            return topMenuId;
         }
 
         public DataResult<SystemMenuDto> Update(SystemMenuDto dto)

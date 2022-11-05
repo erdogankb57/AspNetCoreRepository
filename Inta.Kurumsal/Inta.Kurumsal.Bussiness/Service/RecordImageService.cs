@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class RecordImageService : IRecordImageService
     {
         private IMapper _mapper = null;
-        private RecordImageManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<RecordImage, DefaultDataContext> manager;
         public RecordImageService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new RecordImageManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<RecordImage>();
         }
 
         public DataResult<RecordImageDto> Delete(RecordImageDto dto)

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class SystemActionRoleService : ISystemActionRoleService
     {
         private IMapper _mapper = null;
-        private SystemActionRoleManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<SystemActionRole, DefaultDataContext> manager;
         public SystemActionRoleService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new SystemActionRoleManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<SystemActionRole>();
         }
 
         public DataResult<SystemActionRoleDto> Delete(SystemActionRoleDto dto)

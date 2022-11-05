@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
+using Inta.Kurumsal.DataAccess.DataContext;
 using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
@@ -11,11 +13,13 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class SystemUserService : ISystemUserService
     {
         private IMapper _mapper = null;
-        private SystemUserManager manager = null;
+        private UnitOfWork<DefaultDataContext> unitOfWork;
+        private RepositoryBase<SystemUser, DefaultDataContext> manager;
         public SystemUserService(IMapper mapper)
         {
             _mapper = mapper;
-            manager = new SystemUserManager();
+            unitOfWork = new UnitOfWork<DefaultDataContext>();
+            manager = unitOfWork.AddRepository<SystemUser>();
         }
 
         public DataResult<SystemUserDto> Delete(SystemUserDto dto)
@@ -65,8 +69,32 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<List<SystemActionDto>> GetActiveRole(int systemRoleId)
         {
-            var data = manager.GetActiveRole(systemRoleId);
+            var data = this.ActiveRole(systemRoleId);
             var result = _mapper.Map<DataResult<List<SystemActionDto>>>(data);
+
+            return result;
+        }
+
+        public DataResult<List<SystemAction>> ActiveRole(int roleId)
+        {
+            DataResult<List<SystemAction>> result = new DataResult<List<SystemAction>>();
+            using (var context = new DefaultDataContext())
+            {
+                var activeRole = from role in context.SystemRoles
+                                 join actionRole in context.SystemActionRole on role.Id equals actionRole.SystemRoleId
+                                 join action in context.SystemActions on actionRole.SystemActionId equals action.Id
+                                 where
+                                 role.Id == roleId
+                                 select new SystemAction
+                                 {
+                                     ActionName = action.ActionName,
+                                     ControllerName = action.ControllerName,
+                                     Description = action.Description,
+                                     SystemMenuId = action.SystemMenuId
+                                 };
+
+                result.Data = activeRole.ToList();
+            }
 
             return result;
         }
