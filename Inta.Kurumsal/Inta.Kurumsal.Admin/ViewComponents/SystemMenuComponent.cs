@@ -1,7 +1,6 @@
 ﻿using Inta.Framework.Extension.Serializer;
 using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inta.Kurumsal.Admin.ViewComponents

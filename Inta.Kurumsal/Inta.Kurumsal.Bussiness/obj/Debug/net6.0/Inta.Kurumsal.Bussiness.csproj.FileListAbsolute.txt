@@ -54,10 +54,8 @@ D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Bu
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.EntityFramework.Core.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Extension.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Logging.dll
-D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Dto.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Entity.dll
-D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.DataAccess.pdb
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Kurumsal.Dto.pdb
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.EntityFramework.Core.pdb
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Bussiness\bin\Debug\net6.0\Inta.Framework.Extension.pdb

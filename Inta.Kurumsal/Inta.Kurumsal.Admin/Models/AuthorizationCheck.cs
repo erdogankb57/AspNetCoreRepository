@@ -2,7 +2,6 @@
 using Inta.Kurumsal.Bussiness.Abstract;
 using Inta.Kurumsal.Bussiness.Common;
 using Inta.Kurumsal.Bussiness.Service;
-using Inta.Kurumsal.DataAccess.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

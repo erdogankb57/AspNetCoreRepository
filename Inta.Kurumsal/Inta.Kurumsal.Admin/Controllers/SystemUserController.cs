@@ -1,7 +1,6 @@
 ﻿using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Admin.Models;
 using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.DataAccess.Manager;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
