@@ -91,7 +91,7 @@ namespace Inta.EntityFramework.Core.Base
             return result;
         }
 
-        public DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>> filter = null)
+        public DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>> filter)
         {
             DataResult<IList<TEntity>> result = new DataResult<IList<TEntity>>();
             using (var context = new TContext())

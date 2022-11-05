@@ -13,6 +13,6 @@ namespace Inta.EntityFramework.Core.Abstract
         DataResult<TEntity> Update(TEntity Entity);
         DataResult<TEntity> Save(TEntity Entity);
         DataResult<TEntity> Delete(TEntity Entity);
-        DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>> filter = null);
+        DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>> filter);
     }
 }

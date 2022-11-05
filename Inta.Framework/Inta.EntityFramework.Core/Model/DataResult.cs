@@ -2,9 +2,9 @@
 {
     public class DataResult<T>
     {
-        public T Data { get; set; }
-        public string ErrorMessage { get; set; }
-        public string ResultMessage { get; set; }
+        public T? Data { get; set; }
+        public string? ErrorMessage { get; set; }
+        public string? ResultMessage { get; set; }
         public MessageTypeResult ResultType { get; set; }
     }
     
