@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class ContactInformationService: IContactInformationService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork = null;
         private RepositoryBase<ContactInformation, DefaultDataContext> manager = null;
         public ContactInformationService(IMapper mapper)

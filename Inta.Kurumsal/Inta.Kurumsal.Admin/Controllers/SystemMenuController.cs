@@ -7,9 +7,9 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemMenuController : BaseController
     {
-        private ISystemMenuService _systemMenuService = null;
-        private ISystemUserService _userService = null;
-        private ISystemMenuRoleService _roleService = null;
+        private ISystemMenuService _systemMenuService;
+        private ISystemUserService _userService;
+        private ISystemMenuRoleService _roleService;
         public SystemMenuController(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService)
         {
             _systemMenuService = systemMenuService;

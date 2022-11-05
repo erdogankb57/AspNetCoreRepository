@@ -12,8 +12,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FormElementController : BaseController
     {
-        private IFormElementService _formElementService = null;
-        private IFormGroupService _formGroupService = null;
+        private IFormElementService _formElementService;
+        private IFormGroupService _formGroupService;
         private IAuthenticationData _authenticationData = null;
         public FormElementController(IFormElementService formElementService, IFormGroupService formGroupService, IAuthenticationData authenticationData)
         {

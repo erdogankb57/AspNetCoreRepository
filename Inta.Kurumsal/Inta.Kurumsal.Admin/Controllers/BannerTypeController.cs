@@ -9,8 +9,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class BannerTypeController : BaseController
     {
-        private IBannerTypeService _bannerTypeService = null;
-        private IBannerService _bannerService = null;
+        private IBannerTypeService _bannerTypeService;
+        private IBannerService _bannerService;
         private IAuthenticationData _authenticationData = null;
 
         public BannerTypeController(IBannerTypeService bannerTypeService, IBannerService bannerService, IAuthenticationData authenticationData)

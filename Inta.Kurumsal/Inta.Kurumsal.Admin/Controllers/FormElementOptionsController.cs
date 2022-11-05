@@ -10,8 +10,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FormElementOptionsController : BaseController
     {
-        private IFormElementOptionsService _optionService = null;
-        private IFormElementService _elementService = null;
+        private IFormElementOptionsService _optionService;
+        private IFormElementService _elementService;
         private IAuthenticationData _authenticationData = null;
         int SelectedElementId = 0;
 

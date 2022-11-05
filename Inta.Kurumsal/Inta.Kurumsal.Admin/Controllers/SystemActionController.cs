@@ -10,8 +10,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemActionController : BaseController
     {
-        private ISystemActionService _actionService = null;
-        private ISystemMenuService _menuService = null;
+        private ISystemActionService _actionService;
+        private ISystemMenuService _menuService;
         public SystemActionController(ISystemActionService actionService, ISystemMenuService menuService)
         {
             _actionService = actionService;

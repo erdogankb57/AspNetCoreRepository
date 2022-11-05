@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class SystemActionRoleService : ISystemActionRoleService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork;
         private RepositoryBase<SystemActionRole, DefaultDataContext> manager;
         public SystemActionRoleService(IMapper mapper)

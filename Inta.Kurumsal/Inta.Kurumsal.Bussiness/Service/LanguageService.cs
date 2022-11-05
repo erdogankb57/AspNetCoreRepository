@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class LanguageService : ILanguageService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork = null;
         private RepositoryBase<Language, DefaultDataContext> manager = null;
         public LanguageService(IMapper mapper)

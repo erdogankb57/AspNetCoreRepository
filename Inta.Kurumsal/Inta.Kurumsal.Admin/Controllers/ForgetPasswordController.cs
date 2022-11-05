@@ -7,7 +7,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class ForgetPasswordController : Controller
     {
-        private ISystemUserService _userService = null;
+        private ISystemUserService _userService;
         private MailManager mailManager = null;
         public ForgetPasswordController(ISystemUserService userService)
         {

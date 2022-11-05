@@ -11,9 +11,9 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class RecordController : BaseController
     {
-        private IRecordService _recordService = null;
-        private ICategoryService _categoryService = null;
-        private IGeneralSettingsService _settingsService = null;
+        private IRecordService _recordService;
+        private ICategoryService _categoryService;
+        private IGeneralSettingsService _settingsService;
         private IAuthenticationData _authenticationData = null;
         private static int SelectedCategoryId = 0;
         private IConfiguration _configuration = null;

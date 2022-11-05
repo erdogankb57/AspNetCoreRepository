@@ -12,7 +12,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private static int ContentId = 0;
         private IRecordImageService _service = null;
-        private IGeneralSettingsService _settingsService = null;
+        private IGeneralSettingsService _settingsService;
         private IConfiguration _configuration = null;
         public RecordImageController(IRecordImageService service, IGeneralSettingsService settingsService, IConfiguration configuration)
         {

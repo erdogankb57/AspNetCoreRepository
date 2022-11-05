@@ -8,9 +8,9 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class HomeController : BaseController
     {
-        private ISystemMenuService _menuService = null;
-        private ISystemUserService _userService = null;
-        private ISystemMenuRoleService _roleService = null;
+        private ISystemMenuService _menuService;
+        private ISystemUserService _userService;
+        private ISystemMenuRoleService _roleService;
 
 
         public HomeController(ISystemMenuService menuService, ISystemUserService userService, ISystemMenuRoleService roleService)

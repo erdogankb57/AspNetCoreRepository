@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class MessageTypeService : IMessageTypeService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork;
         private RepositoryBase<MessageType, DefaultDataContext> manager;
         public MessageTypeService(IMapper mapper)

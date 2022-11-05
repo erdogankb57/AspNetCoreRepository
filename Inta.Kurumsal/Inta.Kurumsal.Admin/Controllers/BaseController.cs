@@ -7,9 +7,9 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        private ISystemMenuService _systemMenuService = null;
-        private ISystemUserService _userService = null;
-        private ISystemRoleService _systemRoleService = null;
+        private ISystemMenuService _systemMenuService;
+        private ISystemUserService _userService;
+        private ISystemRoleService _systemRoleService;
         private IAuthenticationData _authenticationData = null;
         private IConfiguration _configuration = null;
 

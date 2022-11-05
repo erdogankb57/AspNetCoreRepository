@@ -9,7 +9,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class EditorTemplateController : BaseController
     {
-        private IEditorTemplateService _editorTemplateService = null;
+        private IEditorTemplateService _editorTemplateService;
         private IAuthenticationData _authenticationData = null;
 
         public EditorTemplateController(IEditorTemplateService editorTemplateService, IAuthenticationData authenticationData)

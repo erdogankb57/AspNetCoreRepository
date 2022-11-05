@@ -10,7 +10,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class ContactInformationController : BaseController
     {
-        private IContactInformationService _contactInformationService = null;
+        private IContactInformationService _contactInformationService;
         private IAuthenticationData _authenticationData = null;
         private IConfiguration _configuration = null;
         public ContactInformationController(IContactInformationService contactInformationService, IAuthenticationData authenticationData, IConfiguration configuration)

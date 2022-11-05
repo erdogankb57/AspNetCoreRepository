@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class RecordImageService : IRecordImageService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork;
         private RepositoryBase<RecordImage, DefaultDataContext> manager;
         public RecordImageService(IMapper mapper)

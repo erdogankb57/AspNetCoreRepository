@@ -9,9 +9,9 @@ namespace Inta.Kurumsal.Admin.Models
 {
     public class AuthorizationCheck : ActionFilterAttribute, IResultFilter
     {
-        private ISystemMenuService? _systemMenuService = null;
-        private ISystemUserService? _userService = null;
-        private ISystemRoleService? _systemRoleService = null;
+        private ISystemMenuService? _systemMenuService;
+        private ISystemUserService? _userService;
+        private ISystemRoleService? _systemRoleService;
         private IAuthenticationData? _authenticationData = null;
         public AuthorizationCheck()
         {

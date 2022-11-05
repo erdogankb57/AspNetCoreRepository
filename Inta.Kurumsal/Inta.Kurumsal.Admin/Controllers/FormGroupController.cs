@@ -9,7 +9,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FormGroupController : BaseController
     {
-        private IFormGroupService _formGroupService = null;
+        private IFormGroupService _formGroupService;
         private IAuthenticationData _authenticationData = null;
 
         public FormGroupController(IFormGroupService formGroupService, IAuthenticationData authenticationData)

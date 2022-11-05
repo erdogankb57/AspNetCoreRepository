@@ -12,7 +12,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class BannerService : IBannerService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private IRepositoryBase<Banner,DefaultDataContext> manager = null;
         private UnitOfWork<DefaultDataContext>? unitOfWork = null;
         public BannerService(IMapper mapper)

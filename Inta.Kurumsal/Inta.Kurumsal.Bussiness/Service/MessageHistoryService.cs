@@ -11,7 +11,7 @@ namespace Inta.Kurumsal.Bussiness.Service
 {
     public class MessageHistoryService : IMessageHistoryService
     {
-        private IMapper _mapper = null;
+        private IMapper _mapper;
         private UnitOfWork<DefaultDataContext> unitOfWork;
         private RepositoryBase<MessageHistory, DefaultDataContext> manager;
         public MessageHistoryService(IMapper mapper)

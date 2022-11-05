@@ -8,8 +8,8 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        private ISystemUserService _userService = null;
-        private ILanguageService _languageService = null;
+        private ISystemUserService _userService;
+        private ILanguageService _languageService;
         public LoginController(ISystemUserService userService, ILanguageService languageService)
         {
             _userService = userService;

@@ -9,7 +9,7 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class FirmVariablesController : BaseController
     {
-        private IFirmVariablesService _firmVariablesService = null;
+        private IFirmVariablesService _firmVariablesService;
         private IAuthenticationData _authenticationData = null;
         public FirmVariablesController(IFirmVariablesService firmVariablesService, IAuthenticationData authenticationData)
         {

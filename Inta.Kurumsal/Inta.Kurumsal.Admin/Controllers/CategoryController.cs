@@ -14,10 +14,10 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class CategoryController : BaseController
     {
-        private readonly ICategoryService _categoryService = null;
-        private IPageTypeService _pageTypeService = null;
-        private IFormGroupService _formGroupService = null;
-        private IGeneralSettingsService _settingsService = null;
+        private readonly ICategoryService _categoryService;
+        private IPageTypeService _pageTypeService;
+        private IFormGroupService _formGroupService;
+        private IGeneralSettingsService _settingsService;
         private IAuthenticationData _authenticationData = null;
         private IConfiguration _configuration = null;
 
