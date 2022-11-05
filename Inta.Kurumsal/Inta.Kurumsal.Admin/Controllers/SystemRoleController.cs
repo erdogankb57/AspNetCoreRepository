@@ -9,11 +9,11 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemRoleController : BaseController
     {
-        private ISystemRoleService _service = null;
-        private ISystemActionService _actionService = null;
-        private ISystemActionRoleService  _actionRoleService = null;
-        private ISystemMenuService _systemMenuService = null;
-        private ISystemMenuRoleService _systemMenuRoleService = null;
+        private ISystemRoleService _service;
+        private ISystemActionService _actionService;
+        private ISystemActionRoleService  _actionRoleService;
+        private ISystemMenuService _systemMenuService;
+        private ISystemMenuRoleService _systemMenuRoleService;
 
 
         public SystemRoleController(ISystemRoleService service, ISystemActionService actionService, ISystemActionRoleService actionRoleService, ISystemMenuService systemMenuService, ISystemMenuRoleService systemMenuRoleService)

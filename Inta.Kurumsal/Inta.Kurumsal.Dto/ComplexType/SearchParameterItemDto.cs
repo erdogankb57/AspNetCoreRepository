@@ -8,8 +8,8 @@ namespace Inta.Kurumsal.Dto.ComplexType
 {
     public class SearchParameterItemDto
     {
-        public string Key { get; set; }
-        public object Value { get; set; }
+        public string? Key { get; set; }
+        public object? Value { get; set; }
         public int MergeOperator { get; set; }
         public int Operator { get; set; }
     }

@@ -9,7 +9,7 @@ namespace Inta.Kurumsal.Dto.Concrete
 		}
 		public int Id { get; set; }
 		public int? SystemMenuId { get; set; }
-		public string Name { get; set; }
+		public string? Name { get; set; }
 		public string? Explanation { get; set; }
 		public string? Link { get; set; }
 		public string? ControllerName { get; set; }

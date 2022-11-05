@@ -11,8 +11,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class SystemUserController : BaseController
     {
-        private ISystemUserService _service = null;
-        private ISystemRoleService _roleService = null;
+        private ISystemUserService _service;
+        private ISystemRoleService _roleService;
 
         public SystemUserController(ISystemUserService service, ISystemRoleService roleService)
         {
@@ -30,11 +30,11 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "Seçiniz", Value = "" });
-            list.AddRange(_roleService.Find().Data.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() }).ToList());
+            list.AddRange(_roleService?.Find()?.Data?.Select(s => new SelectListItem { Text = s.Name, Value = s.Id.ToString() })?.ToList() ?? new List<SelectListItem>());
             ViewBag.systemRole = list;
 
             if (id.HasValue)
-                user = _service.GetById(id ?? 0).Data;
+                user = _service?.GetById(id ?? 0)?.Data ?? new SystemUserDto();
 
             return PartialView("Add", user);
         }
@@ -45,13 +45,13 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             List<SystemUserDto> result = new List<SystemUserDto>();
             var activeUser = _service.GetById(Convert.ToInt32(ViewBag.SystemUserId)).Data;
-            if (activeUser != null && activeUser.IsAdmin)
-                result = _service.Find()?.Data?.ToList();
+            if (activeUser != null && activeUser?.IsAdmin)
+                result = _service?.Find()?.Data?.ToList() ?? new List<SystemUserDto>();
 
             else
-                result = _service.Find(s => !s.IsAdmin)?.Data?.ToList();
+                result = _service?.Find(s => !s.IsAdmin)?.Data?.ToList() ?? new List<SystemUserDto>();
 
-            if (request.order[0].dir == "asc")
+            if (request?.order?[0]?.dir == "asc")
             {
                 if (request.order[0].column == 1)
                     result = result.OrderBy(o => o.Id).ToList();
@@ -62,23 +62,23 @@ namespace Inta.Kurumsal.Admin.Controllers
             }
             else
             {
-                if (request.order[0].column == 1)
+                if (request?.order?[0]?.column == 1)
                     result = result.OrderByDescending(o => o.Id).ToList();
-                else if (request.order[0].column == 2)
+                else if (request?.order?[0]?.column == 2)
                     result = result.OrderByDescending(o => o.Name).ToList();
-                else if (request.order[0].column == 3)
+                else if (request?.order?[0]?.column == 3)
                     result = result.OrderByDescending(o => o.SurName).ToList();
             }
-            if (request.search != null && request.search.value != null)
+            if (request?.search != null && request.search.value != null)
                 result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower())).ToList();
 
-            return Json(new { data = result.Skip(request.start).Take(request.length).ToList(), recordsTotal = result.Count(), recordsFiltered = result.Count() });
+            return Json(new { data = result.Skip(request?.start ?? 0).Take(request?.length ?? 0).ToList(), recordsTotal = result.Count(), recordsFiltered = result.Count() });
         }
 
         [HttpPost]
         public ActionResult Save(SystemUserDto request)
         {
-            DataResult<SystemUserDto> data = null;
+            DataResult<SystemUserDto> data;
 
             if (request.Id == 0)
             {
@@ -101,8 +101,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    SystemUserDto systemUser = _service.GetById(Convert.ToInt32(item)).Data;
-                    _service.Delete(systemUser);
+                    SystemUserDto systemUser = _service?.GetById(Convert.ToInt32(item))?.Data ?? new SystemUserDto();
+                    _service?.Delete(systemUser);
                 }
             }
 

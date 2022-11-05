@@ -7,10 +7,10 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 {
     public class SystemMenuComponent : ViewComponent
     {
-        private ISystemMenuService _systemMenuService = null;
-        private ISystemUserService _userService = null;
-        private ISystemMenuRoleService _roleService = null;
-        private IAuthenticationData _authenticationData = null;
+        private ISystemMenuService _systemMenuService;
+        private ISystemUserService _userService;
+        private ISystemMenuRoleService _roleService;
+        private IAuthenticationData _authenticationData;
 
         public SystemMenuComponent(ISystemMenuService systemMenuService, ISystemUserService userService, ISystemMenuRoleService roleService, IAuthenticationData authenticationData)
         {
@@ -29,16 +29,16 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 
         public List<SystemMenuModel> GetMenu()
         {
-            var user = _userService.Find(v => v.UserName == _authenticationData.UserName).Data.FirstOrDefault();
+            var user = _userService?.Find(v => v.UserName == _authenticationData.UserName)?.Data?.FirstOrDefault();
             List<int> roleIds = new List<int>();
             if (user != null)
             {
-                roleIds.AddRange(_roleService.Find(v => v.SystemRoleId == user.SystemRoleId).Data.Select(s => s.SystemMenuId));
+                roleIds.AddRange(_roleService?.Find(v => v.SystemRoleId == user.SystemRoleId)?.Data?.Select(s => s.SystemMenuId) ?? new List<int>());
             }
 
             List<SystemMenuModel> systemMenus = new List<SystemMenuModel>();
 
-            foreach (var menu in _systemMenuService.Find(v => v.SystemMenuId == 0 && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data)
+            foreach (var menu in _systemMenuService?.Find(v => v.SystemMenuId == 0 && v.IsActive && ((user != null && user.IsAdmin) || roleIds.Any(a => a == v.Id)))?.Data ?? new List<Dto.Concrete.SystemMenuDto>())
             {
                 var m = new SystemMenuModel
                 {
@@ -54,7 +54,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
                     SystemMenuId = menu.SystemMenuId,
                 };
 
-                m.SystemMenu = _systemMenuService.Find(v => v.SystemMenuId == menu.Id && v.IsActive && (user.IsAdmin || roleIds.Any(a => a == v.Id))).Data.Select(s => new SystemMenuModel
+                m.SystemMenu = _systemMenuService?.Find(v => v.SystemMenuId == menu.Id && v.IsActive && ((user!=null && user.IsAdmin) || roleIds.Any(a => a == v.Id)))?.Data?.Select(s => new SystemMenuModel
                 {
                     ActionName = s.ActionName,
                     ControllerName = s.ControllerName,

@@ -10,8 +10,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     [AuthorizationCheck]
     public class AccountController : BaseController
     {
-        private ISystemUserService _service = null;
-        private IAuthenticationData _authenticationData = null;
+        private ISystemUserService _service;
+        private IAuthenticationData _authenticationData;
         public AccountController(ISystemUserService service, IAuthenticationData authenticationData)
         {
             _service = service;
@@ -21,7 +21,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             SystemUserDto user = new SystemUserDto();
             string userName = _authenticationData.UserName;
-            user = _service.Get(v => v.UserName == userName).Data;
+            user = _service.Get(v => v.UserName == userName)?.Data ?? new SystemUserDto();
 
             return View("Index", user);
         }
@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult Save(SystemUserDto request)
         {
-            DataResult<SystemUserDto> data = null;
+            DataResult<SystemUserDto> data;
 
             data = _service.Update(request);
 

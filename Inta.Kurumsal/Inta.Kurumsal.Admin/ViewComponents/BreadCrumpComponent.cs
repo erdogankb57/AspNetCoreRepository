@@ -7,7 +7,7 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 {
     public class BreadCrumpComponent : ViewComponent
     {
-        private ISystemMenuService _systemMenuService = null;
+        private ISystemMenuService _systemMenuService;
         public BreadCrumpComponent(ISystemMenuService systemMenuService)
         {
             _systemMenuService = systemMenuService;
@@ -15,8 +15,8 @@ namespace Inta.Kurumsal.Admin.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
-            string actionName = ViewContext.RouteData.Values["Action"].ToString();
+            string? controllerName = ViewContext?.RouteData?.Values["Controller"]?.ToString();
+            string? actionName = ViewContext?.RouteData?.Values["Action"]?.ToString();
 
 
             var activeMenu = _systemMenuService.Get(v => v.ControllerName == controllerName && v.ActionName == actionName);
