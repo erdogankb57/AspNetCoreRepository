@@ -31,7 +31,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<BannerDto>> Find(Expression<Func<Banner, bool>> filter = null)
+        public DataResult<List<BannerDto>> Find(Expression<Func<Banner, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<BannerDto>>>(data);
@@ -39,7 +39,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerDto> Get(Expression<Func<Banner, bool>> filter = null)
+        public DataResult<BannerDto> Get(Expression<Func<Banner, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<BannerDto>>(data);

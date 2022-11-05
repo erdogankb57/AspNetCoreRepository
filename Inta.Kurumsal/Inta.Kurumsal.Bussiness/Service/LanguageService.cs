@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<LanguageDto>> Find(Expression<Func<Language, bool>> filter = null)
+        public DataResult<List<LanguageDto>> Find(Expression<Func<Language, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<LanguageDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<LanguageDto> Get(Expression<Func<Language, bool>> filter = null)
+        public DataResult<LanguageDto> Get(Expression<Func<Language, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<LanguageDto>>(data);

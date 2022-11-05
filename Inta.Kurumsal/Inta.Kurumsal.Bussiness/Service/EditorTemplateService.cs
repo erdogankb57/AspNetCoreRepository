@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<EditorTemplateDto>> Find(Expression<Func<EditorTemplate, bool>> filter = null)
+        public DataResult<List<EditorTemplateDto>> Find(Expression<Func<EditorTemplate, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<EditorTemplateDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<EditorTemplateDto> Get(Expression<Func<EditorTemplate, bool>> filter = null)
+        public DataResult<EditorTemplateDto> Get(Expression<Func<EditorTemplate, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<EditorTemplateDto>>(data);

@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<RecordFileDto>> Find(Expression<Func<RecordFile, bool>> filter = null)
+        public DataResult<List<RecordFileDto>> Find(Expression<Func<RecordFile, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<RecordFileDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<RecordFileDto> Get(Expression<Func<RecordFile, bool>> filter = null)
+        public DataResult<RecordFileDto> Get(Expression<Func<RecordFile, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<RecordFileDto>>(data);

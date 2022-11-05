@@ -14,10 +14,10 @@ namespace Inta.Kurumsal.Bussiness.Abstract
     public interface IBaseService<IDto,IEntity>
     {
         DataResult<IDto> GetById(int id);
-        DataResult<List<IDto>> Find(Expression<Func<IEntity, bool>> filter = null);
+        DataResult<List<IDto>> Find(Expression<Func<IEntity, bool>>? filter = null);
         DataResult<IDto> Save(IDto dto);
         DataResult<IDto> Update(IDto dto);
         DataResult<IDto> Delete(IDto dto);
-        DataResult<IDto> Get(Expression<Func<IEntity, bool>> filter = null);
+        DataResult<IDto> Get(Expression<Func<IEntity, bool>>? filter = null);
     }
 }

@@ -29,14 +29,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<StaticTextDto>> Find(Expression<Func<StaticText, bool>> filter = null)
+        public DataResult<List<StaticTextDto>> Find(Expression<Func<StaticText, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<StaticTextDto>>>(data);
             return result;
         }
 
-        public DataResult<StaticTextDto> Get(Expression<Func<StaticText, bool>> filter = null)
+        public DataResult<StaticTextDto> Get(Expression<Func<StaticText, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<StaticTextDto>>(data);

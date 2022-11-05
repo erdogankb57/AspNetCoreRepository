@@ -30,7 +30,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result ?? new DataResult<CategoryDto>();
         }
 
-        public DataResult<List<CategoryDto>> Find(Expression<Func<Category, bool>> filter = null)
+        public DataResult<List<CategoryDto>> Find(Expression<Func<Category, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<CategoryDto>>>(data);
@@ -70,7 +70,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<CategoryDto> Get(Expression<Func<Category, bool>> filter = null)
+        public DataResult<CategoryDto> Get(Expression<Func<Category, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<CategoryDto>>(data);

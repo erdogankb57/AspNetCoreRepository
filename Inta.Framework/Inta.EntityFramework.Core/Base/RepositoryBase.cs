@@ -43,7 +43,7 @@ namespace Inta.EntityFramework.Core.Base
             return result;
         }
 
-        public DataResult<TEntity> Get(Expression<Func<TEntity, bool>> filter)
+        public DataResult<TEntity> Get(Expression<Func<TEntity, bool>>? filter)
         {
             DataResult<TEntity> result = new DataResult<TEntity>();
             using (var context = new TContext())
@@ -91,7 +91,7 @@ namespace Inta.EntityFramework.Core.Base
             return result;
         }
 
-        public DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>> filter)
+        public DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>>? filter)
         {
             DataResult<IList<TEntity>> result = new DataResult<IList<TEntity>>();
             using (var context = new TContext())

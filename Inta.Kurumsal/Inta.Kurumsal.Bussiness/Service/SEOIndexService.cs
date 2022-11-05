@@ -29,14 +29,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<SEOIndexDto>> Find(Expression<Func<SEOIndex, bool>> filter = null)
+        public DataResult<List<SEOIndexDto>> Find(Expression<Func<SEOIndex, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<SEOIndexDto>>>(data);
             return result;
         }
 
-        public DataResult<SEOIndexDto> Get(Expression<Func<SEOIndex, bool>> filter = null)
+        public DataResult<SEOIndexDto> Get(Expression<Func<SEOIndex, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<SEOIndexDto>>(data);

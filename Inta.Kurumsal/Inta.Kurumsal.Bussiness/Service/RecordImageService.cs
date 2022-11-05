@@ -29,14 +29,14 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<RecordImageDto>> Find(Expression<Func<RecordImage, bool>> filter = null)
+        public DataResult<List<RecordImageDto>> Find(Expression<Func<RecordImage, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<RecordImageDto>>>(data);
             return result;
         }
 
-        public DataResult<RecordImageDto> Get(Expression<Func<RecordImage, bool>> filter = null)
+        public DataResult<RecordImageDto> Get(Expression<Func<RecordImage, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<RecordImageDto>>(data);

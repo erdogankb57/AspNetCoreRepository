@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<SystemActionRoleDto>> Find(Expression<Func<SystemActionRole, bool>> filter = null)
+        public DataResult<List<SystemActionRoleDto>> Find(Expression<Func<SystemActionRole, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<SystemActionRoleDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<SystemActionRoleDto> Get(Expression<Func<SystemActionRole, bool>> filter = null)
+        public DataResult<SystemActionRoleDto> Get(Expression<Func<SystemActionRole, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<SystemActionRoleDto>>(data);

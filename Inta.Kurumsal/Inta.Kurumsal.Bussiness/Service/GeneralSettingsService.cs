@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<GeneralSettingsDto>> Find(Expression<Func<GeneralSettings, bool>> filter = null)
+        public DataResult<List<GeneralSettingsDto>> Find(Expression<Func<GeneralSettings, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<GeneralSettingsDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>> filter = null)
+        public DataResult<GeneralSettingsDto> Get(Expression<Func<GeneralSettings, bool>>? filter = null)
         {
             var data = manager.Get(filter);
             var result = _mapper.Map<DataResult<GeneralSettingsDto>>(data);

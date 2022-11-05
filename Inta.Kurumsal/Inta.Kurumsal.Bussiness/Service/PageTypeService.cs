@@ -29,7 +29,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<List<PageTypeDto>> Find(Expression<Func<PageType, bool>> filter = null)
+        public DataResult<List<PageTypeDto>> Find(Expression<Func<PageType, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<List<PageTypeDto>>>(data);
@@ -37,7 +37,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<PageTypeDto> Get(Expression<Func<PageType, bool>> filter = null)
+        public DataResult<PageTypeDto> Get(Expression<Func<PageType, bool>>? filter = null)
         {
             var data = manager.Find(filter);
             var result = _mapper.Map<DataResult<PageTypeDto>>(data);
