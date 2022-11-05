@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Inta.Kurumsal.DataAccess\Inta.Kurumsal.DataAccess.csproj" />
     <ProjectReference Include="..\Inta.Kurumsal.Dto\Inta.Kurumsal.Dto.csproj" />
+    <ProjectReference Include="..\Inta.Kurumsal.Entity\Inta.Kurumsal.Entity.csproj" />
   </ItemGroup>
 
 </Project>

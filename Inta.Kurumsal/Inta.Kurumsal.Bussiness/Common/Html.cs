@@ -3,7 +3,7 @@ using Inta.EntityFramework.Core.Base;
 using Inta.EntityFramework.Core.DynamicExpression;
 using Inta.EntityFramework.Core.Model;
 using Inta.Kurumsal.Bussiness.Abstract;
-using Inta.Kurumsal.DataAccess.DataContext;
+using Inta.Kurumsal.Bussiness.DataContext;
 using Inta.Kurumsal.Dto.Abstract;
 using Inta.Kurumsal.Dto.Concrete;
 using Inta.Kurumsal.Entity.Concrete;
