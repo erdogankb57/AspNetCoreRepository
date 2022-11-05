@@ -38,7 +38,7 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-Html.SetHttpContext(app.Services.GetService<IHttpContextAccessor>());
+Html.SetHttpContext(app?.Services?.GetService<IHttpContextAccessor>());
 
 
 
@@ -47,16 +47,16 @@ Html.SetHttpContext(app.Services.GetService<IHttpContextAccessor>());
 {
     app.UseExceptionHandler(c => c.Run(async context =>
     {
-        var exception = context.Features
-            .Get<IExceptionHandlerPathFeature>()
+        var exception = context.Features?
+            .Get<IExceptionHandlerPathFeature>()?
             .Error;
-        var response = new { error = exception.Message };
+        var response = new { error = exception?.Message };
 
         //Yapýlan istek bir ajax isteði deðil ise
         if (context.Request.Headers["x-requested-with"] != "XMLHttpRequest")
             context.Response.Redirect("/ErrorPage/Index");
-
-        LogManager.InsertLog(exception, "Application Error", null);
+        if (exception != null)
+            LogManager.InsertLog(exception, "Application Error", null);
     }));
 
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

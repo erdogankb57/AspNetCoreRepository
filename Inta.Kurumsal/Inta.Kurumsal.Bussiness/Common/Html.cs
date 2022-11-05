@@ -18,10 +18,11 @@ namespace Inta.Kurumsal.Bussiness.Common
 {
     public static class Html
     {
-        private static IHttpContextAccessor httpContext = null;
-        public static void SetHttpContext(IHttpContextAccessor context)
+        private static IHttpContextAccessor? httpContext;
+        public static void SetHttpContext(IHttpContextAccessor? context)
         {
-            httpContext = context;
+            if (context != null)
+                httpContext = context;
         }
         public static IHtmlContent DropDownListForService<TDto, TEntity>(this IHtmlHelper content, string serviceName, string DisplayName, string ValueName, string objectName, string selectedValue, bool isRequired, string DefaultText, string DefaultValue, Expression<Func<TEntity, bool>>? filter = null) where TDto : IDto where TEntity : IEntity
         {
@@ -30,13 +31,13 @@ namespace Inta.Kurumsal.Bussiness.Common
 
             StringBuilder sHtml = new StringBuilder();
             sHtml.Append(@$"<select type=""select"" name=""{objectName}"" id=""{objectName}"" class=""form-control"" {(isRequired ? "required" : "")}>");
-            sHtml.Append($@"<option value=""{ DefaultValue }"" >{DefaultText}</option>");
+            sHtml.Append($@"<option value=""{DefaultValue}"" >{DefaultText}</option>");
             foreach (var item in service.Find(filter)?.Data)
             {
                 var text = item.GetType().GetProperty(DisplayName).GetValue(item);
                 var val = item.GetType().GetProperty(ValueName).GetValue(item);
 
-                sHtml.Append($@"<option value=""{ val }"" {(selectedValue == val.ToString() ? "selected" : "")}>{text}</option>");
+                sHtml.Append($@"<option value=""{val}"" {(selectedValue == val.ToString() ? "selected" : "")}>{text}</option>");
             }
             sHtml.Append(@"</select>");
             return new HtmlString(sHtml.ToString());

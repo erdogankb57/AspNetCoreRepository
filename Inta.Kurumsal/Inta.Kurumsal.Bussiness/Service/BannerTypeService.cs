@@ -12,8 +12,8 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class BannerTypeService : IBannerTypeService
     {
         private IMapper _mapper;
-        RepositoryBase<BannerType, DefaultDataContext> manager = null;
-        UnitOfWork<DefaultDataContext> unitOfWork = null;
+        RepositoryBase<BannerType, DefaultDataContext> manager;
+        UnitOfWork<DefaultDataContext> unitOfWork;
         public BannerTypeService(IMapper mapper)
         {
             _mapper = mapper;

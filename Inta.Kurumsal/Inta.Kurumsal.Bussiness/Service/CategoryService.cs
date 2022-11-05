@@ -32,10 +32,10 @@ namespace Inta.Kurumsal.Bussiness.Service
 
         public DataResult<List<CategoryDto>> Find(Expression<Func<Category, bool>>? filter = null)
         {
-            var data = manager.Find(filter);
-            var result = _mapper.Map<DataResult<List<CategoryDto>>>(data);
+            var data = manager?.Find(filter);
+            var result = _mapper?.Map<DataResult<List<CategoryDto>>>(data);
 
-            return result;
+            return result ?? new DataResult<List<CategoryDto>>();
         }
 
         public DataResult<List<CategoryAndPageTypeDto>> GetCategoryAndPageTypeList(int categoryId)

@@ -6,7 +6,7 @@ namespace Inta.Framework.Logging.Log
 {
     public static class LogManager
     {
-        public static void InsertLog(Exception ex, string message, object objData = null)
+        public static void InsertLog(Exception ex, string message, object? objData = null)
         {
             using (LogConnection conn = new LogConnection())
             {
