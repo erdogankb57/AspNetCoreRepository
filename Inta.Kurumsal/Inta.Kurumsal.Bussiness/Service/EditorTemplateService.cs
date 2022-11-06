@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<EditorTemplateDto> Update(EditorTemplateDto dto)
+        public DataResult<EditorTemplateDto> Update(EditorTemplateDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<EditorTemplate>(dto);
             var data = manager.Update(entity);

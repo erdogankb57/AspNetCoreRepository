@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<MessageHistoryDto> Update(MessageHistoryDto dto)
+        public DataResult<MessageHistoryDto> Update(MessageHistoryDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<MessageHistory>(dto);
             var data = manager.Update(entity);

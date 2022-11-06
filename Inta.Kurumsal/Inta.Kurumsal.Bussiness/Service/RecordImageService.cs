@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<RecordImageDto> Update(RecordImageDto dto)
+        public DataResult<RecordImageDto> Update(RecordImageDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<RecordImage>(dto);
             var data = manager.Update(entity);

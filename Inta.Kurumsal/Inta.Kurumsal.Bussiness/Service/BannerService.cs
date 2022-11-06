@@ -13,7 +13,7 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class BannerService : IBannerService
     {
         private IMapper _mapper;
-        private IRepositoryBase<Banner,DefaultDataContext> manager = null;
+        private IRepositoryBase<Banner, DefaultDataContext> manager = null;
         private UnitOfWork<DefaultDataContext>? unitOfWork = null;
         public BannerService(IMapper mapper)
         {
@@ -61,10 +61,10 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerDto> Update(BannerDto dto)
+        public DataResult<BannerDto> Update(BannerDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<Banner>(dto);
-            var data = manager.Update(entity);
+            var data = manager.Update(entity, updateFields);
             unitOfWork?.SaveChanges();
             var result = _mapper.Map<DataResult<BannerDto>>(data);
             return result;

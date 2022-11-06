@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<RecordFileDto> Update(RecordFileDto dto)
+        public DataResult<RecordFileDto> Update(RecordFileDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<RecordFile>(dto);
             var data = manager.Update(entity);

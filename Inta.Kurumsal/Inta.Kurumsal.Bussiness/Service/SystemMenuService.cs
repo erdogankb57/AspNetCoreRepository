@@ -76,7 +76,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return topMenuId;
         }
 
-        public DataResult<SystemMenuDto> Update(SystemMenuDto dto)
+        public DataResult<SystemMenuDto> Update(SystemMenuDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<SystemMenu>(dto);
             var data = manager.Update(entity);

@@ -52,7 +52,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<SystemUserDto> Update(SystemUserDto dto)
+        public DataResult<SystemUserDto> Update(SystemUserDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<SystemUser>(dto);
             var data = manager.Update(entity);

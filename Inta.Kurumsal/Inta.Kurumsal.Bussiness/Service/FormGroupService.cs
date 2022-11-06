@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<FormGroupDto> Update(FormGroupDto dto)
+        public DataResult<FormGroupDto> Update(FormGroupDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<FormGroup>(dto);
             var data = manager.Update(entity);

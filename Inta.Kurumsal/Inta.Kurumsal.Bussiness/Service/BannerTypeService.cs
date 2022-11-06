@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<BannerTypeDto> Update(BannerTypeDto dto)
+        public DataResult<BannerTypeDto> Update(BannerTypeDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<BannerType>(dto);
             var data = manager.Update(entity);

@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<SystemActionRoleDto> Update(SystemActionRoleDto dto)
+        public DataResult<SystemActionRoleDto> Update(SystemActionRoleDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<SystemActionRole>(dto);
             var data = manager.Update(entity);

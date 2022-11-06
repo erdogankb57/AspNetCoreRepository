@@ -109,11 +109,11 @@ namespace Inta.Kurumsal.Admin.Controllers
             }
             else
             {
-                var entity = _bannerService.GetById(request.Id);
+                List<string> updateField = new List<string> { "SystemUserId", "LanguageId", "BannerTypeId", "Name", "Target", "ShortExplanation", "OrderNumber", "TargetId", "Link", "Image", "RecordDate", "IsActive" };
                 if (FileImage == null)
-                    request.Image = entity?.Data?.Image;
+                    updateField.Remove("Image");
 
-                data = _bannerService.Update(request);
+                data = _bannerService.Update(request, updateField.ToArray());
             }
 
             return Json(data);

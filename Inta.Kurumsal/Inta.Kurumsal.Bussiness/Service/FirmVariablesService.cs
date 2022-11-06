@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<FirmVariablesDto> Update(FirmVariablesDto dto)
+        public DataResult<FirmVariablesDto> Update(FirmVariablesDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<FirmVariables>(dto);
             var data = manager.Update(entity);

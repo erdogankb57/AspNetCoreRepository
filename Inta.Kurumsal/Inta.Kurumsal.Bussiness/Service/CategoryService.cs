@@ -94,7 +94,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<CategoryDto> Update(CategoryDto dto)
+        public DataResult<CategoryDto> Update(CategoryDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<Category>(dto);
             var data = manager.Update(entity);

@@ -9,7 +9,7 @@ namespace Inta.EntityFramework.Core.Base
     //Birde transaction işlemleri test edilmeli.
     public class UnitOfWork<TContext> : IDisposable where TContext : DbContext, new()
     {
-        private static TContext? DataContext;
+        private readonly TContext? DataContext;
         public UnitOfWork()
         {
             if (DataContext == null || DataContext.GetType() != typeof(TContext))
@@ -47,7 +47,6 @@ namespace Inta.EntityFramework.Core.Base
                 if (Disposing)
                 {
                     DataContext?.Dispose();
-                    DataContext = null;
                 }
             }
 

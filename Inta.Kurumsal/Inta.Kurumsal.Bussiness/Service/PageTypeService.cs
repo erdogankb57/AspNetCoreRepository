@@ -60,7 +60,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<PageTypeDto> Update(PageTypeDto dto)
+        public DataResult<PageTypeDto> Update(PageTypeDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<PageType>(dto);
             var data = manager.Update(entity);

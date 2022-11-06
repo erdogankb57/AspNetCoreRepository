@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<SEOIndexDto> Update(SEOIndexDto dto)
+        public DataResult<SEOIndexDto> Update(SEOIndexDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<SEOIndex>(dto);
             var data = manager.Update(entity);

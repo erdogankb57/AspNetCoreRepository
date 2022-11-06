@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<SystemMenuRoleDto> Update(SystemMenuRoleDto dto)
+        public DataResult<SystemMenuRoleDto> Update(SystemMenuRoleDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<SystemMenuRole>(dto);
             var data = manager.Update(entity);

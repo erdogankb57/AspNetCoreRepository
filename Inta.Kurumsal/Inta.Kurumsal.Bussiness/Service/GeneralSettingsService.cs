@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<GeneralSettingsDto> Update(GeneralSettingsDto dto)
+        public DataResult<GeneralSettingsDto> Update(GeneralSettingsDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<GeneralSettings>(dto);
             var data = manager.Update(entity);

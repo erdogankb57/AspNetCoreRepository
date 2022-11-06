@@ -11,7 +11,7 @@ namespace Inta.EntityFramework.Core.Base
 {
     public class RepositoryBase<TEntity, TContext> : IRepositoryBase<TEntity, TContext> where TEntity : class, IEntity, new() where TContext : DbContext, new()
     {
-        private DbContext? _dbContext = null;
+        private readonly DbContext? _dbContext = null;
         public RepositoryBase(DbContext? dbContext = null)
         {
             _dbContext = dbContext;
@@ -150,7 +150,7 @@ namespace Inta.EntityFramework.Core.Base
             return result;
         }
 
-        public DataResult<TEntity> Update(TEntity Entity)
+        public DataResult<TEntity> Update(TEntity Entity, string[]? updateFields = null)
         {
             DataResult<TEntity> result = new DataResult<TEntity>();
             try
@@ -158,7 +158,13 @@ namespace Inta.EntityFramework.Core.Base
                 if (_dbContext != null)
                 {
                     var updatedEntity = _dbContext.Entry(Entity);
-                    updatedEntity.State = EntityState.Modified;
+                    if (updateFields != null && updateFields.Count() > 0)
+                    {
+                        foreach (var item in updatedEntity.Properties.Where(v => updateFields.Any(a=> a == v.Metadata.Name) && !v.Metadata.IsPrimaryKey()).ToList())
+                            item.IsModified = true;
+                    }
+                    else
+                        updatedEntity.State = EntityState.Modified;
                     //context.SaveChanges();
                 }
 

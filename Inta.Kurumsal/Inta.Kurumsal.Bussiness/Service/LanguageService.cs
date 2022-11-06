@@ -61,7 +61,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<LanguageDto> Update(LanguageDto dto)
+        public DataResult<LanguageDto> Update(LanguageDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<Language>(dto);
             var data = manager.Update(entity);

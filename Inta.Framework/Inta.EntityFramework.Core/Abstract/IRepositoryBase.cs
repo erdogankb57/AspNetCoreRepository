@@ -10,7 +10,7 @@ namespace Inta.EntityFramework.Core.Abstract
     {
         DataResult<TEntity> GetById(int id);
         DataResult<TEntity> Get(Expression<Func<TEntity, bool>>? filter);
-        DataResult<TEntity> Update(TEntity Entity);
+        DataResult<TEntity> Update(TEntity Entity, string[]? updateFields = null);
         DataResult<TEntity> Save(TEntity Entity);
         DataResult<TEntity> Delete(TEntity Entity);
         DataResult<IList<TEntity>> Find(Expression<Func<TEntity, bool>>? filter);

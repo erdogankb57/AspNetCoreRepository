@@ -59,7 +59,7 @@ namespace Inta.Kurumsal.Bussiness.Service
             return result;
         }
 
-        public DataResult<StaticTextDto> Update(StaticTextDto dto)
+        public DataResult<StaticTextDto> Update(StaticTextDto dto, string[]? updateFields = null)
         {
             var entity = _mapper.Map<StaticText>(dto);
             var data = manager.Update(entity);
