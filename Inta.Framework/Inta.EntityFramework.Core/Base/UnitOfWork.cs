@@ -47,6 +47,7 @@ namespace Inta.EntityFramework.Core.Base
                 if (disposing)
                 {
                     DataContext?.Dispose();
+                    DataContext = null;
                 }
             }
 
