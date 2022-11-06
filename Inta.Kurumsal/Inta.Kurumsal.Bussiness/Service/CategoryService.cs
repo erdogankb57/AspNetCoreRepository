@@ -13,8 +13,8 @@ namespace Inta.Kurumsal.Bussiness.Service
     public class CategoryService : ICategoryService
     {
         private IMapper? _mapper = null;
-        UnitOfWork<DefaultDataContext>? unitOfWork = null;
-        RepositoryBase<Category, DefaultDataContext>? manager = null;
+        UnitOfWork<DefaultDataContext> unitOfWork;
+        RepositoryBase<Category, DefaultDataContext> manager;
         public CategoryService(IMapper mapper)
         {
             _mapper = mapper;
@@ -44,8 +44,8 @@ namespace Inta.Kurumsal.Bussiness.Service
 
             try
             {
-                var categorys = from pt in unitOfWork?.GetDataContext?.PageTypes
-                                join ct in unitOfWork?.GetDataContext?.Categorys on pt.Id equals ct.PageTypeId
+                var categorys = from pt in unitOfWork.GetDataContext?.PageTypes
+                                join ct in unitOfWork.GetDataContext?.Categorys on pt.Id equals ct.PageTypeId
                                 where ct.Id == categoryId
                                 select new CategoryAndPageTypeDto
                                 {

@@ -15,8 +15,8 @@ namespace Inta.Kurumsal.Admin.Controllers
     {
         private IBannerService _bannerService;
         private IBannerTypeService _bannerTypeService;
-        private IAuthenticationData _authenticationData = null;
-        private IConfiguration _configuration = null;
+        private IAuthenticationData _authenticationData;
+        private IConfiguration _configuration;
         public BannerController(IBannerService bannerService, IBannerTypeService bannerTypeService, IAuthenticationData authenticationData, IConfiguration configuration)
         {
             _bannerService = bannerService;
@@ -42,7 +42,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             BannerDto banner = new BannerDto();
             if (id.HasValue)
-                banner = _bannerService.GetById(id ?? 0).Data;
+                banner = _bannerService?.GetById(id ?? 0)?.Data ?? new BannerDto();
 
             return PartialView("Add", banner);
         }
@@ -51,7 +51,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         public ActionResult GetList(DataTableAjaxPostModel request)
         {
             var result = _bannerService.Find(v => v.LanguageId == _authenticationData.LanguageId).Data;
-            if (request.order[0].dir == "asc")
+            if (request?.order?[0].dir == "asc")
             {
                 if (request.order[0].column == 1)
                     result = result?.OrderBy(o => o.Id)?.ToList();
@@ -66,21 +66,21 @@ namespace Inta.Kurumsal.Admin.Controllers
             }
             else
             {
-                if (request.order[0].column == 1)
+                if (request?.order?[0].column == 1)
                     result = result?.OrderByDescending(o => o.Id)?.ToList();
-                else if (request.order[0].column == 2)
+                else if (request?.order?[0].column == 2)
                     result = result?.OrderBy(o => o.Image)?.ToList();
-                else if (request.order[0].column == 3)
+                else if (request?.order?[0].column == 3)
                     result = result?.OrderByDescending(o => o.Name)?.ToList();
-                else if (request.order[0].column == 4)
+                else if (request?.order?[0].column == 4)
                     result = result?.OrderByDescending(o => o.ShortExplanation)?.ToList();
-                else if (request.order[0].column == 5)
+                else if (request?.order?[0].column == 5)
                     result = result?.OrderByDescending(o => o.OrderNumber)?.ToList();
             }
-            if (request.search != null && request.search.value != null)
-                result = result.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower()))?.ToList();
+            if (request?.search != null && request.search.value != null)
+                result = result?.Where(v => v.Name.ToLower().Contains(request.search.value.ToLower()))?.ToList();
 
-            return Json(new { data = result?.Skip(request.start)?.Take(request.length)?.ToList(), recordsTotal = result?.Count() ?? 0, recordsFiltered = result?.Count() ?? 0 });
+            return Json(new { data = result?.Skip(request?.start ?? 0)?.Take(request?.length ?? 0)?.ToList(), recordsTotal = result?.Count() ?? 0, recordsFiltered = result?.Count() ?? 0 });
         }
 
         [HttpPost]
@@ -111,7 +111,7 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 var entity = _bannerService.GetById(request.Id);
                 if (FileImage == null)
-                    request.Image = entity.Data.Image;
+                    request.Image = entity?.Data?.Image;
 
                 data = _bannerService.Update(request);
             }
@@ -126,8 +126,8 @@ namespace Inta.Kurumsal.Admin.Controllers
             {
                 foreach (var item in ids.Split(','))
                 {
-                    BannerDto banner = _bannerService.GetById(Convert.ToInt32(item)).Data;
-                    _bannerService.Delete(banner);
+                    BannerDto banner = _bannerService?.GetById(Convert.ToInt32(item))?.Data ?? new BannerDto();
+                    _bannerService?.Delete(banner);
                 }
             }
 
@@ -151,7 +151,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public ActionResult DeleteImage(int id)
         {
-            var banner = _bannerService.GetById(id).Data;
+            var banner = _bannerService.GetById(id).Data ?? new BannerDto();
             banner.Image = null;
             _bannerService.Update(banner);
 

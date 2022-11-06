@@ -41,7 +41,7 @@ namespace Inta.Kurumsal.Admin.Models
                     }
 
                     var userRole = _systemRoleService?.Get(v => v.Id == user.Data.SystemRoleId);
-                    if (userRole?.Data != null)
+                    if (controller!= null && userRole?.Data != null)
                         controller.ViewBag.RoleName = userRole.Data.Name;
 
                     var activeRoleAction = _userService?.GetActiveRole(user.Data.SystemRoleId);

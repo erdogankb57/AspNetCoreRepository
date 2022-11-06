@@ -9,6 +9,7 @@ namespace Inta.Kurumsal.Entity.Concrete
     {
         public GeneralSettings()
         {
+
         }
 
 
