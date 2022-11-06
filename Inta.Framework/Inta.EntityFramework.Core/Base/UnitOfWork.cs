@@ -39,19 +39,19 @@ namespace Inta.EntityFramework.Core.Base
             }
         }
 
-        private bool disposed = false;
-        protected virtual void Dispose(bool disposing)
+        private bool Disposed = false;
+        protected virtual void Dispose(bool Disposing)
         {
-            if (!this.disposed)
+            if (!this.Disposed)
             {
-                if (disposing)
+                if (Disposing)
                 {
                     DataContext?.Dispose();
                     DataContext = null;
                 }
             }
 
-            this.disposed = true;
+            this.Disposed = true;
         }
         public void Dispose()
         {
