@@ -138,22 +138,26 @@ namespace Inta.Kurumsal.Admin.Controllers
         {
             foreach (var item in listData)
             {
-                var banner = _bannerService.GetById(item.Id).Data;
-                if (banner != null)
+                BannerDto banner = new BannerDto
                 {
-                    banner.OrderNumber = item.OrderNumber;
-                    _bannerService.Update(banner);
-
-                }
+                    Id = item.Id,
+                    OrderNumber = item.OrderNumber
+                };
+                List<string> updatedField = new List<string> { "OrderNumber" };
+                _bannerService.Update(banner, updatedField.ToArray());
             }
 
             return Json("OK");
         }
         public ActionResult DeleteImage(int id)
         {
-            var banner = _bannerService.GetById(id).Data ?? new BannerDto();
-            banner.Image = null;
-            _bannerService.Update(banner);
+            BannerDto banner = new BannerDto
+            {
+                Id = id,
+                Image = null
+            };
+            List<string> updatedFields = new List<string> { "Image" };
+            _bannerService.Update(banner, updatedFields.ToArray());
 
             return Json("OK");
 
