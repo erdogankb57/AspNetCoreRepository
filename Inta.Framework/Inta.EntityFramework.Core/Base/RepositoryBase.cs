@@ -34,8 +34,8 @@ namespace Inta.EntityFramework.Core.Base
                         _dbContext.Entry(local).State = EntityState.Detached;
                     }
 
-                    var deletedEntity = _dbContext.Set<TEntity>().Remove(Entity);
-                    //deletedEntity.State = EntityState.Deleted;
+                    var deletedEntity = _dbContext.Entry(Entity);
+                    deletedEntity.State = EntityState.Deleted;
                     result.ResultType = MessageTypeResult.Success;
                     result.Data = Entity;
                 }
@@ -192,8 +192,8 @@ namespace Inta.EntityFramework.Core.Base
                         foreach (var item in updatedEntity.Properties.Where(v => updateFields.Any(a => a == v.Metadata.Name) && !v.Metadata.IsPrimaryKey()).ToList())
                             item.IsModified = true;
                     }
-
-                    updatedEntity.State = EntityState.Modified;
+                    else
+                        updatedEntity.State = EntityState.Modified;
 
                 }
 

@@ -27,17 +27,17 @@ namespace Inta.EntityFramework.Core.Base
 
         public void SaveChanges()
         {
-            //using (var transaction = DataContext?.Database.BeginTransaction())
+            using (var transaction = DataContext?.Database.BeginTransaction())
             {
                 try
                 {
                     DataContext?.SaveChanges();
-                    //transaction?.Commit();
+                    transaction?.Commit();
 
                 }
                 catch (Exception ex)
                 {
-                    //transaction?.Rollback();
+                    transaction?.Rollback();
                 }
             }
         }
