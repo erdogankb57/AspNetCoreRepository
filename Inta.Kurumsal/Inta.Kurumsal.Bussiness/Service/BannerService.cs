@@ -26,6 +26,7 @@ namespace Inta.Kurumsal.Bussiness.Service
         {
             var entity = _mapper.Map<Banner>(dto);
             var data = manager.Delete(entity);
+            unitOfWork?.SaveChanges();
             var result = _mapper.Map<DataResult<BannerDto>>(data);
             return result;
         }

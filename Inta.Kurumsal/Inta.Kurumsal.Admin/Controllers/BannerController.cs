@@ -86,7 +86,7 @@ namespace Inta.Kurumsal.Admin.Controllers
         [HttpPost]
         public ActionResult Save(BannerDto request, IFormFile FileImage)
         {
-            DataResult<BannerDto> data = null;
+            DataResult<BannerDto> data = new DataResult<BannerDto>();
             if (FileImage != null)
             {
                 var bannerType = _bannerTypeService.GetById(request.BannerTypeId ?? 0);
@@ -109,6 +109,9 @@ namespace Inta.Kurumsal.Admin.Controllers
             }
             else
             {
+                //_bannerService.GetById(request.Id);
+                //_bannerService.GetById(request.Id);
+
                 List<string> updateField = new List<string> { "SystemUserId", "LanguageId", "BannerTypeId", "Name", "Target", "ShortExplanation", "OrderNumber", "TargetId", "Link", "Image", "RecordDate", "IsActive" };
                 if (FileImage == null)
                     updateField.Remove("Image");

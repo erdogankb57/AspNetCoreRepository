@@ -28,7 +28,7 @@ var allProviderTypes = System.Reflection.Assembly.GetEntryAssembly().GetReferenc
 foreach (var intfc in allProviderTypes.Where(t => t.IsInterface && t.Namespace.Contains("Inta.Kurumsal.Bussiness")))
 {
     var impl = allProviderTypes.FirstOrDefault(c => c.IsClass && intfc.Name.Substring(1) == c.Name);
-    if (impl != null) builder.Services.AddTransient(intfc, impl);
+    if (impl != null) builder.Services.AddSingleton(intfc, impl);
 }
 /*Bussiness katmanýndaki classlar otomatik olarak enjecte edilir.*/
 builder.Services.AddSession();
