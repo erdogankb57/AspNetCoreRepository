@@ -12,7 +12,7 @@ namespace Inta.EntityFramework.Core.Base
         private readonly TContext? DataContext;
         public UnitOfWork()
         {
-            if (DataContext == null || DataContext.GetType() != typeof(TContext))
+            if (DataContext == null)
             {
                 DataContext = new TContext();
                 //DataContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
