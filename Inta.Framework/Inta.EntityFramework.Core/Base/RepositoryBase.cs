@@ -186,14 +186,13 @@ namespace Inta.EntityFramework.Core.Base
                     //Trackin hatasından kurtulmak için kullanıldı
 
                     var updatedEntity = _dbContext.Entry<TEntity>(Entity);
-
+                    updatedEntity.State = EntityState.Modified;
                     if (updateFields != null && updateFields.Count() > 0)
                     {
-                        foreach (var item in updatedEntity.Properties.Where(v => updateFields.Any(a => a == v.Metadata.Name) && !v.Metadata.IsPrimaryKey()).ToList())
-                            item.IsModified = true;
+                        foreach (var item in updatedEntity.Properties.Where(v => !updateFields.Any(a => a == v.Metadata.Name) && !v.Metadata.IsPrimaryKey()).ToList())
+                            item.IsModified = false;
                     }
-                    else
-                        updatedEntity.State = EntityState.Modified;
+                        
 
                 }
 
