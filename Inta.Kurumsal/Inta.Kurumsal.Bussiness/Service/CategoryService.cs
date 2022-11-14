@@ -44,8 +44,11 @@ namespace Inta.Kurumsal.Bussiness.Service
 
             try
             {
-                var categorys = from pt in unitOfWork.GetDataContext?.PageTypes
-                                join ct in unitOfWork.GetDataContext?.Categorys on pt.Id equals ct.PageTypeId
+                if (unitOfWork.GetDataContext== null)
+                    return result;
+
+                var categorys = from pt in unitOfWork.GetDataContext.PageTypes
+                                join ct in unitOfWork.GetDataContext.Categorys on pt.Id equals ct.PageTypeId
                                 where ct.Id == categoryId
                                 select new CategoryAndPageTypeDto
                                 {
