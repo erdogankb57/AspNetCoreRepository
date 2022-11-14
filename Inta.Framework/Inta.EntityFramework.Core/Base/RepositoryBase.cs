@@ -24,16 +24,6 @@ namespace Inta.EntityFramework.Core.Base
             {
                 if (_dbContext != null)
                 {
-                    var local = _dbContext.Set<TEntity>()
-                      .Local
-                      .FirstOrDefault(entry => entry.Id.Equals(Entity.Id));
-
-                    if (local != null)
-                    {
-                        // detach
-                        _dbContext.Entry(local).State = EntityState.Detached;
-                    }
-
                     var deletedEntity = _dbContext.Entry(Entity);
                     deletedEntity.State = EntityState.Deleted;
                     result.ResultType = MessageTypeResult.Success;
@@ -172,19 +162,6 @@ namespace Inta.EntityFramework.Core.Base
             {
                 if (_dbContext != null)
                 {
-                    //Trackin hatasından kurtulmak için kullanıldı
-                    var local = _dbContext.Set<TEntity>()
-                        .Local
-                        .FirstOrDefault(entry => entry.Id.Equals(Entity.Id));
-
-                    if (local != null)
-                    {
-                        // detach
-                        _dbContext.Entry(local).State = EntityState.Detached;
-                    }
-
-                    //Trackin hatasından kurtulmak için kullanıldı
-
                     var updatedEntity = _dbContext.Entry<TEntity>(Entity);
                     updatedEntity.State = EntityState.Modified;
                     if (updateFields != null && updateFields.Count() > 0)
