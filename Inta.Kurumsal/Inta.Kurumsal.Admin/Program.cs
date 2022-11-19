@@ -43,7 +43,7 @@ Html.SetHttpContext(app?.Services?.GetService<IHttpContextAccessor>());
 
 //var cache = app?.Services.GetService<IMemoryCache>();
 //var cacheEntryOptions = new MemoryCacheEntryOptions()
-//            .SetSlidingExpiration(TimeSpan.FromSeconds(5));
+//            .SetAbsoluteExpiration(TimeSpan.FromSeconds(5));
 //cache.Set<string>("Deneme", "Deneme", cacheEntryOptions);
 
 
