@@ -41,8 +41,12 @@ var app = builder.Build();
 Html.SetHttpContext(app?.Services?.GetService<IHttpContextAccessor>());
 
 
+//var cache = app?.Services.GetService<IMemoryCache>();
+//var cacheEntryOptions = new MemoryCacheEntryOptions()
+//            .SetSlidingExpiration(TimeSpan.FromSeconds(5));
+//cache.Set<string>("Deneme", "Deneme", cacheEntryOptions);
 
-// Configure the HTTP request pipeline.
+
 //if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler(c => c.Run(async context =>
