@@ -41,11 +41,13 @@ namespace Inta.Kurumsal.Admin.Controllers
                     cropped.Dispose();
                 }
             }
+            Guid guide = Guid.NewGuid();
+
             return Json(new
             {
                 ResultMessage = "OK",
-                ImageUrl = _configuration.GetSection("FileUploadEditorShowFolder").Value.ToString() + imageName + "?d=" + DateTime.Now.ToString()
-            });
+                ImageUrl = _configuration.GetSection("FileUploadEditorShowFolder").Value.ToString() + imageName + "?d=" + guide.ToString()
+            }) ;
         }
         public ActionResult GetImageList()
         {
@@ -58,7 +60,7 @@ namespace Inta.Kurumsal.Admin.Controllers
 
             string supportedExtensions = "*.jpg,*.gif,*.png,*.bmp,*.jpe,*.jpeg,*.wmf,*.emf,*.xbm,*.ico,*.eps,*.tif,*.tiff,*.g01,*.g02,*.g03,*.g04,*.g05,*.g06,*.g07,*.g08";
 
-            var result = d.GetFiles("*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s.FullName).ToLower())).OrderByDescending(f => f.LastWriteTime).Select(s => new { Name = s.Name, FullName = _configuration.GetSection("FileUploadEditorShowFolder").Value.ToString() + s.Name + "?d=" + DateTime.Now.ToString() }).ToList();
+            var result = d.GetFiles("*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s.FullName).ToLower())).OrderByDescending(f => f.LastWriteTime).Select(s => new { Name = s.Name, FullName = _configuration.GetSection("FileUploadEditorShowFolder").Value.ToString() + s.Name + "?d=" +Guid.NewGuid().ToString() }).ToList();
 
             return Json(result);
         }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NlPf7q6hd/JGkUwho/Fp7G2Q0eB5sLUoniNxEG0qLJA=",
+  "Hash": "sZ7WtltnZkbE+caWVV5FMx4csVALmZt6+7oPgkXLd8c=",
   "Source": "Inta.Kurumsal.Admin",
   "BasePath": "_content/Inta.Kurumsal.Admin",
   "Mode": "Default",
@@ -7138,6 +7138,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\1-klijp3uwtgae-q9xuc-pva-dfd110a6-1e93-4f22-bb44-8cce55175ed3.png"
+    },
+    {
+      "Identity": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\Uploads\\EditorImages\\images-c7966e83-9e1f-49ba-b537-65ad8b2b78ef.png",
+      "SourceId": "Inta.Kurumsal.Admin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\wwwroot\\",
+      "BasePath": "_content/Inta.Kurumsal.Admin",
+      "RelativePath": "Uploads/EditorImages/images-c7966e83-9e1f-49ba-b537-65ad8b2b78ef.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\EditorImages\\images-c7966e83-9e1f-49ba-b537-65ad8b2b78ef.png"
     }
   ]
 }

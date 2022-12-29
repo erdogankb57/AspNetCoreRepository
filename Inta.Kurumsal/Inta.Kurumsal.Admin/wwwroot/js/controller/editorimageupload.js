@@ -49,7 +49,6 @@ var CropImage = function () {
 
     var splitImageUrl = $("#imagePreview").attr("src").split("/");
 
-
     $.ajax({
         url: "/EditorImageUpload/CropImage",
         type: "POST",
