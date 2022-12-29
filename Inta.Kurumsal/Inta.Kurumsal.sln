@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{047DC8C0-9
 	ProjectSection(SolutionItems) = preProject
 		Inta_Kurumsal_01_07_2022.sql = Inta_Kurumsal_01_07_2022.sql
 		Inta_Kurumsal_20_04_2022.sql = Inta_Kurumsal_20_04_2022.sql
+		Inta_Kurumsal_29_12_2022.sql = Inta_Kurumsal_29_12_2022.sql
 	EndProjectSection
 EndProject
 Global
