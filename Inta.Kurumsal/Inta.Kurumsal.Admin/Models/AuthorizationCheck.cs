@@ -41,7 +41,7 @@ namespace Inta.Kurumsal.Admin.Models
                     }
 
                     var userRole = _systemRoleService?.Get(v => v.Id == user.Data.SystemRoleId);
-                    if (controller!= null && userRole?.Data != null)
+                    if (controller != null && userRole?.Data != null)
                         controller.ViewBag.RoleName = userRole.Data.Name;
 
                     var activeRoleAction = _userService?.GetActiveRole(user.Data.SystemRoleId);
@@ -51,7 +51,10 @@ namespace Inta.Kurumsal.Admin.Models
                         context.Result = new RedirectResult("/NoAuthorization");
                         return;
                     }
-
+                    else if (!user.Data.IsAdmin && context != null && context.HttpContext.Request.Headers["x-requested-with"] == "XMLHttpRequest" && (activeRoleAction.Data == null || !activeRoleAction.Data.Any(v => v.ControllerName == controller.ControllerContext.ActionDescriptor.ControllerName && v.ActionName == controller.ControllerContext.ActionDescriptor.ActionName)))
+                    {
+                        return;
+                    }
                 }
             }
             else

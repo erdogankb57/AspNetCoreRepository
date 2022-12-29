@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Inta.Kurumsal.Bussiness": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59254;http://localhost:59255"
+    }
+  }
+}
