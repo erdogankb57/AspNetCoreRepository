@@ -16,7 +16,6 @@ var loadRecord = function () {
                 })
             },
             xhr: function () {
-                debugger;
                 var xhr = new window.XMLHttpRequest();
 
                 /// Upload progress
@@ -113,7 +112,6 @@ var addRecordModal = function (id) {
 
     $.ajax({
         xhr: function () {
-            debugger;
             var xhr = new window.XMLHttpRequest();
 
             /// Upload progress

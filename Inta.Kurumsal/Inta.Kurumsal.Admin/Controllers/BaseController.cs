@@ -7,11 +7,11 @@ namespace Inta.Kurumsal.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        private ISystemMenuService _systemMenuService;
-        private ISystemUserService _userService;
-        private ISystemRoleService _systemRoleService;
-        private IAuthenticationData _authenticationData = null;
-        private IConfiguration _configuration = null;
+        private ISystemMenuService? _systemMenuService;
+        private ISystemUserService? _userService;
+        private ISystemRoleService? _systemRoleService;
+        private IAuthenticationData? _authenticationData = null;
+        private IConfiguration? _configuration = null;
 
         public BaseController()
         {
@@ -19,30 +19,30 @@ namespace Inta.Kurumsal.Admin.Controllers
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            _systemMenuService = filterContext.HttpContext.RequestServices.GetService<ISystemMenuService>();
-            _userService = filterContext.HttpContext.RequestServices.GetService<ISystemUserService>();
-            _systemRoleService = filterContext.HttpContext.RequestServices.GetService<ISystemRoleService>();
-            _authenticationData = filterContext.HttpContext.RequestServices.GetService<IAuthenticationData>();
-            _configuration = filterContext.HttpContext.RequestServices.GetService<IConfiguration>();
+            _systemMenuService = filterContext?.HttpContext?.RequestServices?.GetService<ISystemMenuService>();
+            _userService = filterContext?.HttpContext.RequestServices.GetService<ISystemUserService>();
+            _systemRoleService = filterContext?.HttpContext.RequestServices.GetService<ISystemRoleService>();
+            _authenticationData = filterContext?.HttpContext.RequestServices.GetService<IAuthenticationData>();
+            _configuration = filterContext?.HttpContext.RequestServices.GetService<IConfiguration>();
 
 
-            var descriptor = ((ControllerActionDescriptor)filterContext.ActionDescriptor);
-            string actionName = descriptor.ActionName;
-            string controllerName = descriptor.ControllerName;
+            var descriptor = ((ControllerActionDescriptor?)filterContext?.ActionDescriptor);
+            string actionName = descriptor?.ActionName ?? String.Empty;
+            string controllerName = descriptor?.ControllerName ?? String.Empty;
 
-            var activeMenu = _systemMenuService.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
+            var activeMenu = _systemMenuService?.Find(v => v.ControllerName == controllerName && v.ActionName == actionName);
 
-            if (activeMenu.ResultType == EntityFramework.Core.Model.MessageTypeResult.Success && activeMenu.Data != null)
+            if (activeMenu !=null && activeMenu.ResultType == EntityFramework.Core.Model.MessageTypeResult.Success && activeMenu.Data != null)
             {
-                ViewBag.ActiveMenuId = _systemMenuService.GetTopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
+                ViewBag.ActiveMenuId = _systemMenuService?.GetTopMenuId(activeMenu.Data?.FirstOrDefault()?.Id ?? 0);
 
                 ViewBag.ActiveMenuAd = activeMenu.Data?.FirstOrDefault()?.Name ?? "";
 
             }
 
-            ViewBag.FileShowFolder = _configuration.GetSection("FileShowFolder").Value.ToString();
-            ViewBag.ImagesShowFolder = _configuration.GetSection("ImagesShowFolder").Value.ToString();
-            ViewBag.LanguageId = _authenticationData.LanguageId;
+            ViewBag.FileShowFolder = _configuration?.GetSection("FileShowFolder").Value.ToString();
+            ViewBag.ImagesShowFolder = _configuration?.GetSection("ImagesShowFolder").Value.ToString();
+            ViewBag.LanguageId = _authenticationData?.LanguageId;
         }
     }
 }
