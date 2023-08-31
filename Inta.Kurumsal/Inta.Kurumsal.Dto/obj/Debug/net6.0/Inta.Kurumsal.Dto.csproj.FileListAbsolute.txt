@@ -33,3 +33,15 @@ D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\refint\Inta.Kurumsal.Dto.dll
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.pdb
 D:\Repos\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\ref\Inta.Kurumsal.Dto.dll
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Debug\net6.0\Inta.Kurumsal.Dto.deps.json
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Debug\net6.0\Inta.Kurumsal.Dto.dll
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\bin\Debug\net6.0\Inta.Kurumsal.Dto.pdb
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.csproj.AssemblyReference.cache
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.AssemblyInfoInputs.cache
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.AssemblyInfo.cs
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.csproj.CoreCompileInputs.cache
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.dll
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\refint\Inta.Kurumsal.Dto.dll
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\Inta.Kurumsal.Dto.pdb
+D:\Repos\AspNetCoreRepository\Inta.Kurumsal\Inta.Kurumsal.Dto\obj\Debug\net6.0\ref\Inta.Kurumsal.Dto.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BZHpiGAj/KodYCnUJEko5sCqwNEIoM88DxaeCVPCuBkQMlZMKFk74OH8/BrlyApkOsM/BAZyJPIM2aaOXON9gQ==",
+  "dgSpecHash": "Y3aToJnLW+kSglZ/ljTJmunOzb22YGGIQ/7KahJADnlX8rz+/QLPHtepEXlzmmCvr7AQGZW8hFqqEFCBvgK24A==",
   "success": true,
-  "projectFilePath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
+  "projectFilePath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erdog\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\erdog\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

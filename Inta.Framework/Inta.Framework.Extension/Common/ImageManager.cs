@@ -97,6 +97,8 @@ namespace Inta.Framework.Extension.Common
 
                     imgPhoto = ImageResize(imgPhotoVert, ImageWidth);
 
+                    
+
                     if (extension == ".jpg" | extension == ".jpeg")
                         imgPhoto.Save(imageFilePath + "k_" + random.ToString() + extension, System.Drawing.Imaging.ImageFormat.Jpeg);
                     else if (extension == ".gif")

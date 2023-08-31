@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8rz/tCpikK2YqaRHuWtHwbbz0intZk76EFFcAYBEQ4/htWiKtfSXVs7EQIS/Bdr9HVA6OF48LkCsn/y8uOxYqw==",
+  "dgSpecHash": "ajiS72BAq1D7HFoR0vsXPQ0veMyYqbrqt6Vv4b4TsGI7TxmVGvAinG0ybeRskal9RCJpJVfj19EqCoLcJxjujA==",
   "success": true,
-  "projectFilePath": "D:\\Repos\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
+  "projectFilePath": "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Extension\\Inta.Framework.Extension.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.aspnetcore.hosting\\2.2.7\\microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

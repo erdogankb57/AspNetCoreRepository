@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repos\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {}
+    "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {}
   },
   "projects": {
-    "D:\\Repos\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {
+    "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repos\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj",
+        "projectUniqueName": "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj",
         "projectName": "Inta.Framework.Logging",
-        "projectPath": "D:\\Repos\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj",
+        "projectPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\Inta.Framework.Logging.csproj",
         "packagesPath": "C:\\Users\\erdog\\.nuget\\packages\\",
-        "outputPath": "D:\\Repos\\Inta.Framework\\Inta.Framework.Logging\\obj\\",
+        "outputPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.Framework.Logging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -75,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -84,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

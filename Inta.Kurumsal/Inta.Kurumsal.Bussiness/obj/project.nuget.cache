@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UQiX4N8hkF5ftf8+QZWQpVVRqPWOnx9itXqLPZzpGvCueapiUnE7fehMxoaRwSk7gjkrs7C3UfBFzH4SPGHYlw==",
+  "dgSpecHash": "8Nuwcg49oSwXnrAvcvo/8mqygIa36b308qBql+9tKz/yZAYHfE2LL5hkZWdDzAPQbtKuzxA6cdH30SIqZVSrHQ==",
   "success": true,
-  "projectFilePath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj",
+  "projectFilePath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erdog\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\erdog\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

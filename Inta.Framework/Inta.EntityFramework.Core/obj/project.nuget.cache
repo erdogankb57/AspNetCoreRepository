@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "phWmZlMcAc0ZGx9meOyQQJsu7fPhpJrrqePK526dqBi6fIMO5ncdHsd/a6PDZ56ejHVRka6X+J56nbSd69bW9w==",
+  "dgSpecHash": "L2c7/hJjRKOWEqNdqP59UipsR30P6d0+4ndOvwP9sAGQ9wjfUbYKjRezznJ3X+L6yUNYJPNZr0RX5kAELhk1+A==",
   "success": true,
-  "projectFilePath": "D:\\Repos\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj",
+  "projectFilePath": "D:\\Repos\\AspNetCoreRepository\\Inta.Framework\\Inta.EntityFramework.Core\\Inta.EntityFramework.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",

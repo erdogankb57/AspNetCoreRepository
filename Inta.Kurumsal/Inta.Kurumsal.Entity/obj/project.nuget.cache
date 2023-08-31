@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gG+Jxdy4Of3/sIgCdSW8aKJAF4gorwZXkBze2Qxsq2DIFM626ZrqkyGq4Av1eSGSC7JSBz65PUfy3DQmim8YtA==",
+  "dgSpecHash": "HxcS3dQDCDmaB2nyUJdPBJ0HJwUmzymkUqi6+/22g3zNiSygjz6kJ3mVH1DzwRBX3sLxatRrunko5Bgmq9bG/A==",
   "success": true,
-  "projectFilePath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
+  "projectFilePath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.aspnetcore.hosting\\2.2.7\\microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "C:\\Users\\erdog\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

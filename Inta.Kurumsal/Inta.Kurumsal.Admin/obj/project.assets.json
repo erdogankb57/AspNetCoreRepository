@@ -8319,11 +8319,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
+      "projectUniqueName": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
       "projectName": "Inta.Kurumsal.Admin",
-      "projectPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
+      "projectPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\Inta.Kurumsal.Admin.csproj",
       "packagesPath": "C:\\Users\\erdog\\.nuget\\packages\\",
-      "outputPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\",
+      "outputPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Admin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8344,11 +8344,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj": {
-              "projectPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj"
+            "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj": {
+              "projectPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Bussiness\\Inta.Kurumsal.Bussiness.csproj"
             },
-            "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
-              "projectPath": "D:\\Repos\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj"
+            "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj": {
+              "projectPath": "D:\\Repos\\AspNetCoreRepository\\Inta.Kurumsal\\Inta.Kurumsal.Entity\\Inta.Kurumsal.Entity.csproj"
             }
           }
         }
@@ -8378,7 +8378,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -8390,7 +8391,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

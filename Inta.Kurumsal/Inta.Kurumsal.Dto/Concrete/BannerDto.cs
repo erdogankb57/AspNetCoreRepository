@@ -1,4 +1,5 @@
 using Inta.Kurumsal.Dto.Abstract;
+using System.ComponentModel.DataAnnotations;
 
 namespace Inta.Kurumsal.Dto.Concrete
 {

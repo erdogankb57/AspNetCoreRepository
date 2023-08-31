@@ -2,9 +2,6 @@
 using Inta.EntityFramework.Core.Model;
 using Inta.Framework.Logging.Log;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace Inta.EntityFramework.Core.Base
