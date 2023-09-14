@@ -116,7 +116,7 @@ namespace Inta.EntityFramework.Core.Base
                 result.ResultType = MessageTypeResult.Error;
                 result.ErrorMessage = ex.ToString();
 
-                LogManager.InsertLog(ex, this.GetType().Name + " base repository find", filter);
+                LogManager.InsertLog(ex, this.GetType().Name + " base repository find", null);
 
             }
             return result;

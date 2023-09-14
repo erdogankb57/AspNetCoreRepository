@@ -1,4 +1,5 @@
 ﻿using Inta.EntityFramework.Core.Abstract;
+using Inta.Framework.Logging.Log;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -18,7 +19,7 @@ namespace Inta.EntityFramework.Core.Base
                 //DataContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             }
         }
-            
+
         public TContext? GetDataContext => DataContext;
         public RepositoryBase<TEntity, TContext> AddRepository<TEntity>() where TEntity : class, IEntity, new()
         {
@@ -38,6 +39,8 @@ namespace Inta.EntityFramework.Core.Base
                 catch (Exception ex)
                 {
                     transaction?.Rollback();
+                    LogManager.InsertLog(ex,"Kayıt işlemi sırasında hata oluştu", null);
+                    throw ex;
                 }
             }
         }

@@ -8,11 +8,11 @@ namespace Inta.Framework.Logging.Log
     {
         public static void InsertLog(Exception ex, string message, object? objData = null)
         {
-            using (LogConnection conn = new LogConnection())
+            using (LogConnection conn = LogConnection.GetLogConnection())
             {
                 try
                 {
-                    if (ex == null)
+                    if (ex == null || LogConnection.Connection == null)
                         return;
                     JavaScript<object> serializer = new JavaScript<object>();
 
@@ -26,10 +26,10 @@ namespace Inta.Framework.Logging.Log
                     if (objData != null)
                         obj = serializer.Serializer(objData);
 
-                    if (conn.connection.State == System.Data.ConnectionState.Closed)
-                        conn.connection.Open();
+                    if (LogConnection.Connection.State == System.Data.ConnectionState.Closed)
+                        LogConnection.Connection.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[LogMessage](Message,Source,ErrorMessage,InnerException,StackTrace,ObjectSource) values(@Message,@Source,@ErrorMessage,@InnerException,@StackTrace,@ObjectSource)", conn.connection);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[LogMessage](Message,Source,ErrorMessage,InnerException,StackTrace,ObjectSource) values(@Message,@Source,@ErrorMessage,@InnerException,@StackTrace,@ObjectSource)", LogConnection.Connection);
                     cmd.Parameters.AddWithValue("Message", message);
                     cmd.Parameters.AddWithValue("Source", source);
                     cmd.Parameters.AddWithValue("ErrorMessage", errorMessage);
@@ -47,8 +47,11 @@ namespace Inta.Framework.Logging.Log
                 }
                 finally
                 {
-                    conn.connection.Close();
-                    conn.connection.Dispose();
+                    if (LogConnection.Connection!=null)
+                    {
+                        LogConnection.Connection.Close();
+                        LogConnection.Connection.Dispose();
+                    }
                 }
 
             }
